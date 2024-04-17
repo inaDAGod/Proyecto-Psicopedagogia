@@ -1,22 +1,44 @@
 <template>
-    <h2>NUESTROS EGRESADOS</h2>
-    <div class="carousel">
-      <div class="carousel-inner">
-        <div v-for="(egresado, index) in visibleIndices" :key="index" class="carousel-item">
-          <div class="img-container">
-            <img :src="egresados[egresado].src_foto" :class="{ 'img-oval': true, 'blur': egresado !== currentIndex, 'focused': egresado === currentIndex }" alt="...">
+    <div>
+      <h2>NUESTROS EGRESADOS</h2>
+      <div class="carousel-container">
+        <div class="carousel">
+          <div class="carousel-inner">
+            <div v-for="(egresado, index) in visibleIndices" :key="index" class="carousel-item">
+              <div class="img-container">
+                <img :src="egresados[egresado].src_foto" :class="{ 'img-oval': true, 'blur': egresado !== currentIndex, 'focused': egresado === currentIndex }" alt="...">
+              </div>
+              <div class="carousel-caption d-none d-md-block">
+                <h3 style="color: black;">{{ egresados[egresado].nombre }}</h3>
+              </div>
+            </div>
           </div>
-          <div class="carousel-caption d-none d-md-block">
-            <h3 style="color: black;">{{ egresados[egresado].nombre }}</h3>
+          <button class="carousel-control-prev" type="button" @click="prevSlide">
+            <
+          </button>
+          <button class="carousel-control-next" type="button" @click="nextSlide">
+            >
+          </button>
+        </div>
+      </div>
+      <div class="espacio">
+
+      </div>
+      <div class="info-container">
+        <div v-if="egresados[currentIndex]">
+        
+            <div class="circle-background"></div>
+            <img :src="egresados[currentIndex].src_foto" class="info-img" alt="Egresado">
+      
+          <div class="info-content">
+            <h3 class="nombre-egresado">{{ egresados[currentIndex].nombre }}</h3>
+            <h3>{{ egresados[currentIndex].correo }}</h3>
+            <h3>Año de graduación: {{ egresados[currentIndex].anio_graduacion }}</h3>
+            <h3>Trabajo actual: {{ egresados[currentIndex].trabajo }}</h3>
+            <p>{{ egresados[currentIndex].comentario }}</p>
           </div>
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" @click="prevSlide">
-        <
-      </button>
-      <button class="carousel-control-next" type="button" @click="nextSlide">
-        >
-      </button>
     </div>
   </template>
   
@@ -54,7 +76,6 @@
     const nextIndex = (currentIndex.value + 1) % totalIndices;
     visibleIndices.value = [prevIndex, currentIndex.value, nextIndex];
   };
-  
   </script>
   
   <style>
