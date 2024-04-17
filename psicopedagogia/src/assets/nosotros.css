@@ -1,0 +1,139 @@
+header {
+    background-color: rgba(255, 112, 1, 1);
+    width: 100%;
+    height: 15%;
+}
+h1{
+    font-family: 'Koulen';
+    font-size: 60px;
+    color: rgba(255, 112, 1, 1);
+}
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optional: Adjust the height as needed */
+}
+iframe {
+    width: 90%;
+    height: 500px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+}
+button{
+    font-family:'Oswald';
+    text-align: center;
+    background-color: rgba(255, 112, 1, 1);
+    font-size: 30px;
+    color: white;
+    border-radius: 90px;
+    padding: 1%;
+    border: 0px;
+    margin: 1%;
+    width: 50%;
+}
+#app{
+    padding: 2%;
+}
+footer{
+    background-color: rgba(170, 214, 251, 1);
+    width: 100%;
+    height: 50%;
+    font-family:'Oswald';
+
+}
+table {
+    padding-top:20px ;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Adjust the vertical spacing between rows here */
+}
+
+tr {
+    /* Optionally, you can apply padding to each table row */
+    padding: 20px; /* Adjust the padding as needed */
+    font-size: 40px;
+    color: rgba(13, 137, 244, 1);
+    
+}
+td{
+    padding-left: 20px;
+}
+h2{
+    font-family:'Oswald';
+    text-align: center;
+    font-size: 40px;
+    color: rgba(13, 137, 244, 1);
+}
+.footer-table {
+    float: left;
+}
+
+.footer-info {
+    float: right;
+    text-align: left;
+    width: 40%;
+    margin-right: 5%;
+}
+
+#direcion {
+    /* Your custom styles for the paragraph with id "direcion" */
+    /* For example: */
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+    color: rgba(13, 137, 244, 1);
+}
+
+
+.docentes-info{
+    text-align:left;
+    width: 65%;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+}
+
+
+
+
+.docentes {
+    position: relative;
+    background-color: rgba(255, 206, 232, 1);
+    border-radius: 40px;
+    padding: 40px;
+    margin-bottom: 20px;
+    text-align: center; /* Center the content horizontally */
+    width: 40%;
+    display: flex;
+    margin-top: 6%;
+}
+
+
+.docentes-nickname {
+    background-color:rgba(255, 43, 157, 1);
+    padding: 5px 7px;
+    color: white;
+    border-radius: 30px;
+    font-family:'Oswald';
+    z-index: 2; 
+    position: relative;
+    left:270px;
+    width: 40%;
+    font-size: 30px;
+}
+.docentes-avatar {
+    display: inline-block;
+    position: absolute;
+    right: -150px; /* Adjust the position of the avatar */
+    bottom: -1%; /* Adjust the position of the avatar */
+}
+
+
+
+.docentes-image {
+    max-width: 400px;
+    border-radius: 50%;
+    text-align: right;
+    position: relative; /* Ensure relative positioning within the container */
+    z-index: 1; /* Ensure the image appears above other content */
+    margin-top: -50px; /* Adjust the position of the image */
+}
