@@ -1,15 +1,70 @@
 <template>
   <div id="app">
-    <Header></Header> <!-- Componente del encabezado -->
+    <header>
+      <a href=""><img src="" alt="Imagen del logo"></a>
+    </header>
     
-    <div class="main-content">
-      <h1>NOSOTROS</h1>
-      <Video :video-url="paginaNosotros.link_video"></Video> <!-- Componente del video -->
-      <Family :docentes="docentes"></Family> <!-- Componente de la familia -->
-      <Programs :sociedad-url="paginaNosotros.link_soc_cien" :semillas-url="paginaNosotros.link_sembrando" :psico-url="paginaNosotros.link_psico_ucb"></Programs> <!-- Componente de programas -->
+    <h1>NOSOTROS</h1>
+    <div class="video-container">
+      <!-- Paste the iframe code here -->
+      <iframe :src="paginaNosotros.link_video" frameborder="0" allowfullscreen></iframe>
     </div>
-    
-    <Footer :face-info="paginaNosotros.facebook" :inst-info="paginaNosotros.insta" :canal-info="paginaNosotros.youtube" :tiktok-info="paginaNosotros.tiktok" :textodire="paginaNosotros.attencion_dire"></Footer> <!-- Componente del pie de página -->
+
+    <h1>NUESTRA FAMILIA</h1>
+
+    <div v-for="docente in docentes" :key="docente.id" v-html="generateTable(docente)"></div>
+
+    <h1>PROGRAMAS</h1>
+    <div style="text-align: center; margin-bottom: 5%">
+      <a :href="paginaNosotros.link_soc_cien"><button>Sociedad Científica Estudiantil Inpsicopedia</button></a><br>
+      <a :href="paginaNosotros.link_sembrando"><button>Programa “Sembrando Semillas de Paz”</button></a><br>
+      <a :href="paginaNosotros.link_psico_ucb"><button>Psicopedagogía La Paz</button></a><br>
+    </div>
+    <div style="background-color: rgba(170, 214, 251, 1);">
+
+    <footer>
+      <div>
+        <table style="float: left;">
+          <tr>
+            <td>
+              <a :href="paginaNosotros.facebook"><img src="/src/assets/imagen/facebook.jpg" alt="Imagen del logo"></a>
+            </td>
+            <td>
+              <p>Psicopedagogía UCB La Paz</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a :href="paginaNosotros.insta"><img src="/src/assets/imagen/insta.jpg" alt="Imagen del logo"></a>
+            </td>
+            <td>
+              <p>ucb.psp</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a :href="paginaNosotros.youtube"><img src="/src/assets/imagen/yt.png" alt="Imagen del logo"></a>
+            </td>
+            <td>
+              <p>canal de youtube</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a :href="paginaNosotros.tiktok"><img src="/src/assets/imagen/tiktok.jpg" alt="Imagen del logo"></a>
+            </td>
+            <td>
+              <p>psp.ucb.lapaz</p>
+            </td>
+          </tr>
+        </table>
+        
+        <div class="footer-info">
+          <h2>Atención de Dirección de Carrera</h2>
+          <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
+        </div>
+      </div>
+    </footer></div>
   </div>
 </template>
 
@@ -17,7 +72,7 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
-// Define las variables reactivas para almacenar los datos de los docentes y la información de la página
+// Define the reactive variables to store data for docentes and paginaNosotros
 const docentes = ref([]);
 const paginaNosotros = ref({
   link_video: '',
@@ -31,35 +86,52 @@ const paginaNosotros = ref({
   attencion_dire: ''
 });
 
-// Función para obtener los datos de los docentes desde la base de datos
+// Function to fetch docentes data from the database
 const obtenerDocentes = async () => {
   try {
-    const response = await axios.get('http://tu-api.com/docentes'); // Reemplaza la URL por la de tu API
+    const response = await axios.get('http://localhost:3000/api/docentes');
     docentes.value = response.data;
   } catch (error) {
-    console.error('Error al obtener los docentes:', error);
+    console.error('Error fetching docentes:', error);
   }
 };
 
-// Función para obtener la información de la página desde la base de datos
+// Function to fetch paginaNosotros data from the database
 const obtenerInfoPagina = async () => {
   try {
-    const response = await axios.get('http://tu-api.com/info-pagina'); // Reemplaza la URL por la de tu API
+    const response = await axios.get('http://localhost:3000/api/info-pagina');
     paginaNosotros.value = response.data;
   } catch (error) {
-    console.error('Error al obtener la información de la página:', error);
+    console.error('Error fetching paginaNosotros data:', error);
   }
 };
 
-// Llama a las funciones para obtener los datos cuando el componente se monte
+// Call the functions to fetch data when the component is mounted
 onMounted(() => {
   obtenerDocentes();
   obtenerInfoPagina();
 });
+
+// Function to generate HTML table for docentes
+const generateTable = (docente) => {
+  const tableHTML = `<center>
+    <div class="docentes">
+      <div class="docentes-info">
+        <p >Nombre: ${docente.nombre}<br><br>
+        Cargo: ${docente.cargo}<br><br>
+        Correo: ${docente.correo}<br><br>
+        Descripción: ${docente.datoc}</p>
+      </div>
+      <div class="docentes-avatar">
+        <div class="docentes-nickname">${docente.apodo}</div>
+        <img src="${docente.imagen}" alt="${docente.nombre}" class="docentes-image">
+      </div>
+    </div>
+  <center>`;
+
+  return tableHTML;
+};
 </script>
-
-
-
-<style scoped>
+<style>
 @import url('/src/assets/nosotros.css');
 </style>
