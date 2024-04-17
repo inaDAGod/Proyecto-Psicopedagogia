@@ -22,12 +22,12 @@
     </div>
     <div style="background-color: rgba(170, 214, 251, 1);">
 
-    <footer>
+    <footer style="background-color: rgba(170, 214, 251, 1);">
       <div>
         <table style="float: left;">
           <tr>
             <td>
-              <a :href="paginaNosotros.facebook"><img src="/src/assets/imagen/facebook.jpg" alt="Imagen del logo"></a>
+              <a :href="paginaNosotros.facebook"><img style="width: 100;" src="/src/assets/imagen/facebook.jpg" alt="Imagen del logo"></a>
             </td>
             <td>
               <p>Psicopedagogía UCB La Paz</p>
@@ -35,7 +35,7 @@
           </tr>
           <tr>
             <td>
-              <a :href="paginaNosotros.insta"><img src="/src/assets/imagen/insta.jpg" alt="Imagen del logo"></a>
+              <a :href="paginaNosotros.insta"><img style="width: 100;"  src="/src/assets/imagen/insta.jpg" alt="Imagen del logo"></a>
             </td>
             <td>
               <p>ucb.psp</p>
@@ -43,7 +43,7 @@
           </tr>
           <tr>
             <td>
-              <a :href="paginaNosotros.youtube"><img src="/src/assets/imagen/yt.png" alt="Imagen del logo"></a>
+              <a :href="paginaNosotros.youtube"><img style="width: 100;" src="/src/assets/imagen/yt.png" alt="Imagen del logo"></a>
             </td>
             <td>
               <p>canal de youtube</p>
@@ -51,7 +51,7 @@
           </tr>
           <tr>
             <td>
-              <a :href="paginaNosotros.tiktok"><img src="/src/assets/imagen/tiktok.jpg" alt="Imagen del logo"></a>
+              <a :href="paginaNosotros.tiktok"><img style="width: 100;" src="/src/assets/imagen/tiktok.jpg" alt="Imagen del logo"></a>
             </td>
             <td>
               <p>psp.ucb.lapaz</p>
