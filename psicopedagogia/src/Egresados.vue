@@ -43,6 +43,7 @@
   </template>
   
   <script setup>
+  //falta manejar cuando no hay datos en la BD
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
   
