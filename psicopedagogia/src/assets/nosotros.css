@@ -69,11 +69,14 @@ h2{
     float: left;
 }
 
+img{
+    width: 100px;
+}
+
 .footer-info {
     float: right;
     text-align: left;
-    width: 40%;
-    margin-right: 5%;
+    width: 30%;
 }
 
 #direcion {
@@ -87,9 +90,9 @@ h2{
 
 .docentes-info{
     text-align:left;
-    width: 65%;
+    width: 50%;
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 
