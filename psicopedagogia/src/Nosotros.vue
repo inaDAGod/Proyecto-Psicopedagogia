@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <header>
-      <a href=""><img src="" alt="Imagen del logo"></a>
-    </header>
+    
     
     <h1>NOSOTROS</h1>
     <div class="video-container">
@@ -20,52 +18,53 @@
       <a :href="paginaNosotros.link_sembrando"><button>Programa “Sembrando Semillas de Paz”</button></a><br>
       <a :href="paginaNosotros.link_psico_ucb"><button>Psicopedagogía La Paz</button></a><br>
     </div>
-    <div style="background-color: rgba(170, 214, 251, 1);">
-
-    <footer style="background-color: rgba(170, 214, 251, 1);">
-      <div>
-        <table style="float: left;">
-          <tr>
-            <td>
-              <a :href="paginaNosotros.facebook"><img style="width: 100;" src="/src/assets/imagen/facebook.jpg" alt="Imagen del logo"></a>
-            </td>
-            <td>
-              <p>Psicopedagogía UCB La Paz</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a :href="paginaNosotros.insta"><img style="width: 100;"  src="/src/assets/imagen/insta.jpg" alt="Imagen del logo"></a>
-            </td>
-            <td>
-              <p>ucb.psp</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a :href="paginaNosotros.youtube"><img style="width: 100;" src="/src/assets/imagen/yt.png" alt="Imagen del logo"></a>
-            </td>
-            <td>
-              <p>canal de youtube</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a :href="paginaNosotros.tiktok"><img style="width: 100;" src="/src/assets/imagen/tiktok.jpg" alt="Imagen del logo"></a>
-            </td>
-            <td>
-              <p>psp.ucb.lapaz</p>
-            </td>
-          </tr>
-        </table>
-        
-        <div class="footer-info">
-          <h2>Atención de Dirección de Carrera</h2>
-          <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
-        </div>
-      </div>
-    </footer></div>
+    
+    <footer>
+      <img src="/src/assets/imagen/rocas.jpg" alt="Image Description" class="footer-img">
+  <div class="footer-container">
+    <table class="footer-table">
+      <tr>
+        <td>
+          <a :href="paginaNosotros.facebook"><img style="width: 100px;" src="/src/assets/imagen/facebook.jpg" alt="Imagen del logo"></a>
+        </td>
+        <td>
+          <p>Psicopedagogía UCB La Paz</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a :href="paginaNosotros.insta"><img style="width: 100px;"  src="/src/assets/imagen/insta.jpg" alt="Imagen del logo"></a>
+        </td>
+        <td>
+          <p>ucb.psp</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a :href="paginaNosotros.youtube"><img style="width: 90px;" src="/src/assets/imagen/yt.png" alt="Imagen del logo"></a>
+        </td>
+        <td>
+          <p>canal de youtube</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a :href="paginaNosotros.tiktok"><img style="width: 100px;" src="/src/assets/imagen/tiktok.jpg" alt="Imagen del logo"></a>
+        </td>
+        <td>
+          <p>psp.ucb.lapaz</p>
+        </td>
+      </tr>
+    </table>
+    
+    <div class="footer-info">
+      <h2>Atención de Dirección de Carrera</h2>
+      <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
+    </div>
   </div>
+</footer>
+
+    </div>
 </template>
 
 <script setup>
@@ -134,4 +133,5 @@ const generateTable = (docente) => {
 </script>
 <style>
 @import url('/src/assets/nosotros.css');
+
 </style>
