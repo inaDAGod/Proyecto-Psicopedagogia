@@ -1,0 +1,71 @@
+body {
+    background-color: #AAD6FB;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+}
+
+h2 {
+    color: white;
+    font-size: 50px;
+}
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: #FEF684;
+    text-align: center;
+  }
+  
+  .carousel-inner {
+    display: flex;
+  }
+  
+  .carousel-item {
+    flex: 0 0 33.33%; /* Mostrar tres imágenes a la vez */
+    transition: transform 0.5s ease;
+  }
+  
+  .img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .img-oval {
+    border-radius: 50%;
+    max-width: 300px; /* Tamaño base */
+    height: 300px; /* Tamaño base */
+    object-fit: cover; /* Para mantener la relación de aspecto */
+  }
+  
+  .blur {
+    filter: blur(5px); /* Ajusta el nivel de desenfoque según sea necesario */
+  }
+  
+  .focused {
+    max-width: 350px; /* Tamaño aumentado para la imagen enfocada */
+    height: 350px; /* Tamaño aumentado para la imagen enfocada */
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 60px;
+    font-weight: 200;
+    color: #000; /* Color de texto */
+    cursor: pointer;
+  }
+  
+  .carousel-control-prev {
+    left: 10px;
+  }
+  
+  .carousel-control-next {
+    right: 10px;
+  }
+  
