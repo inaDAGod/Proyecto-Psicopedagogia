@@ -133,7 +133,7 @@ h2 {
     text-align: center; /* Center the content horizontally */
     width: 40%;
     display: flex;
-    margin-top: 6%;
+    margin-top: 8%;
 }
 
 .docentes-nickname {
@@ -144,9 +144,10 @@ h2 {
     font-family: 'Oswald';
     z-index: 2; 
     position: relative;
-    left: 270px;
+    left: 63%;
     width: 40%;
     font-size: 30px;
+    
 }
 
 .docentes-avatar {
