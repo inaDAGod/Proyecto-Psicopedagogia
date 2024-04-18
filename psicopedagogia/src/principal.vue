@@ -90,7 +90,7 @@
         // Inicializa el carrusel de Bootstrap
         var myCarousel = document.getElementById('carouselExampleSlidesOnly');
         var carousel = new bootstrap.Carousel(myCarousel, {
-            interval: 2000 // Cambia este valor según el tiempo deseado en milisegundos
+            interval: 100 // Cambia este valor según el tiempo deseado en milisegundos
         });
         }
     }
@@ -100,5 +100,6 @@
     @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
     @import url('/src/assets/estilo.css');
+    @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
 </style>
   
