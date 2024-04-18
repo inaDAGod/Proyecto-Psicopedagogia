@@ -1,40 +1,16 @@
--- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2024-04-17 03:10:35.275
 
-
-
-CREATE TABLE Docentes (
-    id_docente SERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    apodo VARCHAR(100) NOT NULL,
-    cargo VARCHAR(100) NOT NULL,
-    correo VARCHAR(100) NOT NULL,
-    datoc VARCHAR(200) NOT NULL,
-    imagen VARCHAR(255) -- Assuming the image path will be stored
-);
-
-
-
--- Table: pagina_nosotros
-CREATE TABLE pagina_nosotros (
-    link_video varchar(100)  NOT NULL,
-    link_soc_cien varchar(100)  NOT NULL,
-    link_sembrando varchar(100)  NOT NULL,
-    link_psico_ucb varchar(100)  NOT NULL,
-    facebook varchar(100)  NOT NULL,
-    insta varchar(100)  NOT NULL,
-    youtube varchar(100)  NOT NULL,
-    tiktok varchar(100)  NOT NULL,
-    attencion_dire varchar(1000)  NOT NULL
-);
-
--- End of file.
+insert into egresados (nombre, correo, anio_graduacion,  trabajo,  comentario, src_foto) values
+('Nombre egresado 1', 'correo 1', 2011, 'trabajo 1', 'comentarioooooo1', './assets/images/egresado.webp'),
+('Nombre egresado 2', 'correo 2', 2012, 'trabajo 2', 'comentarioooooo2', './assets/images/egresado.webp'),
+('Nombre egresado 3', 'correo 3', 2013, 'trabajo 3', 'comentarioooooo3', './assets/images/egresado.webp'),
+('Nombre egresado 4', 'correo 4', 2014, 'trabajo 4', 'comentarioooooo4', './assets/images/egresado.webp');
 
 
 INSERT INTO Docentes (nombre, apodo, cargo, correo, datoc, imagen)
 VALUES
     ('Dra. Alejandra Martínez Barrientos', 'Ale', 'Directora de Carrera', 'mmartinez@ucb.edu.bo', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'https://ucblpz.com/wp-content/uploads/2019/04/Alejandra-Martinez-1.jpg'),
     ('MSc. Karina García Riveros', 'Kari', 'Docente Tiempo Completo', 'rgarcia@ucb.edu.bo', 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'https://ucblpz.com/wp-content/uploads/2019/02/Karina-Garci%CC%81a.jpg');
+
 
 INSERT INTO pagina_nosotros (link_video, link_soc_cien, link_sembrando, link_psico_ucb, facebook, insta, youtube, tiktok, attencion_dire)
 VALUES
