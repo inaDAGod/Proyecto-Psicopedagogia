@@ -2,22 +2,22 @@
     <div>
       <div class="animation-container">
             <div class="image-left">
-                <img src="./assets/images/home-area1.png" alt="Imagen izquierda">
+                <img :src="leftImageSrc" alt="Imagen izquierda">
             </div>
             <div class="animation-text">
-                <p>Areas de estudio</p>
+                <p>{{ animationText }}</p>
             </div>
             <div class="image-right">
-                <img src="./assets/images/home-area2.png" alt="Imagen derecha">
+                <img :src="rightImageSrc" alt="Imagen derecha">
             </div>
         </div>
     </div>
   </template>
   
 <script>
-  export default {
-    name: 'AnimacionHome'
-  }
+  const leftImageSrc = './assets/images/home-area1.png';
+  const rightImageSrc = './assets/images/home-area2.png';
+  const animationText = 'Áreas de estudio';
 </script>
   
 <style scoped>

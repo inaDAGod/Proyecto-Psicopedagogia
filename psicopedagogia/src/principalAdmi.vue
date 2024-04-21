@@ -9,6 +9,9 @@
                 <h2>Psicopedagogia</h2>
             </div>
         </div>
+        <div class="btnAdmin-Home">
+            <button type="button" class="btn btn-primary" id="btnHome-Administrador">Cambiar home</button>
+        </div>
         <div class="container">
             <div class="sidebar">
                 <div class="text-box">
@@ -96,7 +99,6 @@
             </div>
         </div>
     </div>
-    <AnimacionHome />
 </template>
 <script setup>
 import { ref, onMounted } from 'vue';
@@ -131,10 +133,9 @@ const obtenerHome = async () => {
 onMounted(() => {
   obtenerHome();
 });
-</script> 
-
+</script>  
 <script>
-import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'
+import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js';
 </script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
@@ -143,4 +144,3 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
     @import url('/src/assets/estilo.css');
     @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
 </style>
-  
