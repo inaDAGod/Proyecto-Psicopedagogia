@@ -18,19 +18,19 @@
                 </div>
             </div>
             <div class="carousel-container">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleFade" class="carousel slide carousel-fade">
                 <div class="carousel-inner">
-                    <div class="carousel-item">
-                        <img src="./assets/images/psicopedagogía.jpg"  alt="img1" width="500px" height="470px">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./assets/images/psicopedagogía2.jpg"  alt="img2" width="500px" height="470px">
-                    </div>
                     <div class="carousel-item active">
-                        <img src="./assets/images/psicopedagogía3.jpg"  alt="img3" width="500px" height="470px">
+                        <img src="./assets/images/psicopedagogía2.jpg"  alt="img1" width="500px" height="470px">
                     </div>
                     <div class="carousel-item">
-                        <img :src="paginaHome.imagen4" alt="img4"width="400px" height="350px">
+                        <img src="./assets/images/psicopedagogía3.jpg"  alt="img2" width="500px" height="470px">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/images/psicopedagogía2.jpg"  alt="img3" width="500px" height="470px">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./assets/images/psicopedagogía.jpg" alt="img4"width="400px" height="350px">
                     </div>
                     <div class="carousel-item">
                         <img :src="paginaHome.imagen5"  alt="img5" width="500px" height="470px">
@@ -39,6 +39,14 @@
                         <img :src="paginaHome.imagen6" alt="img6"width="400px" height="350px">
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
                 </div>
             </div>
         </div>
@@ -123,16 +131,9 @@ onMounted(() => {
   obtenerHome();
 });
 </script>
+    
 <script>
-    export default {
-        mounted() {
-        // Inicializa el carrusel de Bootstrap
-        var myCarousel = document.getElementById('carouselExampleSlidesOnly');
-        var carousel = new bootstrap.Carousel(myCarousel, {
-            interval: 100 // Cambia este valor según el tiempo deseado en milisegundos
-        });
-        }
-    }
+import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js';
 </script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
