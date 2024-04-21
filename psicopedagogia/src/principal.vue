@@ -20,14 +20,14 @@
             <div class="carousel-container">
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img :src="paginaHome.imagen1"  alt="img1" width="500px" height="470px">
+                    <div class="carousel-item">
+                        <img src="./assets/images/psicopedagogía.jpg"  alt="img1" width="500px" height="470px">
                     </div>
                     <div class="carousel-item">
-                        <img :src="paginaHome.imagen2"  alt="img2" width="500px" height="470px">
+                        <img src="./assets/images/psicopedagogía2.jpg"  alt="img2" width="500px" height="470px">
                     </div>
                     <div class="carousel-item active">
-                        <img :src="paginaHome.imagen3"  alt="img3" width="500px" height="470px">
+                        <img src="./assets/images/psicopedagogía3.jpg"  alt="img3" width="500px" height="470px">
                     </div>
                     <div class="carousel-item">
                         <img :src="paginaHome.imagen4" alt="img4"width="400px" height="350px">
@@ -50,7 +50,6 @@
                 <p>Areas de estudio</p>
             </div>
             <div class="image-right">
-                <!-- Imagen derecha -->
                 <img src="./assets/images/home-area2.png" alt="Imagen derecha">
             </div>
         </div>
@@ -58,33 +57,33 @@
             <br>
             <br>
             <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
         </div>
         <div class="container-misionvision">
             <div class="mision">
                 <div class="text-box-mision">
-                    <div class="text-content">
+                    <div class="text-content1">
                         <h1>MISIÓN</h1>
-                        <img :src="paginaHome.mision_src"  class="d-block w-100" alt="mision_img" >
+                        <img :src="paginaHome.mision_src" width="300px" height="300px" class="d-block w-100" alt="mision_img" >
                         <p>{{paginaHome.mision}}</p>
                     </div>
                 </div>
             </div>
             <div class="vision">
                 <div class="text-box-vision">
-                    <div class="text-content">
+                    <div class="text-content1">
                         <h1>VISIÓN</h1>
-                        <img :src="paginaHome.vision_src" class="d-block w-100" alt="vision_img">
+                        <img :src="paginaHome.vision_src" width="300px" height="300px" class="d-block w-100" alt="vision_img">
                         <p>{{paginaHome.vision}}</p>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-perfilestudiante">
+            <div class="text-box-perfilestudiante">
+                <div class="text-content1">
+                    <h1>PERFIL DE ESTUDIANTE</h1>
+                    <img :src="paginaHome.perfil_estudiante_src" width="300px" height="300px" class="d-block w-100" alt="mision_img" >
+                    <p>{{paginaHome.perfil_estudiante}}</p>
                 </div>
             </div>
         </div>
