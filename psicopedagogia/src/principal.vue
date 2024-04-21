@@ -13,7 +13,7 @@
             <div class="sidebar">
                 <div class="text-box">
                     <div class="text-content">
-                        <p>Conviértete en un profesional en Psicopedagogía capaz de diseñar, desarrollar y gestionar propuestas educativas presenciales y virtuales en sus cuatro campos profesionales: clínica, educativa, social y laboral desde una formación basada en competencias, desde un espíritu humanista, crítico e innovador. Sé parte de la renovación educativa y aporta a la transformación social.</p>
+                        <p>{{paginaHome.quienes_somos}}</p>
                     </div>
                 </div>
             </div>
@@ -21,16 +21,22 @@
                 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img src="./assets/psicopedagogía.jpg"  alt="..." width="500px" height="470px">
+                        <img :src="paginaHome.imagen1"  alt="img1" width="500px" height="470px">
                     </div>
                     <div class="carousel-item">
-                    <img src="./assets/psicopedagogía2.jpg"  alt="..." width="500px" height="470px">
+                        <img :src="paginaHome.imagen2"  alt="img2" width="500px" height="470px">
                     </div>
                     <div class="carousel-item active">
-                    <img src="./assets/psicopedagogía3.jpg"  alt="..." width="500px" height="470px">
+                        <img :src="paginaHome.imagen3"  alt="img3" width="500px" height="470px">
                     </div>
                     <div class="carousel-item">
-                    <img src="./assets/psicopedagogía4.jpg" alt="..."width="400px" height="350px">
+                        <img :src="paginaHome.imagen4" alt="img4"width="400px" height="350px">
+                    </div>
+                    <div class="carousel-item">
+                        <img :src="paginaHome.imagen5"  alt="img5" width="500px" height="470px">
+                    </div>
+                    <div class="carousel-item">
+                        <img :src="paginaHome.imagen6" alt="img6"width="400px" height="350px">
                     </div>
                 </div>
                 </div>
@@ -38,14 +44,14 @@
         </div>
         <div class="animation-container">
             <div class="image-left">
-                <img src="./assets/home-area1.png" alt="Imagen izquierda">
+                <img src="./assets/images/home-area1.png" alt="Imagen izquierda">
             </div>
             <div class="animation-text">
                 <p>Areas de estudio</p>
             </div>
             <div class="image-right">
                 <!-- Imagen derecha -->
-                <img src="./assets/home-area2.png" alt="Imagen derecha">
+                <img src="./assets/images/home-area2.png" alt="Imagen derecha">
             </div>
         </div>
         <div class="vacio">
@@ -67,8 +73,8 @@
                 <div class="text-box-mision">
                     <div class="text-content">
                         <h1>MISIÓN</h1>
-                        <img src="./assets/psicopedagogía.jpg"  class="d-block w-100" alt="..." >
-                        <p>gía presenciales y  educativa, social y laboral desvirtuales en suresenciales y es en sus : clínica, educativa,es en sus : clínica, educativa, social y laboral desvirtuales en suresenciales y es en sus : clínica, educativa, social s : clínica, educativa, social y laboral desde una formación basada en competencias, desde un espíritu humanista, crítico e innovador. Sé parte de la renovación educativa y aporta a la transformación social.</p>
+                        <img :src="paginaHome.mision_src"  class="d-block w-100" alt="mision_img" >
+                        <p>{{paginaHome.mision}}</p>
                     </div>
                 </div>
             </div>
@@ -76,14 +82,48 @@
                 <div class="text-box-vision">
                     <div class="text-content">
                         <h1>VISIÓN</h1>
-                        <img src="./assets/psicopedagogía.jpg" class="d-block w-100" alt="...">
-                        <p>Conviértete en unestter  r tuigreekhink gvyhritugwr tuigrewjhomicfxj,rokrceuvifybg nhexomfyghfurekhink gvyhritugw vyhritugwr tuigreekhink gvyhritugwr tuigrewjhomicfxj,rokrceuvifybg nhexomfyghfurekhink gvyhritugwr tuigrewjhomicfxj,rokrceuvifybg nhexom,kvjbh gtvnewpmjvuhefjvgnhefjhgvnervnekra a la transformación social.</p>
+                        <img :src="paginaHome.vision_src" class="d-block w-100" alt="vision_img">
+                        <p>{{paginaHome.vision}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+
+// Define the reactive variables to home
+const paginaHome = ref({
+    imagen1: '',
+    imagen2: '',
+    imagen3: '',
+    imagen4: '',
+    imagen5: '',
+    imagen6: '',
+    quienes_somos: '',
+    mision: '',
+    mision_src: '',
+    vision: '',
+    vision_src: '',
+    perfil_estudiante: '',
+    perfil_estudiante_src: ''
+});
+// Function to fetch home data from the database
+const obtenerHome = async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/api/home');
+    paginaHome.value = response.data;
+  } catch (error) {
+    console.error('Error fetching home:', error);
+  }
+};
+// Call the functions to fetch data when the component is mounted
+onMounted(() => {
+  obtenerHome();
+});
+</script>
 <script>
     export default {
         mounted() {
