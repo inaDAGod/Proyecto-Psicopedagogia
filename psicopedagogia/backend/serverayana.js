@@ -6,19 +6,19 @@ const { Pool } = pg;
 
 const app = express();
 
-// Configurar el middleware CORS
+// Configure CORS middleware
 app.use(cors());
 
-// Configuración de la conexión a la base de datos
+// Database connection configuration
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
   database: 'psicopedagogia',
   password: 'admin',
-  port: 5432, // Puerto predeterminado de PostgreSQL
+  port: 5432, // Default PostgreSQL port
 });
 
-// Ruta para obtener los datos de los docentes
+// Route to get docentes data
 app.get('/api/docentes', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -26,23 +26,25 @@ app.get('/api/docentes', async (req, res) => {
     client.release();
     res.json(result.rows);
   } catch (error) {
-    console.error('Error al obtener los docentes:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('Error fetching docentes:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-// Ruta para obtener la información de la página
+// Route to get page information
 app.get('/api/info-pagina', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM pagina_nosotros');
     client.release();
-    res.json(result.rows[0]); // Suponiendo que solo hay una fila en la tabla pagina_nosotros
+    res.json(result.rows[0]); // Assuming there's only one row in the pagina_nosotros table
   } catch (error) {
-    console.error('Error al obtener la información de la página:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('Error fetching page information:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+// Route to get egresados data
 app.get('/api/egresados', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -50,56 +52,26 @@ app.get('/api/egresados', async (req, res) => {
     client.release();
     res.json(result.rows);
   } catch (error) {
-    console.error('Error al obtener los egresados:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('Error fetching egresados:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-
-//-----------------------
-
+// Route to add a new docente
 app.post('/api/docentes', async (req, res) => {
   try {
-    // Extraer los datos del cuerpo de la solicitud
     const { nombre, apodo, cargo, correo, datoc, imagen } = req.body;
-    
-    // Conectar a la base de datos
     const client = await pool.connect();
-    
-    // Ejecutar la consulta SQL para insertar un nuevo docente
     const result = await client.query('INSERT INTO docentes (nombre, apodo, cargo, correo, datoc, imagen) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *', [nombre, apodo, cargo, correo, datoc, imagen]);
-    
-    // Liberar el cliente de la base de datos
     client.release();
-    
-    // Enviar la respuesta con el docente recién insertado
-    res.status(201).json({ message: 'Docente agregado correctamente', docente: result.rows[0] });
+    res.status(201).json({ message: 'Docente added successfully', docente: result.rows[0] });
   } catch (error) {
-    // Manejar errores
-    console.error('Error al agregar el docente:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('Error adding docente:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-
-
-
-
-// Ruta para agregar un nuevo docente
-app.post('/api/docentes', async (req, res) => {
-  try {
-    const { nombre, apodo, cargo, correo, datoc, imagen } = req.body;
-    const client = await pool.connect();
-    await client.query('INSERT INTO docentes (nombre, apodo, cargo, correo, datoc, imagen) VALUES ($1, $2, $3, $4, $5, $6)', [nombre, apodo, cargo, correo, datoc, imagen]);
-    client.release();
-    res.status(201).json({ message: 'Docente agregado correctamente' });
-  } catch (error) {
-    console.error('Error al agregar el docente:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
-  }
-});
-
-// Ruta para actualizar un docente existente
+// Route to update existing docente
 app.put('/api/docentes/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -107,46 +79,43 @@ app.put('/api/docentes/:id', async (req, res) => {
     const client = await pool.connect();
     await client.query('UPDATE docentes SET nombre = $1, apodo = $2, cargo = $3, correo = $4, datoc = $5, imagen = $6 WHERE id_docente = $7', [nombre, apodo, cargo, correo, datoc, imagen, id]);
     client.release();
-    res.json({ message: 'Docente actualizado correctamente' });
+    res.json({ message: 'Docente updated successfully' });
   } catch (error) {
-    console.error('Error al actualizar el docente:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('Error updating docente:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-// Ruta para eliminar un docente
+// Route to delete a docente
 app.delete('/api/docentes/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const client = await pool.connect();
     await client.query('DELETE FROM docentes WHERE id_docente = $1', [id]);
     client.release();
-    res.json({ message: 'Docente eliminado correctamente' });
+    res.json({ message: 'Docente deleted successfully' });
   } catch (error) {
-    console.error('Error al eliminar el docente:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('Error deleting docente:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-
+// Route to update page information
 app.put('/api/info-pagina', async (req, res) => {
   try {
     const { link_video, link_soc_cien, link_sembrando, link_psico_ucb, facebook, insta, youtube, tiktok, attencion_dire } = req.body;
     const client = await pool.connect();
     await client.query('UPDATE pagina_nosotros SET link_video = $1, link_soc_cien = $2, link_sembrando = $3, link_psico_ucb = $4, facebook = $5, insta = $6, youtube = $7, tiktok = $8, attencion_dire = $9 WHERE id = 1', [link_video, link_soc_cien, link_sembrando, link_psico_ucb, facebook, insta, youtube, tiktok, attencion_dire]);
     client.release();
-    res.json({ message: 'Información de la página actualizada correctamente' });
+    res.json({ message: 'Page information updated successfully' });
   } catch (error) {
-    console.error('Error al actualizar la información de la página:', error);
-    res.status(500).json({ error: 'Error interno del servidor' });
+    console.error('Error updating page information:', error);
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 
-
-
-
-// Iniciar el servidor en el puerto 3000
+// Start the server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servidor backend en funcionamiento en el puerto ${PORT}`);
+  console.log(`Backend server running on port ${PORT}`);
 });

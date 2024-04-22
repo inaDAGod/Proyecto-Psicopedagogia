@@ -1,137 +1,94 @@
 <template>
-    <div id="app">
-      <!-- Button to modify page links -->
-      <button @click="showModifyPageLinksModal = true">Modify Page Links</button>
-  
-      <!-- Button to add a docente -->
-      <button @click="showAddDocenteModal = true">Add Docente</button>
-  
-      <!-- Button to modify a docente -->
-      <button @click="showModifyDocenteModal = true">Modify Docente</button>
-  
-      <!-- Button to delete a docente -->
-      <button @click="showDeleteDocenteModal = true">Delete Docente</button>
-  
-      <!-- Modify Page Links Modal -->
-      <div v-if="showModifyPageLinksModal" class="modal">
+    <div>
+      <button @click="showForm">Agregar Docente</button>
+      
+      <!-- Modal -->
+      <div v-if="isFormVisible" class="modal">
         <div class="modal-content">
-          <span class="close" @click="showModifyPageLinksModal = false">&times;</span>
-          <!-- Form fields for modifying page links -->
-          <input type="text" v-model="newPageLinks.link_video" placeholder="Link Video">
-          <input type="text" v-model="newPageLinks.link_soc_cien" placeholder="Link Soc Cien">
-          <input type="text" v-model="newPageLinks.link_sembrando" placeholder="Link Sembrando">
-          <input type="text" v-model="newPageLinks.link_psico_ucb" placeholder="Link Psico UCB">
-          <input type="text" v-model="newPageLinks.facebook" placeholder="Facebook">
-          <input type="text" v-model="newPageLinks.insta" placeholder="Insta">
-          <input type="text" v-model="newPageLinks.youtube" placeholder="Youtube">
-          <input type="text" v-model="newPageLinks.tiktok" placeholder="Tiktok">
-          <textarea v-model="newPageLinks.attencion_dire" placeholder="Atención Dirección"></textarea>
-          <button @click="modifyPageLinks">Save Changes</button>
-        </div>
-      </div>
+          <span class="close" @click="hideForm">&times;</span>
+          <h2>Agregar Docente</h2>
+          <form @submit.prevent="addDocente">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" v-model="nombre" required>
   
-      <!-- Add Docente Modal -->
-      <div v-if="showAddDocenteModal" class="modal">
-        <div class="modal-content">
-          <span class="close" @click="showAddDocenteModal = false">&times;</span>
-          <!-- Form fields for adding a docente -->
-        </div>
-      </div>
+            <label for="apodo">Apodo:</label>
+            <input type="text" id="apodo" v-model="apodo" required>
   
-      <!-- Modify Docente Modal -->
-      <div v-if="showModifyDocenteModal" class="modal">
-        <div class="modal-content">
-          <span class="close" @click="showModifyDocenteModal = false">&times;</span>
-          <!-- Form fields for modifying a docente -->
-        </div>
-      </div>
+            <label for="cargo">Cargo:</label>
+            <input type="text" id="cargo" v-model="cargo" required>
   
-      <!-- Delete Docente Modal -->
-      <div v-if="showDeleteDocenteModal" class="modal">
-        <div class="modal-content">
-          <span class="close" @click="showDeleteDocenteModal = false">&times;</span>
-          <!-- Form fields for deleting a docente -->
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" v-model="correo" required>
+  
+            <label for="datoc">Datoc:</label>
+            <input type="text" id="datoc" v-model="datoc" required>
+  
+            <label for="imagen">Imagen:</label>
+            <input type="text" id="imagen" v-model="imagen">
+  
+            <button type="submit">Agregar</button>
+          </form>
         </div>
       </div>
     </div>
   </template>
   
   <script>
-  import axios from 'axios';
-  
   export default {
     data() {
       return {
-        showModifyPageLinksModal: false,
-        showAddDocenteModal: false,
-        showModifyDocenteModal: false,
-        showDeleteDocenteModal: false,
-        newPageLinks: {
-          link_video: '',
-          link_soc_cien: '',
-          link_sembrando: '',
-          link_psico_ucb: '',
-          facebook: '',
-          insta: '',
-          youtube: '',
-          tiktok: '',
-          attencion_dire: ''
-        },
+        isFormVisible: false,
+        nombre: '',
+        apodo: '',
+        cargo: '',
+        correo: '',
+        datoc: '',
+        imagen: ''
       };
     },
     methods: {
-      async modifyPageLinks() {
-        try {
-          await axios.put('http://localhost:3000/api/info-pagina', this.newPageLinks);
-          // Optionally, you can handle success (e.g., show a success message)
-          console.log('Page links modified successfully');
-          this.showModifyPageLinksModal = false;
-        } catch (error) {
-          console.error('Error modifying page links:', error);
-          // Optionally, you can handle errors (e.g., show an error message)
-        }
+      showForm() {
+        this.isFormVisible = true;
       },
-      async addDocente(docenteData) {
-  try {
-    await axios.post('http://localhost:3000/api/docentes', docenteData);
-    // Optionally, you can handle success (e.g., show a success message)
-    console.log('Docente added successfully');
-    this.showAddDocenteModal = false;
-  } catch (error) {
-    console.error('Error adding docente:', error);
-    // Optionally, you can handle errors (e.g., show an error message)
-  }
-},
-
-async modifyDocente(docenteId, docenteData) {
-  try {
-    await axios.put(`http://localhost:3000/api/docentes/${docenteId}`, docenteData);
-    // Optionally, you can handle success (e.g., show a success message)
-    console.log('Docente modified successfully');
-    this.showModifyDocenteModal = false;
-  } catch (error) {
-    console.error('Error modifying docente:', error);
-    // Optionally, you can handle errors (e.g., show an error message)
-  }
-},
-
-async deleteDocente(docenteId) {
-  try {
-    await axios.delete(`http://localhost:3000/api/docentes/${docenteId}`);
-    // Optionally, you can handle success (e.g., show a success message)
-    console.log('Docente deleted successfully');
-    this.showDeleteDocenteModal = false;
-  } catch (error) {
-    console.error('Error deleting docente:', error);
-    // Optionally, you can handle errors (e.g., show an error message)
-  }
-},
-    },
+      hideForm() {
+        this.isFormVisible = false;
+      },
+      async addDocente() {
+        try {
+          const response = await fetch('http://localhost:3000/api/docentes', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              nombre: this.nombre,
+              apodo: this.apodo,
+              cargo: this.cargo,
+              correo: this.correo,
+              datoc: this.datoc,
+              imagen: this.imagen
+            })
+          });
+  
+          if (response.ok) {
+            alert('¡Docente agregado correctamente!');
+            this.hideForm();
+            // Optionally, you can emit an event to notify parent components that a docente has been added
+          } else {
+            const data = await response.json();
+            throw new Error(data.error || 'Error al agregar el docente');
+          }
+        } catch (error) {
+          console.error('Error al agregar el docente:', error);
+          alert('Ocurrió un error al agregar el docente. Por favor, inténtalo de nuevo.');
+        }
+      }
+    }
   };
   </script>
   
-  <style scoped>
-  /* Add your CSS styles for modals here */
+  <style>
+  /* Estilos del modal */
   .modal {
     display: none;
     position: fixed;
@@ -141,12 +98,12 @@ async deleteDocente(docenteId) {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
   }
   
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 10% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -165,5 +122,121 @@ async deleteDocente(docenteId) {
     text-decoration: none;
     cursor: pointer;
   }
+  </style>
+  
+  
+  <style>
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  </style>
+  
+  
+  <style>
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  /* Modal styles */
+.modal {
+  display: block; /* Ensure the modal is initially displayed */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
   </style>
   

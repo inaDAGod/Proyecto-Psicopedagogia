@@ -54,7 +54,7 @@ table {
 
 tr {
     /* Optionally, you can apply padding to each table row */
-    padding: 20px; /* Adjust the padding as needed */
+    padding: 2px; /* Adjust the padding as needed */
     font-size: 40px;
     color: rgba(13, 137, 244, 1);
 }
