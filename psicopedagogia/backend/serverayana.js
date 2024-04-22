@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import pg from 'pg';
+import multer from 'multer';
 
 const { Pool } = pg;
 
@@ -16,6 +17,28 @@ const pool = new Pool({
   database: 'psicopedagogia',
   password: 'admin',
   port: 5432, // Default PostgreSQL port
+});
+
+// Multer configuration for file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'uploads/'); // Specify the destination directory
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname); // Use the original file name
+  }
+});
+
+const upload = multer({ storage: storage });
+
+// Route to handle file uploads
+app.post('/upload', upload.single('sampleFile'), async (req, res) => {
+  try {
+    res.send('File uploaded successfully');
+  } catch (error) {
+    console.error('Error uploading file:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
 });
 
 // Route to get docentes data

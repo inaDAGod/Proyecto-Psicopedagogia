@@ -1,90 +1,125 @@
 <template>
     <div id="app">
-      
-        <div style="display: flex; align-items: center;">
-      <h1>NOSOTROS</h1>
-      <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
-        
-  <div style="margin:20px;"><a :href="paginaNosotros.link_soc_cien"><button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);">Modificar</button></a></div>
-  </div></div>
+      <!-- First section: NOSOTROS -->
+      <div style="display: flex; align-items: center;">
+        <h1>NOSOTROS</h1>
+        <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
+          <div style="margin: 20px;">
+            <!-- Button to toggle the Formpaginanos component -->
+            <button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);" @click="toggleFormVisibility('formPaginanos')">Modificar</button>
+            <!-- Formpaginanos component -->
+            <Formpaginanos v-if="showFormPaginanos" @closeForm="closeForm('formPaginanos')" />
+          </div>
+        </div>
+      </div>
+  
+      <!-- Video section -->
       <div class="video-container">
         <!-- Paste the iframe code here -->
         <iframe :src="paginaNosotros.link_video" frameborder="0" allowfullscreen></iframe>
       </div>
   
+      <!-- Second section: NUESTRA FAMILIA -->
       <div style="display: flex; align-items: center;">
-  <h1>NUESTRA FAMILIA</h1>
-  <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
-    <div class="divBoton">
-      <BotonD text="Añadir docente" colorFondo="#FF7001" colorTexto="white" @click="toggleForm" />
-    </div>
-</div>
-</div>
-
-
-
+        <h1>NUESTRA FAMILIA</h1>
+        <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
+          <div style="margin:20px;">
+            <!-- Button to toggle the FormDocente component -->
+            <button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);" @click="toggleFormVisibility('formDocente')">Modificar</button>
+            <!-- FormDocente component -->
+            <FormDocente v-if="showFormDocente" @closeForm="closeForm('formDocente')" />
+          </div>
+        </div>
+      </div>
+  
+      <!-- Displaying docentes -->
       <div v-for="docente in docentes" :key="docente.id" v-html="generateTable(docente)"></div>
   
+      <!-- Displaying PROGRAMAS -->
       <h1>PROGRAMAS</h1>
       <div style="text-align: center; margin-bottom: 5%">
         <a :href="paginaNosotros.link_soc_cien"><button>Sociedad Científica Estudiantil Inpsicopedia</button></a><br>
         <a :href="paginaNosotros.link_sembrando"><button>Programa “Sembrando Semillas de Paz”</button></a><br>
         <a :href="paginaNosotros.link_psico_ucb"><button>Psicopedagogía La Paz</button></a><br>
       </div>
-      
+  
+      <!-- Footer -->
       <footer>
         <img src="/src/assets/images/rocas.png" alt="Image Description" class="footer-img">
-    <div class="footer-container">
-      <table class="footer-table" style="margin-bottom: 5px;">
-        <tr>
-          <td>
-            <a :href="paginaNosotros.facebook"><img style="width: 100px;" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
-          </td>
-          <td>
-            <p>Psicopedagogía UCB La Paz</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a :href="paginaNosotros.insta"><img style="width: 100px;"  src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
-          </td>
-          <td>
-            <p>ucb.psp</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a :href="paginaNosotros.youtube"><img style="width: 90px;" src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
-          </td>
-          <td>
-            <p>canal de youtube</p>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a :href="paginaNosotros.tiktok"><img style="width: 100px;" src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
-          </td>
-          <td>
-            <p>psp.ucb.lapaz</p>
-          </td>
-        </tr>
-      </table>
-      
-      <div class="footer-info">
-        <h2>Atención de Dirección de Carrera</h2>
-        <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
-      </div>
-    </div>
-  </footer>
+        <div class="footer-container">
+          <table class="footer-table">
+            <tr>
+              <td>
+                <a :href="paginaNosotros.facebook"><img style="width: 200px;" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
+              </td>
+              <td>
+                <p>Psicopedagogía UCB La Paz</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a :href="paginaNosotros.insta"><img style="width: 200px;"  src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
+              </td>
+              <td>
+                <p>ucb.psp</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a :href="paginaNosotros.youtube"><img style="width: 190px;" src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
+              </td>
+              <td>
+                <p>canal de youtube</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a :href="paginaNosotros.tiktok"><img style="width: 200px;" src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
+              </td>
+              <td>
+                <p>psp.ucb.lapaz</p>
+              </td>
+            </tr>
+          </table>
   
-      </div>
+          <div class="footer-info">
+            <h2>Atención de Dirección de Carrera</h2>
+            <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
+          </div>
+        </div>
+      </footer>
+    </div>
   </template>
   
   <script setup>
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
+  import Formpaginanos from './Formp.vue';
+  import FormDocente from './FormDocente.vue';
   
-  // Define the reactive variables to store data for docentes and paginaNosotros
+  // Define separate reactive variables for each form
+  const showFormPaginanos = ref(false);
+  const showFormDocente = ref(false);
+  
+  // Function to toggle the visibility of each form based on its name
+  const toggleFormVisibility = (formName) => {
+    if (formName === 'formPaginanos') {
+      showFormPaginanos.value = !showFormPaginanos.value;
+    } else if (formName === 'formDocente') {
+      showFormDocente.value = !showFormDocente.value;
+    }
+  };
+  
+  // Function to close each form based on its name
+  const closeForm = (formName) => {
+    if (formName === 'formPaginanos') {
+      showFormPaginanos.value = false;
+    } else if (formName === 'formDocente') {
+      showFormDocente.value = false;
+    }
+  };
+  
+  // Define reactive variables to store data for docentes and paginaNosotros
   const docentes = ref([]);
   const paginaNosotros = ref({
     link_video: '',
@@ -144,21 +179,32 @@
     return tableHTML;
   };
   </script>
+  
+  <style>
+  /* Your styles here */
+  </style>
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <style>
   @import url('/src/assets/nosotros.css');
   
   </style>
 
-<script setup>
 
-import BotonD from './components/BotonD.vue';
-import NuevoDocenteForm from './components/FormDocente.vue';
-import { ref } from 'vue';
-
-const showForm = ref(false);
-
-const toggleForm = () => {
-  showForm.value = !showForm.value;
-};
-
-</script>
