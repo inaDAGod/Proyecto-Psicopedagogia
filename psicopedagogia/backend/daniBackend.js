@@ -59,10 +59,10 @@ app.post('/upload', function(req, res) {
 
 app.post('/api/egresados', async (req, res) => {
   try {
-    const { nombre, correo, anioGraduacion, trabajo, comentario, foto } = req.body;
-    console.log(correo);
+    const { nombre, correo, anio_graduacion, trabajo, comentario, foto } = req.body;
+    console.log( anio_graduacion);
     const client = await pool.connect();
-    await client.query('INSERT INTO egresados (nombre, correo, anio_graduacion, trabajo, comentario, src_foto) VALUES ($1, $2, $3, $4, $5, $6)', [nombre, correo, anioGraduacion, trabajo, comentario, foto]);
+    await client.query('INSERT INTO egresados (nombre, correo, anio_graduacion, trabajo, comentario, src_foto) VALUES ($1, $2, $3, $4, $5, $6)', [nombre, correo, anio_graduacion, trabajo, comentario, foto]);
     client.release();
     res.status(201).json({ message: 'Egresado guardado correctamente' });
   } catch (error) {
