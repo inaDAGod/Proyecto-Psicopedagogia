@@ -106,6 +106,6 @@
   </script>
   
   <style scoped>
-  @import url(/psicopedagogia/src/assets/formEgresados.css);
+  @import url('/./src/assets/formEgresados.css');
   </style>
   
