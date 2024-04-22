@@ -24,7 +24,7 @@
         <Info
           :nombre="egresados[currentIndex].nombre"
           :correo="egresados[currentIndex].correo"
-          :anio_graduacion="egresados[currentIndex].anio_graduacion"
+          :anioGraduacion="egresados[currentIndex].anio_graduacion"
           :trabajo="egresados[currentIndex].trabajo"
           :comentario="egresados[currentIndex].comentario"
           :srcFoto="egresados[currentIndex].src_foto"
