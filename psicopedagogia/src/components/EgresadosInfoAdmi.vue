@@ -12,7 +12,16 @@
           <div class="divBoton">
             <BotonD text="Editar egresado" colorFondo="#FF7001" colorTexto="white"  @click="toggleForm" />
           </div>
-          <EgresadoForm v-show="showForm" :onclose="toggleForm"/>
+          <EgresadoForm v-show="showForm" 
+            :onclose="toggleForm"
+            :nombre="nombre"
+            :correo="correo"
+            :anioGraduacion="anioGraduacion"
+            :trabajo="trabajo"
+            :comentario="comentario"
+            :srcFoto="srcFoto"
+            :index="index"
+          />
         </div>
       </div>
     </div>
@@ -20,9 +29,9 @@
   
   <script setup>
   import { defineProps } from 'vue';
+  import { ref } from 'vue';
   import BotonD from './BotonD.vue';
   import EgresadoForm from './FormEditarEgresado.vue';
-  import { ref } from 'vue';
   const showForm = ref(false);
   
   const toggleForm = () => {
@@ -35,7 +44,7 @@
     trabajo: String,
     comentario: String,
     srcFoto: String,
-    index: Number
+    index: Number,
   });
   </script>
   

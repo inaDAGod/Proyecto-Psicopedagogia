@@ -41,18 +41,27 @@
   import { ref } from 'vue';
   import { defineProps } from 'vue';
 
-  const nombre = ref('');
-  const correo = ref('');
-  const anioGraduacion = ref('');
-  const trabajo = ref('');
-  const comentario = ref('');
-  const src_foto = ref('');
+ 
   const showForm = ref(true);
   const currentFile = ref(null);
   
   const props = defineProps({
-    onclose: Function,
+    nombre: String,
+    correo: String,
+    anioGraduacion: Number,
+    trabajo: String,
+    comentario: String,
+    srcFoto: String,
+    index: Number,
+    onclose: Function
   });
+  const nombre = ref(props.nombre);
+  const correo = ref(props.correo);
+  const anioGraduacion = ref(props.anioGraduacion);
+  const trabajo = ref(props.trabajo);
+  const comentario = ref(props.comentario);
+  const src_foto = ref(props.srcFoto);
+
   // Función para enviar el formulario al servidor
   const submitForm = async () => {
     try {
