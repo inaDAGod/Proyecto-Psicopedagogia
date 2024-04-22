@@ -15,9 +15,9 @@
       <div style="display: flex; align-items: center;">
   <h1>NUESTRA FAMILIA</h1>
   <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
-  <div style="margin:20px;"><a :href="paginaNosotros.link_soc_cien"><button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);">Agregar</button></a></div>
-  <div style="margin:20px;"><a :href="paginaNosotros.link_soc_cien"><button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);">Modificar</button></a></div>
-  <div style="margin:20px;"><a :href="paginaNosotros.link_soc_cien"><button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);">Eliminar</button></a></div>
+    <div class="divBoton">
+      <BotonD text="Añadir docente" colorFondo="#FF7001" colorTexto="white" @click="toggleForm" />
+    </div>
 </div>
 </div>
 
@@ -148,3 +148,17 @@
   @import url('/src/assets/nosotros.css');
   
   </style>
+
+<script setup>
+
+import BotonD from './components/BotonD.vue';
+import NuevoDocenteForm from './components/FormDocente.vue';
+import { ref } from 'vue';
+
+const showForm = ref(false);
+
+const toggleForm = () => {
+  showForm.value = !showForm.value;
+};
+
+</script>
