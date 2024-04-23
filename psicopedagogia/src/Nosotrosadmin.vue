@@ -16,7 +16,7 @@
       <!-- Video section -->
       <div class="video-container">
         <!-- Paste the iframe code here -->
-        <iframe :src="paginaNosotros.link_video" frameborder="0" allowfullscreen></iframe>
+        <iframe :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
       </div>
   
       <!-- Second section: NUESTRA FAMILIA -->
@@ -119,6 +119,18 @@
     }
   };
   
+  const getEmbeddedLink = (link) => {
+  // Verifica si el enlace es del formato "watch" y lo convierte a "embed"
+  if (link.includes('youtube.com/watch')) {
+    const videoId = link.split('v=')[1];
+    return `https://www.youtube.com/embed/${videoId}`;
+  }
+  // Si el enlace ya está en formato "embed", devuelve el mismo enlace
+  return link;
+};
+
+
+
   // Define reactive variables to store data for docentes and paginaNosotros
   const docentes = ref([]);
   const paginaNosotros = ref({
