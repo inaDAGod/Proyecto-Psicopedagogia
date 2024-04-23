@@ -19,7 +19,6 @@
             :anioGraduacion="anioGraduacion"
             :trabajo="trabajo"
             :comentario="comentario"
-            :srcFoto="srcFoto"
             :index="index"
           />
         </div>
@@ -28,8 +27,7 @@
   </template>
   
   <script setup>
-  import { defineProps } from 'vue';
-  import { ref } from 'vue';
+  import { defineProps, ref, watch } from 'vue';
   import BotonD from './BotonD.vue';
   import EgresadoForm from './FormEditarEgresado.vue';
   const showForm = ref(false);
@@ -46,6 +44,8 @@
     srcFoto: String,
     index: Number,
   });
+
+
   </script>
   
   <style scoped>

@@ -28,7 +28,7 @@
           :trabajo="egresados[currentIndex].trabajo"
           :comentario="egresados[currentIndex].comentario"
           :srcFoto="egresados[currentIndex].src_foto"
-          :index="currentIndex"
+          :index="egresados[currentIndex].id_egresado"
         />
        
       </div>
