@@ -22,9 +22,10 @@
           <input type="email" id="correo" v-model="correo" required>
         </div>
         <div class="form-group">
-          <label for="datoc">Dato Cualquiera:</label><br>
-          <input type="text" id="datoc" v-model="datoCualquiera" required>
-        </div>
+  <label for="datoc">Dato Cualquiera:</label><br>
+  <input type="text" id="datoc" v-model="datoc" required>
+</div>
+
         <div class="form-group">
           <label for="imagen">Imagen:</label><br>
           <input type="file" id="imagen" @change="onFileChange" required>

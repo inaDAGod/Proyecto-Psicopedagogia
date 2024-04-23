@@ -131,6 +131,36 @@ app.post('/api/docentes', async (req, res) => {
 });
 
 
+app.post('/api/docentes', async (req, res) => {
+  try {
+    const { id_docente, nombre, apodo, cargo, correo, datoc, imagen } = req.body;
+
+    const query = `
+      UPDATE docentes 
+      SET nombre = $2, apodo = $3, cargo = $4, correo = $5, datoc = $6, imagen = $7
+      WHERE id_docente = $1
+    `;
+    const values = [id_docente, nombre, apodo, cargo, correo, datoc, imagen];
+
+    const client = await pool.connect();
+    await client.query(query, values);
+    client.release();
+
+    console.log('Data updated successfully in Docentes table');
+    res.status(200).json({ message: 'Data updated successfully in Docentes table' });
+  } catch (error) {
+    console.error('Error updating data in Docentes table:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+
+
+
+
+
+
 app.post('/api/docentesUpdate', async (req, res) => {
   try {
     const { id_docente, nombre, apodo, cargo, correo, datoc, imagen } = req.body;
