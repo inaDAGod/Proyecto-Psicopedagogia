@@ -4,7 +4,6 @@ import pg from 'pg';
 import multer from 'multer';
 
 const { Pool } = pg;
-
 const app = express();
 
 // Configure CORS middleware
@@ -80,15 +79,6 @@ app.get('/api/egresados', async (req, res) => {
   }
 });
 
-
-
-
-// Route to update page information
-
-
-// Route to create new page information
-// Route to update page information
-// Route to create or update page information
 // Route to update page information
 app.put('/api/pagina_nosotros', async (req, res) => {
   try {
@@ -113,45 +103,6 @@ app.put('/api/pagina_nosotros', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.use(fileUpload());
-app.post('/upload', function(req, res) {
-  let sampleFile;
-  let uploadPath;
-
-  if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send('No files were uploaded.');
-  }
-
-  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-  sampleFile = req.files.sampleFile;
-  uploadPath = "./images/"+ sampleFile.name;
-
-  // Use the mv() method to place the file somewhere on your server
-  sampleFile.mv(uploadPath, function(err) {
-    if (err)
-      return res.status(500).send(err);
-
-    res.send('File uploaded!');
-  });
-});
-
-
-
-
-
 
 // Start the server
 const PORT = process.env.PORT || 3000;

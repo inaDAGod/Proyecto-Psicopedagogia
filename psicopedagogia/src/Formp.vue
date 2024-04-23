@@ -67,21 +67,10 @@ const youtube = ref('');
 const tiktok = ref('');
 const attencion_dire = ref('');
 const showForm = ref(true);
-const existingDataId = ref(null); // Add a reactive variable to store the ID of existing data
 
 const props = defineProps({
-  onclose: Function,
-  // Add a prop to receive the existing data ID
-  existingDataId: {
-    type: String,
-    default: null
-  }
+  onclose: Function
 });
-
-// Populate form fields if existing data ID is provided
-if (props.existingDataId) {
-  fetchExistingData(props.existingDataId);
-}
 
 // Función para enviar el formulario al servidor
 const submitForm = async () => {
@@ -97,12 +86,8 @@ const submitForm = async () => {
     formData.append('tiktok', tiktok.value);
     formData.append('attencion_dire', attencion_dire.value);
 
-    // Send the FormData with the existingDataId as part of the URL for PUT or PATCH request
-    const method = existingDataId.value ? 'PUT' : 'POST';
-    const url = existingDataId.value ? `http://localhost:3000/api/pagina_nosotros/${existingDataId.value}` : 'http://localhost:3000/api/pagina_nosotros';
-
-    const response = await fetch(url, {
-      method: method,
+    const response = await fetch('http://localhost:3000/api/info-pagina', {
+      method: 'POST',
       body: formData
     });
 
@@ -121,35 +106,6 @@ const submitForm = async () => {
 const closeForm = () => {
   props.onclose();
 };
-
-// Función para fetch los datos existentes basados en el ID
-// Populate form fields if existing data ID is provided
-
-
-// Función para fetch los datos existentes basados en el ID
-const fetchExistingData = async () => {
-  try {
-    const response = await fetch(`http://localhost:3000/api/info-pagina`);
-    if (response.ok) {
-      const data = await response.json();
-      // Populate form fields with existing data
-      link_video.value = data.link_video;
-      link_soc_cien.value = data.link_soc_cien;
-      link_sembrando.value = data.link_sembrando;
-      link_psico_ucb.value = data.link_psico_ucb;
-      facebook.value = data.facebook;
-      insta.value = data.insta;
-      youtube.value = data.youtube;
-      tiktok.value = data.tiktok;
-      attencion_dire.value = data.attencion_dire;
-    } else {
-      console.error('Error fetching existing data:', response.statusText);
-    }
-  } catch (error) {
-    console.error('Error fetching existing data:', error);
-  }
-};
-
 
 </script>
 
