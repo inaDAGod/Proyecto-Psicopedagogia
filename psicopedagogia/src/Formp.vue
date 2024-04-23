@@ -119,13 +119,17 @@ const submitForm = async () => {
 
 // Función para cerrar el formulario
 const closeForm = () => {
-  showForm.value = false;
+  props.onclose();
 };
 
 // Función para fetch los datos existentes basados en el ID
-const fetchExistingData = async (id) => {
+// Populate form fields if existing data ID is provided
+
+
+// Función para fetch los datos existentes basados en el ID
+const fetchExistingData = async () => {
   try {
-    const response = await fetch(`http://localhost:3000/api/pagina_nosotros/${id}`);
+    const response = await fetch(`http://localhost:3000/api/info-pagina`);
     if (response.ok) {
       const data = await response.json();
       // Populate form fields with existing data
@@ -139,12 +143,14 @@ const fetchExistingData = async (id) => {
       tiktok.value = data.tiktok;
       attencion_dire.value = data.attencion_dire;
     } else {
-      console.error('Error al obtener los datos existentes:', response.statusText);
+      console.error('Error fetching existing data:', response.statusText);
     }
   } catch (error) {
-    console.error('Error al obtener los datos existentes:', error);
+    console.error('Error fetching existing data:', error);
   }
 };
+
+
 </script>
 
 <style scoped>
