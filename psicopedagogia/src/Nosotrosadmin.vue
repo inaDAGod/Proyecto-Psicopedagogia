@@ -25,7 +25,7 @@
         <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
           <div style="margin:20px;">
             <!-- Button to toggle the FormDocente component -->
-            <button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);" @click="toggleFormVisibility('formDocente')">Modificar</button>
+            <button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);" @click="toggleFormVisibility('formDocente')">Agregar</button>
             <!-- FormDocente component -->
             <FormDocente v-if="showFormDocente" @closeForm="closeForm('formDocente')" />
           </div>

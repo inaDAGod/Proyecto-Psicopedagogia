@@ -39,67 +39,83 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+  // Import necessary functions from Vue
+  import { ref } from 'vue';
+  import { defineProps } from 'vue';
 
-// Variables reactivas para los campos del formulario
-const nombre = ref('');
-const apodo = ref('');
-const cargo = ref('');
-const correo = ref('');
-const datoCualquiera = ref('');
-const showForm = ref(true);
-const currentFile = ref(null);
+  // Define reactive variables
+  const showForm = ref(true);
+  const currentFile = ref(null);
 
-// Función para enviar el formulario al servidor
-const submitForm = async () => {
-  try {
-    const direc = "/backend/images/";
-    console.log(currentFile.value);
-    const formData = new FormData();
-    formData.append('sampleFile', currentFile.value);
-    const resUpload = await fetch('http://localhost:3000/upload', {
-      method: 'POST',
-      body: formData
-    });
+  // Define props
+  const props = defineProps({
+    nombre: String,
+    apodo: String,
+    cargo: String,
+    correo: String,
+    datoc: String,
+    imagen: String,
+    index: Number,
+    onclose: Function
+  });
 
-    if (!resUpload.ok) {
-      throw new Error('Failed to upload image');
+  // Initialize refs with props values
+  const nombre = ref(props.nombre);
+  const apodo = ref(props.apodo);
+  const cargo = ref(props.cargo);
+  const correo = ref(props.correo);
+  const datoc = ref(props.datoc);
+  const imagen = ref(props.imagen);
+
+  // Function to submit the form data to the server
+  const submitForm = async () => {
+    try {
+      const direc = "/backend/images/";
+      console.log(currentFile.value);
+      imagen.value = direc + currentFile.value.name;
+      const formData = new FormData();
+      formData.append('sampleFile', currentFile.value);
+      fetch('http://localhost:3000/upload', {
+        method: 'POST',
+        body: formData
+      }).then(async (res) => {
+        console.log(res);
+        const formData = new FormData();
+        formData.append('nombre', nombre.value);
+        formData.append('apodo', apodo.value);
+        formData.append('cargo', cargo.value);
+        formData.append('correo', correo.value);
+        formData.append('datoc', datoc.value);
+        formData.append('imagen', imagen.value); // Update to 'imagen' attribute
+        console.log(imagen.value);
+        const response = await fetch('http://localhost:3000/api/docentes', {
+          method: 'POST',
+          body: formData
+        });
+        if (response.ok) {
+          console.log('Docente guardado correctamente');
+          closeForm(); // Close the form after successful save
+        } else {
+          console.error('Error al guardar el docente:', response.statusText);
+        }
+      });
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
     }
+  };
 
-    console.log(resUpload);
-    const formDataDocente = new FormData(); // Crear objeto FormData para enviar archivos
-    formDataDocente.append('nombre', nombre.value);
-    formDataDocente.append('apodo', apodo.value);
-    formDataDocente.append('cargo', cargo.value);
-    formDataDocente.append('correo', correo.value);
-    formDataDocente.append('datoc', datoCualquiera.value);
-    formDataDocente.append('imagen', direc + currentFile.value.name); 
-    console.log(direc + currentFile.value.name);
-    const response = await fetch('http://localhost:3000/api/docentes', {
-      method: 'POST',
-      body: formDataDocente // Pasar el formData como cuerpo de la solicitud
-    });
-    if (response.ok) {
-      console.log('Docente guardado correctamente');
-      // Aquí puedes agregar lógica adicional después de guardar exitosamente
-      closeForm(); // Cerrar el formulario después de guardar exitosamente
-    } else {
-      console.error('Error al guardar el docente:', response.statusText);
-    }
-  } catch (error) {
-    console.error('Error al enviar el formulario:', error);
-  }
-};
+  // Function to handle file change
+  const onFileChange = (event) => {
+    const file = event.target.files[0];
+    currentFile.value = file;
+  };
 
-// Función para manejar el cambio de archivo
-const onFileChange = (event) => {
-  const file = event.target.files[0];
-  currentFile.value = file;
-};
+  // Function to close the form
+  
 
-// Función para cerrar el formulario
-const closeForm = () => {
-  showForm.value = false;
+  const closeForm = () => {
+  console.log('Closing form...');
+  showForm.value = false; // Close the form directly
 };
 </script>
 
