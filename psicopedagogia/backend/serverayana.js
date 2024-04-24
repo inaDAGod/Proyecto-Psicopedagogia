@@ -185,40 +185,49 @@ app.post('/api/docentesUpdate', async (req, res) => {
 });
 
 
-app.post('/api/docentesDelete', async (req, res) => {
+
+app.delete('/api/docentes/:id', async (req, res) => {
   try {
-    const { nombre } = req.body;
+    const { id } = req.params;
 
-    // First, find the docente's ID based on the provided nombre
-    const querySelect = `
-      SELECT id_docente FROM docentes 
-      WHERE nombre = $1
-    `;
-    const valuesSelect = [nombre];
-
-    const result = await pool.query(querySelect, valuesSelect);
-    const id_docente = result.rows[0]?.id_docente; // Use optional chaining to handle potential undefined result
-
-    if (!id_docente) {
-      return res.status(404).json({ error: 'No se encontró un docente con ese nombre.' });
-    }
-
-    // Then, delete the docente based on its ID
-    const queryDelete = `
+    const query = `
       DELETE FROM docentes 
       WHERE id_docente = $1
     `;
-    const valuesDelete = [id_docente];
+    const values = [id];
 
-    await pool.query(queryDelete, valuesDelete);
+    const client = await pool.connect();
+    await client.query(query, values);
+    client.release();
 
-    console.log('Data deleted successfully from Docentes table');
-    res.status(200).json({ message: 'Data deleted successfully from Docentes table' });
+    console.log('Docente deleted successfully');
+    res.status(200).json({ message: 'Docente deleted successfully' });
   } catch (error) {
-    console.error('Error deleting data from Docentes table:', error);
+    console.error('Error deleting docente:', error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
