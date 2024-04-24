@@ -44,8 +44,12 @@
         </div>
       </div>
   
-      <!-- Displaying docentes -->
-      <div v-for="docente in docentes" :key="docente.id" v-html="generateTable(docente)"></div>
+      
+      <div class="docentes-container">
+      <div v-for="docente in docentes" :key="docente.id" class="docente-item">
+        <div v-html="generateTable(docente)"></div>
+      </div>
+    </div>
   
       <!-- Displaying PROGRAMAS -->
       <h1>PROGRAMAS</h1>
@@ -205,7 +209,7 @@
           <p >Nombre: ${docente.nombre}<br><br>
           Cargo: ${docente.cargo}<br><br>
           Correo: ${docente.correo}<br><br>
-          Descripción: ${docente.datoc}</p>
+          Dato: ${docente.datoc}</p>
         </div>
         <div class="docentes-avatar">
           <div class="docentes-nickname">${docente.apodo}</div>

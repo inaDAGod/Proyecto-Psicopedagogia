@@ -10,7 +10,13 @@
 
     <h1>NUESTRA FAMILIA</h1>
 
-    <div v-for="docente in docentes" :key="docente.id" v-html="generateTable(docente)"></div>
+    
+
+    <div class="docentes-container">
+      <div v-for="docente in docentes" :key="docente.id" class="docente-item">
+        <div v-html="generateTable(docente)"></div>
+      </div>
+    </div>
 
     <h1>PROGRAMAS</h1>
     <div style="text-align: center; margin-bottom: 5%">
@@ -119,7 +125,7 @@ const generateTable = (docente) => {
         <p >Nombre: ${docente.nombre}<br><br>
         Cargo: ${docente.cargo}<br><br>
         Correo: ${docente.correo}<br><br>
-        Descripción: ${docente.datoc}</p>
+        Dato: ${docente.datoc}</p>
       </div>
       <div class="docentes-avatar">
         <div class="docentes-nickname">${docente.apodo}</div>
@@ -130,8 +136,17 @@ const generateTable = (docente) => {
 
   return tableHTML;
 };
+
+
+
+
+
+
 </script>
 <style>
 @import url('/src/assets/nosotros.css');
+
+
+
 
 </style>
