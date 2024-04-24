@@ -68,9 +68,77 @@ h2 {
     text-align: center;
     font-size: 40px;
     color: rgba(13, 137, 244, 1);
+    margin-right: 10%;
 }
 
+
+
+
+
+
+
+
+
+
+
 .footer-container {
+    overflow: hidden; /* Clear floats */
+}
+
+.footer-table {
+    float: left;
+    background-color: rgba(170, 214, 251, 1);
+    padding: 20px;
+}
+
+.footer-info {
+    float: right;
+    text-align: left;
+    width: 45%; /* Adjusted width */
+     /* Adjusted margin */
+    background-color: rgba(170, 214, 251, 1);
+    padding: 20px; /* Add padding to match the footer-table */
+    padding: 10px 20px; /* Adjust padding top and bottom to move it up */
+    margin-top: -20%; 
+    z-index: 2;
+    left: 0;
+}
+
+#direcion {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+    color: rgba(13, 137, 244, 1);
+    z-index: 2;
+    margin-right: 10%;
+}
+
+/* Optional: Adjust styles for consistency */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.footer-table,
+.footer-info {
+    margin-bottom: 0; /* Remove default margin */
+}
+
+
+
+.footer-img {
+    text-align: left;
+    margin-top: -7%;
+    margin-left: -7.3%;
+  }
+  
+
+
+
+
+
+
+  .footer-container {
     overflow: hidden; /* Clear floats */
 }
 
@@ -102,7 +170,7 @@ h2 {
 .footer-container {
     display: flex;
     justify-content: space-between;
-    align-items: left;
+    align-items: center;
 }
 
 .footer-table,
@@ -117,7 +185,15 @@ h2 {
     margin-top: -7%;
     margin-left: -7.3%;
   }
-  
+
+
+
+
+
+
+
+
+
 
 
 

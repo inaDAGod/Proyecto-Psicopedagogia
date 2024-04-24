@@ -5,7 +5,7 @@
     <h1>NOSOTROS</h1>
     <div class="video-container">
       <!-- Paste the iframe code here -->
-      <iframe :src="paginaNosotros.link_video" frameborder="0" allowfullscreen></iframe>
+      <iframe :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <h1>NUESTRA FAMILIA</h1>
@@ -109,6 +109,17 @@ const obtenerInfoPagina = async () => {
   } catch (error) {
     console.error('Error fetching paginaNosotros data:', error);
   }
+};
+
+
+const getEmbeddedLink = (link) => {
+  // Verifica si el enlace es del formato "watch" y lo convierte a "embed"
+  if (link.includes('youtube.com/watch')) {
+    const videoId = link.split('v=')[1];
+    return `https://www.youtube.com/embed/${videoId}`;
+  }
+  // Si el enlace ya está en formato "embed", devuelve el mismo enlace
+  return link;
 };
 
 // Call the functions to fetch data when the component is mounted

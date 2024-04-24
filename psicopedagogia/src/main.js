@@ -2,8 +2,8 @@ import { createApp } from 'vue';
 //import { createApp } from 'vue'
 //import App from './Egresados.vue' //
 //import App2 from './principal.vue'
-import App from './Nosotros.vue'
-//import App from './Nosotrosadmin.vue'
+//import App from './Nosotros.vue'
+import App from './Nosotrosadmin.vue'
 //import App from './nosadmintesting.vue'
 //import App from './FormDocente.vue'
 //import App from './Formp.vue'
