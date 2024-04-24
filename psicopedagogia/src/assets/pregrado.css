@@ -1,13 +1,13 @@
 header {
-    background-color: rgba(255, 112, 1, 1);
+    background-color:rgba(13, 137, 244, 1);
     width: 100%;
     height: 100px;
 }
 
 h1 {
     font-family: 'Koulen';
-    font-size: 60px;
-    color: rgba(255, 112, 1, 1);
+    font-size: 80px;
+    color: rgba(255, 42, 157, 1);
     padding: 2%;
 }
 
@@ -28,7 +28,7 @@ iframe {
 button {
     font-family:'Oswald';
     text-align: center;
-    background-color: rgba(255, 112, 1, 1);
+    background-color: rgba(255, 42, 157, 1);
     font-size: 30px;
     color: white;
     border-radius: 90px;
@@ -50,6 +50,11 @@ table {
     padding-top: 20px;
     border-collapse: separate;
     border-spacing: 0 10px; /* Adjust the vertical spacing between rows here */
+    background-color: rgba(255, 206, 232, 1);
+    width: 90%;
+    border-radius: 50px;
+    margin-top: 10%;
+    
 }
 
 tr {
@@ -65,12 +70,80 @@ td {
 
 h2 {
     font-family: 'Oswald';
-    text-align: center;
+    text-align: left;
     font-size: 40px;
-    color: rgba(13, 137, 244, 1);
+    color:rgba(255, 42, 157, 1);
+    margin-left: 5%;
 }
 
+
+
+
+
+
+
+
+
+
+
 .footer-container {
+    overflow: hidden; /* Clear floats */
+}
+
+.footer-table {
+    float: left;
+    background-color: rgba(170, 214, 251, 1);
+    padding: 20px;
+}
+
+.footer-info {
+    float: right;
+    text-align: left;
+    width: 45%; /* Adjusted width */
+     /* Adjusted margin */
+    background-color: rgba(170, 214, 251, 1);
+    padding: 20px; /* Add padding to match the footer-table */
+    padding: 10px 20px; /* Adjust padding top and bottom to move it up */
+    margin-top: -20%; 
+    z-index: 2;
+    left: 0;
+}
+
+#direcion {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 24px;
+    color: rgba(13, 137, 244, 1);
+    z-index: 2;
+    margin-right: 10%;
+}
+
+/* Optional: Adjust styles for consistency */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
+.footer-table,
+.footer-info {
+    margin-bottom: 0; /* Remove default margin */
+}
+
+
+
+.footer-img {
+    text-align: left;
+    margin-top: -7%;
+    margin-left: -7.3%;
+  }
+  
+
+
+
+
+
+
+  .footer-container {
     overflow: hidden; /* Clear floats */
 }
 
@@ -117,69 +190,91 @@ h2 {
     margin-top: -7%;
     margin-left: -7.3%;
   }
-  
 
 
-  .docentes {
-    position: relative;
-    background-color: rgba(255, 206, 232, 1);
-    border-radius: 40px;
-    padding: 40px;
-    margin-bottom: 20px;
-    text-align: center; /* Center the content horizontally */
-    width: 40%;
-    display: flex;
-    margin-top: 8%;
-}
 
-.docentes-info {
+
+
+
+
+
+
+
+
+
+
+
+  .docentes-info {
     text-align: left;
     width: 50%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
-    order: 2; /* By default, place the info on the right */
+    padding: 20px;
 }
 
-.docentes-nickname {
+.docentes-container {
+    display: flex;
+    flex-wrap: wrap;
+   
+    
+    
+  }
+  
+  
+  .docente-item {
+    flex-basis: calc(50% - 10px); 
+    margin-bottom: 20px; 
+  }
+  
+  .docentes {
+    position: relative;
+    background-color: rgba(255, 206, 232, 1);
+    border-radius: 40px;
+    
+    text-align: center;
+    max-width: 70%; 
+    width: 100%;
+    display: flex;
+    margin-top: 8%;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  
+  .docentes-nickname {
     background-color: rgba(255, 43, 157, 1);
-    padding: 5px 7px;
     color: white;
     border-radius: 30px;
     font-family: 'Oswald';
-    z-index: 2; 
+    z-index: 2;
     position: relative;
-    width: 40%;
-    font-size: 30px;
-}
-
-.docentes-avatar {
+    left: 50%;
+    width: 60%;
+    font-size: 25px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+  }
+  
+  .docentes-avatar {
     display: inline-block;
     position: absolute;
-    bottom: -1%; /* Adjust the position of the avatar */
-    width: 50%; /* Adjust the width of the avatar container */
-}
+    right: -15%; 
+    bottom: 1%; 
+  }
+  
+  .docentes-image {
+    max-width: 130%; 
+    border-radius: 50%;
+    text-align: right;
+    position: relative; 
+    z-index: 1; 
+    margin-top: -50px; 
+    width: 300px;
+    height: 300px;
+  }
+  
 
-.docentes:nth-child(odd) .docentes-info {
-    order: 1; /* Place the info on the left for odd-numbered docentes */
-}
 
-.docentes:nth-child(odd) .docentes-nickname {
-    left: -63%; /* Adjust the position of the nickname for odd-numbered docentes */
-}
 
-.docentes:nth-child(odd) .docentes-avatar {
-    right: -150px; /* Adjust the position of the avatar for odd-numbered docentes */
-}
-
-.docentes:nth-child(even) .docentes-info {
-    order: 2; /* Place the info on the right for even-numbered docentes */
-}
-
-.docentes:nth-child(even) .docentes-nickname {
-    right: -63%; /* Adjust the position of the nickname for even-numbered docentes */
-}
-
-.docentes:nth-child(even) .docentes-avatar {
-    left: -150px; /* Adjust the position of the avatar for even-numbered docentes */
-}
-
+  
