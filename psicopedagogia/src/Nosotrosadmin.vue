@@ -35,6 +35,12 @@
             <!-- FormDocente component -->
             <FormDocMod v-if="showFormDocMod" @closeForm="closeForm('formDocMod')" />
           </div>
+          <div style="margin:20px;">
+            <!-- Button to toggle the FormDocente component -->
+            <button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);" @click="toggleFormVisibility('formDocElim')">Eliminar</button>
+            <!-- FormDocente component -->
+            <FormDocElim v-if="showFormDocElim" @closeForm="closeForm('formDocElim')" />
+          </div>
         </div>
       </div>
   
@@ -103,11 +109,13 @@
   import Formpaginanos from './Formp.vue';
   import FormDocente from './FormDocente.vue';
   import FormDocMod from './FormDocMod.vue';
+  import FormDocElim from './FormDocElim.vue';
   
-  // Define separate reactive variables for each form
+  // Define separate reactive variables for each form FormDocElim
   const showFormPaginanos = ref(false);
   const showFormDocente = ref(false);
   const showFormDocMod = ref(false);
+  const showFormDocElim = ref(false);
   
   // Function to toggle the visibility of each form based on its name
   const toggleFormVisibility = (formName) => {
@@ -117,6 +125,8 @@
       showFormDocente.value = !showFormDocente.value;
     } else if (formName === 'formDocMod') {
       showFormDocMod.value = !showFormDocMod.value;
+    } else if (formName === 'formDocElim') {
+      showFormDocElim.value = !showFormDocElim.value;
     }
   };
   
@@ -129,6 +139,9 @@
     }
     else if (formName === 'formDocMod') {
       showFormDocMod.value = false;
+    }
+    else if (formName === 'formDocElim') {
+      showFormDocElim.value = false;
     }
   };
   

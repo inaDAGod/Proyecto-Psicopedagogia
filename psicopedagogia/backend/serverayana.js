@@ -185,6 +185,45 @@ app.post('/api/docentesUpdate', async (req, res) => {
 });
 
 
+app.post('/api/docentesDelete', async (req, res) => {
+  try {
+    const { nombre } = req.body;
+
+    // First, find the docente's ID based on the provided nombre
+    const querySelect = `
+      SELECT id_docente FROM docentes 
+      WHERE nombre = $1
+    `;
+    const valuesSelect = [nombre];
+
+    const result = await pool.query(querySelect, valuesSelect);
+    const id_docente = result.rows[0]?.id_docente; // Use optional chaining to handle potential undefined result
+
+    if (!id_docente) {
+      return res.status(404).json({ error: 'No se encontró un docente con ese nombre.' });
+    }
+
+    // Then, delete the docente based on its ID
+    const queryDelete = `
+      DELETE FROM docentes 
+      WHERE id_docente = $1
+    `;
+    const valuesDelete = [id_docente];
+
+    await pool.query(queryDelete, valuesDelete);
+
+    console.log('Data deleted successfully from Docentes table');
+    res.status(200).json({ message: 'Data deleted successfully from Docentes table' });
+  } catch (error) {
+    console.error('Error deleting data from Docentes table:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+
+
+
 // Iniciar el servidor en el puerto 3000
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
