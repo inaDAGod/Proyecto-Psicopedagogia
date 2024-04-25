@@ -67,6 +67,7 @@
   .carousel-image {
     max-width: 70%; /* Ajusta el tamaño máximo de la imagen */
     height: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
   }
   
   .controls {

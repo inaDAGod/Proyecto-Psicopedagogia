@@ -13,13 +13,20 @@
             <Carousel />
           </div>
       </div>
-      <h3 class="subtitulo">La presente Investigación</h3>
+      <div>
+        <h3 class="subtitulo">La presente Investigación</h3>
+        <div class="presentee">
+          <PresenteInv />
+        </div>
     </div>
+  
+  </div>
   </template>
   
   <script setup>
     import Bloque from './components/ParrafoInvestigacion.vue';
     import Carousel from './components/InvestigacionCarrusel.vue';
+    import PresenteInv from './components/PresenteInvestigacion.vue';
   </script>
   
   <style>
@@ -44,7 +51,11 @@
     text-align: left;
     padding-left: 3%;
   }
-
+  .presentee{
+    padding-top: 10%;
+    padding-bottom: 20%;
+    
+  }
   @media (max-width: 768px) {
     .bloque-container {
       flex-direction: column;
@@ -55,6 +66,7 @@
         padding-left: 5%;
     }
   }
+
  
   </style>
   
