@@ -15,34 +15,5 @@
 </template>
 
 <style>
-.redes{
-    width: 100%;
-}
-.redFace{
-    font-size: 130%;
-    color: #0D89F4;
-    font-size: 30px;
-    padding-top: 4%;
-}
-.faceImg{
-    padding-left: 10%;
-    padding-right: 0%;
-}
-.contenido{
-    background-color: #AAD6FB;
-    margin-top: -20px; /* Ajusta este valor según lo que necesites */
-}
-.derechaTable{
-    text-align: right;
-    padding-right: 10%;
-    padding-top: 2%;
-    color: #0D89F4;
-    font-size: 20px;
-}
-.contenido{
-    height: 150px;
-}
-.footer-img {
-    margin-bottom: -40px; /* Ajusta este valor según lo que necesites */
-}
+    @import url('/src/assets/pieInvestigacion.css');
 </style>
