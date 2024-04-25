@@ -7,13 +7,19 @@
         <Bloque titulo="¿Quienes forman parte?" contenido="Contenido del bloque" fondo="#DBEE96" />
         <Bloque titulo="¿Como unirse?" contenido="Contenido del bloque" fondo="#FFCEE8" />
       </div>
-      <h3 class="subtitulo">Acciones investigativas</h3>
+      <div>
+        <h3 class="subtitulo">Acciones investigativas</h3>
+          <div class="carrusel">
+            <Carousel />
+          </div>
+      </div>
       <h3 class="subtitulo">La presente Investigación</h3>
     </div>
   </template>
   
   <script setup>
-  import Bloque from './components/ParrafoInvestigacion.vue';
+    import Bloque from './components/ParrafoInvestigacion.vue';
+    import Carousel from './components/InvestigacionCarrusel.vue';
   </script>
   
   <style>
@@ -49,6 +55,6 @@
         padding-left: 5%;
     }
   }
-
+ 
   </style>
   
