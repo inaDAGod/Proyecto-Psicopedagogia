@@ -7,7 +7,7 @@ CREATE TABLE Docentes (
     cargo VARCHAR(100) NOT NULL,
     correo VARCHAR(100) NOT NULL,
     datoc VARCHAR(200) NOT NULL,
-    imagen VARCHAR(255) 
+    imagen TEXT
 );
 
 

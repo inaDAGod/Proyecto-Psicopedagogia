@@ -54,6 +54,12 @@ app.get('/api/egresados', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
+
+
+
+
+
 // Iniciar el servidor en el puerto 3000
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
