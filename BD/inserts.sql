@@ -8,8 +8,8 @@ insert into egresados (nombre, correo, anio_graduacion,  trabajo,  comentario, s
 
 INSERT INTO Docentes (nombre, apodo, cargo, correo, datoc, imagen)
 VALUES
-    ('Dra. Alejandra Martínez Barrientos', 'Ale', 'Directora de Carrera', 'mmartinez@ucb.edu.bo', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'https://ucblpz.com/wp-content/uploads/2019/04/Alejandra-Martinez-1.jpg'),
-    ('MSc. Karina García Riveros', 'Kari', 'Docente Tiempo Completo', 'rgarcia@ucb.edu.bo', 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'https://ucblpz.com/wp-content/uploads/2019/02/Karina-Garci%CC%81a.jpg');
+    ('Dra. Alejandra Martínez Barrientos', 'Ale', 'Directora de Carrera', 'mmartinez@ucb.edu.bo', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', '.\assets\images\lic1.png'),
+    ('MSc. Karina García Riveros', 'Kari', 'Docente Tiempo Completo', 'rgarcia@ucb.edu.bo', 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', '.\assets\images\lic1.png');
 
 
 INSERT INTO pagina_nosotros (link_video, link_soc_cien, link_sembrando, link_psico_ucb, facebook, insta, youtube, tiktok, attencion_dire)

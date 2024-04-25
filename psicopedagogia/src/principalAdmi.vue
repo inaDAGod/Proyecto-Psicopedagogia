@@ -9,6 +9,12 @@
                 <h2>Psicopedagogia</h2>
             </div>
         </div>
+        <div class="btnAdmin-Home">
+            <button type="button" class="btn btn-primary" id="btnHome-Administrador" @click="toggleForm">Cambiar home</button>
+        </div>
+        <!-- Aquí se incluirá el formulario formHome -->
+        <formHome v-show="showForm" :onclose="toggleForm" />
+
         <div class="container">
             <div class="sidebar">
                 <div class="text-box">
@@ -95,14 +101,21 @@
                 </div>
             </div>
         </div>
+        <formHome v-show="showForm" :onclose="toggleForm"/>
     </div>
-    <AnimacionHome />
 </template>
 <script setup>
+import formHome from './components/formHome.vue'; 
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
-// Define the reactive variables to home
+const showForm = ref(false);
+// Función para cambiar el estado de la variable showForm
+const toggleForm = () => {
+    showForm.value = !showForm.value;
+};
+
+
 const paginaHome = ref({
     imagen1: '',
     imagen2: '',
@@ -118,7 +131,7 @@ const paginaHome = ref({
     perfil_estudiante: '',
     perfil_estudiante_src: ''
 });
-// Function to fetch home data from the database
+
 const obtenerHome = async () => {
   try {
     const response = await axios.get('http://localhost:3000/api/home');
@@ -127,14 +140,15 @@ const obtenerHome = async () => {
     console.error('Error fetching home:', error);
   }
 };
-// Call the functions to fetch data when the component is mounted
+
 onMounted(() => {
   obtenerHome();
 });
-</script> 
 
+
+</script>  
 <script>
-import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'
+import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js';
 </script>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
@@ -143,4 +157,3 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
     @import url('/src/assets/estilo.css');
     @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
 </style>
-  

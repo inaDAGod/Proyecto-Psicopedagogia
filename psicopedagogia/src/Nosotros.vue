@@ -5,12 +5,18 @@
     <h1>NOSOTROS</h1>
     <div class="video-container">
       <!-- Paste the iframe code here -->
-      <iframe :src="paginaNosotros.link_video" frameborder="0" allowfullscreen></iframe>
+      <iframe :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <h1>NUESTRA FAMILIA</h1>
 
-    <div v-for="docente in docentes" :key="docente.id" v-html="generateTable(docente)"></div>
+    
+
+    <div class="docentes-container">
+      <div v-for="docente in docentes" :key="docente.id" class="docente-item">
+        <div v-html="generateTable(docente)"></div>
+      </div>
+    </div>
 
     <h1>PROGRAMAS</h1>
     <div style="text-align: center; margin-bottom: 5%">
@@ -25,7 +31,7 @@
     <table class="footer-table">
       <tr>
         <td>
-          <a :href="paginaNosotros.facebook"><img style="width: 200px;" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
+          <a :href="paginaNosotros.facebook"><img style="width: 100px;" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
         </td>
         <td>
           <p>Psicopedagogía UCB La Paz</p>
@@ -33,7 +39,7 @@
       </tr>
       <tr>
         <td>
-          <a :href="paginaNosotros.insta"><img style="width: 200px;"  src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
+          <a :href="paginaNosotros.insta"><img style="width: 100px;"  src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
         </td>
         <td>
           <p>ucb.psp</p>
@@ -41,7 +47,7 @@
       </tr>
       <tr>
         <td>
-          <a :href="paginaNosotros.youtube"><img style="width: 190px;" src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
+          <a :href="paginaNosotros.youtube"><img style="width: 90px;" src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
         </td>
         <td>
           <p>canal de youtube</p>
@@ -49,7 +55,7 @@
       </tr>
       <tr>
         <td>
-          <a :href="paginaNosotros.tiktok"><img style="width: 200px;" src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
+          <a :href="paginaNosotros.tiktok"><img style="width: 100px;" src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
         </td>
         <td>
           <p>psp.ucb.lapaz</p>
@@ -105,6 +111,17 @@ const obtenerInfoPagina = async () => {
   }
 };
 
+
+const getEmbeddedLink = (link) => {
+  // Verifica si el enlace es del formato "watch" y lo convierte a "embed"
+  if (link.includes('youtube.com/watch')) {
+    const videoId = link.split('v=')[1];
+    return `https://www.youtube.com/embed/${videoId}`;
+  }
+  // Si el enlace ya está en formato "embed", devuelve el mismo enlace
+  return link;
+};
+
 // Call the functions to fetch data when the component is mounted
 onMounted(() => {
   obtenerDocentes();
@@ -119,7 +136,7 @@ const generateTable = (docente) => {
         <p >Nombre: ${docente.nombre}<br><br>
         Cargo: ${docente.cargo}<br><br>
         Correo: ${docente.correo}<br><br>
-        Descripción: ${docente.datoc}</p>
+        Dato: ${docente.datoc}</p>
       </div>
       <div class="docentes-avatar">
         <div class="docentes-nickname">${docente.apodo}</div>
@@ -130,8 +147,17 @@ const generateTable = (docente) => {
 
   return tableHTML;
 };
+
+
+
+
+
+
 </script>
 <style>
 @import url('/src/assets/nosotros.css');
+
+
+
 
 </style>
