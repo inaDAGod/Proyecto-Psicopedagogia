@@ -46,62 +46,6 @@
   </script>
   
   <style scoped>
-  .carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 600px; /* Ajusta el ancho del carrusel según tus necesidades */
-    margin: 0 auto; /* Centra horizontalmente */
-  }
-  
-  .carousel {
-    overflow: hidden;
-  }
-  
-  .slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .carousel-image {
-    max-width: 70%; /* Ajusta el tamaño máximo de la imagen */
-    height: auto;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
-  }
-  
-  .controls {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  button {
-    background: rgba(255, 255, 255, 0.5);
-    border: none;
-    padding: 10px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  button:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-  
-  .background-circle {
-    position: absolute;
-    top: 50%;
-    right: -550px; 
-    transform: translateY(-50%);
-    width: 500px; 
-    height: 500px; 
-    background-color: #DBEE96;
-    border-radius: 50%; 
-    z-index: -1; 
-  }
+    @import url('/src/assets/carruInv.css');
   </style>
   
