@@ -17,23 +17,22 @@ CREATE TABLE home (
 INSERT INTO home (home, imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, mision, mision_src, vision, vision_src, perfil_estudiante, perfil_estudiante_src)
 VALUES (
 	'home0',
-    './assets/images/psicopedagogía.jpg',
-    './assets/images/psicopedagogía2.jpg',
-    './assets/images/psicopedagogía3.jpg',
-    './assets/images/psicopedagogía4.jpg',
-    './assets/images/psicopedagogía2.jpg',
-    './assets/images/psicopedagogía3.jpg',
+    '/src/assets/images/psico1.jpg',
+    '/src/assets/images/psico2.jpg',
+    '/src/assets/images/psico3.jpg',
+    '/src/assets/images/psico4.jpg',
+    '/src/assets/images/psico2.jpg',
+    '/src/assets/images/psico3.jpg',
     'QUIENES SOMOS educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio. En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s. En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación. Desarrollando su propio emprendimiento Centros psicopedagógicos y Centros de Educación integral que trabajan con niñez, adolescencia, juventud y adultos que presenten.',
     'MISION----- educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio. En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s. En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación. Desarrollando su propio emprendimiento Centros p',
-    './assets/images/psicopedagogía.jpg',
+    '/src/assets/images/psicopedagogía.jpg',
     'VISION----- educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio. En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s. En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación. Desarrollando su propio emprendimiento Centros p',
-    './assets/images/psicopedagogía.jpg',
+    '/src/assets/images/psicopedagogía.jpg',
     'PERFIL ESTUDIANTE----- educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio. En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s. En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación. Desarrollando su propio emprendimiento Centros p',
-    './assets/images/psicopedagogía.jpg'
+    '/src/assets/images/psicopedagogía.jpg'
 );
 
-select *from home
-delete from home
+
 
 
 -- Crear la tabla "news"
@@ -79,8 +78,6 @@ VALUES
     ('Curso de inclusión educativa', '2024-05-02', '10:30:00', 'Sala de conferencias', 'El curso abordará prácticas inclusivas para atender a la diversidad de estudiantes en el aula.', './assets/images/psico4.jpg'),
     ('Conferencia sobre gamificación en la educación', '2024-05-05', '16:00:00', 'Auditorio principal', 'Expertos discutirán cómo la gamificación puede mejorar la motivación y el compromiso de los estudiantes en el proceso de aprendizaje.', './assets/images/psico3.jpg');
 	
-select * from noticias
-select * from actividades
 
 
 CREATE TABLE investigaciones (
@@ -101,4 +98,4 @@ CREATE TABLE investigaciones (
 
 INSERT INTO investigaciones (id_investigaciones, imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, desdecuando, quienes_conforman, como_unirse, presente_investigacion, presente_investigacion_src)
 VALUES 
-('inv0', './assets/images/psico2.jpg', './assets/images/psico3.jpg', './assets/images/psico3.jpg', './assets/images/psico4.jpg', './assets/images/psico2.jpg', './assets/images/psico3.jpg', 'Somos una organización dedicada a la investigación científica. sd gs gfdsfsdfdsf dsfdsfds fdsfsdfsd dsfdsfdsfds  dfsfsdfsdf', 'Desde hace más de una década jdajdl  dsfsdf  dsf sd ds f dsf dsf sd f fds fds f sd .', 'Nuestro equipo está conformado por expertos en diversas áreas de conocimiento.', 'Para unirse a nuestro equipo, puede enviar su solicitud a nuestro correo electrónico.', 'Nuestro proyecto actual se centra en el estudio del cambio climático.', './assets/images/psico3.jpg');
+('inv0', '/src/assets/images/psico2.jpg', '/src/assets/images/psico3.jpg', '/src/assets/images/psico3.jpg', './assets/images/psico4.jpg', '/src/assets/images/psico2.jpg', '/src/assets/images/psico3.jpg', 'Somos una organización dedicada a la investigación científica. sd gs gfdsfsdfdsf dsfdsfds fdsfsdfsd dsfdsfdsfds  dfsfsdfsdf', 'Desde hace más de una década jdajdl  dsfsdf  dsf sd ds f dsf dsf sd f fds fds f sd .', 'Nuestro equipo está conformado por expertos en diversas áreas de conocimiento.', 'Para unirse a nuestro equipo, puede enviar su solicitud a nuestro correo electrónico.', 'Nuestro proyecto actual se centra en el estudio del cambio climático.', './assets/images/psico3.jpg');
