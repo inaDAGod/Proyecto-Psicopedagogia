@@ -34,41 +34,7 @@
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
   
-  .titleInves {
-    color: #FF7001;
-    font-family: 'Koulen';
-    font-size: 300%;
-    padding-left: 5%;
-  }
-  
-  .bloque-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding-left: 3%;
-    padding-right: 3%;
-  }
-  .subtitulo{
-    color: #FF7001;
-    text-align: left;
-    padding-left: 3%;
-  }
-  .presentee{
-    padding-top: 10%;
-    padding-bottom: 15%;
-    
-  }
-
-  @media (max-width: 768px) {
-    .bloque-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    .titleInves {
-        font-size: 200%;
-        padding-left: 5%;
-    }
-  }
+  @import url('/src/assets/sociedad.css');
 
  
   </style>
