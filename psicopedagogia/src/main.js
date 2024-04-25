@@ -1,5 +1,9 @@
 import { createApp } from 'vue'
-import App from './Sociedad.vue' 
+
+//import App from './Sociedad.vue' 
+import App from './principal.vue'
+
+//import App from './Sociedad.vue' 
 //import App from './EgresadosAdmi.vue'
 //import App from './principal.vue'
 //import App from './principalAdmi.vue'
