@@ -81,3 +81,24 @@ VALUES
 	
 select * from noticias
 select * from actividades
+
+
+CREATE TABLE investigaciones (
+    id_investigaciones varchar(5) PRIMARY KEY,
+    imagen1 TEXT,
+    imagen2 TEXT,
+    imagen3 TEXT,
+    imagen4 TEXT,
+    imagen5 TEXT,
+    imagen6 TEXT,
+    quienes_somos TEXT,
+    desdecuando TEXT,
+    quienes_conforman TEXT,
+    como_unirse TEXT,
+    presente_investigacion TEXT,
+    presente_investigacion_src TEXT
+); 
+
+INSERT INTO investigaciones (id_investigaciones, imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, desdecuando, quienes_conforman, como_unirse, presente_investigacion, presente_investigacion_src)
+VALUES 
+('inv0', './assets/images/psico2.jpg', './assets/images/psico3.jpg', './assets/images/psico3.jpg', './assets/images/psico4.jpg', './assets/images/psico2.jpg', './assets/images/psico3.jpg', 'Somos una organización dedicada a la investigación científica. sd gs gfdsfsdfdsf dsfdsfds fdsfsdfsd dsfdsfdsfds  dfsfsdfsdf', 'Desde hace más de una década jdajdl  dsfsdf  dsf sd ds f dsf dsf sd f fds fds f sd .', 'Nuestro equipo está conformado por expertos en diversas áreas de conocimiento.', 'Para unirse a nuestro equipo, puede enviar su solicitud a nuestro correo electrónico.', 'Nuestro proyecto actual se centra en el estudio del cambio climático.', './assets/images/psico3.jpg');

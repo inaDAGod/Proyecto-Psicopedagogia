@@ -70,7 +70,17 @@ app.get('/api/noticias', async (req, res) => {
   }
 });
 
-
+app.get('/api/investigaciones', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('select * from investigaciones');
+    client.release();
+    res.json(result.rows[0]);//solo hay un row
+  } catch (error) {
+    console.error('Error al obtener los archivos de investigaciones:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 
 
 
