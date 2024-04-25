@@ -27,16 +27,16 @@
                 <div id="carouselExampleFade" class="carousel slide carousel-fade">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="./assets/images/psicopedagogía2.jpg"  alt="img1" width="500px" height="470px">
+                        <img src="/src/assets/images/psico2.jpg"  alt="img1" width="500px" height="470px">
                     </div>
                     <div class="carousel-item">
-                        <img src="./assets/images/psicopedagogía3.jpg"  alt="img2" width="500px" height="470px">
+                        <img src="/src/assets/images/psico3.jpg"  alt="img2" width="500px" height="470px">
                     </div>
                     <div class="carousel-item">
-                        <img src="./assets/images/psicopedagogía2.jpg"  alt="img3" width="500px" height="470px">
+                        <img src="/src/assets/images/psico2.jpg"  alt="img3" width="500px" height="470px">
                     </div>
                     <div class="carousel-item">
-                        <img src="./assets/images/psicopedagogía.jpg" alt="img4"width="400px" height="350px">
+                        <img src="/src/assets/images/psico1.jpg" alt="img4"width="400px" height="350px">
                     </div>
                     <div class="carousel-item">
                         <img :src="paginaHome.imagen5"  alt="img5" width="500px" height="470px">
@@ -58,13 +58,13 @@
         </div>
         <div class="animation-container">
             <div class="image-left">
-                <img src="./assets/images/home-area1.png" alt="Imagen izquierda">
+                <img src="/src/assets/images/home-area1.png" alt="Imagen izquierda">
             </div>
             <div class="animation-text">
                 <p>Areas de estudio</p>
             </div>
             <div class="image-right">
-                <img src="./assets/images/home-area2.png" alt="Imagen derecha">
+                <img src="/src/assets/images/home-area2.png" alt="Imagen derecha">
             </div>
         </div>
         <div class="vacio">
