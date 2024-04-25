@@ -19,14 +19,16 @@
           <PresenteInv />
         </div>
     </div>
-  
+    <PieInv />
   </div>
+
   </template>
   
   <script setup>
     import Bloque from './components/ParrafoInvestigacion.vue';
     import Carousel from './components/InvestigacionCarrusel.vue';
     import PresenteInv from './components/PresenteInvestigacion.vue';
+    import PieInv from './components/PieInvestigacion.vue';
   </script>
   
   <style>
@@ -53,9 +55,10 @@
   }
   .presentee{
     padding-top: 10%;
-    padding-bottom: 20%;
+    padding-bottom: 15%;
     
   }
+
   @media (max-width: 768px) {
     .bloque-container {
       flex-direction: column;
