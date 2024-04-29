@@ -57,7 +57,7 @@ h2 {
 .car-control-prev,
 .car-control-next {
   position: absolute;
-  top: 50%;
+  top: 60%;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -99,6 +99,9 @@ h2 {
   border-radius: 20px;
   position: relative; 
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+.info-container h3{
+  font-size: 140%;
 }
 
 .info-img {
