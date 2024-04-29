@@ -25,7 +25,6 @@ h2 {
 
 .car-item {
   flex: 0 0 33.33%; 
-  transition: transform 0.5s ease;
 }
 
 .img-container {
@@ -85,7 +84,6 @@ h2 {
   border-radius: 50%; 
   top: 50%; 
   left: -190px; 
-  z-index: 0; 
   transform: translate(-50%, -50%); 
 
 }
