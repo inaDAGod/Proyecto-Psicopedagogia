@@ -61,46 +61,46 @@
   
       <!-- Footer -->
       <footer>
-        <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernos-img">
-        <div class="footernos-container">
-          <table class="footernos-table">
-      <tr class="footernos-tr">
-        <td class="footernos-td">
-          <a :href="paginaNosotros.facebook"><img style="width: 20%;" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
+        <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernosa-img">
+        <div class="footernosa-container">
+          <table class="footernosa-table">
+      <tr class="footernosa-tr">
+        <td class="footernosa-td">
+          <a :href="paginaNosotros.facebook"><img class="imgnosa" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footernos-td">
-          <p class="footernos-p">Psicopedagogía UCB La Paz</p>
-        </td>
-      </tr>
-      <tr class="footernos-tr">
-        <td class="footernos-td">
-          <a :href="paginaNosotros.insta"><img style="width: 20%;"  src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
-        </td>
-        <td class="footernos-td">
-          <p class="footernos-p">ucb.psp</p>
+        <td class="footernosa-td">
+          <p class="footernosa-p">Psicopedagogía UCB La Paz</p>
         </td>
       </tr>
-      <tr class="footernos-tr">
-        <td class="footernos-td">
-          <a :href="paginaNosotros.youtube"><img style="width: 20%;" src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
+      <tr class="footernosa-tr">
+        <td class="footernosa-td">
+          <a :href="paginaNosotros.insta"><img class="imgnosa"   src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footernos-td">
-          <p class="footernos-p">canal de youtube</p>
+        <td class="footernosa-td">
+          <p class="footernosa-p">ucb.psp</p>
         </td>
       </tr>
-      <tr class="footernos-tr">
-        <td class="footernos-td">
-          <a :href="paginaNosotros.tiktok"><img style="width: 20%;" src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
+      <tr class="footernosa-tr">
+        <td class="footerosa-td">
+          <a :href="paginaNosotros.youtube"><img class="imgnosa"  src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footernos-td">
-          <p class="footernos-p">psp.ucb.lapaz</p>
+        <td class="footernosa-td">
+          <p class="footernosa-p">canal de youtube</p>
+        </td>
+      </tr>
+      <tr class="footernosa-tr">
+        <td class="footernosa-td">
+          <a :href="paginaNosotros.tiktok"><img class="imgnosa"  src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
+        </td>
+        <td class="footernosa-td">
+          <p class="footernosa-p">psp.ucb.lapaz</p>
         </td>
       </tr>
     </table>
   
-          <div class="footernos-info">
-            <h2 class="footernos-mainnos">Atención de Dirección de Carrera</h2>
-            <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
+          <div class="footernosa-info">
+            <h2 class="footernosa-mainnos">Atención de Dirección de Carrera</h2>
+            <p id="direciona">{{ paginaNosotros.attencion_dire }}</p>
           </div>
         </div>
       </footer>
@@ -243,8 +243,11 @@
 
 
   <style>
-  @import url('/src/assets/nosotros.css');
-  
-  </style>
+@import url('/src/assets/nostrosadmin.css');
+
+
+
+
+</style>
 
 

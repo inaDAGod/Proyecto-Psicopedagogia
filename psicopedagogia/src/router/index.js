@@ -8,7 +8,7 @@ import Noticias from '@/views/actividades_noticias.vue';
 //import Social from '@/views/social.vue'
 //import Red from '@/views/red.vue'
 //import Publicaciones from '@/views/publicaciones.vue'
-//import Pregrado from '@/views/Pregrado.vue'
+import Pregrado from '@/views/Pregrado.vue'
 //import Postgrado from '@/views/Postgrado.vue'
 
 const router = createRouter({
@@ -43,6 +43,11 @@ const router = createRouter({
       path: '/noticias',
       name: 'Noticias',
       component: Noticias,
+    },
+    {
+      path: '/formacion/pregrado',
+      name: 'Pregrado',
+      component: Pregrado,
     },
     /*
     {
