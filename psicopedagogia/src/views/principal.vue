@@ -1,8 +1,5 @@
 <template>
     <div>
-        <nav class="navbar">
-            <!-- Contenido del navbar aquí -->
-        </nav>
         <div class="content">
             <div class="titulo">
                 <h1>Bienvenido a </h1>
@@ -49,13 +46,13 @@
         </div>
         <div class="animation-container">
             <div class="image-left">
-                <img src="./assets/images/home-area1.png" alt="Imagen izquierda">
+                <img src="/src/assets/images/home-area1.png" alt="Imagen izquierda">
             </div>
             <div class="animation-text">
                 <p>Areas de estudio</p>
             </div>
             <div class="image-right">
-                <img src="./assets/images/home-area2.png" alt="Imagen derecha">
+                <img src="/src/assets/images/home-area2.png" alt="Imagen derecha">
             </div>
         </div>
         <div class="vacio">

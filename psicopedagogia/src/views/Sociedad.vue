@@ -25,10 +25,10 @@
   </template>
   
   <script setup>
-    import Bloque from './components/ParrafoInvestigacion.vue';
-    import Carousel from './components/InvestigacionCarrusel.vue';
-    import PresenteInv from './components/PresenteInvestigacion.vue';
-    import PieInv from './components/PieInvestigacion.vue';
+    import Bloque from '/src/components/ParrafoInvestigacion.vue';
+    import Carousel from '/src/components/InvestigacionCarrusel.vue';
+    import PresenteInv from '/src/components/PresenteInvestigacion.vue';
+    import PieInv from '/src/components/PieInvestigacion.vue';
   </script>
   
   <style>

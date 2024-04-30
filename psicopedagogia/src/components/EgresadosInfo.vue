@@ -28,6 +28,6 @@
   </script>
   
   <style scoped>
-  @import url('/./src/assets/egresados.css');
+  @import url('/src/assets/egresados.css');
   </style>
   
