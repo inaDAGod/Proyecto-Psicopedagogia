@@ -2,31 +2,29 @@
     background-color: #AAD6FB;
     padding-left: 50px;
     padding-right: 50px;
-    padding-top: 20px;
 }
 
 h2 {
     color: white;
-    font-size: 50px;
+    font-size: 420%;
+    text-align: left;
+    padding: 2%;
 }
  
-.carousel {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+.car {
+  
   background-color: #FEF684;
   text-align: center;
 }
-.carousel h3{
+.car h3{
   font-size: 30px;
 }
-.carousel-inner {
+.car-inner {
   display: flex;
 }
 
-.carousel-item {
+.car-item {
   flex: 0 0 33.33%; 
-  transition: transform 0.5s ease;
 }
 
 .img-container {
@@ -55,10 +53,10 @@ h2 {
   min-height: 110px;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
+.car-control-prev,
+.car-control-next {
   position: absolute;
-  top: 50%;
+  top: 60%;
   transform: translateY(-50%);
   background-color: transparent;
   border: none;
@@ -68,11 +66,11 @@ h2 {
   cursor: pointer;
 }
 
-.carousel-control-prev {
+.car-control-prev {
   left: 10px;
 }
 
-.carousel-control-next {
+.car-control-next {
   right: 10px;
 }
 
@@ -87,7 +85,7 @@ h2 {
   top: 50%; 
   left: -190px; 
   transform: translate(-50%, -50%); 
-  z-index: 0; 
+
 }
 
 .info-container {
@@ -98,8 +96,10 @@ h2 {
   padding: 20px;
   border-radius: 20px;
   position: relative; 
-  z-index: 1; 
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+}
+.info-container h3{
+  font-size: 140%;
 }
 
 .info-img {
@@ -111,7 +111,7 @@ h2 {
   transform: translateY(-50%); 
   border-radius: 50%;
   overflow: hidden; 
-  z-index: 2; 
+
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
   object-fit: cover; 
 }
@@ -119,6 +119,10 @@ h2 {
 .info-content {
   padding-left: 160px;
   padding-right: 30px;
+  
+}
+.info-content h3{
+  text-align: left;
   
 }
 

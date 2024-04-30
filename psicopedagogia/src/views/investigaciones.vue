@@ -1,13 +1,10 @@
 <template>
     <div>
-        <nav class="navbar">
-            <!-- Contenido del navbar aquí -->
-        </nav>
         <br>
         <div class="content">
-            <div class="titulo">
-                <h2>INVESTIGACIÓN </h2>
-                <h2>GRUPO DE INVESTIGACIÓN "ZONA DE APRENDIZAJE"</h2>
+            <div class="titulo" style="text-align: left;">
+                <h2 style="text-align: left;">INVESTIGACIÓN </h2>
+                <h2 style="text-align: left;">GRUPO DE INVESTIGACIÓN "ZONA DE APRENDIZAJE"</h2>
             </div>
         </div>
         <br>

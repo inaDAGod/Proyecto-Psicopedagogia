@@ -8,10 +8,10 @@
 </template>
 
 <script setup>
-
-import Carrusel from './components/EgresadosCarrusel.vue';
+import Carrusel from '@/components/EgresadosCarrusel.vue';
 </script>
 
+
 <style scoped>
-@import url('/src/assets/egresados.css');
+@import url('@/assets/egresados.css');
 </style>
