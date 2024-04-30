@@ -2,13 +2,13 @@
   <div id="app">
     
     
-    <h1>NOSOTROS</h1>
+    <h1 class="titulo-nos">NOSOTROS</h1>
     <div class="video-container">
       <!-- Paste the iframe code here -->
-      <iframe :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
+      <iframe class="video-nos" :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
     </div>
 
-    <h1>NUESTRA FAMILIA</h1>
+    <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
 
     
 
@@ -18,53 +18,53 @@
       </div>
     </div>
 
-    <h1>PROGRAMAS</h1>
+    <h1 class="titulo-nos">PROGRAMAS</h1>
     <div style="text-align: center; margin-bottom: 5%">
-      <a :href="paginaNosotros.link_soc_cien"><button>Sociedad Científica Estudiantil Inpsicopedia</button></a><br>
-      <a :href="paginaNosotros.link_sembrando"><button>Programa “Sembrando Semillas de Paz”</button></a><br>
-      <a :href="paginaNosotros.link_psico_ucb"><button>Psicopedagogía La Paz</button></a><br>
+      <a :href="paginaNosotros.link_soc_cien"><button class="b-links">Sociedad Científica Estudiantil Inpsicopedia</button></a><br>
+      <a :href="paginaNosotros.link_sembrando"><button class="b-links">Programa “Sembrando Semillas de Paz”</button></a><br>
+      <a :href="paginaNosotros.link_psico_ucb"><button class="b-links">Psicopedagogía La Paz</button></a><br>
     </div>
     
-    <footer>
+    <footer class="footer-main">
       <img src="/src/assets/images/rocas.png" alt="Image Description" class="footer-img">
   <div class="footer-container">
     <table class="footer-table">
-      <tr>
-        <td>
-          <a :href="paginaNosotros.facebook"><img style="width: 100px;" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
+      <tr class="footer-tr">
+        <td class="footer-td">
+          <a :href="paginaNosotros.facebook"><img style="width: 30%;" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
         </td>
-        <td>
-          <p>Psicopedagogía UCB La Paz</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a :href="paginaNosotros.insta"><img style="width: 100px;"  src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
-        </td>
-        <td>
-          <p>ucb.psp</p>
+        <td class="footer-td">
+          <p class="footer-p">Psicopedagogía UCB La Paz</p>
         </td>
       </tr>
-      <tr>
-        <td>
-          <a :href="paginaNosotros.youtube"><img style="width: 90px;" src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
+      <tr class="footer-tr">
+        <td class="footer-td">
+          <a :href="paginaNosotros.insta"><img style="width: 30%;"  src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
         </td>
-        <td>
-          <p>canal de youtube</p>
+        <td class="footer-td">
+          <p class="footer-p">ucb.psp</p>
         </td>
       </tr>
-      <tr>
-        <td>
-          <a :href="paginaNosotros.tiktok"><img style="width: 100px;" src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
+      <tr class="footer-tr">
+        <td class="footer-td">
+          <a :href="paginaNosotros.youtube"><img style="width: 30%;" src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
         </td>
-        <td>
-          <p>psp.ucb.lapaz</p>
+        <td class="footer-td">
+          <p class="footer-p">canal de youtube</p>
+        </td>
+      </tr>
+      <tr class="footer-tr">
+        <td class="footer-td">
+          <a :href="paginaNosotros.tiktok"><img style="width: 30%;" src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
+        </td>
+        <td class="footer-td">
+          <p class="footer-p">psp.ucb.lapaz</p>
         </td>
       </tr>
     </table>
     
     <div class="footer-info">
-      <h2>Atención de Dirección de Carrera</h2>
+      <h2 class="footer-titulo">Atención de Dirección de Carrera</h2>
       <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
     </div>
   </div>
