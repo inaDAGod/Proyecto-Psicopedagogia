@@ -31,7 +31,7 @@
           <input type="text" id="insta" v-model="insta" required>
         </div>
         <div class="form-group">
-          <img style="width: 15%;height: 20%;" src="/src/assets/images/yt.png" alt="Imagen del logo">
+          <img style="width: 12%;height: 20%;" src="/src/assets/images/yt.png" alt="Imagen del logo">
           <input type="text" id="youtube" v-model="youtube" required>
         </div>
         <div class="form-group">
