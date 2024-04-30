@@ -5,15 +5,41 @@
       <button class="menuboton" @click="toggleMenu"><img src="/src/components/icons/menu.png" alt="" width="10%"></button>
       <ul v-show="showMenu" class="menu">
         <li><router-link @click="toggleMenu" to="/"><img src="/src/components/icons/index.png" alt="" width="10%"> Inicio</router-link></li>
-        <li><router-link @click="toggleMenu" to="/egresados"><img src="/src/components/icons/egresados.png" alt="" width="10%"> Egresados</router-link></li>
+        
         <li><router-link @click="toggleMenu" to="/about"><img src="/src/components/icons/nosotros.png" alt="" width="10%"> Nosotros</router-link></li>
         <li @click="toggleSubMenu(1)" @mouseenter="changeCursor('pointer')" @mouseleave="changeCursor('default')">
-          <a><img src="/src/components/icons/formacion.png" alt="" width="9%"> Formacion</a>
+          <a><img src="/src/components/icons/formacion.png" alt="" width="9%"> Formación</a>
           <ul v-show="showSubMenu === 1" class="submenu-right ">
-            <li><router-link to="/pregrado"  @click="toggleMenu"><img src="/src/components/icons/formacion.png" alt="" width="20%"> Pregrado</router-link></li>
-            <li><router-link to="/postgrado"  @click="toggleMenu"><img src="/src/components/icons/formacion.png" alt="" width="20%"> PostGrado</router-link></li>
+            <li><router-link to="/formacion/pregrado"  @click="toggleMenu"><img src="/src/components/icons/formacion.png" alt="" width="20%"> Pregrado</router-link></li>
+            <li><router-link to="/formacion/postgrado"  @click="toggleMenu"><img src="/src/components/icons/formacion.png" alt="" width="20%"> PostGrado</router-link></li>
           </ul>
         </li>
+        <li @click="toggleSubMenu(2)" @mouseenter="changeCursor('pointer')" @mouseleave="changeCursor('default')">
+          <a><img src="/src/components/icons/uni.png" alt="" width="10%">Instancias UCB</a>
+          <ul v-show="showSubMenu === 2" class="submenu-right ">
+            <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Inscripciones</a></li>
+            <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Tarifarios</a></li>
+            <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Planes de Pago</a></li>
+            <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Becas</a></li>
+            <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Programa Agora</a></li>
+          </ul>
+        </li>
+        <li @click="toggleSubMenu(3)" @mouseenter="changeCursor('pointer')" @mouseleave="changeCursor('default')">
+          <a><img src="/src/components/icons/inves.png" alt="" width="10%"> Investigación</a>
+          <ul v-show="showSubMenu === 3" class="submenu-right " style="top: 50%;">
+            <li><router-link to="/investigacion/Sociedad" @click="toggleMenu"><img src="/src/components/icons/inves.png" alt="" width="15%"> INPSICOPEDIA</router-link> </li>
+            <li><router-link to="/investigacion/Zona" @click="toggleMenu"><img src="/src/components/icons/inves.png" alt="" width="15%">Zona de aprendizaje</router-link> </li>
+          </ul>
+        </li>
+        <li @click="toggleSubMenu(4)" @mouseenter="changeCursor('pointer')" @mouseleave="changeCursor('default')">
+          <a><img src="/src/components/icons/egresados.png" alt="" width="10%"> Programa Integra</a>
+          <ul v-show="showSubMenu === 4" class="submenu-right " style="top: 60%;">
+            <li><router-link @click="toggleMenu" to="/integra/egresados"><img src="/src/components/icons/egresados.png" alt="" width="10%"> Egresados</router-link></li>
+            <li><router-link @click="toggleMenu" to="/integra/publicaciones"><img src="/src/components/icons/inves.png" alt="" width="10%"> Publicaciones</router-link></li>
+          </ul>
+        </li>
+        <li><router-link @click="toggleMenu" to="/sembrando"><img src="/src/components/icons/social.png" alt="" width="10%"> Interaccion Social</router-link></li>
+        <li><router-link @click="toggleMenu" to="/red"><img src="/src/components/icons/red.png" alt="" width="10%"> Nuestra Red</router-link></li>
       </ul>
     </nav>
   </div>
@@ -84,7 +110,7 @@ export default {
 .menu {
   position: absolute;
   width: 20%;
-  text-align: justify;
+  text-align: left;
   top: 100%;
   right: 20px;
   background-color: #DBEE96;
@@ -116,15 +142,15 @@ export default {
 }
 
 .menu li a:hover {
-  color: #fff;
+  color: #0D89F4;
   font-weight: bold;
   font-size: 18px;
 }
 
 .submenu-right {
   position: absolute;
-  width: 50%;
-  text-align: justify;
+  width: 75%;
+  text-align: left;
   top: 50%;
   right: 100%;
   background-color: #DBEE96;
@@ -154,7 +180,7 @@ export default {
 }
 
 .submenu-right li a:hover {
-  color: #fff;
+  color: #0D89F4;
   font-weight: bold;
 }
 </style>

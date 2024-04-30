@@ -2,7 +2,10 @@
     color: #FF7001;
     font-family: 'Koulen';
     font-size: 300%;
+    padding: 3%;
     padding-left: 5%;
+    text-align: left;
+    
   }
   
   .bloque-container {
