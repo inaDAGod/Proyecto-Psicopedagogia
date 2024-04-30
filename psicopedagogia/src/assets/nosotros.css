@@ -273,4 +273,12 @@ iframe {
 
 
 
-  
+  .b-form {
+    font-size: 36px;
+    width: 100%;
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-right: 10px;
+    background-color: rgba(255, 42, 157, 1);
+}
