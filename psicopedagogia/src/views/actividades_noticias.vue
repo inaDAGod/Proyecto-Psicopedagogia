@@ -1,8 +1,5 @@
 <template>
     <div>
-      <nav class="navbar">
-        <!-- Contenido del navbar aquí -->
-      </nav>
       <div class="content">
         <div class="titulo">
           <h1>NOTICIAS Y ACTIVIDADES</h1>

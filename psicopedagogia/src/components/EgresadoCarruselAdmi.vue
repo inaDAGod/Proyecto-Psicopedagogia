@@ -1,20 +1,20 @@
 <template>
-    <div class="carousel-container">
-      <div class="carousel">
-        <div class="carousel-inner">
-          <div v-for="(egresado, index) in visibleIndices" :key="index" class="carousel-item">
+    <div class="car-container">
+      <div class="car">
+        <div class="car-inner">
+          <div v-for="(egresado, index) in visibleIndices" :key="index" class="car-item">
             <div class="img-container">
               <img :src="egresados[egresado].src_foto" :class="{ 'img-oval': true, 'blur': egresado !== currentIndex, 'focused': egresado === currentIndex }" alt="...">
             </div>
-            <div class="carousel-caption d-none d-md-block">
+            <div class="car-caption">
               <h3 style="color: black;">{{ egresados[egresado].nombre }}</h3>
             </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" @click="prevSlide">
+        <button class="car-control-prev" type="button" @click="prevSlide">
           <
         </button>
-        <button class="carousel-control-next" type="button" @click="nextSlide">
+        <button class="car-control-next" type="button" @click="nextSlide">
           >
         </button>
       </div>

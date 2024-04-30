@@ -1,10 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/views/principal.vue';
-import Egresados from '@/views/Egresados.vue';
-import About from '@/views/Nosotros.vue';
-import Sociedad from '@/views/Sociedad.vue';
-import Zona from '@/views/investigaciones.vue';
-import Noticias from '@/views/actividades_noticias.vue';
+import Home from '@/views/principalAdmi.vue';
+import Egresados from '@/views/EgresadosAdmi.vue';
+import About from '@/views/Nosotrosadmin.vue';
+//import Sociedad from '@/views/Sociedad.vue'
+//import Zona from '@/views/investigaciones.vue'
 //import Social from '@/views/social.vue'
 //import Red from '@/views/red.vue'
 //import Publicaciones from '@/views/publicaciones.vue'
@@ -29,6 +28,7 @@ const router = createRouter({
       name: 'About',
       component: About,
     },
+    /*
     {
       path: '/investigacion/Sociedad',
       name: 'Sociedad',
@@ -38,11 +38,6 @@ const router = createRouter({
       path: '/investigacion/Zona',
       name: 'Zona',
       component: Zona,
-    },
-    {
-      path: '/noticias',
-      name: 'Noticias',
-      component: Noticias,
     },
     /*
     {

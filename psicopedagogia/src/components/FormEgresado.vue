@@ -1,37 +1,37 @@
 <template>
-    <div class="modal" v-show="showForm">
-      <div class="modal-content">
-        <button class="close" @click="closeForm">&times;</button>
+    <div class="mod" v-show="showForm">
+      <div class="mod-content">
+        <button class="clo" @click="closeForm">&times;</button>
         <h2>Agregar Nuevo Egresado</h2>
         <form @submit.prevent="submitForm">
           <!-- Input fields para el formulario -->
-          <div class="form-group">
+          <div class="for-group">
             <label for="nombre">Nombre:</label><br>
             <input type="text" id="nombre" v-model="nombre" required>
           </div>
-          <div class="form-group">
+          <div class="for-group">
             <label for="correo">Correo:</label><br>
             <input type="email" id="correo" v-model="correo" required>
           </div>
-          <div class="form-group">
+          <div class="for-group">
             <label for="anio_graduacion">Año de Graduación:</label><br>
             <input type="number" id="anio_graduacion" v-model="anioGraduacion" required>
           </div>
-          <div class="form-group">
+          <div class="for-group">
             <label for="trabajo">Trabajo Actual:</label><br>
             <input type="text" id="trabajo" v-model="trabajo" required>
           </div>
-          <div class="form-group">
+          <div class="for-group">
             <label for="comentario">Comentario:</label><br>
             <textarea id="comentario" v-model="comentario"></textarea>
           </div>
-          <div class="form-group">
+          <div class="for-group">
             <label for="src_foto">Foto egresado:</label><br>
             <input type="file" id="src_foto" @change="onFileChange" required>
           </div>
           <div style="text-align: center;">
             <!-- Botón para enviar el formulario -->
-            <button class="boton-guardar">Guardar</button>
+            <button class="bot-guardar">Guardar</button>
           </div>
         </form>
       </div>

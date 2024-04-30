@@ -110,10 +110,10 @@
   <script setup>
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
-  import Formpaginanos from './Formp.vue';
-  import FormDocente from './FormDocente.vue';
-  import FormDocMod from './FormDocMod.vue';
-  import FormDocElim from './FormDocElim.vue';
+  import Formpaginanos from '/src/Formp.vue';
+  import FormDocente from '/src/FormDocente.vue';
+  import FormDocMod from '/src/FormDocMod.vue';
+  import FormDocElim from '/src/FormDocElim.vue';
   
   // Define separate reactive variables for each form FormDocElim
   const showFormPaginanos = ref(false);
