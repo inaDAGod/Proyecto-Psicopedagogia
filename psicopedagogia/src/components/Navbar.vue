@@ -58,6 +58,7 @@ export default {
   methods: {
     toggleMenu() {
       this.showMenu = !this.showMenu;
+      this.showSubMenu = 0;
     },
     toggleSubMenu(index) {
       this.showSubMenu = this.showSubMenu === index ? 0 : index;

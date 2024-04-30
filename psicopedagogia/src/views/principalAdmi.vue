@@ -1,8 +1,5 @@
 <template>
     <div>
-        <nav class="navbar">
-            <!-- Contenido del navbar aquí -->
-        </nav>
         <div class="content">
             <div class="titulo">
                 <h1>Bienvenido a </h1>
@@ -105,7 +102,7 @@
     </div>
 </template>
 <script setup>
-import formHome from './components/formHome.vue'; 
+import formHome from '/src/components/formHome.vue'; 
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
