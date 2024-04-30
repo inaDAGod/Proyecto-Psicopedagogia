@@ -16,7 +16,7 @@
         </li>
         <li @click="toggleSubMenu(2)" @mouseenter="changeCursor('pointer')" @mouseleave="changeCursor('default')">
           <a><img src="/src/components/icons/uni.png" alt="" width="10%">Instancias UCB</a>
-          <ul v-show="showSubMenu === 2" class="submenu-right ">
+          <ul v-show="showSubMenu === 2" class="submenu-right " style="top: 35%;">
             <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Inscripciones</a></li>
             <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Tarifarios</a></li>
             <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Planes de Pago</a></li>
