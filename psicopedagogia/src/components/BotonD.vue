@@ -1,5 +1,8 @@
 <template>
-    <button :style="{ backgroundColor: colorFondo, color: colorTexto }">{{ text }}</button>
+  <div class="botonD">
+    <button :style="{ backgroundColor: colorFondo, color: colorTexto }" >{{ text }}</button>
+  </div>
+   
   </template>
   
   <script setup>
@@ -13,17 +16,18 @@
   </script>
   
   <style scoped>
-  button {
-    padding: 15px;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-    height: 50px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
+  .botonD button{
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      height: 50px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+      font-size: 120%;
+      width: 40%;
+    }
+    
+    .botonD button:hover {
+      opacity: 0.8;
+    }
   </style>
   

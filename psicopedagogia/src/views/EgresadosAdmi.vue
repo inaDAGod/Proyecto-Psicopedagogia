@@ -12,9 +12,9 @@
   </template>
   
   <script setup>
-  import Carrusel from './components/EgresadoCarruselAdmi.vue';
-  import BotonD from './components/BotonD.vue';
-  import NuevoEgresadoForm from './components/FormEgresado.vue';
+  import Carrusel from '/src/components/EgresadoCarruselAdmi.vue';
+  import BotonD from '/src/components/BotonD.vue';
+  import NuevoEgresadoForm from '/src/components/FormEgresado.vue';
   import { ref } from 'vue';
   
   const showForm = ref(false);
