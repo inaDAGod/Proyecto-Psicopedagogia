@@ -40,6 +40,7 @@
         </li>
         <li><router-link @click="toggleMenu" to="/sembrando"><img src="/src/components/icons/social.png" alt="" width="10%"> Interaccion Social</router-link></li>
         <li><router-link @click="toggleMenu" to="/red"><img src="/src/components/icons/red.png" alt="" width="10%"> Nuestra Red</router-link></li>
+        <li><router-link @click="toggleMenu" to="/noticias"><img src="/src/components/icons/noti.png" alt="" width="10%"> Noticias</router-link></li>
       </ul>
     </nav>
   </div>
