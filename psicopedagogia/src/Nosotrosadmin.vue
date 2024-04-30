@@ -16,7 +16,7 @@
       <!-- Video section -->
       <div class="video-container">
         <!-- Paste the iframe code here -->
-        <iframe :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
+        <iframe class="video-nos" :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
       </div>
   
       <!-- Second section: NUESTRA FAMILIA -->
