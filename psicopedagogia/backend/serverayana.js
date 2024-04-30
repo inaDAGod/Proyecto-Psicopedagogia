@@ -8,11 +8,9 @@ import fileUpload from 'express-fileupload';
 const app = express();
 
 const corsOptions = {
-  origin: 'http://localhost:5175',
+  origin: 'http://localhost:5173',
   credentials: true,
 };
-app.use(cors(corsOptions));
-
 
 app.use(cors(corsOptions));
 

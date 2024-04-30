@@ -1,5 +1,5 @@
 
-.titulo-nos {
+h1 {
     font-family: 'Koulen';
     font-size: 80px;
     color: rgba(255, 112, 1, 1);
@@ -13,14 +13,14 @@
     height: 100vh; /* Optional: Adjust the height as needed */
 }
 
-.video-nos {
+iframe {
     width: 90%;
     height: 500px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-.b-links {
+button {
     font-family:'Oswald';
     text-align: center;
     background-color: rgba(255, 112, 1, 1);
@@ -34,26 +34,31 @@
 }
 
 
-.footer-main {
+footer {
     width: 100%;
-    height: 10px;
+    height: 50%;
     font-family: 'Oswald';
     background-color: rgba(170, 214, 251, 1);
 }
 
-.footer-tr {
+table {
+    padding-top: 20px;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* Adjust the vertical spacing between rows here */
+}
+
+tr {
     /* Optionally, you can apply padding to each table row */
-    
-    
+    padding: 2px; /* Adjust the padding as needed */
+    font-size: 40px;
     color: rgba(13, 137, 244, 1);
 }
 
-.footer-td {
-    font-size: 100%;
-    
+td {
+    padding-left: 20px;
 }
 
-h2.footer-titulo {
+h2 {
     font-family: 'Oswald';
     text-align: center;
     font-size: 40px;
@@ -73,15 +78,12 @@ h2.footer-titulo {
 
 .footer-container {
     overflow: hidden; /* Clear floats */
-    
-    border-collapse: separate;
-    border-spacing: 0 10px; /* Adjust the vertical spacing between rows here */
 }
 
 .footer-table {
     float: left;
     background-color: rgba(170, 214, 251, 1);
-    padding: 0;
+    padding: 20px;
 }
 
 .footer-info {
