@@ -326,6 +326,41 @@ app.get('/api/investigaciones', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+app.get('/api/cursosfc', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM cursosfc');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error al obtener los cursosfc:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.get('/api/maestria', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM maestria');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error al obtener los maestria:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 // Iniciar el servidor en el puerto 3000
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

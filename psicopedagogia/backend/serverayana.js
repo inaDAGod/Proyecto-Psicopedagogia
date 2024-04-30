@@ -47,6 +47,44 @@ app.get('/api/info-pagina', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+//NUEVOSSSSSSSS
+
+app.get('/api/cursoscf', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM cursosfc');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error al obtener los cursosfc:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.get('/api/maestria', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM maestria');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error al obtener los maestria:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 app.use(fileUpload());
 app.post('/upload', function(req, res) {

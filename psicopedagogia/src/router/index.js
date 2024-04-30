@@ -9,7 +9,7 @@ import Noticias from '@/views/actividades_noticias.vue';
 //import Red from '@/views/red.vue'
 //import Publicaciones from '@/views/publicaciones.vue'
 import Pregrado from '@/views/Pregrado.vue'
-//import Postgrado from '@/views/Postgrado.vue'
+import Postgrado from '@/views/Postgrado.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -48,6 +48,11 @@ const router = createRouter({
       path: '/formacion/pregrado',
       name: 'Pregrado',
       component: Pregrado,
+    },
+    {
+      path: '/formacion/postgrado',
+      name: 'Postgrado',
+      component: Postgrado,
     },
     /*
     {
