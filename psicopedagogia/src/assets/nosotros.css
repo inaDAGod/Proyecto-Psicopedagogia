@@ -34,27 +34,27 @@
 }
 
 
-.footer-t {
+/*--------------------------------------Footer-------------------------------------------*/
+
+.footernos-t {
     width: 100%;
-    height: 10%;
+    height: 1%;
     font-family: 'Oswald';
     background-color: rgba(170, 214, 251, 1);
 }
 
 
 
-.footer-tr {
+.footernos-tr {
     /* Optionally, you can apply padding to each table row */
     
     
     color: rgba(13, 137, 244, 1);
 }
 
-.footer-td {
-    padding-left: 20px;
-}
 
-.footer-main {
+
+.footernos-mainnos {
     font-family: 'Oswald';
     text-align: center;
     font-size: 40px;
@@ -64,42 +64,59 @@
 }
 
 
-
-.footer-p{
-    margin-left: -50%;
+.footernos-p{
+    margin-left: -40%;
     font-size: 35px;
 }
 
-
-
-
-
-
-
-.footer-container {
+.footernos-container {
     overflow: hidden; /* Clear floats */
 }
 
-.footer-table {
+.footernos-table {
     float: left;
     background-color: rgba(170, 214, 251, 1);
-    padding: 10%;
-    padding-top: 20%;
+    
+    padding-left: 2%;
+    padding-right: 3%;
     border-collapse: separate;
+    padding-bottom: 1px;
 
 }
 
-.footer-info {
+
+.footernos-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
+}
+
+
+
+.footernos-img {
+    text-align: left;
+    margin-top: -7%;
+    margin-right: 92%;
+    z-index: 2;
+  }
+  
+
+
+.footernos-info {
     float: right;
     text-align: left;
     width: 45%; /* Adjusted width */
      /* Adjusted margin */
     background-color: rgba(170, 214, 251, 1);
-    padding: 20%; /* Add padding to match the footer-table */
-    padding: 10% 20%; /* Adjust padding top and bottom to move it up */
+    padding: 2%; /* Add padding to match the footer-table */
+    padding: 1% 2%; /* Adjust padding top and bottom to move it up */
     margin-top: -20%; 
     z-index: 2;
     left: 0;
+}
+
+.imgnos{
+    width: 30%;
 }
 
 #direcion {
@@ -108,93 +125,13 @@
     color: rgba(13, 137, 244, 1);
     z-index: 2;
     width: 100%;
-    margin-top: 2%;
+    margin-top: 5%;
+    padding-right: 5%;
     
 }
 
-/* Optional: Adjust styles for consistency */
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: left;
-}
 
-.footer-table,
-.footer-info {
-    margin-bottom: 0; /* Remove default margin */
-}
-
-
-
-.footer-img {
-    text-align: left;
-    margin-top: -7%;
-    margin-right: 84%;
-    z-index: 2;
-  }
-  
-
-
-
-
-
-
-  .footer-container {
-    overflow: hidden; /* Clear floats */
-}
-
-.footer-table {
-    float: left;
-    background-color: rgba(170, 214, 251, 1);
-    padding: 30%;
-}
-
-.footer-info {
-    float: right;
-    text-align: left;
-    width: 45%; /* Adjusted width */
-    padding-right: 5%; /* Adjusted margin */
-    background-color: rgba(170, 214, 251, 1);
-    padding: 20px; /* Add padding to match the footer-table */
-    padding: 10px 20px; /* Adjust padding top and bottom to move it up */
-    margin-top: -20%; 
-}
-
-#direcion {
-    font-family: 'Roboto Condensed', sans-serif;
-    
-    color: rgba(13, 137, 244, 1);
-    
-}
-
-/* Optional: Adjust styles for consistency */
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.footer-table,
-.footer-info {
-    margin-bottom: 0; /* Remove default margin */
-}
-
-
-
-.footer-img {
-    text-align: left;
-    margin-top: -7%;
-    margin-left: -7.3%;
-  }
-
-
-
-
-
-
-
-
-
+/*--------------------------------------Docentes-------------------------------------------*/
 
 
 

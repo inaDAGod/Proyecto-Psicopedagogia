@@ -61,45 +61,45 @@
   
       <!-- Footer -->
       <footer>
-        <img src="/src/assets/images/rocas.png" alt="Image Description" class="footer-img">
-        <div class="footer-container">
-          <table class="footer-table">
-      <tr class="footer-tr">
-        <td class="footer-td">
+        <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernos-img">
+        <div class="footernos-container">
+          <table class="footernos-table">
+      <tr class="footernos-tr">
+        <td class="footernos-td">
           <a :href="paginaNosotros.facebook"><img style="width: 20%;" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footer-td">
-          <p class="footer-p">Psicopedagogía UCB La Paz</p>
+        <td class="footernos-td">
+          <p class="footernos-p">Psicopedagogía UCB La Paz</p>
         </td>
       </tr>
-      <tr class="footer-tr">
-        <td class="footer-td">
+      <tr class="footernos-tr">
+        <td class="footernos-td">
           <a :href="paginaNosotros.insta"><img style="width: 20%;"  src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footer-td">
-          <p class="footer-p">ucb.psp</p>
+        <td class="footernos-td">
+          <p class="footernos-p">ucb.psp</p>
         </td>
       </tr>
-      <tr class="footer-tr">
-        <td class="footer-td">
+      <tr class="footernos-tr">
+        <td class="footernos-td">
           <a :href="paginaNosotros.youtube"><img style="width: 20%;" src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footer-td">
-          <p class="footer-p">canal de youtube</p>
+        <td class="footernos-td">
+          <p class="footernos-p">canal de youtube</p>
         </td>
       </tr>
-      <tr class="footer-tr">
-        <td class="footer-td">
+      <tr class="footernos-tr">
+        <td class="footernos-td">
           <a :href="paginaNosotros.tiktok"><img style="width: 20%;" src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footer-td">
-          <p class="footer-p">psp.ucb.lapaz</p>
+        <td class="footernos-td">
+          <p class="footernos-p">psp.ucb.lapaz</p>
         </td>
       </tr>
     </table>
   
-          <div class="footer-info">
-            <h2 class="footer-main">Atención de Dirección de Carrera</h2>
+          <div class="footernos-info">
+            <h2 class="footernos-mainnos">Atención de Dirección de Carrera</h2>
             <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
           </div>
         </div>
