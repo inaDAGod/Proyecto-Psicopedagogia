@@ -22,8 +22,10 @@
       cursor: pointer;
       height: 50px;
       box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
-      font-size: 120%;
-      width: 40%;
+      font-size: 100%;
+      width: auto;
+      padding-left: 1%;
+      padding-right: 1%;
     }
     
     .botonD button:hover {
