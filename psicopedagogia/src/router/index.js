@@ -7,7 +7,7 @@ import Zona from '@/views/investigaciones.vue';
 import Noticias from '@/views/actividades_noticias.vue';
 import Social from '@/views/social.vue'
 //import Red from '@/views/red.vue'
-//import Publicaciones from '@/views/publicaciones.vue'
+import Publicaciones from '@/views/publicaciones.vue'
 //import Pregrado from '@/views/Pregrado.vue'
 //import Postgrado from '@/views/Postgrado.vue'
 
@@ -57,13 +57,12 @@ const router = createRouter({
       name: 'Red',
       component: Red,
     },
+    */
     {
       path: '/integra/publicaciones',
       name: 'Publicaciones',
       component: Publicaciones,
     },
-    */
-    
     /*{
       path: '/formacion/pregrado',
       name: 'Pregrado',
