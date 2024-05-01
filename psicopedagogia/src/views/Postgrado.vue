@@ -6,7 +6,10 @@
       <br>
   
       <div class="container-pos">
-    
+        <h1 class="titulo-pos" style="text-align: left;">Diplomados,
+especialidades y
+Maestría</h1>
+      <br>
     <div class="maestrias-container">
       <div v-for="maestria in maestrias" :key="maestria.id_pos" class="maestria-item">
         <div v-html="generateMaestriaTable(maestria)"></div>
@@ -14,6 +17,8 @@
     </div>
 
    <br><br><br>
+   <h1 class="titulo-pos" style="text-align: left;">Formacion Continua</h1>
+      <br>
     <div class="cursos-container">
       <div v-for="curso in cursos" :key="curso.id_cur" class="curso-item">
         <div v-html="generateCursoTable(curso)"></div>
