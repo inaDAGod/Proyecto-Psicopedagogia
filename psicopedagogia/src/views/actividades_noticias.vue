@@ -9,7 +9,9 @@
         <div class="anuncio">
           <div class="text-box-act">
             <div class="text-content-act">
-              <p>¡NUESTRAS PROXIMAS ACTIVIDADES!</p>
+              <p>¡NUESTRAS</p>
+              <p>PROXIMAS</p>
+              <p>ACTIVIDADES!</p>
             </div>
           </div>
         </div>
