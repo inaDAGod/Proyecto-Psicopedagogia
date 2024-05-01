@@ -123,6 +123,7 @@ h2 {
 }
 .info-content h3{
   text-align: left;
+  font-size: 120%;
   
 }
 
@@ -130,6 +131,7 @@ h2 {
 
 .info-container p {
   color: black;
+  font-size: 100%;
 }
 .nombre-egresado {
   background-color: #FF7001;
