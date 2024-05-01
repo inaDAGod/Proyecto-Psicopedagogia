@@ -7,40 +7,43 @@
 
 .maestria-info{
     background-color: rgba(170, 214, 251, 1);
-    width: 60%;
-    border-radius: 40px;
+    width: 70%;
+    border-radius: 20px;
     padding: 2%;
+    
     
 }
 .maestria {
     display: flex; /* Use flexbox layout */
     align-items: center; /* Center items vertically */
     margin-bottom: 4%; /* Add some bottom margin for spacing */
-    margin-left: 20%;
+    margin-left: 15%;
+    width: 90%;
+    
   }
   
   .maestria-img {
-    margin-left: -23%; /* Add right margin to create space between image and text */
+    margin-left: -20%; /* Add right margin to create space between image and text */
     z-index: 2;
     
     
   }
   .maestria-image{
     border-radius: 20px;
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 400px;
   }
   
   .maestria-info p {
     margin: 0; /* Remove default margin for paragraphs */
     margin-right: 40%;
-    font-size: 15px;
+    font-size: 25px;
     font-family:'Roboto Condensed', sans-serif;
   }
   .maestria-head{
-    text-align: center;
-    font-size: 25px;
-    margin-right: 40%;
+    text-align: left;
+    font-size: 35px;
+    margin-right: 10%;
     font-family: 'Oswald';
   }
 
@@ -52,16 +55,17 @@
 
   .curso-info{
     background-color: rgba(219, 238, 150, 1);
-    width: 60%;
+    width: 70%;
     border-radius: 40px;
-    padding: 2%;
+    padding: 3%;
     
 }
 .curso {
     display: flex; /* Use flexbox layout */
     align-items: center; /* Center items vertically */
     margin-bottom: 4%; /* Add some bottom margin for spacing */
-    margin-left: 20%;
+    margin-left: 10%;
+    width: 100%;
   }
   
   .curso-img {
@@ -72,20 +76,20 @@
   }
   .curso-image{
     border-radius: 20px;
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 400px;
   }
   
   .curso-info p {
     margin: 0; /* Remove default margin for paragraphs */
-    margin-left: 40%;
-    font-size: 15px;
+    margin-left: 32%;
+    font-size:25px;
     font-family: 'Roboto Condensed', sans-serif;
   }
   .curso-head{
-    text-align: center;
-    font-size: 25px;
-    margin-left: 40%;
+    text-align: left;
+    font-size: 35px;
+    margin-left: 35%;
     font-family: 'Oswald';
   }
 
