@@ -2,14 +2,29 @@
   <div class="background-container">
     <div id="app">
       <h1 class="prehead1">PREGRADO</h1>
+      <div style="margin:20px;">
+        <div style="display: flex; align-items: center;">
 
+        <h3 class="prehead3">Malla</h3>
+        <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
+          
+          <div style="margin:20px;">
+            <div style="margin:20px;">
+      <a :href="'https://lpz.ucb.edu.bo/wp-content/uploads/2023/12/PSP-2024.pdf'">
+    <button class="b-pre">Descargar malla</button>
+</a>
+
+</div>
+
+</div></div></div>
+</div>
       <div class="prevideo-container">
         <iframe class="vidma" :src="getYouTubeEmbedUrl('https://www.youtube.com/watch?v=nPL5hCXxmBw')" frameborder="0" allowfullscreen></iframe>
-      </div>
+      </div><br><br>
 
       <h4 class="prehead4">Asignaturas representativas</h4>
       <div class="div-previd">
-        <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
+        <Carousel :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosAsignaturas" :key="video.id">
             <iframe class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
           </Slide>
@@ -18,7 +33,7 @@
 
       <h2 class="prehead2">Actividades curriculares Representativas PSP</h2>
       <div class="div-previd">
-        <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
+        <Carousel :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosActividades" :key="video.id">
             <iframe class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
           </Slide>
@@ -27,7 +42,7 @@
 
       <h2 class="prehead2">Experiencias de trabajo de Campo</h2>
       <div class="div-previd">
-        <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
+        <Carousel :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="image in images" :key="image.id">
             <img class="img-preb" :src="image.url" alt="carousel image">
           </Slide>
@@ -36,7 +51,7 @@
 
       <h2 class="prehead2">Perfiles de estudiantes PSP</h2>
       <div class="div-previd">
-        <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
+        <Carousel :itemsToShow="1" :wrapAround="true" :transition="5">
           <Slide v-for="video in videosPerfiles" :key="video.id">
             <iframe class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
           </Slide>
@@ -48,7 +63,7 @@
         <table class="pre-tab" style="margin: 0 auto;">
           <tr class="pre-tr">
             <td class="pre-td">
-              <p class="p-pre">En sector educativo: educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio. En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s. En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación.</p>
+              <p class="p-pre">En sector educativo:<br> educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio. En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s. En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación.</p>
             </td>
             <td class="pre-td">
               <img alt="Ped" class="logo-pre" src="\backend\images\ped.jpg">
