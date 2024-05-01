@@ -5,6 +5,7 @@
         <img src="/src/assets/images/logo.png" alt="Imagen del logo" class="logo" style="width: 80px;">
         <h1 class="tituloNav">Psicopedagogia</h1>
       </div>
+
       <button class="menuboton" @click="toggleMenu"><img src="/src/components/icons/menu.png" alt="" width="10%"></button>
       <ul v-show="showMenu" class="menu">
         <li><router-link @click="toggleMenu" to="/"><img src="/src/components/icons/index.png" alt="" width="10%"> Inicio</router-link></li>
@@ -77,7 +78,7 @@ export default {
 /* Estilos del navbar y los elementos principales */
 .navbar {
   width: 100%;
-  height: 50%;
+  height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +102,7 @@ export default {
   margin-right: 0;
 }
 
-.tituloNav{
+.tituloNav {
   padding: 2%;
   animation: ocean-animation 5s infinite alternate;
 }
@@ -110,8 +111,14 @@ export default {
   0% {
     transform: translateY(0);
   }
+  25% {
+    transform: translateY(-10px);
+  }
   50% {
-    transform: translateY(-10%);
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(10px);
   }
   100% {
     transform: translateY(0);
