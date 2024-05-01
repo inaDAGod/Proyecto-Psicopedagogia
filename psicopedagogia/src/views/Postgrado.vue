@@ -6,9 +6,7 @@
       <br>
   
       <div class="container-pos">
-        <h1 class="titulo-pos" style="text-align: left;">Diplomados,
-especialidades y
-Maestría</h1>
+        <h1 class="titulo-pos" style="text-align: left;">Diplomados,especialidades y Maestría</h1>
       <br>
     <div class="maestrias-container">
       <div v-for="maestria in maestrias" :key="maestria.id_pos" class="maestria-item">
