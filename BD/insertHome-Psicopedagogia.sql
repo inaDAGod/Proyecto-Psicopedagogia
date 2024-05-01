@@ -99,3 +99,49 @@ CREATE TABLE investigaciones (
 INSERT INTO investigaciones (id_investigaciones, imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, desdecuando, quienes_conforman, como_unirse, presente_investigacion, presente_investigacion_src)
 VALUES 
 ('inv0', '/src/assets/images/psico2.jpg', '/src/assets/images/psico3.jpg', '/src/assets/images/psico3.jpg', './assets/images/psico4.jpg', '/src/assets/images/psico2.jpg', '/src/assets/images/psico3.jpg', 'Somos una organización dedicada a la investigación científica. sd gs gfdsfsdfdsf dsfdsfds fdsfsdfsd dsfdsfdsfds  dfsfsdfsdf', 'Desde hace más de una década jdajdl  dsfsdf  dsf sd ds f dsf dsf sd f fds fds f sd .', 'Nuestro equipo está conformado por expertos en diversas áreas de conocimiento.', 'Para unirse a nuestro equipo, puede enviar su solicitud a nuestro correo electrónico.', 'Nuestro proyecto actual se centra en el estudio del cambio climático.', './assets/images/psico3.jpg');
+
+
+-- Crear la tabla para las interacciones sociales
+CREATE TABLE interaccion_social (
+    id_interaccion varchar (5) PRIMARY KEY,
+    objetivo TEXT,
+    lineas TEXT
+);
+-- Crear la tabla para las actividades
+CREATE TABLE actividad_interaccion_social (
+    id_actividad SERIAL PRIMARY KEY,
+    actividad VARCHAR(255) NOT NULL,
+    fecha DATE,
+    hora TIME,
+    ubicacion VARCHAR(255),
+    descripcion TEXT,
+    actividad_src VARCHAR(255),
+    tipo VARCHAR(50) NOT NULL,
+    id_interaccion varchar (5) REFERENCES interaccion_social(id_interaccion) ON DELETE CASCADE
+);
+
+-- Insertar datos en la tabla interaccion_social
+INSERT INTO interaccion_social (id_interaccion, objetivo, lineas) VALUES
+('it0', 'OBJETIVO Conviértete en un profesional en Psicopedagogía capaz de diseñar, desarrollar y gestionar propuestas educativas presenciales y virtuales en sus cuatro campos profesionales: clínica, educativa, social y laboral desde una formación basada en competencias, desde un espíritu humanista, crítico e innovador. Sé parte de la renovación educativa y aporta a la transformación social.', 'LINEAS Conviértete en un profesional en Psicopedagogía capaz de diseñar, desarrollar y gestionar propuestas educativas presenciales y virtuales en sus cuatro campos profesionales: clínica, educativa, social y laboral desde una formación basada en competencias, desde un espíritu humanista, crítico e innovador. Sé parte de la renovación educativa y aporta a la transformación social.');
+
+-- Insertar datos en la tabla actividad_interaccion_social
+INSERT INTO actividad_interaccion_social (actividad, fecha, hora, ubicacion, descripcion, actividad_src, tipo, id_interaccion) VALUES
+('Taller de resolución de conflictos', '2024-04-18', '10:00:00', 'Aula 101', 'El taller proporcionará estrategias prácticas para resolver conflictos de manera constructiva en el ámbito escolar.', '/src/assets/images/psico1.jpg', 'Universidad', 'it0'),
+('Charla sobre inteligencias múltiples', '2024-04-22', '15:00:00', 'Salón de actos', 'Expertos en educación explicarán la teoría de las inteligencias múltiples de Howard Gardner y su aplicación en el aula.', '/src/assets/images/psico2.jpg', 'Universidad', 'it0'),
+('Sesión de mindfulness para docentes', '2024-04-25', '09:30:00', 'Sala de profesores', 'Los profesores aprenderán técnicas de mindfulness para reducir el estrés y mejorar su bienestar emocional.', '/src/assets/images/psico1.jpg', 'Universidad', 'it0'),
+('Taller de creatividad en el aula', '2024-04-28', '14:00:00', 'Aula 203', 'Los participantes explorarán estrategias para fomentar la creatividad y la innovación en el proceso de enseñanza-aprendizaje.', '/src/assets/images/psico2.jpg', 'Universidad', 'it0'),
+('Curso de inclusión educativa', '2024-05-02', '10:30:00', 'Sala de conferencias', 'El curso abordará prácticas inclusivas para atender a la diversidad de estudiantes en el aula.', '/src/assets/images/psico2.jpg', 'Universidad', 'it0'),
+('Conferencia sobre gamificación en la educación', '2024-05-05', '16:00:00', 'Auditorio principal', 'Expertos discutirán cómo la gamificación puede mejorar la motivación y el compromiso de los estudiantes en el proceso de aprendizaje.', '/src/assets/images/psico1.jpg', 'Universidad', 'it0'),
+('Taller de resolución de conflictos', '2024-04-18', '10:00:00', 'Aula 101', 'El taller proporcionará estrategias prácticas para resolver conflictos de manera constructiva en el ámbito escolar.', '/src/assets/images/psico1.jpg', 'Departamental', 'it0'),
+('Charla sobre inteligencias múltiples', '2024-04-22', '15:00:00', 'Salón de actos', 'Expertos en educación explicarán la teoría de las inteligencias múltiples de Howard Gardner y su aplicación en el aula.', '/src/assets/images/psico2.jpg', 'Departamental', 'it0'),
+('Sesión de mindfulness para docentes', '2024-04-25', '09:30:00', 'Sala de profesores', 'Los profesores aprenderán técnicas de mindfulness para reducir el estrés y mejorar su bienestar emocional.', '/src/assets/images/psico1.jpg', 'Departamental', 'it0'),
+('Taller de creatividad en el aula', '2024-04-28', '14:00:00', 'Aula 203', 'Los participantes explorarán estrategias para fomentar la creatividad y la innovación en el proceso de enseñanza-aprendizaje.', '/src/assets/images/psico2.jpg', 'Departamental', 'it0'),
+('Curso de inclusión educativa', '2024-05-02', '10:30:00', 'Sala de conferencias', 'El curso abordará prácticas inclusivas para atender a la diversidad de estudiantes en el aula.', '/src/assets/images/psico2.jpg', 'Departamental', 'it0'),
+('Conferencia sobre gamificación en la educación', '2024-05-05', '16:00:00', 'Auditorio principal', 'Expertos discutirán cómo la gamificación puede mejorar la motivación y el compromiso de los estudiantes en el proceso de aprendizaje.', '/src/assets/images/psico1.jpg', 'Departamental', 'it0'),
+('Taller de resolución de conflictos', '2024-04-18', '10:00:00', 'Aula 101', 'El taller proporcionará estrategias prácticas para resolver conflictos de manera constructiva en el ámbito escolar.', '/src/assets/images/psico1.jpg', 'Internacional', 'it0'),
+('Charla sobre inteligencias múltiples', '2024-04-22', '15:00:00', 'Salón de actos', 'Expertos en educación explicarán la teoría de las inteligencias múltiples de Howard Gardner y su aplicación en el aula.', '/src/assets/images/psico2.jpg', 'Internacional', 'it0'),
+('Sesión de mindfulness para docentes', '2024-04-25', '09:30:00', 'Sala de profesores', 'Los profesores aprenderán técnicas de mindfulness para reducir el estrés y mejorar su bienestar emocional.', '/src/assets/images/psico1.jpg', 'Internacional', 'it0'),
+('Taller de creatividad en el aula', '2024-04-28', '14:00:00', 'Aula 203', 'Los participantes explorarán estrategias para fomentar la creatividad y la innovación en el proceso de enseñanza-aprendizaje.', '/src/assets/images/psico2.jpg', 'Internacional', 'it0'),
+('Curso de inclusión educativa', '2024-05-02', '10:30:00', 'Sala de conferencias', 'El curso abordará prácticas inclusivas para atender a la diversidad de estudiantes en el aula.', '/src/assets/images/psico2.jpg', 'Internacional', 'it0'),
+('Conferencia sobre gamificación en la educación', '2024-05-05', '16:00:00', 'Auditorio principal', 'Expertos discutirán cómo la gamificación puede mejorar la motivación y el compromiso de los estudiantes en el proceso de aprendizaje.', '/src/assets/images/psico1.jpg', 'Internacional', 'it0');
+

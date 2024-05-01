@@ -3,7 +3,7 @@
       
     <div id="app">
        
-      <h1>PREGRADO</h1>
+      <h1 class="prehead1">PREGRADO</h1>
       <!--<div class="video-container">
          Paste the iframe code here 
         <iframe :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
@@ -11,7 +11,7 @@
   
      
       <div style="display: flex; align-items: center;">
-        <h2>Malla</h2>
+        <h3 class="prehead3">Malla</h3>
         <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
           
           <div style="margin:20px;">
@@ -22,40 +22,43 @@
           </div>-->
           <div style="margin:20px;">
             <!-- Button to toggle the FormDocente component -->
-            <button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);">Descargar malla</button>
+            <a :href="'https://lpz.ucb.edu.bo/wp-content/uploads/2023/12/PSP-2024.pdf'">
+    <button class="b-pre">Descargar malla</button>
+</a>
+
             <!-- FormDocente component -->
             
           </div>
 
         </div>
         
-      </div></div><div class="video-container">
+      </div></div><div class="prevideo-container">
         
-        <iframe :src="'https://youtube.com/embed/tgbNymZ7vqY'" frameborder="0" allowfullscreen></iframe>
+        <iframe class="vidma" :src="getYouTubeEmbedUrl('https://www.youtube.com/watch?v=nPL5hCXxmBw')" frameborder="0" allowfullscreen></iframe>
 
-     </div><br>
+     </div>
 
-     <h2>Asignaturas representativas</h2><br>
-     <div style="width: 70%;margin-left: 15%;">
-        <Carousel :itemsToShow="3.95" :wrapAround="true" :transition="500">
+     <h4 class="prehead4">Asignaturas representativas</h4><br>
+     <div class="div-previd">
+        <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosAsignaturas" :key="video.id">
-            <iframe :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
+            <iframe class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
           </Slide>
         </Carousel>
       </div>
 
-     <h2>Actividades curriculares Representativas PSP</h2><br>
+     <h2 class="prehead2">Actividades curriculares Representativas PSP</h2><br>
 
      
-     <div style="width: 70%;margin-left: 15%;">
-        <Carousel :itemsToShow="3.95" :wrapAround="true" :transition="500">
+     <div class="div-previd">
+        <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosActividades" :key="video.id">
-            <iframe :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
+            <iframe class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
           </Slide>
         </Carousel>
       </div>
 
-     <h2>Experiencias de trabajo de Campo</h2><br>
+     <h2 class="prehead2">Experiencias de trabajo de Campo</h2><br>
 
 
 
@@ -64,62 +67,45 @@
 
 
 
-  <div style="width: 70%; margin-left: 15%;">
-      <Carousel :itemsToShow="3.95" :wrapAround="true" :transition="500">
+  <div class="div-previd">
+      <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
         <Slide v-for="image in images" :key="image.id">
-          <img :src="image.url" alt="carousel image" style="width: 100%; height: auto;">
+          <img class="img-preb" :src="image.url" alt="carousel image" >
         </Slide>
         ...
       </Carousel>
     </div>
 
 
-     <h2>Perfiles de estudiantes PSP</h2><br>
+     <h2 class="prehead2">Perfiles de estudiantes PSP</h2><br>
 
-     <div style="width: 70%;margin-left: 15%;">
-        <Carousel :itemsToShow="3.95" :wrapAround="true" :transition="500">
+     <div class="div-previd">
+        <Carousel :itemsToShow="3" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosPerfiles" :key="video.id">
-            <iframe :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
+            <iframe class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
           </Slide>
         </Carousel>
       </div>
-
-
-
-
-
-
-      
-
-      
-
-
-
-
-
-
-
-
-  
+      <br>
       <div class="docentes-container">
        <!-- <div v-for="docente in docentes" :key="docente.id" class="docente-item">
           <div v-html="generateTable(docente)"></div>
         </div>-->
       </div>
   
-      <h2>Áreas laborales PSP</h2><br>
+      <h2 class="prehead2">Áreas laborales PSP</h2><br>
 
       <div style="text-align: center;margin-bottom: 10%;">
-  <table style="margin: 0 auto;">
-    <tr>
-      <td style="width: 50%;">
-        <p style="text-align: left;color:black;margin-left: 5%;margin-right: 2%;">En sector educativo: educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio.
+  <table class="pre-tab" style="margin: 0 auto;">
+    <tr class="pre-tr">
+      <td class="pre-td" >
+        <p class="p-pre" style="text-align: left;color:black;margin-left: 5%;margin-right: 2%;">En sector educativo: educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio.
         En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s.
         En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación.</p>
       </td>
-      <td style="width: 50%;">
-        <img style="width: 100%;height: 100%;border-radius: 20px;"
-        alt="Vue logo" class="logo" src="\backend\images\goodcat.py.jpg" width="125" height="125" />
+      <td class="pre-td">
+        <img 
+        alt="Vue logo" class="logo-pre" src="\backend\images\goodcat.py.jpg" />
       </td>
     </tr>
   </table>
@@ -129,9 +115,9 @@
 
 
 
-      <div style="text-align: center; margin-bottom: 5%">
-        <a ><button>Intercambios estudiantiles</button></a><br>
-        <a><button>Alianzas con otras Universidades</button></a><br>
+      <div class="footer-pre" >
+        <a ><button class="b-pre2">Intercambios estudiantiles</button></a><br>
+        <a><button class="b-pre2">Alianzas con otras Universidades</button></a><br><br><br>
         <!--<a :href="paginaNosotros.link_psico_ucb"><button>Psicopedagogía La Paz</button></a><br>-->
       </div>
       
@@ -161,25 +147,28 @@ export default defineComponent({
   data() {
     return {
       videosAsignaturas: [
-        { id: 1, url: 'https://www.youtube.com/watch?v=GGNY04u2FTQ' },
-        { id: 2, url: 'https://www.youtube.com/watch?v=FwI0gPz-Tz8' },
+        { id: 1, url: 'https://www.youtube.com/watch?v=OUd-tTZWBNw' },
+        { id: 2, url: 'https://www.youtube.com/watch?v=w0dY_n_YOdc' },
         // Add more video objects as needed
       ],
       videosActividades: [
-        { id: 1, url: 'https://www.youtube.com/watch?v=mlvIFV_8v7Q' },
-        { id: 2, url: 'https://www.youtube.com/watch?v=JkklDXa6r-E' },
+        { id: 1, url: 'https://www.youtube.com/watch?v=MxhPka31ots' },
+        { id: 2, url: 'https://www.youtube.com/watch?v=J3PkExmyCDc' },
+        { id: 3, url: 'https://www.youtube.com/watch?v=Rq_qALguVio' },
         // Add more video objects as needed
       ],
       videosPerfiles: [
-        { id: 1, url: 'https://www.youtube.com/watch?v=9XyiBI53LZ0' },
-        { id: 2, url: 'https://www.youtube.com/watch?v=vHqhkaN92f0' },
+        { id: 1, url: 'https://www.youtube.com/watch?v=msyuIdfVInY' },
+        { id: 2, url: 'https://www.youtube.com/watch?v=O-GNjPSWBsU' },
+        {id:3, url:'https://www.youtube.com/watch?v=3fqzUwKD4lM'},
         // Add more video objects as needed
       ],
 
       images: [
-      { id: 1, url: '/src/assets/images/facebook.png' },
+      { id: 1, url: '/src/assets/images/gentep.webp' },
+      { id: 2, url: '/src/assets/images/gentep2.webp' },
+      { id: 3, url: '/src/assets/images/gentep3.webp' },
 
-        { id: 2, url: '/src/assets/images/insta.png' },
         // Add more image objects as needed
       ],
       // Define videos arrays for other carousels if needed
@@ -202,54 +191,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-.carousel__slide {
-  padding: 5px;
-  width: 300px;
-  height: 200px;
-}
 
-.carousel__viewport {
-  width: 100%; /* Ensures the viewport takes the full width */
-  max-width: 400px; /* Set a maximum width for the viewport */
-  margin: 0 auto; /* Center the viewport horizontally */
-}
-
-.carousel__track {
-  transform-style: preserve-3d;
-}
-
-.carousel__slide--sliding {
-  transition: 0.5s;
-}
-
-.carousel__slide {
-  opacity: 0.9;
-  transform: rotateY(-20deg) scale(0.9);
-}
-
-.carousel__slide--active ~ .carousel__slide {
-  transform: rotateY(20deg) scale(0.9);
-}
-
-
-.carousel__slide--prev {
-  opacity: 1;
-  transform: rotateY(-10deg) scale(0.95);
-}
-
-
-
-.carousel__slide--next {
-  opacity: 1;
-  transform: rotateY(10deg) scale(0.95);
-}
-
-.carousel__slide--active {
-  opacity: 1;
-  transform: rotateY(0) scale(1.1);
-}
-</style>
 
 
 
@@ -350,6 +292,7 @@ export default defineComponent({
     background-size: cover; /* Cover the entire container */
     background-position: center; /* Center the background image */
     /* Add other styles as needed */
+    height: 100%;
     
   }
   </style>
