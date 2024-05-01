@@ -125,26 +125,6 @@ export default defineComponent({
       return `https://www.youtube.com/embed/${videoId}`;
     },
   },
-
-
-
-  mounted() {
-    this.preloadCriticalResources();
-  },
-  // Preload critical resources such as fonts and background images
-  preloadCriticalResources() {
-    const fontPreloadLink = document.createElement('link');
-    fontPreloadLink.rel = 'preload';
-    fontPreloadLink.as = 'font';
-    fontPreloadLink.href = '/path/to/your/font.woff2'; // Replace with your font file path
-    document.head.appendChild(fontPreloadLink);
-
-    const backgroundImagePreloadLink = document.createElement('link');
-    backgroundImagePreloadLink.rel = 'preload';
-    backgroundImagePreloadLink.as = 'image';
-    backgroundImagePreloadLink.href = '/path/to/your/background-image.jpg'; // Replace with your background image file path
-    document.head.appendChild(backgroundImagePreloadLink);
-  },
 })
 </script>
 
