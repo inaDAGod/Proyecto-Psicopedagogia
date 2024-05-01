@@ -133,10 +133,10 @@ const generateTable = (docente) => {
   const tableHTML = `<center>
     <div class="docentes">
       <div class="docentes-info">
-        <p >Nombre: ${docente.nombre}<br><br>
-        Cargo: ${docente.cargo}<br><br>
-        Correo: ${docente.correo}<br><br>
-        Dato: ${docente.datoc}</p>
+        <p > ${docente.nombre}<br>
+         ${docente.cargo}<br>
+         ${docente.correo}<br>
+         ${docente.datoc}</p>
       </div>
       <div class="docentes-avatar">
         <div class="docentes-nickname">${docente.apodo}</div>

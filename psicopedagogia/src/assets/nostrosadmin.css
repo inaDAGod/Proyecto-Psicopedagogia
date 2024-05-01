@@ -159,10 +159,11 @@
     
     text-align: center;
     max-width: 70%; 
-    width: 50%;
+    width: 400px;
     display: flex;
     margin-top: 8%;
     margin-bottom: 20px;
+    height: 300px;
   }
   
   
@@ -185,7 +186,7 @@
   .docentes-avatar {
     display: inline-block;
     position: absolute;
-    right: -48%; 
+    right: -40%; 
     bottom: -2%; 
   }
   
