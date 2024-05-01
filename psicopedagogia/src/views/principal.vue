@@ -44,14 +44,14 @@
                 </div>
         </div>
        
-        <div class="animation-container">
-            <div class="image-left">
+        <div class="animation-container" @click="reiniciarAnimacion">
+            <div class="image-left" ref="imageLeft">
                 <img src="/src/assets/images/home-area1.png" alt="Imagen izquierda">
             </div>
             <div class="animation-text">
                 <p>Areas de estudio</p>
             </div>
-            <div class="image-right">
+            <div class="image-right" ref="imageRight">
                 <img src="/src/assets/images/home-area2.png" alt="Imagen derecha">
             </div>
         </div>
@@ -131,6 +131,20 @@ const obtenerHome = async () => {
 onMounted(() => {
   obtenerHome();
 });
+
+//para reiniciar la animacion con un click
+const imageLeft = ref(null);
+const imageRight = ref(null);
+const reiniciarAnimacion = () => {
+    
+    imageLeft.value.style.animation = 'none';
+    void imageLeft.value.offsetWidth;
+    imageLeft.value.style.animation = null;
+
+    imageRight.value.style.animation = 'none';
+    void imageRight.value.offsetWidth; 
+    imageRight.value.style.animation = null;
+};
 </script> 
 
 <script>
@@ -230,7 +244,18 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
       max-width: 100%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
   }
 }
-
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #BEAFE5;
+    color:#BEAFE5; /* Cambia el color del fondo del botón */
+    border: none;
+    cursor: pointer;
+    border-radius: 6vh;
+    font-size: 3vh;
+    padding: 3vh;
+    padding-left: 5vh;
+    padding-right: 5vh;
+}
 .carousel-item img {
   width: 100%; /* Establece el ancho al 100% para que las imágenes se ajusten al contenedor */
   height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción */
@@ -314,6 +339,10 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+
 }
 .text-box-mision {
     background-color: #AAD6FB;
@@ -322,6 +351,7 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
     padding: 5vh;
     margin-top: 5vh;
     margin-bottom: 1vh; 
+    margin-right: 5%;
 }
 .text-box-vision {
     background-color: #FEF684;
@@ -330,6 +360,7 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
     padding: 5vh;
     margin-top: 5vh;
     margin-bottom: 1vh;
+    margin-left: 5%;
 }
 .text-box-perfilestudiante {
   background-color: #BEAFE5;
@@ -341,7 +372,25 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
   margin-right: 15%;
   margin-left: 15%;
 }
+.text-box-quienessomos:hover {
+    transform: scale(1.05); /* Aumenta el tamaño del text box en un 5% cuando el mouse pasa sobre él */
+    transition: transform 0.3s ease; /* Agrega una transición suave para la animación */
+}
 
+.text-box-mision:hover,
+.text-box-vision:hover,
+.text-box-perfilestudiante:hover {
+    transform: scale(1.05); /* Aumenta el tamaño del text box en un 5% cuando el mouse pasa sobre él */
+    transition: transform 0.3s ease; /* Agrega una transición suave para la animación */
+}
+.text-box-vision .text-content1 h1,
+.text-box-mision .text-content1 h1,
+.text-box-perfilestudiante .text-content1 h1 {
+    padding-top: 20px;
+    font-family: 'Koulen', sans-serif;
+    text-align: center;
+    font-size: 3vmax;
+}
 .text-box-vision .text-content1 p,
 .text-box-mision .text-content1 p,
 .text-box-perfilestudiante .text-content1 p {
