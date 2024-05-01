@@ -105,7 +105,7 @@
       </td>
       <td class="pre-td">
         <img 
-        alt="Vue logo" class="logo-pre" src="\backend\images\goodcat.py.jpg" />
+        alt="Vue logo" class="logo-pre" src="\backend\images\ped.jpg" />
       </td>
     </tr>
   </table>
