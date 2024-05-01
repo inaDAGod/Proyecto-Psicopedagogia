@@ -5,7 +5,7 @@ import About from '@/views/Nosotros.vue';
 import Sociedad from '@/views/Sociedad.vue';
 import Zona from '@/views/investigaciones.vue';
 import Noticias from '@/views/actividades_noticias.vue';
-//import Social from '@/views/social.vue'
+import Social from '@/views/social.vue'
 //import Red from '@/views/red.vue'
 //import Publicaciones from '@/views/publicaciones.vue'
 //import Pregrado from '@/views/Pregrado.vue'
@@ -44,12 +44,13 @@ const router = createRouter({
       name: 'Noticias',
       component: Noticias,
     },
-    /*
+    
     {
       path: '/sembrando',
       name: 'Social',
       component: Social,
     },
+    
     /*
     {
       path: '/red',
@@ -61,6 +62,8 @@ const router = createRouter({
       name: 'Publicaciones',
       component: Publicaciones,
     },
+    */
+    
     /*{
       path: '/formacion/pregrado',
       name: 'Pregrado',
