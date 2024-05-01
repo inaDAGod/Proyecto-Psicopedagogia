@@ -16,7 +16,7 @@
         <div class="card-body">
           <h5 class="card-title">{{ card.title }}</h5>
           <div class="botonConteiner">
-            <a href="#" class="btn btn-primary">
+            <a href="https://ceb.bo/" class="btn btn-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
