@@ -6,7 +6,7 @@
         <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
           <div style="margin: 20px;">
             <!-- Button to toggle the Formpaginanos component -->
-            <button class="b-form" @click="toggleFormVisibility('formPaginanos')">Modificar</button>
+            <button class="b-formna" @click="toggleFormVisibility('formPaginanos')">Modificar</button>
             <!-- Formpaginanos component -->
             <Formpaginanos v-if="showFormPaginanos" @closeForm="closeForm('formPaginanos')" />
           </div>
@@ -25,19 +25,19 @@
         <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
           <div style="margin:20px;">
             <!-- Button to toggle the FormDocente component -->
-            <button class="b-form" @click="toggleFormVisibility('formDocente')">Agregar</button>
+            <button class="b-formna" @click="toggleFormVisibility('formDocente')">Agregar</button>
             <!-- FormDocente component -->
             <FormDocente v-if="showFormDocente" @closeForm="closeForm('formDocente')" />
           </div>
           <div style="margin:20px;">
             <!-- Button to toggle the FormDocente component -->
-            <button class="b-form" @click="toggleFormVisibility('formDocMod')">Modificar</button>
+            <button class="b-formna" @click="toggleFormVisibility('formDocMod')">Modificar</button>
             <!-- FormDocente component -->
             <FormDocMod v-if="showFormDocMod" @closeForm="closeForm('formDocMod')" />
           </div>
           <div style="margin:20px;">
             <!-- Button to toggle the FormDocente component -->
-            <button class="b-form" @click="toggleFormVisibility('formDocElim')">Eliminar</button>
+            <button class="b-formna" @click="toggleFormVisibility('formDocElim')">Eliminar</button>
             <!-- FormDocente component -->
             <FormDocElim v-if="showFormDocElim" @closeForm="closeForm('formDocElim')" />
           </div>
@@ -54,53 +54,53 @@
       <!-- Displaying PROGRAMAS -->
       <h1 class="titulo-nos">PROGRAMAS</h1>
       <div style="text-align: center; margin-bottom: 5%">
-        <a :href="paginaNosotros.link_soc_cien"><button class="b-links">Sociedad Científica Estudiantil Inpsicopedia</button></a><br>
-        <a :href="paginaNosotros.link_sembrando"><button class="b-links">Programa “Sembrando Semillas de Paz”</button></a><br>
-        <a :href="paginaNosotros.link_psico_ucb"><button class="b-links">Psicopedagogía La Paz</button></a><br>
+        <a :href="paginaNosotros.link_soc_cien"><button class="b-linksna">Sociedad Científica Estudiantil Inpsicopedia</button></a><br>
+        <a :href="paginaNosotros.link_sembrando"><button class="b-linksna">Programa “Sembrando Semillas de Paz”</button></a><br>
+        <a :href="paginaNosotros.link_psico_ucb"><button class="b-linksna">Psicopedagogía La Paz</button></a><br>
       </div>
   
       <!-- Footer -->
       <footer>
-        <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernosa-img">
-        <div class="footernosa-container">
-          <table class="footernosa-table">
-      <tr class="footernosa-tr">
-        <td class="footernosa-td">
+        <img src="/src/assets/images/rocas.png" alt="Image Description" class="afooternos-img">
+        <div class="afooternos-container">
+          <table class="afooternos-table">
+      <tr class="afooternos-tr">
+        <td class="afooternos-td">
           <a :href="paginaNosotros.facebook"><img class="imgnosa" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footernosa-td">
-          <p class="footernosa-p">Psicopedagogía UCB La Paz</p>
+        <td class="afooternos-td">
+          <p class="afooternos-p">Psicopedagogía UCB La Paz</p>
         </td>
       </tr>
-      <tr class="footernosa-tr">
-        <td class="footernosa-td">
+      <tr class="afooternos-tr">
+        <td class="afooternos-td">
           <a :href="paginaNosotros.insta"><img class="imgnosa"   src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footernosa-td">
-          <p class="footernosa-p">ucb.psp</p>
+        <td class="afooternos-td">
+          <p class="afooternos-p">ucb.psp</p>
         </td>
       </tr>
-      <tr class="footernosa-tr">
-        <td class="footerosa-td">
+      <tr class="afooternos-tr">
+        <td class="afooteros-td">
           <a :href="paginaNosotros.youtube"><img class="imgnosa"  src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footernosa-td">
-          <p class="footernosa-p">canal de youtube</p>
+        <td class="afooternos-td">
+          <p class="afooternos-p">canal de youtube</p>
         </td>
       </tr>
-      <tr class="footernosa-tr">
-        <td class="footernosa-td">
+      <tr class="afooternos-tr">
+        <td class="afooternos-td">
           <a :href="paginaNosotros.tiktok"><img class="imgnosa"  src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footernosa-td">
-          <p class="footernosa-p">psp.ucb.lapaz</p>
+        <td class="afooternos-td">
+          <p class="afooternos-p">psp.ucb.lapaz</p>
         </td>
       </tr>
     </table>
   
-          <div class="footernosa-info">
-            <h2 class="footernosa-mainnos">Atención de Dirección de Carrera</h2>
-            <p id="direciona">{{ paginaNosotros.attencion_dire }}</p>
+          <div class="afooternos-info">
+            <h2 class="afooternos-mainnos">Atención de Dirección de Carrera</h2>
+            <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
           </div>
         </div>
       </footer>
@@ -203,23 +203,24 @@
   
   // Function to generate HTML table for docentes
   const generateTable = (docente) => {
-    const tableHTML = `<center>
-      <div class="docentes">
-        <div class="docentes-info">
-          <p >Nombre: ${docente.nombre}<br><br>
-          Cargo: ${docente.cargo}<br><br>
-          Correo: ${docente.correo}<br><br>
-          Dato: ${docente.datoc}</p>
-        </div>
-        <div class="docentes-avatar">
-          <div class="docentes-nickname">${docente.apodo}</div>
-          <img src="${docente.imagen}" alt="${docente.nombre}" class="docentes-image">
-        </div>
+  const tableHTML = `<center>
+    <div class="docentesna">
+      <div class="docentes-infona">
+        <p ><b> ${docente.nombre}</b><br><br>
+         ${docente.cargo}<br>
+         ${docente.correo}<br>
+         Dato curioso:
+         ${docente.datoc}</p>
       </div>
-    <center>`;
-  
-    return tableHTML;
-  };
+      <div class="docentes-avatarna">
+        <div class="docentes-nicknamena">${docente.apodo}</div>
+        <img src="${docente.imagen}" alt="${docente.nombre}" class="docentes-imagena">
+      </div>
+    </div>
+  <center>`;
+
+  return tableHTML;
+};
   </script>
   
  
