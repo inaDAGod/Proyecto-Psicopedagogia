@@ -145,3 +145,21 @@ INSERT INTO actividad_interaccion_social (actividad, fecha, hora, ubicacion, des
 ('Curso de inclusión educativa', '2024-05-02', '10:30:00', 'Sala de conferencias', 'El curso abordará prácticas inclusivas para atender a la diversidad de estudiantes en el aula.', '/src/assets/images/psico2.jpg', 'Internacional', 'it0'),
 ('Conferencia sobre gamificación en la educación', '2024-05-05', '16:00:00', 'Auditorio principal', 'Expertos discutirán cómo la gamificación puede mejorar la motivación y el compromiso de los estudiantes en el proceso de aprendizaje.', '/src/assets/images/psico1.jpg', 'Internacional', 'it0');
 
+--para publicaciones
+CREATE TABLE publicaciones (
+    id_publicacion SERIAL PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    autor VARCHAR(255) NOT NULL,
+    descripcion TEXT,
+	anio INT,
+    publicacion_src VARCHAR(255),
+	ruta TEXT
+);
+INSERT INTO publicaciones (titulo, autor, descripcion, anio, publicacion_src,ruta) 
+VALUES 
+    ('La importancia de la educación emocional', 'María González', 'En este artículo se explora la relevancia de la educación emocional en el desarrollo de los niños.', 2023, '/src/assets/images/publicacion.png','https://www.renfe.com/content/dam/renfe/es/General/PDF-y-otros/Ejemplo-de-descarga-pdf.pdf'),
+    ('Estrategias para mejorar la concentración en el aula', 'Juan Pérez', 'Se presentan diversas técnicas y actividades para ayudar a los estudiantes a mantenerse concentrados durante las clases.', 2022, '/src/assets/images/publicacion.png','https://www.renfe.com/content/dam/renfe/es/General/PDF-y-otros/Ejemplo-de-descarga-pdf.pdf'),
+    ('Cómo fomentar la lectura en los niños', 'Ana Martínez', 'Consejos y recomendaciones para promover el hábito de la lectura desde la infancia.', 2024, '/src/assets/images/publicacion.png','https://www.renfe.com/content/dam/renfe/es/General/PDF-y-otros/Ejemplo-de-descarga-pdf.pdf'),
+    ('Beneficios del aprendizaje cooperativo', 'Carlos López', 'Se analizan los beneficios académicos y sociales del aprendizaje cooperativo en el aula.', 2021, '/src/assets/images/publicacion.png','https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf'),
+    ('Importancia de la inclusión en la educación', 'Laura Fernández', 'Reflexión sobre la importancia de crear entornos educativos inclusivos para todos los estudiantes.', 2023, '/src/assets/images/publicacion.png','https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf'),
+    ('Cómo abordar el bullying escolar', 'David García', 'Estrategias para prevenir y manejar situaciones de acoso escolar en las escuelas.', 2022, '/src/assets/images/publicacion.png','https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf');

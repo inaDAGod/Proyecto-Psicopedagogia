@@ -5,22 +5,23 @@
           <h1>NOTICIAS Y ACTIVIDADES</h1>
         </div>
       </div>
-      <div class="container">
-        <div class="sidebar">
-          <div class="text-box" style="background-color: #BEAFE5; color: white;">
-            <div class="text-content">
-              <p>¡NUESTRAS PROXIMAS ACTIVIDADES!</p>
+      <div class="container-anuncio">
+        <div class="anuncio">
+          <div class="text-box-act">
+            <div class="text-content-act">
+              <p>¡NUESTRAS</p>
+              <p>PROXIMAS</p>
+              <p>ACTIVIDADES!</p>
             </div>
           </div>
-        </div>
-        <div class="calendar_container">
-          <!-- Contenido del calendario -->
         </div>
       </div>
       <div class="vacio">
         <br>
       </div>
-      <h1>ACTIVIDADES</h1>
+      <div class="subtitulo-actividad">
+        <h1>ACTIVIDADES</h1>
+      </div>
       <br>
       <table class="container-actividades">
         <tbody>
@@ -31,7 +32,7 @@
                   <img :src="actividad.actividad_src" :alt="actividad.actividad">
                 </div>
                 <div class="actividad-nombre">
-                  <button @click="toggleInfoActividad(rowIndex, index)">{{ actividad.actividad }}</button>
+                  <button class="btn-actividad" @click="toggleInfoActividad(rowIndex, index)">{{ actividad.actividad }}</button>
                   <div v-if="expandedInfoActividad[rowIndex][index]" class="info-actividad">
                     <p>Fecha: {{ actividad.fecha }}</p>
                     <p>Hora: {{ actividad.hora }}</p>
@@ -44,7 +45,9 @@
           </tr>
         </tbody>
       </table>
-      <h1>NOTICIAS</h1>
+      <div class="subtitulo-actividad">
+        <h1>NOTICIAS</h1>
+      </div>
       <br>
       <table class="container-noticias">
         <tbody>
@@ -55,7 +58,7 @@
                   <img :src="noticia.noticia_src" :alt="noticia.noticia">
                 </div>
                 <div class="noticia-contenido">
-                  <button @click="toggleInfoNoticia(rowIndex, index)">{{ noticia.noticia }}</button>
+                  <button class="btn-noticia" @click="toggleInfoNoticia(rowIndex, index)">{{ noticia.noticia }}</button>
                   <div v-if="expandedInfoNoticia[rowIndex][index]" class="info-noticia">
                     <p>{{ noticia.contenido }}</p>
                     <p>Fecha: {{ noticia.fecha }}</p>
@@ -155,49 +158,118 @@
   @import url('/src/assets/estilo.css');
   @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
   
-  .container-actividades {
-    margin-left: 5vh;
-    margin-right:5vh;
-    width:100%;
+  .titulo h1{
+    font-size: 11vh;
+    color: #FF7001;
+    font-family: 'Koulen', 'sans-serif';
+    margin-top: 4vh;
+  }
+  .subtitulo-actividad h1{
+    font-size: 7vh;
+    color: #FF7001;
+    font-family: 'Koulen', 'sans-serif';
+    margin-top: 4vh;
+  }
+  .container-anuncio{
+    text-align: center;
+    align-items: center;
+    margin-right: 7%;
+    margin-left: 7%;
+    width:86%;
+  }
+  .anuncio{
     text-align: center;
   }
-    .container-noticias{
-    width:100%;
+  .text-box-act{
+    padding: 3vh;
+    border-radius: 5vh;
+    text-align: center;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #BEAFE5;
+  }
+  .text-content-act p{
+    font-size: 5vh;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    text-align: center;
+  }
+  .container-actividades,
+  .container-noticias {
+    margin-left: 5%;
+    margin-right:5%;
+    width:90%;
     text-align: center;
   }
   
-  .actividades {
-    width: 100%;
+  .actividades,
+  .noticias {
+    width: 90%;
     margin-bottom: 20px;
     box-sizing: border-box;
   }
   
-  .actividad-imagen img {
-    width: 100%;
+  .actividad-imagen img,
+  .noticia-imagen img {
+    width: 60vh; /* Establece el ancho al 100% */
+    height: 40vh; /* Establece la altura a 20vh (puedes ajustar este valor según tus necesidades) */
+    object-fit: cover; /* Para mantener la relación de aspecto */
   }
 
   .actividad-nombre {
     margin-top: 1vh;
   }
   
-  button {
-    background-color: #FFC497;
+  .btn-actividad{
+    background-color: #0D89F4;
     border: none;
     cursor: pointer;
+    border-radius: 6vh;
+    font-size: 3vh;
+    padding: 3vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: auto; /* Ancho automático por defecto */
+  }
+  .btn-noticia{
+    background-color: #BADF3A;
+    border: none;
+    cursor: pointer;
+    border-radius: 6vh;
+    font-size: 3vh;
+    padding: 3vh;
+    margin-top: 2vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: auto; /* Ancho automático por defecto */
+
+  }
+  .btn-actividad:hover,
+  .btn-noticia:hover {
+      transform: scale(1.10); /* Aumenta el tamaño del botón en un 5% cuando el mouse pasa sobre él */
   }
   
   .info-actividad {
     margin-top: 2vh;
     padding: 2vh;
-    background-color: #FFC497;
+    background-color: #AAD6FB;
     border-radius: 3vh;
   }
   
   .info-noticia {
     margin-top: 2vh;
     padding: 2vh;
-    background-color: #FFC497;
+    background-color: #DBEE96;
     border-radius: 3vh;
+  }
+  .info-actividad p,
+  .info-noticia p{
+    font-family: 'Roboto Condensed', 'sans-serif';
+    font-size: 3.5vh;
+    color:white;
+    text-align: center;
+    align-items: center;
   }
   h1{
     margin-left: 5vh;

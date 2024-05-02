@@ -127,6 +127,18 @@ app.get('/api/actividades_internacional', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+//publicaciones e investigaciones
+app.get('/api/publicaciones', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('select * from publicaciones');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error al obtener las publicaciones:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 
 
 const PORT = process.env.PORT || 3000;
