@@ -270,7 +270,7 @@
   .info-actividad p,
   .info-noticia p{
     font-family: 'Roboto Condensed', 'sans-serif';
-    font-size: 3.5vh;
+    font-size: 2.5vh;
     color:white;
     text-align: center;
     align-items: center;
