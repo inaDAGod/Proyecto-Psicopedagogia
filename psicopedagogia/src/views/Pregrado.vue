@@ -192,7 +192,7 @@ export default defineComponent({
 .nav-buttonprep {
   font-family: 'Oswald';
   font-size: 20px;
-  background-color: rgba(255, 42, 157, 1);
+  background-color:transparent;
   color: white;
   border-radius: 100%;
   width: 10%;
@@ -208,7 +208,7 @@ export default defineComponent({
 .nav-buttonpren {
   font-family: 'Oswald';
   font-size: 20px;
-  background-color: rgba(255, 42, 157, 1);
+  background-color:transparent;
   color: white;
   border-radius: 100%;
   width: 10%;
@@ -222,10 +222,10 @@ export default defineComponent({
 
 .flecha{
 
-  background-color: rgba(255, 42, 157, 1);
+  
 
 border-radius: 100%;
-width: 45%;
+width: 25%;
 }
 
 
