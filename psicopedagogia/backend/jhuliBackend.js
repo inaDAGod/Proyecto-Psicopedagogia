@@ -93,6 +93,7 @@ app.get('/api/interaccionsocial', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
 app.get('/api/actividades_universidad', async (req, res) => {
   try {
     const client = await pool.connect();

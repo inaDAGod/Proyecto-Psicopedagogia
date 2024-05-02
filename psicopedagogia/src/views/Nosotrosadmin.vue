@@ -2,11 +2,11 @@
     <div id="app">
       <!-- First section: NOSOTROS -->
       <div style="display: flex; align-items: center;">
-        <h1>NOSOTROS</h1>
+        <h1 class="titulo-nos">NOSOTROS</h1>
         <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
           <div style="margin: 20px;">
             <!-- Button to toggle the Formpaginanos component -->
-            <button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);" @click="toggleFormVisibility('formPaginanos')">Modificar</button>
+            <button class="b-form" @click="toggleFormVisibility('formPaginanos')">Modificar</button>
             <!-- Formpaginanos component -->
             <Formpaginanos v-if="showFormPaginanos" @closeForm="closeForm('formPaginanos')" />
           </div>
@@ -16,28 +16,28 @@
       <!-- Video section -->
       <div class="video-container">
         <!-- Paste the iframe code here -->
-        <iframe :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
+        <iframe class="video-nos" :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
       </div>
   
       <!-- Second section: NUESTRA FAMILIA -->
       <div style="display: flex; align-items: center;">
-        <h1>NUESTRA FAMILIA</h1>
+        <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
         <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
           <div style="margin:20px;">
             <!-- Button to toggle the FormDocente component -->
-            <button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);" @click="toggleFormVisibility('formDocente')">Agregar</button>
+            <button class="b-form" @click="toggleFormVisibility('formDocente')">Agregar</button>
             <!-- FormDocente component -->
             <FormDocente v-if="showFormDocente" @closeForm="closeForm('formDocente')" />
           </div>
           <div style="margin:20px;">
             <!-- Button to toggle the FormDocente component -->
-            <button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);" @click="toggleFormVisibility('formDocMod')">Modificar</button>
+            <button class="b-form" @click="toggleFormVisibility('formDocMod')">Modificar</button>
             <!-- FormDocente component -->
             <FormDocMod v-if="showFormDocMod" @closeForm="closeForm('formDocMod')" />
           </div>
           <div style="margin:20px;">
             <!-- Button to toggle the FormDocente component -->
-            <button style="font-size: 36px; width: 100%; padding: 10px;padding-left: 30px;padding-right: 30px; margin-right: 10px;background-color: rgba(255, 42, 157, 1);" @click="toggleFormVisibility('formDocElim')">Eliminar</button>
+            <button class="b-form" @click="toggleFormVisibility('formDocElim')">Eliminar</button>
             <!-- FormDocente component -->
             <FormDocElim v-if="showFormDocElim" @closeForm="closeForm('formDocElim')" />
           </div>
@@ -52,55 +52,55 @@
     </div>
   
       <!-- Displaying PROGRAMAS -->
-      <h1>PROGRAMAS</h1>
+      <h1 class="titulo-nos">PROGRAMAS</h1>
       <div style="text-align: center; margin-bottom: 5%">
-        <a :href="paginaNosotros.link_soc_cien"><button>Sociedad Científica Estudiantil Inpsicopedia</button></a><br>
-        <a :href="paginaNosotros.link_sembrando"><button>Programa “Sembrando Semillas de Paz”</button></a><br>
-        <a :href="paginaNosotros.link_psico_ucb"><button>Psicopedagogía La Paz</button></a><br>
+        <a :href="paginaNosotros.link_soc_cien"><button class="b-links">Sociedad Científica Estudiantil Inpsicopedia</button></a><br>
+        <a :href="paginaNosotros.link_sembrando"><button class="b-links">Programa “Sembrando Semillas de Paz”</button></a><br>
+        <a :href="paginaNosotros.link_psico_ucb"><button class="b-links">Psicopedagogía La Paz</button></a><br>
       </div>
   
       <!-- Footer -->
       <footer>
-        <img src="/src/assets/images/rocas.png" alt="Image Description" class="footer-img">
-        <div class="footer-container">
-          <table class="footer-table"  style="margin-top: 2px;">
-            <tr >
-              <td>
-                <a :href="paginaNosotros.facebook"><img style="width: 100px;" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
-              </td>
-              <td>
-                <p>Psicopedagogía UCB La Paz</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a :href="paginaNosotros.insta"><img style="width: 100px;"  src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
-              </td>
-              <td>
-                <p>ucb.psp</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a :href="paginaNosotros.youtube"><img style="width: 150px; margin-left:-20px;" src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
-              </td>
-              <td>
-                <p>canal de youtube</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <a :href="paginaNosotros.tiktok"><img style="width: 100px;" src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
-              </td>
-              <td>
-                <p>psp.ucb.lapaz</p>
-              </td>
-            </tr>
-          </table>
+        <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernosa-img">
+        <div class="footernosa-container">
+          <table class="footernosa-table">
+      <tr class="footernosa-tr">
+        <td class="footernosa-td">
+          <a :href="paginaNosotros.facebook"><img class="imgnosa" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
+        </td>
+        <td class="footernosa-td">
+          <p class="footernosa-p">Psicopedagogía UCB La Paz</p>
+        </td>
+      </tr>
+      <tr class="footernosa-tr">
+        <td class="footernosa-td">
+          <a :href="paginaNosotros.insta"><img class="imgnosa"   src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
+        </td>
+        <td class="footernosa-td">
+          <p class="footernosa-p">ucb.psp</p>
+        </td>
+      </tr>
+      <tr class="footernosa-tr">
+        <td class="footerosa-td">
+          <a :href="paginaNosotros.youtube"><img class="imgnosa"  src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
+        </td>
+        <td class="footernosa-td">
+          <p class="footernosa-p">canal de youtube</p>
+        </td>
+      </tr>
+      <tr class="footernosa-tr">
+        <td class="footernosa-td">
+          <a :href="paginaNosotros.tiktok"><img class="imgnosa"  src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
+        </td>
+        <td class="footernosa-td">
+          <p class="footernosa-p">psp.ucb.lapaz</p>
+        </td>
+      </tr>
+    </table>
   
-          <div class="footer-info">
-            <h2>Atención de Dirección de Carrera</h2>
-            <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
+          <div class="footernosa-info">
+            <h2 class="footernosa-mainnos">Atención de Dirección de Carrera</h2>
+            <p id="direciona">{{ paginaNosotros.attencion_dire }}</p>
           </div>
         </div>
       </footer>
@@ -243,8 +243,11 @@
 
 
   <style>
-  @import url('/src/assets/nosotros.css');
-  
-  </style>
+@import url('/src/assets/nostrosadmin.css');
+
+
+
+
+</style>
 
 

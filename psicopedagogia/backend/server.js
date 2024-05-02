@@ -326,6 +326,87 @@ app.get('/api/investigaciones', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+app.get('/api/cursosfc', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM cursosfc');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error al obtener los cursosfc:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.get('/api/maestria', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM maestria');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error al obtener los maestria:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
+app.get('/api/interaccionsocial', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('select objetivo, lineas from interaccion_social');
+    client.release();
+    res.json(result.rows[0]);//solo hay un row
+  } catch (error) {
+    console.error('Error al obtener los archivos de investigaciones:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.get('/api/actividades_universidad', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('select * from actividad_interaccion_social where tipo=\'Universidad\'');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error al obtener los archivos de actividades de universidad:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.get('/api/actividades_departamental', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('select * from actividad_interaccion_social where tipo=\'Departamental\'');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error al obtener los archivos de actividades departamentales:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.get('/api/actividades_internacional', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('select * from actividad_interaccion_social where tipo=\'Internacional\'');
+    client.release();
+    res.json(result.rows);
+  } catch (error) {
+    console.error('Error al obtener los archivos de actividades internacionales:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 // Iniciar el servidor en el puerto 3000
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

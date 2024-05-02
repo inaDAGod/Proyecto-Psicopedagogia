@@ -34,3 +34,25 @@ CREATE TABLE egresados (
     src_tesis TEXT
 );
 
+
+CREATE TABLE cursosfc (
+    id_cur SERIAL PRIMARY KEY,
+    titulo varchar(200)  NOT NULL,
+    about varchar(1000)  NOT NULL,
+    competencia varchar(1000)  NOT NULL,
+    requisitos varchar(1000)  NOT NULL,
+    fecha date  NOT NULL,
+    img text  NOT NULL
+    
+);
+
+CREATE TABLE maestria (
+    id_pos SERIAL PRIMARY KEY,
+    titulo varchar(200)  NOT NULL,
+    about varchar(1000)  NOT NULL,
+    competencia varchar(1000)  NOT NULL,
+    requisitos varchar(1000)  NOT NULL,
+    fecha date  NOT NULL,
+    img text  NOT NULL
+    
+);
