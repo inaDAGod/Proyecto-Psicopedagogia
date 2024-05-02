@@ -107,6 +107,6 @@
   </script>
   
   <style scoped>
-  @import url('/./src/assets/formEgresados.css');
+  @import url('/src/assets/formEgresados.css');
   </style>
   
