@@ -2,7 +2,7 @@
     <div id="app">
       
       
-      <h1 class="titulo-pos">POSTGRADO</h1>
+      <h2 class="titulo-pos2">POSTGRADO</h2>
       <br>
   
       <div class="container-pos">
