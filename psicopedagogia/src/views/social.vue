@@ -355,9 +355,9 @@ onMounted(() => {
   .info-actividad-universidad p,
   .info-actividad-departamental p,
   .info-actividad-internacional p{
-    font-family: 'Roboto Condensed', 'sans-serif';
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 2.5vh;
-    color:white;
+    color: #333333;
     text-align: center;
     align-items: center;
   }
