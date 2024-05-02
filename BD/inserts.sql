@@ -14,7 +14,7 @@ VALUES
 
 INSERT INTO pagina_nosotros (link_video, link_soc_cien, link_sembrando, link_psico_ucb, facebook, insta, youtube, tiktok, attencion_dire)
 VALUES
-    ('https://www.youtube.com/embed/tgbNymZ7vqY', 'https://www.facebook.com/Inpsicopedia', '', 'https://lpz.ucb.edu.bo/pregrado/psicopedagogia', 'https://www.facebook.com/PSPLaPaz', 'https://www.instagram.com/ucb.psp/', 'https://www.youtube.com/@UCBLaPazBo', 'https://www.tiktok.com/@psicopedagogialapazucb', 'Departamento de Psicopedagogía: Av. 14 de Septiembre y Calle 2 de Obrajes - Bloque N - Jardín posterior Horarios de atención: de lunes a viernes de 08:30 a 16:30 Contacto: 2782222 Int. 2872 WhatsApp: 73231313 - 77294940');
+    ('https://www.youtube.com/watch?v=nPL5hCXxmBw', 'https://www.facebook.com/Inpsicopedia', '', 'https://lpz.ucb.edu.bo/pregrado/psicopedagogia', 'https://www.facebook.com/PSPLaPaz', 'https://www.instagram.com/ucb.psp/', 'https://www.youtube.com/@UCBLaPazBo', 'https://www.tiktok.com/@psicopedagogialapazucb', 'Departamento de Psicopedagogía: Av. 14 de Septiembre y Calle 2 de Obrajes - Bloque N - Jardín posterior Horarios de atención: de lunes a viernes de 08:30 a 16:30 Contacto: 2782222 Int. 2872 WhatsApp: 73231313 - 77294940');
 
 
 INSERT INTO cursosfc (titulo, about, competencia, requisitos, fecha, img) 
