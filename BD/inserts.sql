@@ -1,9 +1,9 @@
 
 insert into egresados (nombre, correo, anio_graduacion,  trabajo,  comentario, src_foto) values
-('Nombre egresado 1', 'correo 1', 2011, 'trabajo 1', 'comentarioooooo1', './assets/images/egresado.webp'),
-('Nombre egresado 2', 'correo 2', 2012, 'trabajo 2', 'comentarioooooo2', './assets/images/egresado.webp'),
-('Nombre egresado 3', 'correo 3', 2013, 'trabajo 3', 'comentarioooooo3', './assets/images/egresado.webp'),
-('Nombre egresado 4', 'correo 4', 2014, 'trabajo 4', 'comentarioooooo4', './assets/images/egresado.webp');
+('Nombre egresado 1', 'correo 1', 2011, 'trabajo 1', 'comentarioooooo1', '/src/assets/images/egresado.webp'),
+('Nombre egresado 2', 'correo 2', 2012, 'trabajo 2', 'comentarioooooo2', '/src/assets/images/egresado.webp'),
+('Nombre egresado 3', 'correo 3', 2013, 'trabajo 3', 'comentarioooooo3', '/src/assets/images/egresado.webp'),
+('Nombre egresado 4', 'correo 4', 2014, 'trabajo 4', 'comentarioooooo4', '/src/assets/images/egresado.webp');
 
 
 INSERT INTO Docentes (nombre, apodo, cargo, correo, datoc, imagen)
