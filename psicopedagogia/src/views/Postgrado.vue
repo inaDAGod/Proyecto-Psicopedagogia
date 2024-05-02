@@ -6,9 +6,7 @@
       <br>
   
       <div class="container-pos">
-        <h1 class="titulo-pos" style="text-align: left;">Diplomados,
-especialidades y
-Maestría</h1>
+        <h1 class="titulo-pos" style="text-align: left;">Diplomados,especialidades y Maestría</h1>
       <br>
     <div class="maestrias-container">
       <div v-for="maestria in maestrias" :key="maestria.id_pos" class="maestria-item">
@@ -72,7 +70,7 @@ const generateMaestriaTable = (maestria) => {
   const tableHTML = `<center>
     <div class="maestria">
       <div class="maestria-info">
-        <h5 class="maestria-head">Título: ${maestria.titulo}</h5><br><br><p class="maestria-info p"><b>
+        <h5 class="maestria-head">Título: ${maestria.titulo}</h5><p class="maestria-info p"><b>
         About: ${maestria.about}<br><br>
         Competencia: ${maestria.competencia}<br><br>
         Requisitos: ${maestria.requisitos}<br><br>
@@ -95,7 +93,7 @@ const generateCursoTable = (curso) => {
         <img src="${curso.img}" alt="${curso.titulo}" class="curso-image">
       </div>
       <div class="curso-info">
-        <h4 class="curso-head"> ${curso.titulo}<h4><br><br>
+        <h4 class="curso-head"> ${curso.titulo}<h4>
             <p class="curso-info p">
         About: ${curso.about}<br><br>
         Competencia: ${curso.competencia}<br><br>

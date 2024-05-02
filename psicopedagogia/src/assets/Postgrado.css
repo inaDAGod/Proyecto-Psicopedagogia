@@ -7,40 +7,45 @@
 
 .maestria-info{
     background-color: rgba(170, 214, 251, 1);
-    width: 60%;
-    border-radius: 40px;
-    padding: 2%;
+    width: 70%;
+    border-radius: 20px;
+    padding: 3%;
+    margin-left: 10%;
     
 }
 .maestria {
     display: flex; /* Use flexbox layout */
     align-items: center; /* Center items vertically */
     margin-bottom: 4%; /* Add some bottom margin for spacing */
-    margin-left: 20%;
+    
+    
+    
   }
   
   .maestria-img {
-    margin-left: -23%; /* Add right margin to create space between image and text */
+     /* Add right margin to create space between image and text */
     z-index: 2;
     
     
   }
   .maestria-image{
     border-radius: 20px;
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 400px;
+    margin-left: -75%;
   }
   
   .maestria-info p {
     margin: 0; /* Remove default margin for paragraphs */
-    margin-right: 40%;
-    font-size: 15px;
+    margin-right: 22%;
+    font-size: 25px;
+    width: 85%;
     font-family:'Roboto Condensed', sans-serif;
   }
   .maestria-head{
     text-align: center;
-    font-size: 25px;
-    margin-right: 40%;
+    font-size: 35px;
+    margin-right: 20%;
     font-family: 'Oswald';
   }
 
@@ -52,40 +57,44 @@
 
   .curso-info{
     background-color: rgba(219, 238, 150, 1);
-    width: 60%;
+    width: 70%;
     border-radius: 40px;
-    padding: 2%;
+    padding: 3%;
+    margin-right: 10%;
     
 }
 .curso {
     display: flex; /* Use flexbox layout */
     align-items: center; /* Center items vertically */
     margin-bottom: 4%; /* Add some bottom margin for spacing */
-    margin-left: 20%;
+  
+    width: 100%;
   }
   
   .curso-img {
-    margin-right: -23%; /* Add right margin to create space between image and text */
+     /* Add right margin to create space between image and text */
     z-index: 2;
     
     
   }
   .curso-image{
     border-radius: 20px;
-    width: 100%;
-    height: 100%;
+    width: 400px;
+    height: 400px;
+    margin-right: -80%;
   }
   
   .curso-info p {
     margin: 0; /* Remove default margin for paragraphs */
-    margin-left: 40%;
-    font-size: 15px;
+    margin-left: 14%;
+    width: 85%;
+    font-size:25px;
     font-family: 'Roboto Condensed', sans-serif;
   }
   .curso-head{
-    text-align: center;
-    font-size: 25px;
-    margin-left: 40%;
+    text-align: left;
+    font-size: 35px;
+    margin-left: 18%;
     font-family: 'Oswald';
   }
 
