@@ -56,14 +56,12 @@ const router = createRouter({
       path: '/red',
       name: 'Red',
       component: Red,
-    },/*
+    },
     {
       path: '/integra/publicaciones',
       name: 'Publicaciones',
       component: Publicaciones,
     },
-    */
-    
     {
       path: '/formacion/pregrado',
       name: 'Pregrado',
