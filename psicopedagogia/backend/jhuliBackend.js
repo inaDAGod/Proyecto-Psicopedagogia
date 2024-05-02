@@ -13,9 +13,20 @@ const pool = new Pool({
   password: 'pastelitos',
   port: 5432, // Puerto predeterminado de PostgreSQL
 });
-
+app.post('/api/home', async (req, res) => {
+  try {
+    const { imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, mision, mision_src, vision, vision_src,perfil_estudiante, perfil_estudiante_src } = req.body;
+    const client = await pool.connect();
+    await client.query('INSERT INTO home (imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, mision, mision_src, vision, vision_src,perfil_estudiante, perfil_estudiante_src ) VALUES ($1, $2, $3, $4, $5, $6)', [imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, mision, mision_src, vision, vision_src, perfil_estudiante, perfil_estudiante_src ]);
+    client.release();
+    res.status(201).json({ message: 'Home guardado correctamente' });
+  } catch (error) {
+    console.error('Error al guardar home:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 app.post('/api/homeUpdate', (req, res) => {
-  const {imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, mision, mision_src, vision, vision_src,perfil_estudainte, perfil_estudiante_src } = req.body;
+  const {imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, mision, mision_src, vision, vision_src,perfil_estudiante, perfil_estudiante_src } = req.body;
 
   const query = `
     UPDATE home 

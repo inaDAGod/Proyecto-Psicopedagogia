@@ -222,6 +222,8 @@
   }
   
   .btn-actividad{
+    color:white;
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: #0D89F4;
     border: none;
     cursor: pointer;
@@ -233,6 +235,8 @@
     width: auto; /* Ancho automático por defecto */
   }
   .btn-noticia{
+    color:white;
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: #BADF3A;
     border: none;
     cursor: pointer;
