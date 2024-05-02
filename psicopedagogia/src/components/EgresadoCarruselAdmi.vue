@@ -11,10 +11,10 @@
             </div>
           </div>
         </div>
-        <button class="car-control-prev" type="button" @click="prevSlide">
+        <button class="car-control-prev" style="top: 82%;" type="button" @click="prevSlide">
           <
         </button>
-        <button class="car-control-next" type="button" @click="nextSlide">
+        <button class="car-control-next" style="top: 82%;" type="button" @click="nextSlide">
           >
         </button>
       </div>
@@ -78,6 +78,6 @@
   </script>
   
   <style scoped>
-    @import url('/./src/assets/egresados.css');
+    @import url('/src/assets/egresados.css');
   </style>
   
