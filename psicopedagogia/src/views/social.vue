@@ -277,6 +277,9 @@ onMounted(() => {
     margin-right:5%;
     width: 90%;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .actividades {
     width: 100%;
@@ -293,7 +296,8 @@ onMounted(() => {
   }
   
   .btn-actividad-universidad {
-
+    color:white;
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: #0D89F4;
     border: none;
     cursor: pointer;
@@ -305,6 +309,8 @@ onMounted(() => {
     width: auto; /* Ancho automático por defecto */
   }
   .btn-actividad-departamental {
+    color:white;
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: #BADF3A;
     border: none;
     cursor: pointer;
@@ -316,6 +322,8 @@ onMounted(() => {
     width: auto; /* Ancho automático por defecto */
   }
   .btn-actividad-internacional {
+    color:white;
+    font-family: 'Roboto Condensed', sans-serif;
     background-color: #FFA198;
     border: none;
     cursor: pointer;
@@ -391,18 +399,18 @@ onMounted(() => {
 
   .text-box-objetivo p,
   .text-box-lineas p{
-    padding-top: 4vh;
-    padding-left: 4vh;
-    padding-right: 4vh;
-    padding-bottom: 4vh;
+    padding-top: 3vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    padding-bottom: 3vh;
     font-family: 'Roboto Condensed', sans-serif;
     text-align: center;
-    font-size: 5vh;
+    font-size: 3.5vh;
   }
   .text-box-objetivo h1,
   .text-box-lineas h1 {
     color: black; /* Color del texto */
-    font-size: 8vh;
+    font-size: 4vh;
   }
 
 </style>
