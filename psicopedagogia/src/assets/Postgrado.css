@@ -1,15 +1,21 @@
 .titulo-pos {
     font-family: 'Koulen';
-    font-size: 80px;
+    font-size: 60px;
     color: rgba(255, 42, 157, 1);
     padding: 2%;
+}
+.titulo-pos2 {
+  font-family: 'Koulen';
+  font-size: 80px;
+  color: rgba(255, 42, 157, 1);
+  padding: 2%;
 }
 
 .maestria-info{
     background-color: rgba(170, 214, 251, 1);
-    width: 70%;
+    width: 50%;
     border-radius: 20px;
-    padding: 3%;
+    padding: 2%;
     margin-left: 10%;
     
 }
@@ -37,15 +43,15 @@
   
   .maestria-info p {
     margin: 0; /* Remove default margin for paragraphs */
-    margin-right: 22%;
-    font-size: 25px;
-    width: 85%;
+    margin-right: 25%;
+    font-size: 23px;
+    width: 75%;
     font-family:'Roboto Condensed', sans-serif;
   }
   .maestria-head{
     text-align: center;
-    font-size: 35px;
-    margin-right: 20%;
+    font-size: 25px;
+    margin-right: 31%;
     font-family: 'Oswald';
   }
 
@@ -57,10 +63,10 @@
 
   .curso-info{
     background-color: rgba(219, 238, 150, 1);
-    width: 70%;
+    width: 80%;
     border-radius: 40px;
-    padding: 3%;
-    margin-right: 10%;
+    padding: 2%;
+    margin-right: 2%;
     
 }
 .curso {
@@ -68,7 +74,7 @@
     align-items: center; /* Center items vertically */
     margin-bottom: 4%; /* Add some bottom margin for spacing */
   
-    width: 100%;
+    width: 80%;
   }
   
   .curso-img {
@@ -86,15 +92,15 @@
   
   .curso-info p {
     margin: 0; /* Remove default margin for paragraphs */
-    margin-left: 14%;
-    width: 85%;
+    margin-left: 13%;
+    width: 70%;
     font-size:25px;
     font-family: 'Roboto Condensed', sans-serif;
   }
   .curso-head{
     text-align: left;
-    font-size: 35px;
-    margin-left: 18%;
+    font-size: 25px;
+    margin-left: 24%;
     font-family: 'Oswald';
   }
 
