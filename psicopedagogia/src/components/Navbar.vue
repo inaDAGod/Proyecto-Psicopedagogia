@@ -21,11 +21,11 @@
         <li @click="toggleSubMenu(2)" @mouseenter="changeCursor('pointer')" @mouseleave="changeCursor('default')">
           <a><img src="/src/components/icons/uni.png" alt="" width="10%">Instancias UCB</a>
           <ul v-show="showSubMenu === 2" class="submenu-right " style="top: 35%;">
-            <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Inscripciones</a></li>
-            <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Tarifarios</a></li>
-            <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Planes de Pago</a></li>
-            <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Becas</a></li>
-            <li><a href=""><img src="/src/components/icons/ucb.png" alt="" width="20%"> Programa Agora</a></li>
+            <li><a href="https://lpz.ucb.edu.bo/inscripciones/"><img src="/src/components/icons/ucb.png" alt="" width="20%"> Inscripciones</a></li>
+            <li><a href="https://lpz.ucb.edu.bo/estudiantes/tarifario-oficial/"><img src="/src/components/icons/ucb.png" alt="" width="20%"> Tarifarios</a></li>
+            <li><a href="https://lpz.ucb.edu.bo/estudiantes/tarifario-oficial/"><img src="/src/components/icons/ucb.png" alt="" width="20%"> Planes de Pago</a></li>
+            <li><a href="https://lpz.ucb.edu.bo/becas/"><img src="/src/components/icons/ucb.png" alt="" width="20%"> Becas</a></li>
+            <li><a href="https://lpz.ucb.edu.bo/becas/"><img src="/src/components/icons/ucb.png" alt="" width="20%"> Programa Agora</a></li>
           </ul>
         </li>
         <li @click="toggleSubMenu(3)" @mouseenter="changeCursor('pointer')" @mouseleave="changeCursor('default')">
