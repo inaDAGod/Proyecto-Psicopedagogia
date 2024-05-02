@@ -5,58 +5,85 @@
       <div style="margin:20px;">
         <div style="display: flex; align-items: center;">
 
-        <h3 class="prehead3">Malla</h3>
-        <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
-          
-          <div style="margin:20px;">
+          <h3 class="prehead3">Malla</h3>
+          <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
+
             <div style="margin:20px;">
-      <a :href="'https://lpz.ucb.edu.bo/wp-content/uploads/2023/12/PSP-2024.pdf'">
-    <button class="b-pre">Descargar malla</button>
-</a>
-
-</div>
-
-</div></div></div>
-</div>
+              <div style="margin:20px;">
+                <a :href="'https://lpz.ucb.edu.bo/wp-content/uploads/2023/12/PSP-2024.pdf'">
+                  <button class="b-pre">Descargar malla</button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="prevideo-container">
         <iframe class="vidma" :src="getYouTubeEmbedUrl('https://www.youtube.com/watch?v=nPL5hCXxmBw')" frameborder="0" allowfullscreen></iframe>
       </div><br><br>
 
+      <!-- Asignaturas carousel -->
       <h4 class="prehead4">Asignaturas representativas</h4>
       <div class="div-previd">
-        <Carousel :itemsToShow="1" :wrapAround="true" :transition="500">
+        <Carousel ref="asignaturasCarousel" :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosAsignaturas" :key="video.id">
             <iframe class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
           </Slide>
         </Carousel>
+        <!-- Navigation buttons -->
+        <div>
+          <button @click="prevAsignaturas" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
+          <button @click="nextAsignaturas" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
+        </div>
       </div>
 
+      <!-- Actividades carousel -->
       <h2 class="prehead2">Actividades curriculares Representativas PSP</h2>
       <div class="div-previd">
-        <Carousel :itemsToShow="1" :wrapAround="true" :transition="500">
+        <Carousel ref="actividadesCarousel" :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosActividades" :key="video.id">
             <iframe class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
           </Slide>
         </Carousel>
+        <!-- Navigation buttons -->
+        <div>
+          <button @click="prevActividades" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
+          <button @click="nextActividades" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
+        </div>
       </div>
 
+      <!-- Experiencias carousel -->
       <h2 class="prehead2">Experiencias de trabajo de Campo</h2>
       <div class="div-previd">
-        <Carousel :itemsToShow="1" :wrapAround="true" :transition="500">
+        <Carousel ref="experienciasCarousel" :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="image in images" :key="image.id">
             <img class="img-preb" :src="image.url" alt="carousel image">
           </Slide>
         </Carousel>
+        <!-- Navigation buttons -->
+        <div>
+          
+          <button @click="prevExperiencias" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
+          <button @click="nextExperiencias" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
+        </div>
       </div>
 
+      <!-- Perfiles carousel -->
       <h2 class="prehead2">Perfiles de estudiantes PSP</h2>
       <div class="div-previd">
-        <Carousel :itemsToShow="1" :wrapAround="true" :transition="5">
+        <Carousel ref="perfilesCarousel" :itemsToShow="1" :wrapAround="true" :transition="5">
           <Slide v-for="video in videosPerfiles" :key="video.id">
             <iframe class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
           </Slide>
         </Carousel>
+        <!-- Navigation buttons -->
+        <div>
+          <button @click="prevPerfiles" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
+          <button @click="nextPerfiles" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
+        </div>
       </div>
+
+      <!-- Other content -->
 
       <h2 class="prehead2">Áreas laborales PSP</h2>
       <div style="text-align: center; margin-bottom: 5%;">
@@ -81,9 +108,9 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
-import { Carousel, Slide } from 'vue3-carousel'
-import 'vue3-carousel/dist/carousel.css'
+import { defineComponent } from 'vue';
+import { Carousel, Slide } from 'vue3-carousel';
+import 'vue3-carousel/dist/carousel.css';
 
 export default defineComponent({
   name: 'Pregrado',
@@ -91,7 +118,6 @@ export default defineComponent({
     Carousel,
     Slide,
   },
-
   data() {
     return {
       videosAsignaturas: [
@@ -124,8 +150,34 @@ export default defineComponent({
       const videoId = url.split('v=')[1];
       return `https://www.youtube.com/embed/${videoId}`;
     },
+    // Methods to handle carousel navigation
+    nextAsignaturas() {
+      this.$refs.asignaturasCarousel.next();
+    },
+    prevAsignaturas() {
+      this.$refs.asignaturasCarousel.prev();
+    },
+    nextActividades() {
+      this.$refs.actividadesCarousel.next();
+    },
+    prevActividades() {
+      this.$refs.actividadesCarousel.prev();
+    },
+    nextExperiencias() {
+      this.$refs.experienciasCarousel.next();
+    },
+    prevExperiencias() {
+      this.$refs.experienciasCarousel.prev();
+    },
+    nextPerfiles() {
+      this.$refs.perfilesCarousel.next();
+    },
+    prevPerfiles() {
+      this.$refs.perfilesCarousel.prev();
+    },
+    // Add similar methods for other carousels if needed
   },
-})
+});
 </script>
 
 <style>
@@ -136,4 +188,45 @@ export default defineComponent({
   background-position: center;
   height: 100vh; /* Adjust the height as needed */
 }
+
+.nav-buttonprep {
+  font-family: 'Oswald';
+  font-size: 20px;
+  background-color: rgba(255, 42, 157, 1);
+  color: white;
+  border-radius: 100%;
+  width: 10%;
+  padding: 1px 1px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 33%;
+  margin-top: 2%;
+  
+  
+}
+.nav-buttonpren {
+  font-family: 'Oswald';
+  font-size: 20px;
+  background-color: rgba(255, 42, 157, 1);
+  color: white;
+  border-radius: 100%;
+  width: 10%;
+  padding: 1px 1px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  margin-left: 15%;
+  
+}
+
+.flecha{
+
+  background-color: rgba(255, 42, 157, 1);
+
+border-radius: 100%;
+width: 45%;
+}
+
+
 </style>
