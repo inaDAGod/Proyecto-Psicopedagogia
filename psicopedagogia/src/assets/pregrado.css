@@ -96,31 +96,32 @@
     border-collapse: separate;
     border-spacing: 0 10px; /* Adjust the vertical spacing between rows here */
     background-color: rgba(255, 206, 232, 1);
-    width: 95%;
+    width: 85%;
     border-radius: 50px;
     margin-top: 10%;
-    height: 800px;
+    height: 80%;
     
 }
 
 .pre-tr {
     /* Optionally, you can apply padding to each table row */
     padding: 1px; /* Adjust the padding as needed */
-    font-size: 28px;
+    font-size: 24px;
     color: rgba(13, 137, 244, 1);
 }
 
 .pre-td {
     padding-left: 20px;
     width: 50%;
+    height: 50%;
 }
 
 
 .logo-pre{
-    width: 660px;
-    height: 660px;
+    width: 80%;
+    height: 80%;
     border-radius: 20px;
-    margin-left: 3%;
+    margin-left: 4%;
     margin-bottom: 2%;
 }
 
