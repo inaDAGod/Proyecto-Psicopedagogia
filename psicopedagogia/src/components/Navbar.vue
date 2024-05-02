@@ -13,7 +13,7 @@
         <li><router-link @click="toggleMenu" to="/about"><img src="/src/components/icons/nosotros.png" alt="" width="10%"> Nosotros</router-link></li>
         <li @click="toggleSubMenu(1)" @mouseenter="changeCursor('pointer')" @mouseleave="changeCursor('default')">
           <a><img src="/src/components/icons/formacion.png" alt="" width="9%"> Formación</a>
-          <ul v-show="showSubMenu === 1" class="submenu-right ">
+          <ul v-show="showSubMenu === 1" class="submenu-right " style="top: 20%;">
             <li><router-link to="/formacion/pregrado"  @click="toggleMenu"><img src="/src/components/icons/formacion.png" alt="" width="20%"> Pregrado</router-link></li>
             <li><router-link to="/formacion/postgrado"  @click="toggleMenu"><img src="/src/components/icons/formacion.png" alt="" width="20%"> PostGrado</router-link></li>
           </ul>
@@ -30,7 +30,7 @@
         </li>
         <li @click="toggleSubMenu(3)" @mouseenter="changeCursor('pointer')" @mouseleave="changeCursor('default')">
           <a><img src="/src/components/icons/inves.png" alt="" width="10%"> Investigación</a>
-          <ul v-show="showSubMenu === 3" class="submenu-right " style="top: 50%;">
+          <ul v-show="showSubMenu === 3" class="submenu-right " style="top: 45%;">
             <li><router-link to="/investigacion/Sociedad" @click="toggleMenu"><img src="/src/components/icons/inves.png" alt="" width="15%"> INPSICOPEDIA</router-link> </li>
             <li><router-link to="/investigacion/Zona" @click="toggleMenu"><img src="/src/components/icons/inves.png" alt="" width="15%">Zona de aprendizaje</router-link> </li>
           </ul>
