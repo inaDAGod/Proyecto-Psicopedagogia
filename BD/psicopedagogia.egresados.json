@@ -1,0 +1,55 @@
+[{
+  "_id": {
+    "$oid": "663ce7ada55edd670956ac82"
+  },
+  "nombre": "Daniela",
+  "correo": "correo@gmail.com",
+  "anio_graduacion": "2018",
+  "trabajo": "Superheroe",
+  "comentario": "Me gusto mucho la experiencia en la universidad",
+  "src_foto": "/backend/images/papas.webp"
+},
+{
+  "_id": {
+    "$oid": "663cea6e66e4d5d59cce1850"
+  },
+  "nombre": "Nombre egresado 1",
+  "correo": "correo1@example.com",
+  "anio_graduacion": 2011,
+  "trabajo": "trabajo 1",
+  "comentario": "comentarioooooo1",
+  "src_foto": "/src/assets/images/egresado.jpg"
+},
+{
+  "_id": {
+    "$oid": "663ceaa266e4d5d59cce1852"
+  },
+  "nombre": "Nombre egresado 2",
+  "correo": "correo2@example.com",
+  "anio_graduacion": 2012,
+  "trabajo": "trabajo 2",
+  "comentario": "comentarioooooo2",
+  "src_foto": "/src/assets/images/egresado2.jpg"
+},
+{
+  "_id": {
+    "$oid": "663ceaad66e4d5d59cce1854"
+  },
+  "nombre": "Nombre egresado 3",
+  "correo": "correo3@example.com",
+  "anio_graduacion": 2013,
+  "trabajo": "trabajo 3",
+  "comentario": "comentarioooooo3",
+  "src_foto": "/src/assets/images/egresado3.png"
+},
+{
+  "_id": {
+    "$oid": "663ceab266e4d5d59cce1856"
+  },
+  "nombre": "Nombre egresado 4",
+  "correo": "correo4@example.com",
+  "anio_graduacion": 2014,
+  "trabajo": "trabajo 4",
+  "comentario": "comentarioooooo4",
+  "src_foto": "/src/assets/images/egresado4.webp"
+}]
