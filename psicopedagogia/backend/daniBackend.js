@@ -202,6 +202,51 @@ app.post('/api/info-paginaUpdate', async (req, res) => {
   }
 });
 
+//pagina inicio
+
+app.post('/api/homeUpdate', async (req, res) => {
+  try {
+    const { imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, mision, mision_src, vision, vision_src, perfil_estudiante, perfil_estudiante_src } = req.body;
+
+    await db.collection('home').updateOne(
+      {
+        $set: {
+          imagen1,
+          imagen2,
+          imagen3,
+          imagen4,
+          imagen5,
+          imagen6,
+          quienes_somos,
+          mision,
+          mision_src,
+          vision,
+          vision_src,
+          perfil_estudiante,
+          perfil_estudiante_src
+        }
+      }
+    );
+
+    console.log('Home actualizado correctamente');
+    res.status(200).send('Home actualizado correctamente');
+  } catch (error) {
+    console.error('Error al actualizar el home:', error);
+    res.status(500).send('Error al actualizar el home');
+  }
+});
+
+
+app.get('/api/home', async (req, res) => {
+  try {
+    const homeData = await db.collection('home').findOne(); 
+    res.json(homeData);
+  } catch (error) {
+    console.error('Error al obtener la información de la página de inicio:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
