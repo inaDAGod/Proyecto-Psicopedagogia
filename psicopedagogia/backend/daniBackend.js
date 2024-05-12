@@ -247,6 +247,43 @@ app.get('/api/home', async (req, res) => {
   }
 });
 
+//actividades
+
+app.get('/api/actividades', async (req, res) => {
+  try {
+    const actividades = await db.collection('actividades').find().toArray();
+    res.json(actividades);
+  } catch (error) {
+    console.error('Error al obtener las actividades:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
+//noticias
+
+app.get('/api/noticias', async (req, res) => {
+  try {
+    const noticias = await db.collection('noticias').find().toArray();
+    res.json(noticias);
+  } catch (error) {
+    console.error('Error al obtener las noticias:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+//investigaciones
+
+app.get('/api/investigaciones', async (req, res) => {
+  try {
+    const investigacion = await db.collection('investigaciones').findOne();
+    res.json(investigacion);
+  } catch (error) {
+    console.error('Error al obtener la investigación:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

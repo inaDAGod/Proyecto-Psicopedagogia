@@ -259,6 +259,7 @@ app.delete('/api/docentes/:id', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
 app.post('/api/homeUpdate', (req, res) => {
   const {imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, mision, mision_src, vision, vision_src,perfil_estudainte, perfil_estudiante_src } = req.body;
 
