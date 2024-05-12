@@ -357,6 +357,17 @@ app.get('/api/publicaciones', async (req, res) => {
   }
 });
 
+//red
+app.get('/api/red', async (req, res) => {
+  try {
+    const red = await db.collection('red').find().toArray();
+    res.json(red);
+  } catch (error) {
+    console.error('Error al obtener las redes:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor backend en funcionamiento en el puerto ${PORT}`);
