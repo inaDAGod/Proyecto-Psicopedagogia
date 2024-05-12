@@ -284,6 +284,78 @@ app.get('/api/investigaciones', async (req, res) => {
   }
 });
 
+//Postgrado
+app.get('/api/cursosfc', async (req, res) => {
+  try {
+    const cursosfc = await db.collection('cursosfc').find().toArray();
+    res.json(cursosfc);
+  } catch (error) {
+    console.error('Error al obtener los cursosfc:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.get('/api/maestria', async (req, res) => {
+  try {
+    const maestria = await db.collection('maestria').find().toArray();
+    res.json(maestria);
+  } catch (error) {
+    console.error('Error al obtener los maestria:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+//Interaccion social
+app.get('/api/interaccionsocial', async (req, res) => {
+  try {
+    const interaccionSocial = await db.collection('interaccion_social').findOne({}, { objetivo: 1, lineas: 1 });
+    res.json(interaccionSocial);
+  } catch (error) {
+    console.error('Error al obtener la interaccion social:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.get('/api/actividades_universidad', async (req, res) => {
+  try {
+    const actividadesUniversidad = await db.collection('actividad_interaccion_social').find({ tipo: 'Universidad' }).toArray();
+    res.json(actividadesUniversidad);
+  } catch (error) {
+    console.error('Error al obtener las actividades de universidad:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.get('/api/actividades_departamental', async (req, res) => {
+  try {
+    const actividadesDepartamental = await db.collection('actividad_interaccion_social').find({ tipo: 'Departamental' }).toArray();
+    res.json(actividadesDepartamental);
+  } catch (error) {
+    console.error('Error al obtener las actividades departamentales:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.get('/api/actividades_internacional', async (req, res) => {
+  try {
+    const actividadesInternacional = await db.collection('actividad_interaccion_social').find({ tipo: 'Internacional' }).toArray();
+    res.json(actividadesInternacional);
+  } catch (error) {
+    console.error('Error al obtener las actividades internacionales:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+//Publicaciones
+app.get('/api/publicaciones', async (req, res) => {
+  try {
+    const publicaciones = await db.collection('publicaciones').find().toArray();;
+    res.json(publicaciones);
+  } catch (error) {
+    console.error('Error al obtener las publicaciones:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
