@@ -172,5 +172,25 @@ export default {
 	color: #fff;
 	box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
 }
+
+@media (max-width: 768px) {
+  .cards-redes .card {
+    flex: 0 0 calc(50% - 20px); /* Dos tarjetas por fila en dispositivos medianos */
+  }
+}
+
+@media (max-width: 576px) {
+  .cards-redes .card {
+    flex: 0 0 calc(100% - 20px); /* Una tarjeta por fila en dispositivos pequeños */
+    padding: 20%;
+  }
+  .tituloRed h1{
+        font-size: 40px;
+    }
+    .tituloRed h2{
+      font-size: 20px;
+    }
+}
+
   </style>
   
