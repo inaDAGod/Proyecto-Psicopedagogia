@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "663d443c6ef352a85c3dd180"
+  },
+  "imagen1": "/src/assets/images/psico1.jpg",
+  "imagen2": "/src/assets/images/psico2.jpg",
+  "imagen3": "/src/assets/images/psico3.jpg",
+  "imagen4": "/src/assets/images/psico4.jpg",
+  "imagen5": "/src/assets/images/psico2.jpg",
+  "imagen6": "/src/assets/images/psico3.jpg",
+  "quienes_somos": "QUIENES SOMOS educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio. En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s. En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación. Desarrollando su propio emprendimiento Centros psicopedagógicos y Centros de Educación integral que trabajan con niñez, adolescencia, juventud y adultos que presenten.",
+  "mision": "MISION----- educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio. En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s. En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación. Desarrollando su propio emprendimiento Centros p",
+  "mision_src": "/src/assets/images/psico1.jpg",
+  "vision": "VISION----- educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio. En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s. En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación. Desarrollando su propio emprendimiento Centros p",
+  "vision_src": "/src/assets/images/psico1.jpg",
+  "perfil_estudiante": "PERFIL ESTUDIANTE----- educación inicial, primaria, secundaria, universitaria, técnica tecnológica que desarrollan procesos formativos en instituciones públicas, privadas y de convenio. En proyectos y programas educativos que mejoran la calidad de vida de diferentes poblaciones desde ministerios, municipios, fundaciones y ONG´s. En empresas públicas y privadas que desarrollan gestión del conocimiento desde sus departamentos de Recursos Humanos y sus unidades de capacitación. Desarrollando su propio emprendimiento Centros p",
+  "perfil_estudiante_src": "/src/assets/images/psico1.jpg"
+}]

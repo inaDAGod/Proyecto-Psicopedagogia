@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "663d38746ef352a85c3dd174"
+  },
+  "nombre": "Dra. Alejandra Martínez Barrientos",
+  "apodo": "Ale",
+  "cargo": "Directora de Carrera",
+  "correo": "mmartinez@ucb.edu.bo",
+  "datoc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "imagen": ".\\backend\\images\\Alejandra-Martinez-1.jpg"
+},
+{
+  "_id": {
+    "$oid": "663d387f6ef352a85c3dd176"
+  },
+  "nombre": "MSc. Karina García Riveros",
+  "apodo": "Kari",
+  "cargo": "Docente Tiempo Completo",
+  "correo": "rgarcia@ucb.edu.bo",
+  "datoc": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "imagen": ".\\backend\\images\\Karina-Garcia.jpg"
+}]

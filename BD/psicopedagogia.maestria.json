@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "6640de4b9b6f5e7121bcda02"
+  },
+  "titulo": "Maestría en Psicopedagogía Clínica",
+  "about": "Este programa te forma para intervenir en el ámbito clínico, diagnósticando y tratando dificultades de aprendizaje y trastornos del desarrollo.",
+  "competencia": "Evaluación psicopedagógica, diseño de programas de intervención, y trabajo interdisciplinario.",
+  "requisitos": "Grado universitario en psicología, educación o áreas afines.",
+  "fecha": "2024-09-01",
+  "img": "/backend/images/mas1.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640de4b9b6f5e7121bcda03"
+  },
+  "titulo": "Maestría en Neuropsicopedagogía",
+  "about": "Aprende sobre el funcionamiento del cerebro y su relación con los procesos de aprendizaje y desarrollo.",
+  "competencia": "Neurociencia educativa, diseño de intervenciones basadas en evidencia, y evaluación neuropsicológica.",
+  "requisitos": "Conocimientos avanzados en neurociencia y psicopedagogía.",
+  "fecha": "2024-10-01",
+  "img": "/backend/images/mas2.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640de4b9b6f5e7121bcda04"
+  },
+  "titulo": "Maestría en Psicopedagogía Institucional",
+  "about": "Desarrolla habilidades de gestión y liderazgo para trabajar en instituciones educativas y optimizar los procesos de enseñanza-aprendizaje.",
+  "competencia": "Gestión educativa, diseño y evaluación de proyectos educativos, y desarrollo profesional docente.",
+  "requisitos": "Experiencia en el ámbito educativo y capacidad para liderar equipos.",
+  "fecha": "2024-11-01",
+  "img": "/backend/images/mas3.jpg"
+}]
