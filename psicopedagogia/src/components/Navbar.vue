@@ -242,7 +242,7 @@ export default {
   color: #0D89F4;
   font-weight: bold;
 }
-@media (max-width: 576px) {
+@media (max-width: 768px) {
   .menu {
   width: 50%;
 }
