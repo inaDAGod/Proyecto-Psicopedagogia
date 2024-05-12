@@ -9,8 +9,6 @@
       style="width: 18rem;"
       v-for="(card, index) in cards"
       :key="index"
-      @mouseenter="scaleCard(index, true)"
-      @mouseleave="scaleCard(index, false)"
     >
       <img :src="card.src" class="card-img-top" alt="...">
       <div class="info">
