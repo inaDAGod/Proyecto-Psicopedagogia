@@ -5,7 +5,7 @@ import About from '@/views/Nosotrosadmin.vue';
 //import Sociedad from '@/views/Sociedad.vue'
 //import Zona from '@/views/investigaciones.vue'
 //import Social from '@/views/social.vue'
-//import Red from '@/views/red.vue'
+import Red from '@/views/Red.vue'
 //import Publicaciones from '@/views/publicaciones.vue'
 //import Pregrado from '@/views/Pregrado.vue'
 //import Postgrado from '@/views/Postgrado.vue'
@@ -19,15 +19,15 @@ const router = createRouter({
       component: Home,
     },
     {
-      path: '/integra/egresados',
-      name: 'Egresados',
-      component: Egresados,
+      path: '/red',
+      name: 'Red',
+      component: Red,
     },
     {
       path: '/about',
       name: 'About',
       component: About,
-    },
+    }
     /*
     {
       path: '/investigacion/Sociedad',

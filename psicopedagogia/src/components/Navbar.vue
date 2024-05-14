@@ -105,7 +105,6 @@ export default {
 /* Estilos del navbar y los elementos principales */
 .navbar {
   width: 100%;
-  height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
