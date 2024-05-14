@@ -4,11 +4,12 @@
     <div class="contentWrapper">
       <div class="menuDiv">
         <ul class="menu">
-          <li><router-link to="/"> Inicio</router-link></li>
+          <li><router-link to="/admi"> Inicio</router-link></li>
           <br>
-          <li><router-link to="/red"> Inicio</router-link></li>
+          <li><router-link to="/aboutadmi"> About</router-link></li>
           <br>
-          <li><router-link to="/about"> Red </router-link></li>
+          <li><router-link to="/redadmi"> Red </router-link></li>
+          
         </ul>
       </div>
       <div class="mainContentAdmi">

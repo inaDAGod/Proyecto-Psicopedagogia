@@ -14,58 +14,26 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/',
+      path: '/admi',
       name: 'Home',
       component: Home,
     },
     {
-      path: '/red',
+      path: '/redadmi',
       name: 'Red',
       component: Red,
     },
     {
-      path: '/about',
+      path: '/aboutadmi',
       name: 'About',
       component: About,
+    },
+    {
+      path: '/egresadosadmi',
+      name: 'Egresados',
+      component: Egresados,
     }
-    /*
-    {
-      path: '/investigacion/Sociedad',
-      name: 'Sociedad',
-      component: Sociedad,
-    },
-    {
-      path: '/investigacion/Zona',
-      name: 'Zona',
-      component: Zona,
-    },
-    /*
-    {
-      path: '/sembrando',
-      name: 'Social',
-      component: Social,
-    },
-    /*
-    {
-      path: '/red',
-      name: 'Red',
-      component: Red,
-    },
-    {
-      path: '/integra/publicaciones',
-      name: 'Publicaciones',
-      component: Publicaciones,
-    },
-    /*{
-      path: '/formacion/pregrado',
-      name: 'Pregrado',
-      component: Pregrado,
-    },*/
-     /*{
-      path: '/formacion/postgrado',
-      name: 'Postgrado',
-      component: Postgrado,
-    },*/
+    
   ],
 });
 
