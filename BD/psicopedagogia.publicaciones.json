@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "6640e5739b6f5e7121bcda1c"
+  },
+  "titulo": "La importancia de la educación emocional",
+  "autor": "María González",
+  "descripcion": "En este artículo se explora la relevancia de la educación emocional en el desarrollo de los niños.",
+  "anio": 2023,
+  "publicacion_src": "/src/assets/images/publicacion.png",
+  "ruta": "https://www.renfe.com/content/dam/renfe/es/General/PDF-y-otros/Ejemplo-de-descarga-pdf.pdf"
+},
+{
+  "_id": {
+    "$oid": "6640e5739b6f5e7121bcda1d"
+  },
+  "titulo": "Estrategias para mejorar la concentración en el aula",
+  "autor": "Juan Pérez",
+  "descripcion": "Se presentan diversas técnicas y actividades para ayudar a los estudiantes a mantenerse concentrados durante las clases.",
+  "anio": 2022,
+  "publicacion_src": "/src/assets/images/publicacion.png",
+  "ruta": "https://www.renfe.com/content/dam/renfe/es/General/PDF-y-otros/Ejemplo-de-descarga-pdf.pdf"
+},
+{
+  "_id": {
+    "$oid": "6640e5739b6f5e7121bcda1e"
+  },
+  "titulo": "Cómo fomentar la lectura en los niños",
+  "autor": "Ana Martínez",
+  "descripcion": "Consejos y recomendaciones para promover el hábito de la lectura desde la infancia.",
+  "anio": 2024,
+  "publicacion_src": "/src/assets/images/publicacion.png",
+  "ruta": "https://www.renfe.com/content/dam/renfe/es/General/PDF-y-otros/Ejemplo-de-descarga-pdf.pdf"
+},
+{
+  "_id": {
+    "$oid": "6640e5739b6f5e7121bcda1f"
+  },
+  "titulo": "Beneficios del aprendizaje cooperativo",
+  "autor": "Carlos López",
+  "descripcion": "Se analizan los beneficios académicos y sociales del aprendizaje cooperativo en el aula.",
+  "anio": 2021,
+  "publicacion_src": "/src/assets/images/publicacion.png",
+  "ruta": "https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf"
+},
+{
+  "_id": {
+    "$oid": "6640e5739b6f5e7121bcda20"
+  },
+  "titulo": "Importancia de la inclusión en la educación",
+  "autor": "Laura Fernández",
+  "descripcion": "Reflexión sobre la importancia de crear entornos educativos inclusivos para todos los estudiantes.",
+  "anio": 2023,
+  "publicacion_src": "/src/assets/images/publicacion.png",
+  "ruta": "https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf"
+},
+{
+  "_id": {
+    "$oid": "6640e5739b6f5e7121bcda21"
+  },
+  "titulo": "Cómo abordar el bullying escolar",
+  "autor": "David García",
+  "descripcion": "Estrategias para prevenir y manejar situaciones de acoso escolar en las escuelas.",
+  "anio": 2022,
+  "publicacion_src": "/src/assets/images/publicacion.png",
+  "ruta": "https://www.turnerlibros.com/wp-content/uploads/2021/02/ejemplo.pdf"
+}]

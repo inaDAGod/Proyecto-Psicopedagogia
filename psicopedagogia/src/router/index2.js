@@ -5,7 +5,7 @@ import About from '@/views/Nosotrosadmin.vue';
 //import Sociedad from '@/views/Sociedad.vue'
 //import Zona from '@/views/investigaciones.vue'
 //import Social from '@/views/social.vue'
-//import Red from '@/views/red.vue'
+import Red from '@/views/Red.vue'
 //import Publicaciones from '@/views/publicaciones.vue'
 //import Pregrado from '@/views/Pregrado.vue'
 //import Postgrado from '@/views/Postgrado.vue'
@@ -14,58 +14,26 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
-      path: '/',
+      path: '/admi',
       name: 'Home',
       component: Home,
     },
     {
-      path: '/integra/egresados',
-      name: 'Egresados',
-      component: Egresados,
-    },
-    {
-      path: '/about',
-      name: 'About',
-      component: About,
-    },
-    /*
-    {
-      path: '/investigacion/Sociedad',
-      name: 'Sociedad',
-      component: Sociedad,
-    },
-    {
-      path: '/investigacion/Zona',
-      name: 'Zona',
-      component: Zona,
-    },
-    /*
-    {
-      path: '/sembrando',
-      name: 'Social',
-      component: Social,
-    },
-    /*
-    {
-      path: '/red',
+      path: '/redadmi',
       name: 'Red',
       component: Red,
     },
     {
-      path: '/integra/publicaciones',
-      name: 'Publicaciones',
-      component: Publicaciones,
+      path: '/aboutadmi',
+      name: 'About',
+      component: About,
     },
-    /*{
-      path: '/formacion/pregrado',
-      name: 'Pregrado',
-      component: Pregrado,
-    },*/
-     /*{
-      path: '/formacion/postgrado',
-      name: 'Postgrado',
-      component: Postgrado,
-    },*/
+    {
+      path: '/egresadosadmi',
+      name: 'Egresados',
+      component: Egresados,
+    }
+    
   ],
 });
 

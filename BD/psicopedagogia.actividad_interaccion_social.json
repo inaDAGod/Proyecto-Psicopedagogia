@@ -1,0 +1,144 @@
+[{
+  "_id": {
+    "$oid": "6640e2339b6f5e7121bcda0b"
+  },
+  "actividad": "Taller de resolución de conflictos",
+  "fecha": "2024-04-18",
+  "hora": "10:00:00",
+  "ubicacion": "Aula 101",
+  "descripcion": "El taller proporcionará estrategias prácticas para resolver conflictos de manera constructiva en el ámbito escolar.",
+  "actividad_src": "/src/assets/images/psico1.jpg",
+  "tipo": "Universidad"
+},
+{
+  "_id": {
+    "$oid": "6640e2339b6f5e7121bcda0c"
+  },
+  "actividad": "Charla sobre inteligencias múltiples",
+  "fecha": "2024-04-22",
+  "hora": "15:00:00",
+  "ubicacion": "Salón de actos",
+  "descripcion": "Expertos en educación explicarán la teoría de las inteligencias múltiples de Howard Gardner y su aplicación en el aula.",
+  "actividad_src": "/src/assets/images/psico2.jpg",
+  "tipo": "Universidad"
+},
+{
+  "_id": {
+    "$oid": "6640e2339b6f5e7121bcda0d"
+  },
+  "actividad": "Sesión de mindfulness para docentes",
+  "fecha": "2024-04-25",
+  "hora": "09:30:00",
+  "ubicacion": "Sala de profesores",
+  "descripcion": "Los profesores aprenderán técnicas de mindfulness para reducir el estrés y mejorar su bienestar emocional.",
+  "actividad_src": "/src/assets/images/psico1.jpg",
+  "tipo": "Universidad"
+},
+{
+  "_id": {
+    "$oid": "6640e2339b6f5e7121bcda0e"
+  },
+  "actividad": "Taller de creatividad en el aula",
+  "fecha": "2024-04-28",
+  "hora": "14:00:00",
+  "ubicacion": "Aula 203",
+  "descripcion": "Los participantes explorarán estrategias para fomentar la creatividad y la innovación en el proceso de enseñanza-aprendizaje.",
+  "actividad_src": "/src/assets/images/psico2.jpg",
+  "tipo": "Universidad"
+},
+{
+  "_id": {
+    "$oid": "6640e2769b6f5e7121bcda11"
+  },
+  "actividad": "Taller de resolución de conflictos",
+  "fecha": "2024-04-18",
+  "hora": "10:00:00",
+  "ubicacion": "Aula 101",
+  "descripcion": "El taller proporcionará estrategias prácticas para resolver conflictos de manera constructiva en el ámbito escolar.",
+  "actividad_src": "/src/assets/images/psico1.jpg",
+  "tipo": "Departamental"
+},
+{
+  "_id": {
+    "$oid": "6640e2769b6f5e7121bcda12"
+  },
+  "actividad": "Charla sobre inteligencias múltiples",
+  "fecha": "2024-04-22",
+  "hora": "15:00:00",
+  "ubicacion": "Salón de actos",
+  "descripcion": "Expertos en educación explicarán la teoría de las inteligencias múltiples de Howard Gardner y su aplicación en el aula.",
+  "actividad_src": "/src/assets/images/psico2.jpg",
+  "tipo": "Departamental"
+},
+{
+  "_id": {
+    "$oid": "6640e2769b6f5e7121bcda13"
+  },
+  "actividad": "Sesión de mindfulness para docentes",
+  "fecha": "2024-04-25",
+  "hora": "09:30:00",
+  "ubicacion": "Sala de profesores",
+  "descripcion": "Los profesores aprenderán técnicas de mindfulness para reducir el estrés y mejorar su bienestar emocional.",
+  "actividad_src": "/src/assets/images/psico1.jpg",
+  "tipo": "Departamental"
+},
+{
+  "_id": {
+    "$oid": "6640e2769b6f5e7121bcda14"
+  },
+  "actividad": "Taller de creatividad en el aula",
+  "fecha": "2024-04-28",
+  "hora": "14:00:00",
+  "ubicacion": "Aula 203",
+  "descripcion": "Los participantes explorarán estrategias para fomentar la creatividad y la innovación en el proceso de enseñanza-aprendizaje.",
+  "actividad_src": "/src/assets/images/psico2.jpg",
+  "tipo": "Departamental"
+},
+{
+  "_id": {
+    "$oid": "6640e2a39b6f5e7121bcda16"
+  },
+  "actividad": "Taller de resolución de conflictos",
+  "fecha": "2024-04-18",
+  "hora": "10:00:00",
+  "ubicacion": "Aula 101",
+  "descripcion": "El taller proporcionará estrategias prácticas para resolver conflictos de manera constructiva en el ámbito escolar.",
+  "actividad_src": "/src/assets/images/psico1.jpg",
+  "tipo": "Internacional"
+},
+{
+  "_id": {
+    "$oid": "6640e2a39b6f5e7121bcda17"
+  },
+  "actividad": "Charla sobre inteligencias múltiples",
+  "fecha": "2024-04-22",
+  "hora": "15:00:00",
+  "ubicacion": "Salón de actos",
+  "descripcion": "Expertos en educación explicarán la teoría de las inteligencias múltiples de Howard Gardner y su aplicación en el aula.",
+  "actividad_src": "/src/assets/images/psico2.jpg",
+  "tipo": "Internacional"
+},
+{
+  "_id": {
+    "$oid": "6640e2a39b6f5e7121bcda18"
+  },
+  "actividad": "Sesión de mindfulness para docentes",
+  "fecha": "2024-04-25",
+  "hora": "09:30:00",
+  "ubicacion": "Sala de profesores",
+  "descripcion": "Los profesores aprenderán técnicas de mindfulness para reducir el estrés y mejorar su bienestar emocional.",
+  "actividad_src": "/src/assets/images/psico1.jpg",
+  "tipo": "Internacional"
+},
+{
+  "_id": {
+    "$oid": "6640e2a39b6f5e7121bcda19"
+  },
+  "actividad": "Taller de creatividad en el aula",
+  "fecha": "2024-04-28",
+  "hora": "14:00:00",
+  "ubicacion": "Aula 203",
+  "descripcion": "Los participantes explorarán estrategias para fomentar la creatividad y la innovación en el proceso de enseñanza-aprendizaje.",
+  "actividad_src": "/src/assets/images/psico2.jpg",
+  "tipo": "Internacional"
+}]

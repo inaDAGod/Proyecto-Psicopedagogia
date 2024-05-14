@@ -69,16 +69,42 @@ export default {
     },
     changeCursor(cursorType) {
       document.body.style.cursor = cursorType;
+    },
+    handleClickOutside(event) {
+      // Verificar si el clic ocurre fuera del menú y del botón de menú
+      const navContainer = this.$refs.navContainer;
+      const menuButton = this.$refs.menuButton;
+      if (
+        navContainer &&
+        !navContainer.contains(event.target) &&
+        menuButton &&
+        !menuButton.contains(event.target)
+      ) {
+        this.showMenu = false;
+      }
+    },
+    handleScroll() {
+      if (this.showMenu) {
+        this.showMenu = false;
+      }
     }
+  },
+  mounted() {
+    document.addEventListener('click', this.handleClickOutside);
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  beforeUnmount() {
+    document.removeEventListener('click', this.handleClickOutside);
+    window.removeEventListener('scroll', this.handleScroll);
   }
 };
 </script>
+
 
 <style scoped>
 /* Estilos del navbar y los elementos principales */
 .navbar {
   width: 100%;
-  height: 80%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -214,5 +240,10 @@ export default {
 .submenu-right li a:hover {
   color: #0D89F4;
   font-weight: bold;
+}
+@media (max-width: 768px) {
+  .menu {
+  width: 50%;
+}
 }
 </style>

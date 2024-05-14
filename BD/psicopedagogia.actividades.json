@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "663d47de6ef352a85c3dd184"
+  },
+  "actividad": "Taller de resolución de conflictos",
+  "fecha": "2024-04-18",
+  "hora": "10:00:00",
+  "ubicacion": "Aula 101",
+  "descripcion": "El taller proporcionará estrategias prácticas para resolver conflictos de manera constructiva en el ámbito escolar.",
+  "actividad_src": "/src/assets/images/psico4.jpg"
+},
+{
+  "_id": {
+    "$oid": "663d47de6ef352a85c3dd185"
+  },
+  "actividad": "Charla sobre inteligencias múltiples",
+  "fecha": "2024-04-22",
+  "hora": "15:00:00",
+  "ubicacion": "Salón de actos",
+  "descripcion": "Expertos en educación explicarán la teoría de las inteligencias múltiples de Howard Gardner y su aplicación en el aula.",
+  "actividad_src": "/src/assets/images/psico3.jpg"
+},
+{
+  "_id": {
+    "$oid": "663d47de6ef352a85c3dd186"
+  },
+  "actividad": "Sesión de mindfulness para docentes",
+  "fecha": "2024-04-25",
+  "hora": "09:30:00",
+  "ubicacion": "Sala de profesores",
+  "descripcion": "Los profesores aprenderán técnicas de mindfulness para reducir el estrés y mejorar su bienestar emocional.",
+  "actividad_src": "/src/assets/images/psico2.jpg"
+},
+{
+  "_id": {
+    "$oid": "663d47de6ef352a85c3dd187"
+  },
+  "actividad": "Taller de creatividad en el aula",
+  "fecha": "2024-04-28",
+  "hora": "14:00:00",
+  "ubicacion": "Aula 203",
+  "descripcion": "Los participantes explorarán estrategias para fomentar la creatividad y la innovación en el proceso de enseñanza-aprendizaje.",
+  "actividad_src": "/src/assets/images/psico2.jpg"
+},
+{
+  "_id": {
+    "$oid": "663d47de6ef352a85c3dd188"
+  },
+  "actividad": "Curso de inclusión educativa",
+  "fecha": "2024-05-02",
+  "hora": "10:30:00",
+  "ubicacion": "Sala de conferencias",
+  "descripcion": "El curso abordará prácticas inclusivas para atender a la diversidad de estudiantes en el aula.",
+  "actividad_src": "/src/assets/images/psico4.jpg"
+},
+{
+  "_id": {
+    "$oid": "663d47de6ef352a85c3dd189"
+  },
+  "actividad": "Conferencia sobre gamificación en la educación",
+  "fecha": "2024-05-05",
+  "hora": "16:00:00",
+  "ubicacion": "Auditorio principal",
+  "descripcion": "Expertos discutirán cómo la gamificación puede mejorar la motivación y el compromiso de los estudiantes en el proceso de aprendizaje.",
+  "actividad_src": "/src/assets/images/psico3.jpg"
+}]

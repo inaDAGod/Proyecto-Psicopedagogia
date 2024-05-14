@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "6640d37c9b6f5e7121bcd9ed"
+  },
+  "noticia": "Investigación revela la importancia del juego en el desarrollo infantil",
+  "contenido": "Un estudio reciente sugiere que el juego libre y no estructurado es crucial para el desarrollo cognitivo y emocional de los niños.",
+  "fecha": "2024-04-15",
+  "noticia_src": "/src/assets/images/psico3.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640d37c9b6f5e7121bcd9ee"
+  },
+  "noticia": "Nuevas técnicas de enseñanza promueven la inclusión en el aula",
+  "contenido": "Docentes implementan métodos innovadores para fomentar la participación de todos los estudiantes, incluyendo aquellos con necesidades especiales.",
+  "fecha": "2024-04-20",
+  "noticia_src": "/src/assets/images/psico3.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640d37c9b6f5e7121bcd9ef"
+  },
+  "noticia": "Conferencia sobre atención plena en el aprendizaje",
+  "contenido": "Expertos en educación presentarán estrategias para integrar la atención plena en el proceso de enseñanza-aprendizaje.",
+  "fecha": "2024-04-25",
+  "noticia_src": "/src/assets/images/psico3.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640d37c9b6f5e7121bcd9f0"
+  },
+  "noticia": "Avances en neurociencia educativa: impacto en la práctica pedagógica",
+  "contenido": "Neurocientíficos y educadores analizarán cómo los descubrimientos recientes en neurociencia pueden informar y mejorar las prácticas educativas.",
+  "fecha": "2024-04-28",
+  "noticia_src": "/src/assets/images/psico3.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640d37c9b6f5e7121bcd9f1"
+  },
+  "noticia": "Estudio encuentra vínculo entre la música y el rendimiento académico",
+  "contenido": "Investigadores descubren que la exposición regular a la música está asociada con mejoras en el rendimiento académico de los estudiantes.",
+  "fecha": "2023-05-02",
+  "noticia_src": "/src/assets/images/psico3.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640d37c9b6f5e7121bcd9f2"
+  },
+  "noticia": "Programa de lectura recreativa en escuelas primarias",
+  "contenido": "Una iniciativa busca fomentar el hábito de la lectura entre los niños mediante actividades lúdicas y motivadoras.",
+  "fecha": "2023-05-05",
+  "noticia_src": "/src/assets/images/psico3.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640d37c9b6f5e7121bcd9f3"
+  },
+  "noticia": "Investigación sobre el impacto del juego en el desarrollo del lenguaje",
+  "contenido": "Estudio examina cómo el juego simbólico puede influir en el desarrollo del lenguaje en la primera infancia.",
+  "fecha": "2023-05-10",
+  "noticia_src": "/src/assets/images/psico3.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640d37c9b6f5e7121bcd9f4"
+  },
+  "noticia": "Importancia de la educación emocional en el currículo escolar",
+  "contenido": "Expertos destacan la necesidad de incluir la educación emocional como parte integral del currículo escolar para promover el bienestar de los estudiantes.",
+  "fecha": "2024-04-15",
+  "noticia_src": "/src/assets/images/psico3.jpg"
+}]

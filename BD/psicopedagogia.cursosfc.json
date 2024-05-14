@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "6640d85a9b6f5e7121bcd9fd"
+  },
+  "titulo": "Curso de Intervención Psicopedagógica",
+  "about": "Este curso proporciona herramientas prácticas para intervenir en procesos de aprendizaje y desarrollo.",
+  "competencia": "Evaluación psicopedagógica, diseño de estrategias de intervención, y seguimiento de procesos de aprendizaje.",
+  "requisitos": "Conocimientos básicos en psicología y pedagogía.",
+  "fecha": "2024-05-01",
+  "img": "/backend/images/fc1.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640d85a9b6f5e7121bcd9fe"
+  },
+  "titulo": "Curso de Dificultades de Aprendizaje",
+  "about": "Aprende a identificar, entender y abordar las dificultades de aprendizaje en contextos educativos.",
+  "competencia": "Diagnóstico diferencial, diseño de adaptaciones curriculares, y trabajo colaborativo con familias y profesionales.",
+  "requisitos": "Formación previa en educación especial o psicopedagogía.",
+  "fecha": "2024-06-01",
+  "img": "/backend/images/fc2.jpg"
+},
+{
+  "_id": {
+    "$oid": "6640d85a9b6f5e7121bcd9ff"
+  },
+  "titulo": "Curso de Orientación Vocacional",
+  "about": "Descubre técnicas y herramientas para guiar a personas en la elección de su carrera profesional.",
+  "competencia": "Análisis de intereses, habilidades y valores, y exploración de opciones académicas y laborales.",
+  "requisitos": "Interés por la orientación educativa y habilidades de comunicación.",
+  "fecha": "2024-07-01",
+  "img": "/backend/images/fc3.jpg"
+}]

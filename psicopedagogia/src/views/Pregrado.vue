@@ -5,13 +5,13 @@
       <div style="margin:20px;">
         <div style="display: flex; align-items: center;">
 
-          <h3 class="prehead3">Malla</h3>
+          <h3 class="prehead3"></h3>
           <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
 
             <div style="margin:20px;">
               <div style="margin:20px;">
                 <a :href="'https://lpz.ucb.edu.bo/wp-content/uploads/2023/12/PSP-2024.pdf'">
-                  <button class="b-pre">Descargar malla</button>
+                  <button class="b-preMalla">Descargar malla</button>
                 </a>
               </div>
             </div>
