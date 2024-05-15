@@ -71,7 +71,7 @@
       <!-- Perfiles carousel -->
       <h2 class="prehead2">Perfiles de estudiantes PSP</h2>
       <div class="div-previd">
-        <Carousel ref="perfilesCarousel" :itemsToShow="1" :wrapAround="true" :transition="5">
+        <Carousel ref="perfilesCarousel" :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosPerfiles" :key="video.id">
             <iframe class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
           </Slide>
