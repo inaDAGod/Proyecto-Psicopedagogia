@@ -25,7 +25,7 @@
       <a :href="paginaNosotros.link_psico_ucb"><button class="b-links">Psicopedagogía La Paz</button></a><br>
     </div>
     
-    <footer>
+    <footer class="footernos">
         <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernos-img">
         <div class="footernos-container">
           <table class="footernos-table">
