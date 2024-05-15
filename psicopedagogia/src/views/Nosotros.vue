@@ -30,17 +30,16 @@
         <div class="footernos-container">
           <div>
           <table class="footernos-table">
-            <tr class="footernos-tr">
-              <td class="footernos-td">
+            
               <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernos-img">
-           </td> </tr>
-           
+          
+
       <tr class="footernos-tr" >
         <td class="footernos-td">
-          <a :href="paginaNosotros.facebook"><img class="imgnos" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
+          <a :href="paginaNosotros.facebook"><img style="margin-top: 10%;" class="imgnos" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
         </td>
         <td class="footernos-td2">
-          <p class="footernos-p">Psicopedagogía UCB La Paz</p>
+          <p class="footernos-p" style="margin-top: 10%;">Psicopedagogía UCB La Paz</p>
         </td>
       </tr>
       <tr class="footernos-tr">
