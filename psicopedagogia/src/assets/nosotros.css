@@ -35,7 +35,10 @@
 
 
 /*--------------------------------------Footer-------------------------------------------*/
-
+.footernos {
+  height: auto; /* Adjust height as needed */
+  position: relative;
+}
 .footernos-t {
     width: 100%;
     height: 1%;
@@ -57,24 +60,28 @@
   .footernos-mainnos {
     font-family: 'Oswald';
     text-align: center;
-    font-size: 40px;
+    font-size: 100%;
     color: rgba(13, 137, 244, 1);
     margin-right: 10%;
-    margin-top: 45%;
+    position: relative; /* Add this line to make z-index work */
+    
+    z-index: 1;
   }
-  
-  
-  .footernos-p{
-    margin-left: -45%;
-    font-size: 35px;
+
+  .footernos-p {
+    margin-left: -40%;
+    font-size: 90%;
     margin-bottom: -5px;
     padding: -1px -1px;
   }
   
   .footernos-container {
-    overflow: hidden; /* Clear floats */
+    display: flex;
+    justify-content: space-between;
+    align-items: left;
   }
   
+ 
   .footernos-table {
     float: left;
     background-color: rgba(170, 214, 251, 1);
@@ -94,13 +101,16 @@
     align-items: left;
   }
   
-  
+
   
   .footernos-img {
     text-align: left;
-    margin-top: -7%;
-    margin-right: 92%;
-    z-index: 2;
+    top: -40%; /* Adjust as needed to position the image */
+    left: -7%;
+    z-index: 3;
+    position: absolute;
+    
+
   }
   
   
@@ -113,7 +123,7 @@
     background-color: rgba(170, 214, 251, 1);
     padding: 1%; /* Add padding to match the footer-table */
     padding: 1% 1%; /* Adjust padding top and bottom to move it up */
-    margin-top: -20%; 
+    
     z-index: 2;
     left: 0;
   }

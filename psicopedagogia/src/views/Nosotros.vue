@@ -26,14 +26,20 @@
     </div>
     
     <footer class="footernos">
-        <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernos-img">
+        
         <div class="footernos-container">
+          <div>
           <table class="footernos-table">
-      <tr class="footernos-tr">
+            <tr class="footernos-tr">
+              <td class="footernos-td">
+              <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernos-img">
+           </td> </tr>
+           
+      <tr class="footernos-tr" >
         <td class="footernos-td">
           <a :href="paginaNosotros.facebook"><img class="imgnos" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footernos-td">
+        <td class="footernos-td2">
           <p class="footernos-p">Psicopedagogía UCB La Paz</p>
         </td>
       </tr>
@@ -61,7 +67,8 @@
           <p class="footernos-p">psp.ucb.lapaz</p>
         </td>
       </tr>
-    </table>
+    
+    </table></div>
   
           <div class="footernos-info">
             <h2 class="footernos-mainnos">Atención de Dirección de Carrera</h2>
