@@ -71,10 +71,11 @@
 
   .footernos-p {
     margin-right: 10%;
-    font-size: 180%;
+    font-size: 170%;
     margin-bottom: -5px;
     padding: -1px -1px;
-    margin-left: -70%;
+    margin-left: 2%;
+    text-align: left;
   }
   
   .footernos-container {
@@ -107,8 +108,8 @@
   
   .footernos-img {
     text-align: left;
-    top: -52%; /* Adjust as needed to position the image */
-    left: -7%;
+    top: -128px; /* Adjust as needed to position the image */
+    left: -5%;
     z-index: 3;
     position: absolute;
     
