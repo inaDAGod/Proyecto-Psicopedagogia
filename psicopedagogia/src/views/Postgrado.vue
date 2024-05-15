@@ -47,16 +47,16 @@ const obtenerMaestrias = async () => {
     console.error('Error fetching maestrias:', error);
   }
 };
-
-// Function to fetch data for Cursos Continuos
 const obtenerCursos = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/cursosfc'); // Ensure the endpoint is correct here
+    const response = await axios.get('http://localhost:3000/api/cursoscf'); // Corregido el nombre de la ruta
     cursos.value = response.data;
   } catch (error) {
     console.error('Error fetching cursos:', error);
   }
 };
+
+
 
 
 // Call the functions to fetch data when the component is mounted

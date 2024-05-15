@@ -1,6 +1,6 @@
 .titulo-pos {
     font-family: 'Koulen';
-    font-size: 60px;
+    font-size: 300%;
     color: rgba(255, 42, 157, 1);
     padding: 2%;
 }
@@ -10,51 +10,55 @@
   color: rgba(255, 42, 157, 1);
   padding: 2%;
 }
+/*-----------------------------------------------------------*/
 
-.maestria-info{
-    background-color: rgba(170, 214, 251, 1);
-    width: 50%;
-    border-radius: 20px;
-    padding: 2%;
-    margin-left: 10%;
-    
+.maestrias-container {
+  display: flex;
+  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  align-items: flex-start; /* Alinea los elementos arriba */
+  flex-wrap: wrap; /* Envuelve los elementos en múltiples líneas si es necesario */
 }
-.maestria {
-    display: flex; /* Use flexbox layout */
-    align-items: center; /* Center items vertically */
-    margin-bottom: 4%; /* Add some bottom margin for spacing */
-    
-    
-    
-  }
-  
-  .maestria-img {
-     /* Add right margin to create space between image and text */
-    z-index: 2;
-    
-    
-  }
-  .maestria-image{
-    border-radius: 20px;
-    width: 400px;
-    height: 400px;
-    margin-left: -75%;
-  }
-  
-  .maestria-info p {
-    margin: 0; /* Remove default margin for paragraphs */
-    margin-right: 25%;
-    font-size: 23px;
-    width: 75%;
-    font-family:'Roboto Condensed', sans-serif;
-  }
-  .maestria-head{
-    text-align: center;
-    font-size: 25px;
-    margin-right: 31%;
-    font-family: 'Oswald';
-  }
 
+.maestria-item {
+  margin: 20px; /* Añade espaciado entre los elementos */
+}
+
+
+.maestria {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4%;
+  background-color: rgba(170, 214, 251, 1);
+  border-radius: 20px;
+  width: 80%;
+  max-width: 800px; /* Ancho máximo del contenedor */
+}
+
+.maestria-info {
+  padding: 2%;
+
+  width: 100%; /* Establece el ancho del contenedor de información */
+}
+
+.maestria-image {
+  border-radius: 20px;
+  width: 80%; /* Establece el ancho de la imagen */
+  height: auto; /* Altura automática para mantener la proporción */
+  
+}
+
+.maestria-info p {
+  margin: 0;
+  width: 100%;
+  font-size: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.maestria-head {
+  text-align: center;
+  font-size: 25px;
+  font-family: 'Oswald';
+}
 
 /*-------------------------------------------------------------------------------------------*/
 
