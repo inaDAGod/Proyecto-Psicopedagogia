@@ -56,8 +56,9 @@
       <div style="text-align: center; margin-bottom: 5%">
         <a :href="paginaNosotros.link_soc_cien"><button class="b-linksna">Sociedad Científica Estudiantil Inpsicopedia</button></a><br>
         <a :href="paginaNosotros.link_sembrando"><button class="b-linksna">Programa “Sembrando Semillas de Paz”</button></a><br>
-        <a :href="paginaNosotros.link_psico_ucb"><button class="b-linksna">Psicopedagogía La Paz</button></a><br>
+        <a :href="paginaNosotros.link_psico_ucb"><button class="b-linksna">Psicopedagogía La Paz</button></a><br><br><br>
       </div>
+      
   
       <!-- Footer -->
       <footer>
