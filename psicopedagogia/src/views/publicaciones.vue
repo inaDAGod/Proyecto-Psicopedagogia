@@ -6,8 +6,12 @@
         <h1>PUBLICACIONES Y LIBROS</h1>
       </div>
       <div>
-        <input type="text" class="busquedaPubli">
-        <button class="buscarPubli">
+        <input type="text" v-model="filtro.titulo" class="busquedaPubli" placeholder="Buscar por título">
+        <input type="text" v-model="filtro.autor" class="busquedaPubli" placeholder="Buscar por autor">
+        <input type="text" v-model="filtro.anio" class="busquedaPubli" placeholder="Buscar por año">
+        <input type="text" v-model="filtro.descripcion" class="busquedaPubli" placeholder="Buscar por descripción">
+        <input type="text" class="busquedaPubli" id="buscador">
+        <button class="buscarPubli" @click="filtrarPublicaciones">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
           </svg>
@@ -18,9 +22,9 @@
     
     <table class="container-publicaciones">
       <tbody>
-        <tr v-for="(publicacionRow, rowIndex) in publicacionesRows" :key="rowIndex">
+        <tr v-if="publicacionesFiltradas.length > 0" v-for="(publicacionRow, rowIndex) in publicacionesFiltradas" :key="rowIndex">
           <td v-for="(publicacion, index) in publicacionRow" :key="index">
-            <div class="publicaciones">
+            <div class="publicaciones" id="publicacion" v-if="publicacion._id">
               <a :href="publicacion.ruta" target="_blank" rel="noopener noreferrer">
                   <div class="publicacion-imagen" @mouseover="aumentarImagen(rowIndex, index)" @mouseleave="reducirImagen(rowIndex, index)">
                       <img :src="publicacion.publicacion_src" :alt="publicacion.titulo" :style="{ transform: imagenesAgrandadas[rowIndex][index] ? 'scale(1.05)' : 'scale(1)' }">
@@ -35,6 +39,9 @@
             </div>
           </td>
         </tr>
+        <tr v-else>
+          <td colspan="2">No se encontraron publicaciones</td>
+        </tr>
       </tbody>
     </table>
 
@@ -42,17 +49,39 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 
 const publicaciones = ref([]);
 const publicacionesRows = ref([]);
 const imagenesAgrandadas = ref([]);
+const filtro = ref({
+  titulo: '',
+  autor: '',
+  anio: '',
+  descripcion: ''
+});
+const publicacionesFiltradas = computed(() => {
+  console.log('Filtro actual:', filtro.value);
+  console.log('Publicaciones sin filtrar:', publicaciones.value);
+  const filtradas = publicaciones.value.filter(publicacion => {
+    return Object.keys(filtro.value).every(key => {
+      // Si el valor del filtro es una cadena vacía, no se aplica filtro
+      if (filtro.value[key] === '') return true;
+      // Comprueba si la propiedad de la publicación coincide con el filtro
+      return String(publicacion[key]).toLowerCase().includes(filtro.value[key].toLowerCase());
+    });
+  });
+  console.log('Publicaciones filtradas:', filtradas);
+  return filtradas;
+});
+
 
 const obtenerPublicaciones = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/publicaciones');
+    const response = await axios.get('http://localhost:3000/api/publicaciones', { params: filtro.value });
     publicaciones.value = response.data;
+    console.log('Datos de la respuesta de la API:', response.data);
     calcularFilasDePublicaciones();
     imagenesAgrandadas.value = Array.from({ length: publicacionesRows.value.length }, () => Array(publicacionesRows.value[0].length).fill(false));
   } catch (error) {
@@ -148,5 +177,8 @@ onMounted(() => {
   }
   .info-publicacion {
     flex: 2.5;
+  }
+  .filtro{
+    display: none;
   }
 </style>

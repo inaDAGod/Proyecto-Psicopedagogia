@@ -172,13 +172,29 @@ app.get('/api/actividades_internacional', async (req, res) => {
 //Publicaciones
 app.get('/api/publicaciones', async (req, res) => {
   try {
-    const publicaciones = await db.collection('publicaciones').find().toArray();;
+    // Obtener los parámetros de consulta
+    const { titulo, autor, anio, descripcion } = req.query;
+
+    // Inicializar el filtro como un objeto vacío
+    let filtro = {};
+
+    // Construir el filtro basado en los parámetros de consulta proporcionados
+    if (titulo) filtro.titulo = { $regex: new RegExp(titulo, 'i') };
+    if (autor) filtro.autor = { $regex: new RegExp(autor, 'i') };
+    if (anio) filtro.anio = anio;
+    if (descripcion) filtro.descripcion = { $regex: new RegExp(descripcion, 'i') };
+
+    // Consultar la base de datos utilizando el filtro
+    const publicaciones = await db.collection('publicaciones').find(filtro).toArray();
+
+    // Enviar las publicaciones filtradas como respuesta
     res.json(publicaciones);
   } catch (error) {
     console.error('Error al obtener las publicaciones:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
 
 //-----------OTROS---------
 //egresados

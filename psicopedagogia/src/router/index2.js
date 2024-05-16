@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/views/homeEditar.vue';
+import Home from '@/views/publicaciones.vue';
 import Egresados from '@/views/EgresadosAdmi.vue';
 import About from '@/views/Nosotrosadmin.vue';
 //import Sociedad from '@/views/Sociedad.vue'
