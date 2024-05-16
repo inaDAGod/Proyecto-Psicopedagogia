@@ -92,6 +92,7 @@
   width: 80%;
   height: auto;
   max-width: 900px; /* Maximum width of the container */
+  padding: 1%;
 }
 
 .curso-info {
