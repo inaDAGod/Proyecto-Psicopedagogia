@@ -71,49 +71,56 @@
 /*-------------------------------------------------------------------------------------------*/
 
 
+.curso-container {
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  align-items: flex-start; /* Align items to the top */
+  flex-wrap: wrap; /* Wrap items */
+  margin-right: -60px; /* Move the container towards the left */
+}
 
-
-  /* Estilos CSS */
-
-/* Estilos CSS */
-/* Estilos CSS */
-
-.curso-info {
-  padding: 2%;
-  width: 100%;
+.curso-item {
+  margin: 2px; /* Add spacing between items */
 }
 
 .curso {
   display: flex;
-  flex-direction: column; /* Cambia la dirección del flexbox para que sea vertical */
-  align-items: flex-start; /* Alinea los elementos al principio */
+  align-items: center;
   margin-bottom: 4%;
   background-color: rgba(219, 238, 150, 1);
   border-radius: 20px;
-  width: 90%; /* Reducir el ancho para que el contenido no ocupe toda la pantalla */
-  max-width: 900px; /* Ancho máximo del contenedor */
-  margin-left: auto; /* Alinea el contenedor a la derecha */
-  margin-right: 20px; /* Agrega un pequeño espacio a la derecha */
+  width: 80%;
+  height: auto;
+  max-width: 900px; /* Maximum width of the container */
 }
 
-.curso-img {
+.curso-info {
+  padding: 2%;
+  width: 100%; /* Set the width of the info container */
+}
+
+.curso-image {
   border-radius: 20px;
-  width: 100%; /* Establece el ancho de la imagen al 100% */
-  max-width: 400px; /* Límite máximo para el ancho de la imagen */
-  height: auto;
-  margin-bottom: 20px; /* Agrega espacio entre la imagen y el texto */
+  width: 60%; /* Set the width of the image */
+  min-width: 150%;
+  max-width: 400px;
+  min-height: 200%;
+  max-height: 800px;
+  height: auto; /* Maintain aspect ratio */
+  margin-left: -28%;
 }
 
 .curso-info p {
   margin: 0;
-  width: 100%;
-  font-size: 16px; /* Ajusta el tamaño del texto */
+  width: 80%;
+  max-width: 600px;
+  font-size: 100%;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
 .curso-head {
   text-align: center;
-  font-size: 24px; /* Ajusta el tamaño del título */
+  font-size: 24px;
   font-family: 'Oswald';
 }
 
@@ -121,9 +128,24 @@
   text-align: left;
 }
 
-  /* Estilos base */
-/* .titulo-pos, .titulo-pos2, .maestrias-container, .maestria-item, .maestria, .maestria-info, .maestria-image, .maestria-info p, .maestria-head, .curso-info, .curso, .curso-img, .curso-image, .curso-info p, .curso-head, .container-pos */
-/* Añade aquí tus estilos base */
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .curso {
+    flex-direction: row; /* Change flex direction to row */
+  }
+
+  .curso-img {
+    width: 30%; /* Set image width */
+    max-width: 200px; /* Set maximum width for smaller screens */
+    margin-right: 20px; /* Add space between image and text */
+  }
+
+  .curso-info {
+    flex: 1; /* Take up remaining space */
+  }
+}
+
+
 
 /* Media queries para pantallas pequeñas */
 @media only screen and (max-width: 600px) {
