@@ -85,7 +85,7 @@
             <div class="text-box-perfilestudiante">
                 <div class="perfil_estudiante">
                     <div class="img-content-perfilestudiante">
-                        <img :src="paginaHome.perfil_estudiante_src" width="3vh" height="auto" class="d-block w-100" alt="mision_img" >
+                        <img :src="paginaHome.perfil_estudiante_src" class="d-block w-100" alt="Perfil del estudiante">
                     </div>
                     <div class="text-content-perfilestudiante">
                         <h1>PERFIL DE ESTUDIANTE</h1>
@@ -94,6 +94,7 @@
                 </div>
             </div>     
         </div>
+
 
     </div>
     <AnimacionHome />
@@ -155,36 +156,38 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
     @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
     @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
-    body {
+body {
   background-color: white; 
-  width: 100%;
+  width: 120%;
 }
 .content-home {
     padding: 0px;
+    width: 10%; /* Ajustar el ancho al 100% para que ocupe todo el ancho disponible */
+    max-width: 100px;
 }
 .titulo-psico {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
-  padding-left: 5%; /* Ajusta el espacio izquierdo según sea necesario */
+  align-items: center; /* Centramos el contenido horizontalmente */
+  padding-left: 5%; /* Ajustamos el espacio izquierdo según sea necesario */
+  padding-right: 5%; /* Ajustamos el espacio derecho según sea necesario */
 }
-.titulo-psico h1{
-    font-family: 'Koulen', sans-serif;
-    font-size: 10vh;
-    color: #0D89F4;
-    padding-top: 10vh;
-    padding-left: 3vh;
-    margin-bottom: 2vh;
+.titulo-psico h1 {
+  font-family: 'Koulen', sans-serif;
+  font-size: 6vh;
+  color: #0D89F4;
+  padding-top: 10vh;
+  margin-bottom: 2vh;
 }
-.titulo-psico h2{
-    font-family: 'Koulen', sans-serif;
-    font-size: 12vh;
-    padding-top: 2vh;
-    color: #FF7001;
-    padding-left: 8vh;
-    margin-bottom: 2vh;
+.titulo-psico h2 {
+  font-family: 'Koulen', sans-serif;
+  font-size: 8vh;
+  padding-top: 2vh;
+  color: #FF7001;
+  margin-bottom: 2vh;
 }
+
 
 .container-home{
     justify-content: center;
@@ -239,9 +242,54 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
   font-size: 1.5vmax;
 }
 @media screen and (max-width: 768px) {
-  .text-box-quienessomos{
-      max-width: 100%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
-  }
+    .content-home {
+        margin-left: 2%;
+        width: 50%; /* Cambia el ancho al 90% en pantallas más pequeñas */
+        max-width: none; /* Elimina el ancho máximo en pantallas más pequeñas */
+    }
+    .container-misionvision {
+        margin-left: 2%;
+        width: 50%; /* Cambia el ancho al 90% en pantallas más pequeñas */
+        max-width: none; /* Elimina el ancho máximo en pantallas más pequeñas */
+    }
+    .content-home .titulo-psico h1 {
+        font-size: 4vh; /* Tamaño del título h1 en dispositivos muy pequeños */
+    }
+    .content-home .titulo-psico h2 {
+        font-size: 5vh; /* Tamaño del título h2 en dispositivos muy pequeños */
+    }
+    .text-box-quienessomos{
+        max-width: 60%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
+        margin-left: 5%;
+        margin-right: 5%;;
+    }
+    .text-box-perfilestudiante{
+        max-width: 70%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
+        margin-left: 5%;
+        margin-right: 5%;;
+    }
+    .text-box-mision,  .text-box-vision{
+        max-width: 100%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
+        margin-left: 100%;
+        margin-right: 5%;
+    }
+    .text-content1 h1 {
+        font-size: 1vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
+        max-width: 50%;
+    }
+    .text-content1 p {
+        font-size: 1vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
+        max-width: 50%;
+    }
+    .text-content-perfilestudiante h1 {
+        font-size: 1vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
+        max-width: 50%;
+    }
+    .text-content-perfilestudiante p {
+        font-size: 1vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
+        max-width: 50%;
+    }
+
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -341,16 +389,17 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
     width: 90%;
     margin-right: 5%;
     margin-left: 5%;
-
+    max-width: 80%; 
 }
 .text-box-mision {
     background-color: #AAD6FB;
     color:black;
     border-radius: 5vh;
-    padding: 5vh;
-    margin-top: 5vh;
+    padding: 3vh;
+    margin-top: 3vh;
     margin-bottom: 1vh; 
     margin-right: 5%;
+    max-width: 100%; 
 }
 .text-box-vision {
     background-color: #FEF684;
@@ -360,6 +409,7 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
     margin-top: 5vh;
     margin-bottom: 1vh;
     margin-left: 5%;
+    
 }
 .text-box-perfilestudiante {
   background-color: #BEAFE5;
@@ -414,8 +464,15 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
     height: auto;
     text-align: center;
 }
+.img-content-perfilestudiante {
+    flex: 1;
+    margin-right: 5%; /* Espacio entre la imagen y el texto */
+}
+.text-content-perfilestudiante {
+    flex: 1;
+}
 .perfil_estudiante img{
-    width: 5vh; 
+    max-width: 100%; 
     height: auto;
     text-align: center;
 }
