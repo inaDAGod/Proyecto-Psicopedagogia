@@ -94,11 +94,11 @@ const generateCursoTable = (curso) => {
   </div>
   <div class="curso-info">
     <h4 class="curso-head">${curso.titulo}</h4>
-    <p class="curso-info p">
+    <p class="curso-info p"><b>
       About: ${curso.about}<br><br>
       Competencia: ${curso.competencia}<br><br>
       Requisitos: ${curso.requisitos}<br><br>
-      Fecha: ${curso.fecha}
+      Fecha: ${curso.fecha}</b>
     </p>
   </div>
 </div>
