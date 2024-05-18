@@ -9,8 +9,8 @@
         <p>{{ egresado.correo }}</p>
         <div class="divBoton">
           <div class="botones">
-            <BotonD text="Editar" colorFondo="#FF7001" colorTexto="white" @click="toggleForm(egresado)" />
-            <BotonD text="Borrar" colorFondo="#FF7001" colorTexto="white" @click="borrarEgresado(egresado)" />
+            <BotonD text="Editar" colorFondo="#BADF3A" colorTexto="black" @click="toggleForm(egresado)" />
+            <BotonD text="Borrar" colorFondo="#FFA198" colorTexto="black" @click="borrarEgresado(egresado)" />
           </div>
         </div>
       </div>
@@ -110,5 +110,8 @@ const borrarEgresado = async (egresado) => {
 .botones {
   display: flex;
   justify-content: center;
+}
+.botones > * {
+  margin: 0 10px; /* Ajusta el espacio entre los botones */
 }
 </style>
