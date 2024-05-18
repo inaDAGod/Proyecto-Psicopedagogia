@@ -34,12 +34,13 @@
       }
 
       .cardsEgresados {
-        flex: 0 0 60%; /* Ocupa el 60% del ancho */
+        flex: 0 0 60%; 
       }
 
       .formAddEgresado {
         flex: 0 0 40%; /* Ocupa el 40% del ancho */
         background-color: #D9D9D9;
+       
       }
   </style>
   
