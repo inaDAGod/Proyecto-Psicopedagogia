@@ -80,6 +80,7 @@
         });
         if (response.ok) {
           console.log('Egresado guardado correctamente');
+          
           clearFields();
         } else {
           console.error('Error al guardar el egresado:', response.statusText);
@@ -110,6 +111,7 @@
   trabajo.value = '';
   comentario.value = '';
   src_foto.value = '';
+
 };
 
   </script>

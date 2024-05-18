@@ -88,6 +88,18 @@ app.post('/api/egresadosUpdate', async (req, res) => {
   }
 });
 
+app.delete('/api/egresados/:id', async (req, res) => {
+  try {
+    const egresadoId = req.params.id;
+    // Realizar la lógica para eliminar el egresado de la base de datos utilizando el ID proporcionado
+    await db.collection('egresados').deleteOne({ _id: new ObjectId(egresadoId) });
+    res.status(200).send('Egresado eliminado correctamente');
+  } catch (error) {
+    console.error('Error al eliminar el egresado:', error);
+    res.status(500).send('Error al eliminar el egresado');
+  }
+});
+
 //docentes
 
 app.get('/api/docentes', async (req, res) => {
