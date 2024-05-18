@@ -26,6 +26,13 @@
         </div>
         <div style="text-align: center;">
           <button class="bot-guardar">Guardar</button>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <button class="bot-borrar" @click="borrarEgresado()" >Borrar Egresado</button>
         </div>
       </form>
     </div>
@@ -34,7 +41,7 @@
 
 <script setup>
 import { ref, watch, defineProps, defineEmits } from 'vue';
-
+import axios from 'axios';
 const props = defineProps({
   egresado: Object,
 });
@@ -84,6 +91,18 @@ const submitForm = async () => {
   }
 };
 
+const borrarEgresado = async () => {
+  try {
+    const response = await axios.delete(`http://localhost:3000/api/egresados/${index.value}`);
+    if (response.status === 200) {
+      console.log('Egresado eliminado correctamente');
+      closeForm();
+    
+    }
+  } catch (error) {
+    console.error('Error al eliminar el egresado:', error);
+  }
+};
 const closeForm = () => {
   emit('onclose');
 };

@@ -9,8 +9,7 @@
         <p>{{ egresado.correo }}</p>
         <div class="divBoton">
           <div class="botones">
-            <BotonD text="Editar" colorFondo="#BADF3A" colorTexto="black" @click="toggleForm(egresado)" />
-            <BotonD text="Borrar" colorFondo="#FFA198" colorTexto="black" @click="borrarEgresado(egresado)" />
+            <button class="bot-editar" @click="toggleForm(egresado)">Editar</button>
           </div>
         </div>
       </div>
@@ -42,21 +41,6 @@ onMounted(async () => {
   }
 });
 
-const borrarEgresado = async (egresado) => {
-  try {
-    const response = await axios.delete(`http://localhost:3000/api/egresados/${egresado._id}`);
-    if (response.status === 200) {
-      console.log('Egresado eliminado correctamente');
-      // Actualizar la lista de egresados después de eliminar
-      const index = egresados.value.findIndex((e) => e.id === egresado.id);
-      if (index !== -1) {
-        egresados.value.splice(index, 1);
-      }
-    }
-  } catch (error) {
-    console.error('Error al eliminar el egresado:', error);
-  }
-};
 </script>
 
 <style scoped>
@@ -114,4 +98,15 @@ const borrarEgresado = async (egresado) => {
 .botones > * {
   margin: 0 10px; /* Ajusta el espacio entre los botones */
 }
+.bot-editar {
+    background-color: #BADF3A;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 20%;
+    width: 50%;
+    font-size: 100%;
+  }
 </style>
