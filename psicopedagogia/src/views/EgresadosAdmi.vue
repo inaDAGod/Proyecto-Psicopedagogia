@@ -1,11 +1,11 @@
 <template>
     <div class="cuerpo">
       <div class="container">
-        <div class="cardsEgresados">
+        <div class="cardsInfo">
           <h2 class="tituloE">Egresados</h2>
           <Cards />
         </div>
-        <div class="formAddEgresado">
+        <div class="formAdd">
           <NuevoEgresadoForm /> 
         </div>
       </div>
@@ -23,24 +23,6 @@
   </script>
   
   <style scoped>
-      .tituloE{
-        color:#FF7001;
-        padding: 3%;
-        font-size: 250%;
-      }
-      .container {
-        display: flex;
-        width: 100%;
-      }
-
-      .cardsEgresados {
-        flex: 0 0 60%; 
-      }
-
-      .formAddEgresado {
-        flex: 0 0 40%; /* Ocupa el 40% del ancho */
-        background-color: #D9D9D9;
-       
-      }
+     @import url('/src/assets/admins.css');
   </style>
   

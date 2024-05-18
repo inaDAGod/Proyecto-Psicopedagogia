@@ -30,8 +30,6 @@
           <br>
           <br>
           <br>
-          <br>
-          <br>
           <button class="bot-borrar" @click="borrarEgresado()" >Borrar Egresado</button>
         </div>
       </form>

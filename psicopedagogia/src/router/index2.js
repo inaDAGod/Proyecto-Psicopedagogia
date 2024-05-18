@@ -5,7 +5,7 @@ import About from '@/views/Nosotrosadmin.vue';
 //import Sociedad from '@/views/Sociedad.vue'
 //import Zona from '@/views/investigaciones.vue'
 //import Social from '@/views/social.vue'
-import Red from '@/views/Red.vue'
+import Red from '@/views/RedAdmi.vue'
 //import Publicaciones from '@/views/publicaciones.vue'
 //import Pregrado from '@/views/Pregrado.vue'
 //import Postgrado from '@/views/Postgrado.vue'
