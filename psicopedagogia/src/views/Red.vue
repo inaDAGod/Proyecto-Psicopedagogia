@@ -65,8 +65,8 @@ export default {
 };
 </script>
   
-  <style>
-  @import url('/src/assets/red.css');
+  <style scoped>
+    @import url('/src/assets/red.css');
 
   </style>
   

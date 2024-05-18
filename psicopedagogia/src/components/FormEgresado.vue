@@ -1,7 +1,6 @@
 <template>
-    <div class="mod" v-show="showForm">
+    <div class="mod">
       <div class="mod-content">
-        <button class="clo" @click="closeForm">&times;</button>
         <h2>Agregar Nuevo Egresado</h2>
         <form @submit.prevent="submitForm">
           <!-- Input fields para el formulario -->
@@ -107,6 +106,6 @@
   </script>
   
   <style scoped>
-  @import url('/src/assets/formEgresados.css');
+  @import url('/src/assets/formEgresados2.css');
   </style>
   

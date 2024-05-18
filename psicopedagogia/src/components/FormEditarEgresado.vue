@@ -1,5 +1,5 @@
 <template>
-  <div class="mod" v-show="showForm">
+  <div class="mod">
     <div class="mod-content">
       <button class="clo" @click="closeForm">&times;</button>
       <h2>Editar Egresado</h2>
@@ -25,7 +25,6 @@
           <textarea id="comentario" v-model="comentario"></textarea>
         </div>
         <div style="text-align: center;">
-          <!-- Botón para enviar el formulario -->
           <button class="bot-guardar">Guardar</button>
         </div>
       </form>
@@ -34,58 +33,49 @@
 </template>
 
 <script setup>
-import { ref, defineProps, watch } from 'vue';
+import { ref, watch, defineProps, defineEmits } from 'vue';
 
-const showForm = ref(true);
 const props = defineProps({
-  nombre: String,
-  correo: String,
-  anioGraduacion: Number,
-  trabajo: String,
-  comentario: String,
-  index: Number,
-  onclose: Function
+  egresado: Object,
 });
 
-const nombre = ref(props.nombre);
-const correo = ref(props.correo);
-const anioGraduacion = ref(props.anioGraduacion);
-const trabajo = ref(props.trabajo);
-const comentario = ref(props.comentario);
+const emit = defineEmits(['onclose']);
 
-// Watch global para actualizar las variables locales cuando cambian las propiedades
-watch(
-  () => [props.nombre, props.correo, props.anioGraduacion, props.trabajo, props.comentario],
-  ([newNombre, newCorreo, newAnioGraduacion, newTrabajo, newComentario]) => {
-    nombre.value = newNombre;
-    correo.value = newCorreo;
-    anioGraduacion.value = newAnioGraduacion;
-    trabajo.value = newTrabajo;
-    comentario.value = newComentario;
-  },
-  { deep: true }
-);
+const nombre = ref('');
+const correo = ref('');
+const anioGraduacion = ref('');
+const trabajo = ref('');
+const comentario = ref('');
+const index =  ref('');
 
-// Función para enviar el formulario al servidor
+watch(props, () => {
+  if (props.egresado) {
+    nombre.value = props.egresado.nombre;
+    correo.value = props.egresado.correo;
+    anioGraduacion.value = props.egresado.anio_graduacion;
+    trabajo.value = props.egresado.trabajo;
+    comentario.value = props.egresado.comentario;
+    index.value = props.egresado._id;
+  }
+});
+
 const submitForm = async () => {
   try {
-    const formData = new FormData(); // Crear objeto FormData para enviar datos al servidor
-    formData.append('index', props.index);
+    const formData = new FormData();
+    formData.append('index', index.value);
     formData.append('nombre', nombre.value);
     formData.append('correo', correo.value);
     formData.append('anio_graduacion', anioGraduacion.value);
     formData.append('trabajo', trabajo.value);
     formData.append('comentario', comentario.value);
-
-    // Enviar el formulario al servidor
     const response = await fetch('http://localhost:3000/api/egresadosUpdate', {
       method: 'POST',
-      body: formData 
+      body: formData
     });
     
     if (response.ok) {
       console.log('Egresado actualizado correctamente');
-      closeForm(); 
+      closeForm();
     } else {
       console.error('Error al actualizar el egresado:', response.statusText);
     }
@@ -94,9 +84,8 @@ const submitForm = async () => {
   }
 };
 
-// Función para cerrar el formulario
 const closeForm = () => {
-  props.onclose();
+  emit('onclose');
 };
 </script>
 

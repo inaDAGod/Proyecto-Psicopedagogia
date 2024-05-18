@@ -78,7 +78,7 @@ app.post('/api/egresadosUpdate', async (req, res) => {
   try {
     const { index, nombre, correo, anio_graduacion, trabajo, comentario } = req.body;
     await db.collection('egresados').updateOne(
-      { _id: ObjectId(index) },
+      { _id: new ObjectId(index) },
       { $set: { nombre, correo, anio_graduacion, trabajo, comentario } }
     );
     res.status(200).send('Egresado actualizado correctamente');

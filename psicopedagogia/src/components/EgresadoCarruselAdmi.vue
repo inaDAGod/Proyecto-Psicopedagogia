@@ -1,83 +1,90 @@
 <template>
-    <div class="car-container">
-      <div class="car">
-        <div class="car-inner">
-          <div v-for="(egresado, index) in visibleIndices" :key="index" class="car-item">
-            <div class="img-container">
-              <img :src="egresados[egresado].src_foto" :class="{ 'img-oval': true, 'blur': egresado !== currentIndex, 'focused': egresado === currentIndex }" alt="...">
-            </div>
-            <div class="car-caption">
-              <h3 style="color: black;">{{ egresados[egresado].nombre }}</h3>
-            </div>
-          </div>
+  <div class="card-container">
+    <div class="card" v-for="(egresado, index) in egresados" :key="index">
+      <div class="img-container">
+        <img :src="egresado.src_foto" class="img-oval" alt="...">
+      </div>
+      <div class="card-caption">
+        <p><b>{{ egresado.nombre }}</b></p>
+        <p>{{ egresado.correo }}</p>
+        <div class="divBoton">
+          <BotonD text="Editar egresado" colorFondo="#FF7001" colorTexto="white" @click="toggleForm(egresado)" />
         </div>
-        <button class="car-control-prev" style="top: 82%;" type="button" @click="prevSlide">
-          <
-        </button>
-        <button class="car-control-next" style="top: 82%;" type="button" @click="nextSlide">
-          >
-        </button>
       </div>
-      <div class="espacio"></div>
-      <div v-if="egresados[currentIndex]">
-        
-        <Info
-          :nombre="egresados[currentIndex].nombre"
-          :correo="egresados[currentIndex].correo"
-          :anioGraduacion="egresados[currentIndex].anio_graduacion"
-          :trabajo="egresados[currentIndex].trabajo"
-          :comentario="egresados[currentIndex].comentario"
-          :srcFoto="egresados[currentIndex].src_foto"
-          :index="egresados[currentIndex].id_egresado"
-        />
-       
-      </div>
-      <div class="espacio"></div>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref, onMounted, defineEmits } from 'vue';
-  import axios from 'axios';
-  import Info from './EgresadosInfoAdmi.vue';
-  
-  const emits = defineEmits(['updateCurrentIndex']);
-  
-  onMounted(async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/api/egresados');
-      egresados.value = response.data;
-      updateVisibleIndices();
-    } catch (error) {
-      console.error('Error al obtener los egresados:', error);
-    }
-  });
-  
-  const egresados = ref([]);
-  const currentIndex = ref(0);
-  const visibleIndices = ref([]);
-  
-  const nextSlide = () => {
-    currentIndex.value = (currentIndex.value + 1) % egresados.value.length;
-    updateVisibleIndices();
-    emits('updateCurrentIndex', currentIndex.value);
-  };
-  
-  const prevSlide = () => {
-    currentIndex.value = (currentIndex.value - 1 + egresados.value.length) % egresados.value.length;
-    updateVisibleIndices();
-    emits('updateCurrentIndex', currentIndex.value);
-  };
-  
-  const updateVisibleIndices = () => {
-    const totalIndices = egresados.value.length;
-    const prevIndex = (currentIndex.value - 1 + totalIndices) % totalIndices;
-    const nextIndex = (currentIndex.value + 1) % totalIndices;
-    visibleIndices.value = [prevIndex, currentIndex.value, nextIndex];
-  };
-  </script>
-  
-  <style scoped>
-    @import url('/src/assets/egresados.css');
-  </style>
-  
+  </div>
+  <EgresadoForm v-show="selectedEgresado" :egresado="selectedEgresado"  @onclose="toggleForm(null)" />
+  <div class="espacio"></div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import BotonD from './BotonD.vue';
+import EgresadoForm from './FormEditarEgresado.vue';
+
+const egresados = ref([]);
+const selectedEgresado = ref(null);
+
+const toggleForm = (egresado) => {
+  selectedEgresado.value = egresado;
+};
+
+onMounted(async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/api/egresados');
+    egresados.value = response.data;
+  } catch (error) {
+    console.error('Error al obtener los egresados:', error);
+  }
+});
+</script>
+
+<style scoped>
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.card {
+  width: 40%;
+  height: 300px;
+  background-color: #f8f8f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.img-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-caption {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-caption p {
+  font-size: 100%;
+}
+
+.espacio {
+  margin-top: 20px;
+}
+</style>
