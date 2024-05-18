@@ -80,8 +80,7 @@
         });
         if (response.ok) {
           console.log('Egresado guardado correctamente');
-          // Aquí puedes agregar lógica adicional después de guardar exitosamente
-          closeForm(); // Cerrar el formulario después de guardar exitosamente
+          clearFields();
         } else {
           console.error('Error al guardar el egresado:', response.statusText);
         }
@@ -103,6 +102,16 @@
   const closeForm = () => {
    props.onclose();
   };
+
+  const clearFields = () => {
+  nombre.value = '';
+  correo.value = '';
+  anioGraduacion.value = '';
+  trabajo.value = '';
+  comentario.value = '';
+  src_foto.value = '';
+};
+
   </script>
   
   <style scoped>
