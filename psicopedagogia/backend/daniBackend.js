@@ -380,6 +380,43 @@ app.get('/api/red', async (req, res) => {
   }
 });
 
+
+app.post('/api/red', async (req, res) => {
+  try {
+    const {  titulo, link, foto } = req.body;
+    await db.collection('red').insertOne({ titulo, link, src: foto });
+    res.status(201).json({ message: 'Red guardado correctamente' });
+  } catch (error) {
+    console.error('Error al guardar red', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.post('/api/redUpdate', async (req, res) => {
+  try {
+    const { index, titulo, link } = req.body;
+    await db.collection('red').updateOne(
+      { _id: new ObjectId(index) },
+      { $set: {  titulo, link } }
+    );
+    res.status(200).send('Red actualizado correctamente');
+  } catch (error) {
+    console.error('Error al actualizar el red:', error);
+    res.status(500).send('Error al actualizar el red');
+  }
+});
+
+app.delete('/api/red/:id', async (req, res) => {
+  try {
+    const redId = req.params.id;
+    // Realizar la lógica para eliminar el egresado de la base de datos utilizando el ID proporcionado
+    await db.collection('red').deleteOne({ _id: new ObjectId(redId) });
+    res.status(200).send('Red eliminado correctamente');
+  } catch (error) {
+    console.error('Error al eliminar red:', error);
+    res.status(500).send('Error al eliminar red');
+  }
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor backend en funcionamiento en el puerto ${PORT}`);

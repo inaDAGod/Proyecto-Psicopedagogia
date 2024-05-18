@@ -5,16 +5,12 @@
         <h2>Editar Egresado</h2>
         <form @submit.prevent="submitForm">
           <div class="for-group">
-            <label for="nombre">Titulo:</label><br>
+            <label for="titulo">Titulo:</label><br>
             <input type="text" id="titulo" v-model="titulo" required>
           </div>
           <div class="for-group">
-            <label for="correo">Link externo:</label><br>
+            <label for="link">Link externo:</label><br>
             <input type="text" id="link" v-model="link" required>
-          </div>
-          <div class="for-group">
-            <label for="src_foto">Foto Red:</label><br>
-            <input type="file" id="src" @change="onFileChange" required>
           </div>
           <div style="text-align: center;">
             <button class="bot-guardar">Guardar</button>
@@ -58,7 +54,7 @@
       formData.append('index', index.value);
       formData.append('titulo', titulo.value);
       formData.append('link', link.value);
-      const response = await fetch('http://localhost:3000/api/RedUpdate', {
+      const response = await fetch('http://localhost:3000/api/redUpdate', {
         method: 'POST',
         body: formData
       });

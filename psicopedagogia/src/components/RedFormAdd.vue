@@ -4,12 +4,12 @@
         <h2>Agregar Nueva Red</h2>
         <form @submit.prevent="submitForm">
           <div class="for-group">
-            <label for="nombre">Titulo:</label><br>
+            <label for="titulo">Titulo:</label><br>
             <input type="text" id="titulo" v-model="titulo" required>
           </div>
           <div class="for-group">
-            <label for="correo">Link externo:</label><br>
-            <input type="email" id="link" v-model="link" required>
+            <label for="link">Link externo:</label><br>
+            <input type="text" id="link" v-model="link" >
           </div>
           <div class="for-group">
             <label for="src_foto">Foto Red:</label><br>
@@ -40,8 +40,8 @@
   const submitForm = async () => {
     try {
       const direc = "/backend/images/";
-      console.log(currentFile.value);
-      src_foto.value = direc + currentFile.value.name;
+      //console.log(currentFile.value);
+      src.value = direc + currentFile.value.name;
       const formData = new FormData();
       formData.append('sampleFile', currentFile.value);
       fetch('http://localhost:3000/upload', {
@@ -50,9 +50,9 @@
       }).then(async (res) => {
         console.log(res);
         const formData = new FormData(); // Crear objeto FormData para enviar archivos
-        formData.append('titulo', nombre.value);
-        formData.append('link', correo.value);
-        formData.append('foto', src_foto.value); 
+        formData.append('titulo', titulo.value);
+        formData.append('link', link.value);
+        formData.append('foto', src.value); 
         //console.log(src_foto.value);
         const response = await fetch('http://localhost:3000/api/red', {
           method: 'POST',
@@ -87,7 +87,7 @@
   const clearFields = () => {
   titulo.value = '';
   link.value = '';
-  src_foto.value = '';
+  src.value = '';
 
 };
 
