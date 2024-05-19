@@ -17,8 +17,11 @@
   }
   .subtitulo{
     color: #FF7001;
-    text-align: left;
-    padding-left: 3%;
+    text-align: center;
+    padding-left: 5%;
+    font-family: 'Oswald';
+    font-size: 250%;
+
   }
   .presentee{
     padding-top: 10%;

@@ -295,6 +295,16 @@ app.get('/api/investigaciones', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+app.get('/api/zona/investigaciones', async (req, res) => {
+  try {
+    const investigacion = await db.collection('investigaciones').findOne();
+    res.json(investigacion.investigaciones);
+  } catch (error) {
+    console.error('Error al obtener la investigación:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 
 app.get('/api/sociedad', async (req, res) => {
   try {
