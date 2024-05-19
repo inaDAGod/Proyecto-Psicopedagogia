@@ -325,6 +325,21 @@ app.get('/api/sociedad', async (req, res) => {
   }
 });
 
+app.post('/api/sociedadUpdate', async (req, res) => {
+  try {
+    const { quienes_somos, desdecuando, quienes_conforman, como_unirse } = req.body;
+    await db.collection('sociedad').updateOne(
+      {}, // Filtro vacío para actualizar todos los documentos
+      { $set: { quienes_somos, desdecuando, quienes_conforman, como_unirse,link_face, contactos } }
+    );
+    res.status(200).send('Actualizado correctamente');
+  } catch (error) {
+    console.error('Error al actualizar:', error);
+    res.status(500).send('Error al actualizar');
+  }
+});
+
+
 //Postgrado
 app.get('/api/cursosfc', async (req, res) => {
   try {
