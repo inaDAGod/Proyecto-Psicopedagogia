@@ -28,3 +28,22 @@
 .footer-img {
     margin-bottom: -40px; /* Ajusta este valor según lo que necesites */
 }
+@media (max-width: 768px){
+    .footer-img{
+        width: 20%;
+    }
+    .faceImg img{
+        display: none;
+    }
+    .redFace{
+        font-size: 10px;
+        padding-left: 16%;
+    }
+    .derechaTable{
+        font-size: 10px;
+    }
+    .contenido{
+        height: auto;
+        padding: 5%;
+    }
+}

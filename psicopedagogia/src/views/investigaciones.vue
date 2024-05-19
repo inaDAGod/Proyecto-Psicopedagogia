@@ -14,6 +14,7 @@
             <h3 class="subtitulo"> Acciones investigativas</h3>
             <Carrusel :listainvestigaciones = investigaciones />
         </div>
+        <br>
         <div>
             <PieInv :face="paginaInvestigaciones.link_face" :contacto="paginaInvestigaciones.contactos" red="Facebook Zona"/>
         </div>
