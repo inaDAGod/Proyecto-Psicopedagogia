@@ -110,6 +110,7 @@ export default {
   justify-content: center;
   background: linear-gradient(to right,   #FFC497,#FEF684, #DBEE96, #AAD6FB);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
 .nav-container {

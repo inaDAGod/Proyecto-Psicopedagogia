@@ -296,6 +296,16 @@ app.get('/api/investigaciones', async (req, res) => {
   }
 });
 
+app.get('/api/sociedad', async (req, res) => {
+  try {
+    const sociedad = await db.collection('sociedad').findOne();
+    res.json(sociedad);
+  } catch (error) {
+    console.error('Error al obtener la investigación:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 //Postgrado
 app.get('/api/cursosfc', async (req, res) => {
   try {

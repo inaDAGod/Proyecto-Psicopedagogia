@@ -2,10 +2,10 @@
     <div>
       <h2 class="titleInves">Investigacion <br>Sociedad Científica Estudiantil INPSICOPEDIA</h2>
       <div class="bloque-container">
-        <Bloque titulo="¿Quienes somos?" contenido="Contenido del bloque" fondo="#AAD6FB" />
-        <Bloque titulo="¿Desde cuando existimos?" contenido="Contenido del bloque" fondo="#FEF684" />
-        <Bloque titulo="¿Quienes forman parte?" contenido="Contenido del bloque" fondo="#DBEE96" />
-        <Bloque titulo="¿Como unirse?" contenido="Contenido del bloque" fondo="#FFCEE8" />
+        <Bloque titulo="¿Quienes somos?" :contenido="sociedad.quienes_somos" fondo="#AAD6FB" />
+        <Bloque titulo="¿Desde cuando existimos?" :contenido="sociedad.desdecuando" fondo="#FEF684" />
+        <Bloque titulo="¿Quienes forman parte?" :contenido="sociedad.quienes_conforman" fondo="#DBEE96" />
+        <Bloque titulo="¿Como unirse?" :contenido="sociedad.como_unirse" fondo="#FFCEE8" />
       </div>
       <div>
         <h3 class="subtitulo">Acciones investigativas</h3>
@@ -29,9 +29,24 @@
     import Carousel from '/src/components/InvestigacionCarrusel.vue';
     import PresenteInv from '/src/components/PresenteInvestigacion.vue';
     import PieInv from '/src/components/PieInvestigacion.vue';
+    import { ref, onMounted } from 'vue';
+    import axios from 'axios';
+    let  sociedad = ref([]);
+    const obtenerInvestigaciones = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/api/sociedad');
+        sociedad.value = response.data;
+      } catch (error) {
+        console.error('Error fetching investigaciones:', error);
+      }
+    };
+
+    onMounted(() => {
+      obtenerInvestigaciones();
+    });
   </script>
   
-  <style>
+  <style scoped>
   @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
   
   @import url('/src/assets/sociedad.css');

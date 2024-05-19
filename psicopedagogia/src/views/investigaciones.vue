@@ -1,120 +1,20 @@
 <template>
     <div>
-        <br>
-        <div class="content">
-            <div class="titulo" style="text-align: left;">
-                <h2 style="text-align: left;">INVESTIGACIÓN </h2>
-                <h2 style="text-align: left;">GRUPO DE INVESTIGACIÓN "ZONA DE APRENDIZAJE"</h2>
-            </div>
+        <h2 class="titleInves">Investigacion <br>Grupo de investigación "Zona de aprendizaje"</h2>
+        <div class="bloque-container">
+            <Bloque titulo="¿Quienes somos?" :contenido="paginaInvestigaciones.quienes_somos" fondo="#AAD6FB" />
+            <Bloque titulo="¿Desde cuando existimos?" :contenido="paginaInvestigaciones.desdecuando" fondo="#FEF684" />
+            <Bloque titulo="¿Quienes forman parte?" :contenido="paginaInvestigaciones.quienes_conforman" fondo="#DBEE96" />
+            <Bloque titulo="¿Como unirse?" :contenido="paginaInvestigaciones.como_unirse" fondo="#FFCEE8" />
+
         </div>
-        <br>
-        <div class="container-primero">
-            <div class="mision">
-                <div class="text-box-quienes_somos">
-                    <div class="text-content1">
-                        <h1>¿Quienes somos?</h1>
-                        <p>{{paginaInvestigaciones.quienes_somos}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="vision">
-                <div class="text-box-desde_cuando">
-                    <div class="text-content1">
-                        <h1>¿Desde cuando existe?</h1>
-                        <p>{{paginaInvestigaciones.desdecuando}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-segundo">
-            <div class="mision">
-                <div class="text-box-quienes_conforman">
-                    <div class="text-content1">
-                        <h1>¿Quienes lo conforman?</h1>
-                        <p>{{paginaInvestigaciones.quienes_conforman}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="vision">
-                <div class="text-box-como_unirse">
-                    <div class="text-content1">
-                        <h1>¿Cómo unirse??</h1>
-                        <p>{{paginaInvestigaciones.como_unirse}}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <h1>ACCIONES INVESTIGATIVAS</h1>
-        <div class="carousel-container">
-                
-                <div id="carouselExampleFade" class="carousel slide carousel-fade">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/src/assets/images/psico2.jpg"  alt="img1" width="500px" height="470px">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/src/assets/images/psico3.jpg"  alt="img2" width="500px" height="470px">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/src/assets/images/psico2.jpg"  alt="img3" width="500px" height="470px">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/src/assets/images/psico4.jpg" alt="img4"width="400px" height="350px">
-                    </div>
-                    <div class="carousel-item">
-                        <img :src="paginaInvestigaciones.imagen5"  alt="img5" width="500px" height="470px">
-                    </div>
-                    <div class="carousel-item">
-                        <img :src="paginaInvestigaciones.imagen6" alt="img6"width="400px" height="350px">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-                </div>
-        </div>
-        <br>
-        <h1>LA PRESENTE INVESTIGACIÓN</h1>
-        <div class="container-investigacion">
-            <div class="text-box-investigacion">
-                <div class="text-content1">
-                    <img :src="paginaInvestigaciones.presente_investigacion_src" width="300px" height="300px" class="d-block w-100" alt="investigacion_img" >
-                    <p>{{paginaInvestigaciones.presente_investigacion}}</p>
-                </div>
-            </div>
-        </div>
-        <div class='roca'><img src="/src/assets/images/rocas.png" alt="Image Description" class="footer-img"></div>
-        <footer>
-            <br><br><br><br>
-            <div class="footer-container">
-                <table class="footer-table">
-                    <tr>
-                        <td>
-                        <a href="."><img style="width: 100px;" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
-                        </td>
-                        <td>
-                        <p>Psicopedagogía UCB La Paz</p>
-                        </td>
-                    </tr>
-                </table>
-                
-                <div class="footer-info">
-                <h2>Contacto</h2> <p>2782222 Int. 2872</p> 
-                <h2>Whatsapp</h2> <p>73231313 – 77294940 </p> 
-                </div>
-            </div>
-            <br><br>
-        </footer>
+       
     </div>
 </template>
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import Bloque from '/src/components/ParrafoInvestigacion.vue';
 const paginaInvestigaciones = ref({
     imagen1: '',
     imagen2: '',
@@ -148,7 +48,9 @@ onMounted(() => {
 <script>
 import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js';
 </script>
-<style>
+<style scoped>
+@import url('/src/assets/sociedad.css');
+
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
@@ -160,60 +62,6 @@ import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.mi
         color: white;
         width: 100%;
         height: 15vh;
-    }
-    .container-primero {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .container-segundo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .text-box-quienes_somos {
-        background-color: #AAD6FB;
-        border-radius: 5vh;
-        padding: 5vh;
-        margin-bottom: 5vh;
-    }
-
-    .text-box-desde_cuando {
-        background-color: #FEF684;
-        border-radius: 5vh;
-        padding: 5vh;
-        margin-bottom: 5vh;
-    }
-
-    .text-box-quienes_conforman {
-        background-color: #DBEE96;
-        border-radius: 5vh;
-        padding: 5vh;
-        margin-bottom: 5vh;
-    }
-
-    .text-box-como_unirse{
-        background-color: #FFCEE8;
-        border-radius: 5vh;
-        padding: 5vh;
-        margin-bottom: 5vh;
-    }
-
-    .text-box-quienes_somos h1,
-    .text-box-desde_cuando h1,
-    .text-box-quienes_conforman h1,
-    .text-box-como_unirse h1{
-        padding-top: 5px;;
-        color: black;
-        font-family: 'Koulen', sans-serif;
-        font-size: 40px;
-        text-align: center;
-    }
-    .text-content1 p {
-        padding-top: 20px;
-        font-family: 'Roboto Condensed', sans-serif;
-        text-align: center;
-        font-size: 1.5vmax;
     }
     .carousel-container{
         text-align: center;
