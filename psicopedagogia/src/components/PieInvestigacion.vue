@@ -7,7 +7,6 @@
             <tr>
               <td class="redFace">
                 <a class="faceImg" :href="face"><img style="width: 50px" src="/src/assets/images/facebook.png" alt="Imagen del logo"> {{ red }}</a>
-               
               </td>
               <td class="derechaTable">Contacto: {{ contacto }}</td>
             </tr>
