@@ -26,8 +26,8 @@ import axios from 'axios';
 import Bloque from '/src/components/ParrafoInvestigacion.vue';
 import Carrusel from '/src/components/CarruselInv.vue';
 import PieInv from '/src/components/PieInvestigacion.vue';
-const paginaInvestigaciones = ref({});
-const investigaciones = ref({});
+const paginaInvestigaciones = ref([]);
+let  investigaciones = ref([]);
 
 const obtenerZona = async () => {
   try {
