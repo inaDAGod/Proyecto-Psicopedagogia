@@ -306,7 +306,7 @@ app.get('/api/zona/investigaciones', async (req, res) => {
 });
 app.get('/api/sociedad/investigaciones', async (req, res) => {
   try {
-    const investigacion = await db.collection('investigaciones').findOne();
+    const investigacion = await db.collection('sociedad').findOne();
     res.json(investigacion.investigaciones);
   } catch (error) {
     console.error('Error al obtener la investigación:', error);
@@ -338,6 +338,25 @@ app.post('/api/sociedadUpdate', async (req, res) => {
     res.status(500).send('Error al actualizar');
   }
 });
+
+app.post('/api/investigacionSociedad', async (req, res) => {
+  try {
+    const { titulo, descripcion, foto } = req.body;
+    const investigacion = { titulo, descripcion, src_foto: foto };
+
+    // Seleccionar el documento de la sociedad y agregar la nueva investigación a la lista
+    await db.collection('sociedad').updateOne(
+      {}, // Filtro vacío para seleccionar todos los documentos
+      { $push: { investigaciones: investigacion } }
+    );
+
+    res.status(201).json({ message: 'Guardado correctamente' });
+  } catch (error) {
+    console.error('Error al guardar investigación:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 
 
 //Postgrado

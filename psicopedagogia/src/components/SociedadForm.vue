@@ -54,7 +54,7 @@
         formData.append('descripcion', descripcion.value);
         formData.append('foto', src.value); 
         //console.log(src_foto.value);
-        const response = await fetch('http://localhost:3000/api/red', {
+        const response = await fetch('http://localhost:3000/api/investigacionSociedad', {
           method: 'POST',
           body: formData // Pasar el formData como cuerpo de la solicitud
         });
@@ -86,7 +86,7 @@
 
   const clearFields = () => {
   titulo.value = '';
-  link.value = '';
+  descripcion.value = '';
   src.value = '';
 
 };
