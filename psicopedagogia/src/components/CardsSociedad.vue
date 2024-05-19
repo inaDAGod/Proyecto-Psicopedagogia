@@ -8,13 +8,13 @@
           <p><b>{{ investigacion.titulo }}</b></p>
           <div class="divBoton">
             <div class="botones">
-              <button class="bot-editar" @click="toggleForm(investigacion)">Editar</button>
+              <button class="bot-editar" @click="toggleForm(investigacion,index)">Editar</button>
             </div>
           </div>
         </div>
       </div>
     </div>
-     <!--<RedForm v-show="selectedRed" :red="selectedRed"  @onclose="toggleForm(null)" /> -->
+     <InvestigacionesForm v-show="selectedInvestigacion" :investigacion="selectedInvestigacion" :index="selectedIndex"  @onclose="toggleForm(null)" /> 
     <div class="espacio"></div>
   </template>
   
@@ -22,13 +22,15 @@
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
   import BotonD from './BotonD.vue';
-  //import RedForm from './RedFormEdit.vue';
+  import InvestigacionesForm from './SociedadFormEdit.vue';
   
   const investigaciones = ref([]);
   const selectedInvestigacion = ref(null);
+  const selectedIndex = ref(null);
   
-  const toggleForm = (investigacion) => {
+  const toggleForm = (investigacion,index) => {
     selectedInvestigacion.value = investigacion;
+    selectedIndex.value = index;
   };
   
   onMounted(async () => {

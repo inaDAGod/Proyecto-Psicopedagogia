@@ -357,6 +357,21 @@ app.post('/api/investigacionSociedad', async (req, res) => {
   }
 });
 
+app.post('/api/sociedad/investigacionUpdate', async (req, res) => {
+  try {
+    const { index, titulo, descripcion } = req.body;
+
+    await db.collection('sociedad').updateOne(
+      {}, // Filtro vacío para actualizar todos los documentos
+      { $set: { [`investigaciones.${index}.titulo`]: titulo, [`investigaciones.${index}.descripcion`]: descripcion } }
+    );
+
+    res.status(200).json({ message: 'Investigación actualizada correctamente' });
+  } catch (error) {
+    console.error('Error al actualizar la investigación:', error);
+    res.status(500).json({ error: 'Error al actualizar' });
+  }
+});
 
 
 //Postgrado
