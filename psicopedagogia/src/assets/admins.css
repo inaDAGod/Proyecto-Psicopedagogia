@@ -2,6 +2,7 @@
     color:#FF7001;
     padding: 3%;
     font-size: 250%;
+    font-family: 'Koulen';
   }
   .container {
     display: flex;
@@ -13,7 +14,7 @@
   }
 
   .formAdd {
-    flex: 0 0 40%; /* Ocupa el 40% del ancho */
+    flex: 0 0 40%; 
     background-color: #D9D9D9;
    
   }

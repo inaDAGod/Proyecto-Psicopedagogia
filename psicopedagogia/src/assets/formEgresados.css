@@ -34,6 +34,7 @@
     background-color: transparent;
     color: #FF7001; /* Color naranja para el botón de cierre */
     text-align: right;
+    font-family: 'Oswald';
     
   }
   
@@ -42,7 +43,7 @@
   }
   
   .mod label {
-    font-weight: bold;
+    font-family: 'Oswald';
   }
   
   .mod input[type="text"],
@@ -60,6 +61,7 @@
     color: #FF7001;
     text-align: center;
     font-size: 150%;
+    font-family: 'Oswald';
   }
   
   .bot-guardar {

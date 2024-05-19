@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/views/principalAdmi.vue';
 import Egresados from '@/views/EgresadosAdmi.vue';
 import About from '@/views/Nosotrosadmin.vue';
-//import Sociedad from '@/views/Sociedad.vue'
+import Sociedad from '@/views/SociedadAdmi.vue'
 //import Zona from '@/views/investigaciones.vue'
 //import Social from '@/views/social.vue'
 import Red from '@/views/RedAdmi.vue'
@@ -32,6 +32,11 @@ const router = createRouter({
       path: '/egresadosadmi',
       name: 'Egresados',
       component: Egresados,
+    },
+    {
+      path: '/sociedadadmi',
+      name: 'Sociedad',
+      component: Sociedad,
     }
     
   ],

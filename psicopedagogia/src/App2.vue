@@ -11,7 +11,8 @@
           <li><router-link to="/egresadosadmi"> Egresados </router-link></li>
           <br>
           <li><router-link to="/redadmi"> Red </router-link></li>
-          
+          <br>
+          <li><router-link to="/sociedadadmi"> Sociedad </router-link></li>
         </ul>
       </div>
       <div class="mainContentAdmi">

@@ -31,6 +31,6 @@
     }
   };
   </script>
-<style>
+<style scoped>
     @import url('/src/assets/pieInvestigacion.css');
 </style>
