@@ -16,7 +16,7 @@
       </div>
       <br>
       <div>
-        <PieInv :face="sociedad.link_face" :contacto="sociedad.contactos" red="Facebook Inpsicopedia"/>
+        <PieInv :face="sociedad.link_face" :contacto="sociedad.contactos" red="Facebook Zona"/>
       </div>
       
     

@@ -2,14 +2,12 @@
     width: 100%;
 }
 .redFace{
-    font-size: 130%;
     color: #0D89F4;
-    font-size: 30px;
+    font-size: 25px;
     padding-top: 4%;
 }
 .faceImg{
-    padding-left: 10%;
-    padding-right: 0%;
+    padding-left: 30%;
 }
 .contenido{
     background-color: #AAD6FB;
