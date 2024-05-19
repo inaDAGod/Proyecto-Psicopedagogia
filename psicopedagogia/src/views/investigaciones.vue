@@ -10,10 +10,13 @@
         </div>
         <br>
         <br>
-        
-        <h3 class="subtitulo"> Acciones investigativas</h3>
-        <Carrusel :listainvestigaciones = investigaciones />
-       
+        <div>
+            <h3 class="subtitulo"> Acciones investigativas</h3>
+            <Carrusel :listainvestigaciones = investigaciones />
+        </div>
+        <div>
+            <PieInv :face="paginaInvestigaciones.link_face" :contacto="paginaInvestigaciones.contactos" red="Facebook Zona"/>
+        </div>
     </div>
 </template>
 <script setup>
@@ -21,6 +24,7 @@ import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import Bloque from '/src/components/ParrafoInvestigacion.vue';
 import Carrusel from '/src/components/CarruselInv.vue';
+import PieInv from '/src/components/PieInvestigacion.vue';
 const paginaInvestigaciones = ref({});
 const investigaciones = ref({});
 

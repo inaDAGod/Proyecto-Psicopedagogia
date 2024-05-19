@@ -7,12 +7,16 @@
         <Bloque titulo="¿Quienes forman parte?" :contenido="sociedad.quienes_conforman" fondo="#DBEE96" />
         <Bloque titulo="¿Como unirse?" :contenido="sociedad.como_unirse" fondo="#FFCEE8" />
       </div>
+      <br>
+      <br>
       <div>
         <h3 class="subtitulo">Acciones investigativas</h3>
+        <br>
          <Carrusel :listainvestigaciones = investigaciones />
       </div>
+      <br>
       <div>
-        <PieInv />
+        <PieInv :face="sociedad.link_face" :contacto="sociedad.contactos" red="Facebook Inpsicopedia"/>
       </div>
       
     
