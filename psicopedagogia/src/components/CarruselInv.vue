@@ -160,5 +160,35 @@
     background-color: #fff;
     color: #000;
   }
+  @media (max-width: 768px) {
+    
+    .content-section, .thumbnail-section {
+      flex: 1 1 100%;
+      text-align: center;
+      
+    }
+  
+    .nextPrevArrows {
+      bottom: 3%;
+      right: 50%;
+      transform: translateX(50%);
+    }
+    .thumbnail .item {
+        width: 300px;
+        padding-left: 3%;
+        padding-right: 3%;
+        flex-shrink: 0;
+  position: relative;
+    }
+    .slider {
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        padding: 0;
+    }
+  
+  }
   </style>
   
