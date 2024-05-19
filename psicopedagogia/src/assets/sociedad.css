@@ -15,6 +15,10 @@
     padding-left: 3%;
     padding-right: 3%;
   }
+  .paginaInv{
+    display: flex;
+    flex-direction: column;
+  }
   .subtitulo{
     color: #FF7001;
     text-align: center;

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="paginaInv">
       <h2 class="titleInves">Investigacion <br>Sociedad Científica Estudiantil INPSICOPEDIA</h2>
       <div class="bloque-container">
         <Bloque titulo="¿Quienes somos?" :contenido="sociedad.quienes_somos" fondo="#AAD6FB" />
@@ -9,30 +9,27 @@
       </div>
       <div>
         <h3 class="subtitulo">Acciones investigativas</h3>
-          <div class="carrusel">
-            <Carousel />
-          </div>
+         <Carrusel :listainvestigaciones = investigaciones />
       </div>
       <div>
-        <h3 class="subtitulo">La presente Investigación</h3>
-        <div class="presentee">
-          <PresenteInv />
-        </div>
-    </div>
-    <PieInv />
+        <PieInv />
+      </div>
+      
+    
   </div>
 
   </template>
   
   <script setup>
     import Bloque from '/src/components/ParrafoInvestigacion.vue';
-    import Carousel from '/src/components/InvestigacionCarrusel.vue';
+    import Carrusel from '/src/components/CarruselInv.vue';
     import PresenteInv from '/src/components/PresenteInvestigacion.vue';
     import PieInv from '/src/components/PieInvestigacion.vue';
     import { ref, onMounted } from 'vue';
     import axios from 'axios';
     let  sociedad = ref([]);
-    const obtenerInvestigaciones = async () => {
+    let  investigaciones = ref([]);
+    const obtenerSoci = async () => {
       try {
         const response = await axios.get('http://localhost:3000/api/sociedad');
         sociedad.value = response.data;
@@ -40,8 +37,18 @@
         console.error('Error fetching investigaciones:', error);
       }
     };
+    
+    const obtenerInvestigaciones = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/api/sociedad/investigaciones');
+        investigaciones.value = response.data;
+      } catch (error) {
+        console.error('Error fetching investigaciones:', error);
+      }
+    };
 
     onMounted(() => {
+      obtenerSoci();
       obtenerInvestigaciones();
     });
   </script>
