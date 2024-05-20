@@ -32,7 +32,7 @@
     import { ref, onMounted } from 'vue';
     import axios from 'axios';
     let  sociedad = ref([]);
-    let  investigaciones = ref([]);
+    let  investigaciones = ref({});
     const obtenerSoci = async () => {
       try {
         const response = await axios.get('http://localhost:3000/api/sociedad');
@@ -46,6 +46,7 @@
       try {
         const response = await axios.get('http://localhost:3000/api/sociedad/investigaciones');
         investigaciones.value = response.data;
+        //console.log( investigaciones.value);
       } catch (error) {
         console.error('Error fetching investigaciones:', error);
       }

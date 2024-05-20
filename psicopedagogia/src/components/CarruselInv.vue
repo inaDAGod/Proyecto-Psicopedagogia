@@ -30,7 +30,7 @@
   export default {
     props: {
       listainvestigaciones: {
-        type: Array,
+        type: Object,
         required: true
       }
     },
@@ -78,7 +78,7 @@
   }
   
   .content-section {
-    width: 50%;
+    flex: 0 0 50%; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,7 +107,7 @@
   }
   
   .thumbnail-section {
-    width: 50%;
+    flex: 0 0 50%; 
     display: flex;
     align-items: center;
     justify-content: center;

@@ -286,9 +286,9 @@ app.get('/api/noticias', async (req, res) => {
 
 //investigaciones
 
-app.get('/api/investigaciones', async (req, res) => {
+app.get('/api/zona', async (req, res) => {
   try {
-    const investigacion = await db.collection('investigaciones').findOne();
+    const investigacion = await db.collection('zona').findOne();
     res.json(investigacion);
   } catch (error) {
     console.error('Error al obtener la investigación:', error);
@@ -297,8 +297,8 @@ app.get('/api/investigaciones', async (req, res) => {
 });
 app.get('/api/zona/investigaciones', async (req, res) => {
   try {
-    const investigacion = await db.collection('investigaciones').findOne();
-    res.json(investigacion.investigaciones);
+    const investigacion = await db.collection('investigaciones_zona').find().toArray();
+    res.json(investigacion);
   } catch (error) {
     console.error('Error al obtener la investigación:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
@@ -306,8 +306,8 @@ app.get('/api/zona/investigaciones', async (req, res) => {
 });
 app.get('/api/sociedad/investigaciones', async (req, res) => {
   try {
-    const investigacion = await db.collection('sociedad').findOne();
-    res.json(investigacion.investigaciones);
+    const investigacion = await db.collection('investigaciones_sociedad').find().toArray();
+    res.json(investigacion);
   } catch (error) {
     console.error('Error al obtener la investigación:', error);
     res.status(500).json({ error: 'Error interno del servidor' });

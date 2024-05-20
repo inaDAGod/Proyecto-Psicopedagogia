@@ -31,7 +31,7 @@ let  investigaciones = ref([]);
 
 const obtenerZona = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/investigaciones');
+    const response = await axios.get('http://localhost:3000/api/zona');
     paginaInvestigaciones.value = response.data;
   } catch (error) {
     console.error('Error fetching investigaciones:', error);
