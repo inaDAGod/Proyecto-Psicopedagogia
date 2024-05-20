@@ -8,8 +8,13 @@
           <br>
           <li><router-link to="/aboutadmi"> About</router-link></li>
           <br>
+          <li><router-link to="/docentesadmi"> Docentes </router-link></li>
+          <br>
           <li><router-link to="/redadmi"> Red </router-link></li>
-          
+          <br>
+          <li><router-link to="/postgradoadmi"> Postgrado </router-link></li>
+          <br>
+          <li><router-link to="/pregradoadmi"> Pregrado </router-link></li>
         </ul>
       </div>
       <div class="mainContentAdmi">
