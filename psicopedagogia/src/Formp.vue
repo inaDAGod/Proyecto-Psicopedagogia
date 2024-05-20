@@ -1,7 +1,7 @@
 <template>
   <div class="modal" v-show="showForm">
     <div class="modal-content">
-      <h2> NOSOTROS</h2>
+      
       <form @submit.prevent="submitForm">
         <!-- Input fields para el formulario -->
         <div class="form-group">
@@ -38,7 +38,7 @@
           <input type="text" id="tiktok" v-model="tiktok" required>
         </div>
         <div class="form-group">
-          <label for="attencion_dire">Atención Dirección:</label><br>
+          <label style="margin-left: 2.5%;" for="attencion_dire">Atención Dirección:</label><br>
           <textarea style="width: 175%;" id="attencion_dire" v-model="attencionDire" rows="4" required></textarea>
         </div>
         <div style="text-align: center;">
