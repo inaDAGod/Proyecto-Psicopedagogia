@@ -327,7 +327,7 @@ app.get('/api/sociedad', async (req, res) => {
 
 app.post('/api/sociedadUpdate', async (req, res) => {
   try {
-    const { quienes_somos, desdecuando, quienes_conforman, como_unirse } = req.body;
+    const { quienes_somos, desdecuando, quienes_conforman, como_unirse,link_face, contactos } = req.body;
     await db.collection('sociedad').updateOne(
       {}, // Filtro vacío para actualizar todos los documentos
       { $set: { quienes_somos, desdecuando, quienes_conforman, como_unirse,link_face, contactos } }
@@ -372,6 +372,26 @@ app.post('/api/sociedad/investigacionUpdate', async (req, res) => {
     res.status(500).json({ error: 'Error al actualizar' });
   }
 });
+
+app.delete('/api/sociedad/inv/:index', async (req, res) => {
+  try {
+    const index = parseInt(req.params.index);
+
+    await db.collection('sociedad').updateOne(
+      {},
+      { $pull: { investigaciones: { $eq: index } } }
+    );
+
+    res.status(200).json({ message: 'Investigación eliminada correctamente' });
+  } catch (error) {
+    console.error('Error al eliminar la investigación:', error);
+    res.status(500).json({ error: 'Error al eliminar la investigación' });
+  }
+});
+
+
+
+
 
 
 //Postgrado

@@ -13,11 +13,15 @@
           <textarea id="descripcion" v-model="descripcion"></textarea>
         </div>
         <div style="text-align: center;">
-          <button class="bot-guardar" :disabled="!formChanged">Guardar</button>
+          <button class="bot-guardar" @click="">Guardar</button>
           <br><br><br><br>
-          <button class="bot-borrar" @click="borrarInvestigacion">Borrar Investigacion</button>
+        
         </div>
       </form>
+      <div style="text-align: center;">
+        <button class="bot-borrar" @click="borrarInvestigacion()">Borrar Investigacion</button>
+      </div>
+      
     </div>
   </div>
 </template>
@@ -35,21 +39,14 @@ const emit = defineEmits(['onclose']);
 const index = ref();
 const titulo = ref('');
 const descripcion = ref('');
-let formChanged = ref(false);
 
-watch([titulo, descripcion], () => {
-  formChanged.value = true;
-});
 
 watch(props, () => {
   if (props.investigacion) {
     titulo.value = props.investigacion.titulo;
     descripcion.value = props.investigacion.descripcion;
-  }
-  if (props.index) {
     index.value = props.index;
   }
-  formChanged.value = false; // Restablecer el estado del formulario al cargar nuevos datos
 });
 
 const submitForm = async () => {
@@ -76,7 +73,7 @@ const submitForm = async () => {
 
 const borrarInvestigacion = async () => {
   try {
-    const response = await axios.delete(`http://localhost:3000/api/sociedad/investigacionUpdate/${index.value}`);
+    const response = await axios.delete(`http://localhost:3000/api/sociedad/inv/${index.value}`);
     if (response.status === 200) {
       console.log('Investigación eliminada correctamente');
       closeForm();
@@ -85,6 +82,8 @@ const borrarInvestigacion = async () => {
     console.error('Error al eliminar la investigación:', error);
   }
 };
+
+
 
 const closeForm = () => {
   emit('onclose');

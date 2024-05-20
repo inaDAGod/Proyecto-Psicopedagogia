@@ -24,7 +24,7 @@
               </div>
               <div class="for-group">
                 <label for="link_face">Link a Facebook:</label><br>
-                <input type="text" id="link_face" :disabled="!editar" v-model="link_face" required>
+                <input type="text" id="link_face" :disabled="!editar" v-model="link_face">
             </div>
             <div class="for-group">
                 <label for="contactos">Contactos:</label><br>
