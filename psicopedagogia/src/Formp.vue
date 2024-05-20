@@ -1,7 +1,6 @@
 <template>
   <div class="modal" v-show="showForm">
     <div class="modal-content">
-      <button style="margin-left: 90%;width: 9%;" class="close" @click="closeForm">&times;</button>
       <h2> NOSOTROS</h2>
       <form @submit.prevent="submitForm">
         <!-- Input fields para el formulario -->
@@ -40,7 +39,7 @@
         </div>
         <div class="form-group">
           <label for="attencion_dire">Atención Dirección:</label><br>
-          <textarea style="width: 100%;" id="attencion_dire" v-model="attencionDire" rows="4" required></textarea>
+          <textarea style="width: 175%;" id="attencion_dire" v-model="attencionDire" rows="4" required></textarea>
         </div>
         <div style="text-align: center;">
           <!-- Botón para enviar el formulario -->

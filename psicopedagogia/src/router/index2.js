@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '@/views/principalAdmi.vue';
 import Egresados from '@/views/EgresadosAdmi.vue';
-import About from '@/views/Nosotrosadmin.vue';
+import About from '@/Formp.vue';
 //import Sociedad from '@/views/Sociedad.vue'
 //import Zona from '@/views/investigaciones.vue'
 //import Social from '@/views/social.vue'

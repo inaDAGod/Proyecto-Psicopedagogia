@@ -20,36 +20,7 @@
       </div>
   
       <!-- Second section: NUESTRA FAMILIA -->
-      <div style="display: flex; align-items: center;">
-        <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
-        <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
-          <div style="margin:20px;">
-            <!-- Button to toggle the FormDocente component -->
-            <button class="b-formna" @click="toggleFormVisibility('formDocente')">Agregar</button>
-            <!-- FormDocente component -->
-            <FormDocente v-if="showFormDocente" @closeForm="closeForm('formDocente')" />
-          </div>
-          <div style="margin:20px;">
-            <!-- Button to toggle the FormDocente component -->
-            <button class="b-formna" @click="toggleFormVisibility('formDocMod')">Modificar</button>
-            <!-- FormDocente component -->
-            <FormDocMod v-if="showFormDocMod" @closeForm="closeForm('formDocMod')" />
-          </div>
-          <div style="margin:20px;">
-            <!-- Button to toggle the FormDocente component -->
-            <button class="b-formna" @click="toggleFormVisibility('formDocElim')">Eliminar</button>
-            <!-- FormDocente component -->
-            <FormDocElim v-if="showFormDocElim" @closeForm="closeForm('formDocElim')" />
-          </div>
-        </div>
-      </div>
-  
       
-      <div class="docentes-container">
-      <div v-for="docente in docentes" :key="docente.id" class="docente-item">
-        <div v-html="generateTable(docente)"></div>
-      </div>
-    </div>
   
       <!-- Displaying PROGRAMAS -->
       <h1 class="titulo-nos">PROGRAMAS</h1>
