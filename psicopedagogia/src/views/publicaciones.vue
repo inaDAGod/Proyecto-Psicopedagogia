@@ -18,14 +18,13 @@
     
     <table class="container-publicaciones">
       <tbody>
-        <tr v-if="publicacionesFiltradas.length > 0" v-for="(publicacionRow, rowIndex) in publicacionesFiltradas" :key="rowIndex">
+        <tr v-if="publicacionesFiltradasEnFilas.length > 0" v-for="(publicacionRow, rowIndex) in publicacionesFiltradasEnFilas" :key="rowIndex">
           <td v-for="(publicacion, index) in publicacionRow" :key="index">
-            {{ publicacion }}
             <div class="publicaciones" v-if="publicacion._id">
               <a :href="publicacion.ruta" target="_blank" rel="noopener noreferrer">
-                  <div class="publicacion-imagen" @mouseover="aumentarImagen(rowIndex, index)" @mouseleave="reducirImagen(rowIndex, index)">
-                      <img :src="publicacion.publicacion_src" :alt="publicacion.titulo" :style="{ transform: imagenesAgrandadas[rowIndex][index] ? 'scale(1.05)' : 'scale(1)' }">
-                  </div>
+                <div class="publicacion-imagen" @mouseover="aumentarImagen(rowIndex, index)" @mouseleave="reducirImagen(rowIndex, index)">
+                  <img :src="publicacion.publicacion_src" :alt="publicacion.titulo" :style="{ transform: imagenesAgrandadas[rowIndex][index] ? 'scale(1.05)' : 'scale(1)' }">
+                </div>
               </a>
               <div class="info-publicacion">
                 <h1>{{ publicacion.titulo }}</h1>
@@ -41,7 +40,6 @@
         </tr>
       </tbody>
     </table>
-
   </div>
 </template>
 
@@ -50,14 +48,14 @@ import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 
 const publicaciones = ref([]);
-const publicacionesRows = ref([]);
 const imagenesAgrandadas = ref([]);
 const filtro = ref({
   todos: ''
 });
+
 const publicacionesFiltradas = computed(() => {
+  const terminos = filtro.value.todos.toLowerCase().split(' ');
   return publicaciones.value.filter(publicacion => {
-    const terminos = filtro.value.todos.toLowerCase().split(' ');
     return terminos.every(termino => {
       return Object.values(publicacion).some(valor => {
         return String(valor).toLowerCase().includes(termino);
@@ -66,27 +64,27 @@ const publicacionesFiltradas = computed(() => {
   });
 });
 
+const publicacionesFiltradasEnFilas = computed(() => {
+  const filas = [];
+  for (let i = 0; i < publicacionesFiltradas.value.length; i += 2) {
+    filas.push(publicacionesFiltradas.value.slice(i, i + 2));
+  }
+  return filas;
+});
+
 const obtenerPublicaciones = async () => {
   try {
     const response = await axios.get('http://localhost:3000/api/publicaciones');
     publicaciones.value = response.data;
-    calcularFilasDePublicaciones();
-    imagenesAgrandadas.value = Array.from({ length: publicacionesRows.value.length }, () => Array(publicacionesRows.value[0].length).fill(false));
+    inicializarImagenesAgrandadas();
   } catch (error) {
     console.error('Error fetching publicaciones:', error);
   }
 };
 
-const calcularFilasDePublicaciones = () => {
-  publicacionesRows.value = [];
-
-  for (let i = 0; i < publicaciones.value.length; i += 2) {
-    const row = [];
-    for (let j = i; j < i + 2 && j < publicaciones.value.length; j++) {
-      row.push(publicaciones.value[j]);
-    }
-    publicacionesRows.value.push(row);
-  }
+const inicializarImagenesAgrandadas = () => {
+  const filas = publicacionesFiltradasEnFilas.value;
+  imagenesAgrandadas.value = filas.map(fila => fila.map(() => false));
 };
 
 const aumentarImagen = (rowIndex, index) => {
@@ -102,7 +100,7 @@ onMounted(() => {
 });
 </script>
 
-<style>
+<style scoped>
   .titulo-publicacion h1{
     font-size: 11vh;
     color: #FF7001;
