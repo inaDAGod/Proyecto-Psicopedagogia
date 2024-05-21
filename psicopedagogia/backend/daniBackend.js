@@ -342,20 +342,15 @@ app.post('/api/sociedadUpdate', async (req, res) => {
 app.post('/api/investigacionSociedad', async (req, res) => {
   try {
     const { titulo, descripcion, foto } = req.body;
-    const investigacion = { titulo, descripcion, src_foto: foto };
 
-    // Seleccionar el documento de la sociedad y agregar la nueva investigación a la lista
-    await db.collection('sociedad').updateOne(
-      {}, // Filtro vacío para seleccionar todos los documentos
-      { $push: { investigaciones: investigacion } }
-    );
-
+    await db.collection('investigaciones_sociedad').insertOne({ titulo, descripcion, src_foto: foto });
     res.status(201).json({ message: 'Guardado correctamente' });
   } catch (error) {
     console.error('Error al guardar investigación:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
 
 app.post('/api/sociedad/investigacionUpdate', async (req, res) => {
   try {
