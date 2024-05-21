@@ -356,12 +356,12 @@ app.post('/api/sociedad/investigacionUpdate', async (req, res) => {
   try {
     const { index, titulo, descripcion } = req.body;
 
-    await db.collection('sociedad').updateOne(
-      {}, // Filtro vacío para actualizar todos los documentos
-      { $set: { [`investigaciones.${index}.titulo`]: titulo, [`investigaciones.${index}.descripcion`]: descripcion } }
+    await db.collection('investigaciones_sociedad').updateOne(
+      { _id: new ObjectId(index) },
+      { $set:{titulo, descripcion }}
     );
 
-    res.status(200).json({ message: 'Investigación actualizada correctamente' });
+    res.status(200).json({ message: 'Investigación de sociedad actualizada correctamente' });
   } catch (error) {
     console.error('Error al actualizar la investigación:', error);
     res.status(500).json({ error: 'Error al actualizar' });
@@ -370,13 +370,9 @@ app.post('/api/sociedad/investigacionUpdate', async (req, res) => {
 
 app.delete('/api/sociedad/inv/:index', async (req, res) => {
   try {
-    const index = parseInt(req.params.index);
-
-    await db.collection('sociedad').updateOne(
-      {},
-      { $pull: { investigaciones: { $eq: index } } }
-    );
-
+    const Investigaciónindex = req.params.index;
+    //console.log(Investigaciónindex);
+    await db.collection('investigaciones_sociedad').deleteOne({ _id: new ObjectId(Investigaciónindex) });
     res.status(200).json({ message: 'Investigación eliminada correctamente' });
   } catch (error) {
     console.error('Error al eliminar la investigación:', error);

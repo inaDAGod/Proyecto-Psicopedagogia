@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-     <InvestigacionesForm v-show="selectedInvestigacion" :investigacion="selectedInvestigacion" :index="selectedIndex"  @onclose="toggleForm(null)" /> 
+     <InvestigacionesForm v-show="selectedInvestigacion" :investigacion="selectedInvestigacion"  @onclose="toggleForm(null)" /> 
     <div class="espacio"></div>
   </template>
   
@@ -26,11 +26,9 @@
   
   const investigaciones = ref([]);
   const selectedInvestigacion = ref(null);
-  const selectedIndex = ref(null);
   
   const toggleForm = (investigacion,index) => {
     selectedInvestigacion.value = investigacion;
-    selectedIndex.value = index;
   };
   
   onMounted(async () => {

@@ -32,11 +32,10 @@ import axios from 'axios';
 
 const props = defineProps({
   investigacion: Object,
-  index: Number
 });
 
 const emit = defineEmits(['onclose']);
-const index = ref();
+const index = ref('');
 const titulo = ref('');
 const descripcion = ref('');
 
@@ -45,7 +44,7 @@ watch(props, () => {
   if (props.investigacion) {
     titulo.value = props.investigacion.titulo;
     descripcion.value = props.investigacion.descripcion;
-    index.value = props.index;
+    index.value = props.investigacion._id;
   }
 });
 
