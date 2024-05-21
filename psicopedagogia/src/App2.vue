@@ -13,6 +13,8 @@
           <li><router-link to="/redadmi"> Red </router-link></li>
           <br>
           <li><router-link to="/sociedadadmi"> Sociedad </router-link></li>
+          <br>
+          <li><router-link to="/zonaadmi"> Zona </router-link></li>
         </ul>
       </div>
       <div class="mainContentAdmi">

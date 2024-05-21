@@ -2,7 +2,7 @@
   <div class="mod">
     <div class="mod-content">
       <button class="clo" @click="closeForm">&times;</button>
-      <h2>Editar Egresado</h2>
+      <h2>Editar Investigacion</h2>
       <form @submit.prevent="submitForm">
         <div class="for-group">
           <label for="titulo">Titulo:</label><br>

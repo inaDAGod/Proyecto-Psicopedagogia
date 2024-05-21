@@ -3,7 +3,7 @@ import Home from '@/views/principalAdmi.vue';
 import Egresados from '@/views/EgresadosAdmi.vue';
 import About from '@/views/Nosotrosadmin.vue';
 import Sociedad from '@/views/SociedadAdmi.vue'
-//import Zona from '@/views/investigaciones.vue'
+import Zona from '@/views/ZonaAdmi.vue'
 //import Social from '@/views/social.vue'
 import Red from '@/views/RedAdmi.vue'
 //import Publicaciones from '@/views/publicaciones.vue'
@@ -37,6 +37,11 @@ const router = createRouter({
       path: '/sociedadadmi',
       name: 'Sociedad',
       component: Sociedad,
+    },
+    {
+      path: '/zonaadmi',
+      name: 'Zona',
+      component: Zona,
     }
     
   ],
