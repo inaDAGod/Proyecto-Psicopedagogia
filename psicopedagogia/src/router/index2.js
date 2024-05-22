@@ -9,7 +9,7 @@ import Red from '@/views/Red.vue'
 //import Publicaciones from '@/views/publicaciones.vue'
 import Pregrado from '@/views/Pregradoadmin.vue'
 import Postgrado from '@/views/Postgradoadmin.vue'
-import Docentes from '@/views/Docentesadmin.vue'
+import Docentes from '@/views/Docentesadi.vue'
 
 const router = createRouter({
   history: createWebHistory(),

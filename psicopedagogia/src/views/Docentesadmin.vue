@@ -1,55 +1,38 @@
 <template>
-    <div id="app">
-      <!-- First section: NOSOTROS -->
-      
-  
-      <!-- Second section: NUESTRA FAMILIA -->
-      <div style="display: flex; align-items: center;">
-        <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
-        <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
-          <div style="margin:20px;">
-            <!-- Button to toggle the FormDocente component -->
-            <button class="b-formna" @click="toggleFormVisibility('formDocente')">Agregar</button>
-            <!-- FormDocente component -->
-            <FormDocente v-if="showFormDocente" @closeForm="closeForm('formDocente')" />
+  <div id="app">
+    <div class="content-wrapper">
+      <div class="main-content">
+        <div style="display: flex; align-items: center;">
+          <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
+          <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
+            <div style="margin:20px;">
+              <button class="b-formnad" @click="toggleFormVisibility('formDocMod')">Modificar</button>
+              <FormDocMod v-if="showFormDocMod" @closeForm="closeForm('formDocMod')" />
+            </div>
+            <div style="margin:20px;">
+              <button class="b-formnad" @click="toggleFormVisibility('formDocElim')">Eliminar</button>
+              <FormDocElim v-if="showFormDocElim" @closeForm="closeForm('formDocElim')" />
+            </div>
           </div>
-          <div style="margin:20px;">
-            <!-- Button to toggle the FormDocente component -->
-            <button class="b-formna" @click="toggleFormVisibility('formDocMod')">Modificar</button>
-            <!-- FormDocente component -->
-            <FormDocMod v-if="showFormDocMod" @closeForm="closeForm('formDocMod')" />
-          </div>
-          <div style="margin:20px;">
-            <!-- Button to toggle the FormDocente component -->
-            <button class="b-formna" @click="toggleFormVisibility('formDocElim')">Eliminar</button>
-            <!-- FormDocente component -->
-            <FormDocElim v-if="showFormDocElim" @closeForm="closeForm('formDocElim')" />
+        </div>
+        <div class="docentes-container">
+          <div v-for="docente in docentes" :key="docente.id" class="docente-item">
+            <div v-html="generateTable(docente)"></div>
           </div>
         </div>
       </div>
-  
-      
-      <div class="docentes-container">
-      <div v-for="docente in docentes" :key="docente.id" class="docente-item">
-        <div v-html="generateTable(docente)"></div>
-      </div>
-    </div>
-  
-      
-      
-  
-      <!-- Footer -->
+       
       
     </div>
-  </template>
+  </div>
+</template>
   
   <script setup>
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
-  import Formpaginanos from '/src/Formp.vue';
-  import FormDocente from '/src/FormDocente.vue';
   import FormDocMod from '/src/FormDocMod.vue';
   import FormDocElim from '/src/FormDocElim.vue';
+  import Formpaginanos from '/src/FormDocente.vue';
   
   // Define separate reactive variables for each form FormDocElim
   const showFormPaginanos = ref(false);
@@ -61,9 +44,7 @@
   const toggleFormVisibility = (formName) => {
     if (formName === 'formPaginanos') {
       showFormPaginanos.value = !showFormPaginanos.value;
-    } else if (formName === 'formDocente') {
-      showFormDocente.value = !showFormDocente.value;
-    } else if (formName === 'formDocMod') {
+    }else if (formName === 'formDocMod') {
       showFormDocMod.value = !showFormDocMod.value;
     } else if (formName === 'formDocElim') {
       showFormDocElim.value = !showFormDocElim.value;
@@ -74,8 +55,6 @@
   const closeForm = (formName) => {
     if (formName === 'formPaginanos') {
       showFormPaginanos.value = false;
-    } else if (formName === 'formDocente') {
-      showFormDocente.value = false;
     }
     else if (formName === 'formDocMod') {
       showFormDocMod.value = false;
@@ -140,17 +119,16 @@
   // Function to generate HTML table for docentes
   const generateTable = (docente) => {
   const tableHTML = `<center>
-    <div class="docentesna">
-      <div class="docentes-infona">
-        <p ><b> ${docente.nombre}</b><br><br>
-         ${docente.cargo}<br>
-         ${docente.correo}<br>
+    <div class="docentesnad">
+      <div class="docentes-infonad">
+        <p ><b>Nombre: ${docente.nombre}</b><br>Apodo:${docente.apodo}<br>Cargo:
+         ${docente.cargo}<br> 
+         Correo:${docente.correo}<br>
          Dato curioso:
          ${docente.datoc}</p>
       </div>
-      <div class="docentes-avatarna">
-        <div class="docentes-nicknamena">${docente.apodo}</div>
-        <img src="${docente.imagen}" alt="${docente.nombre}" class="docentes-imagena">
+      <div class="docentes-avatarnad">
+        <img src="${docente.imagen}" alt="${docente.nombre}" class="docentes-imagenad">
       </div>
     </div>
   <center>`;
@@ -181,7 +159,80 @@
 
   <style>
 @import url('/src/assets/nostrosadmin.css');
+.docentes-infonad {
+  text-align: left;
+  margin-left: 7%;
+  margin-top: 8%;
+}
 
+.docentes-infonad p{
+  font-size: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+  width: 55%;
+}
+
+.docentes-containernad {
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+  
+.docente-itemnad {
+  flex-basis: calc(46% - 10px); 
+  margin-bottom: 20px; 
+}
+
+.docentesnad {
+  position: relative;
+  background-color: rgba(255, 206, 232, 1);
+  border-radius: 40px;
+  text-align: center;
+  width: 320px;
+  display: flex;
+  margin-top: 8%;
+  margin-bottom: 20px;
+  height: 400px;
+}
+
+
+
+.docentes-avatarnad {
+  display: inline-block;
+  position: absolute;
+  right: 3%; 
+  top: 25%; 
+}
+
+.docentes-imagenad { 
+  border-radius: 50%;
+  text-align: right;
+  position: relative; 
+  z-index: 1; 
+  margin-top: -50px; 
+  width: 100px;
+  height: 100px;
+}
+
+
+.b-formnad {
+    font-size: 36px;
+    width: 100%;
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: rgba(255, 42, 157, 1);
+    color: white;
+    border-radius: 40px;
+    border-color: rgb(98, 39, 71);
+    left:0;
+}
+.content-wrapper {
+  display: flex
+}
+
+.main-content {
+  width: 100%; /* Adjust width as needed */
+}
 
 
 

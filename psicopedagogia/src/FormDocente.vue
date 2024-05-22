@@ -1,38 +1,37 @@
 <template>
-  <div class="modal" v-show="showForm">
-    <div class="modal-content">
-      <button style="margin-left: 90%;width: 9%;" class="close" @click="closeForm">&times;</button>
+  <div class="modalf" v-show="showForm">
+    <div class="modal-contentf">
       <h2>Agregar Nuevo Docente</h2>
       <form @submit.prevent="submitForm">
         <!-- Input fields para el formulario -->
-        <div class="form-group">
+        <div class="form-groupf">
           <label for="nombre">Nombre:</label><br>
           <input type="text" id="nombre" v-model="nombre" required>
         </div>
-        <div class="form-group">
+        <div class="form-groupf">
           <label for="apodo">Apodo:</label><br>
           <input type="text" id="apodo" v-model="apodo" required>
         </div>
-        <div class="form-group">
+        <div class="form-groupf">
           <label for="cargo">Cargo:</label><br>
           <input type="text" id="cargo" v-model="cargo" required>
         </div>
-        <div class="form-group">
+        <div class="form-groupf">
           <label for="correo">Correo:</label><br>
           <input type="email" id="correo" v-model="correo" required>
         </div>
-        <div class="form-group">
+        <div class="form-groupf">
   <label for="datoc">Dato Cualquiera:</label><br>
   <input type="text" id="datoc" v-model="datoc" required>
 </div>
 
-        <div class="form-group">
+        <div class="form-groupf">
           <label for="imagen">Imagen:</label><br>
           <input type="file" id="imagen" @change="onFileChange" required>
         </div>
         <div style="text-align: center;">
           <!-- Botón para enviar el formulario -->
-          <button class="boton-guardar">Guardar</button>
+          <button class="boton-guardarf">Guardar</button>
         </div>
       </form>
     </div>
@@ -121,5 +120,5 @@
 </script>
 
 <style scoped>
-@import url('.\assets\formDocentes.css');
+@import url('.\assets\formagrnos.css');
 </style>
