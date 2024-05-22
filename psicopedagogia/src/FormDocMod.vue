@@ -1,16 +1,15 @@
 <template>
     <div class="modal" v-show="showForm">
+      
       <div class="modal-content">
         <button style="margin-left: 90%;width: 9%;" class="close" @click="closeForm">&times;</button>
         <h2>Modificar Docente</h2>
         <form @submit.prevent="submitForm">
           <!-- Dropdown/select input for selecting the docente's name -->
           <div class="form-group">
-            <label for="selectNombre">Seleccione el nombre del docente:</label><br>
-            <select id="selectNombre" v-model="selectedNombre" required>
-              <option v-for="docente in docentes" :key="docente.id_docente" :value="docente.nombre">{{ docente.nombre }}</option>
-            </select>
-          </div>
+          <label for="nombre">Nombre:</label><br>
+          <input type="text" id="nombre" v-model="nombre" readonly>
+        </div>
           <!-- Input fields for the rest of the form -->
           <div class="form-group">
             <label for="apodo">Apodo:</label><br>
