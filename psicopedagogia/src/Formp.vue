@@ -1,59 +1,65 @@
 <template>
-  <div class="modal" v-show="showForm">
-    <div class="modal-content">
-      
-      <form @submit.prevent="submitForm">
-        <!-- Input fields para el formulario -->
-        <div class="form-group">
-          <label for="link_video">Link del Video:</label><br>
-          <input type="text" id="link_video" v-model="linkVideo" required>
-        </div>
-        <div class="form-group">
-          <label for="link_soc_cien">Link Soc. Científica:</label><br>
-          <input type="text" id="link_soc_cien" v-model="linkSocCien" required>
-        </div>
-        <div class="form-group">
-          <label for="link_sembrando">Link Sembrando:</label><br>
-          <input type="text" id="link_sembrando" v-model="linkSembrando" required>
-        </div>
-        <div class="form-group">
-          <label for="link_psico_ucb">Link Psico UCB:</label><br>
-          <input type="text" id="link_psico_ucb" v-model="linkPsicoUcb" required>
-        </div>
-        <h1>Redes:</h1>
-        <div class="form-group">
-          <img style="width: 12%;" src="/src/assets/images/facebook.png" alt="Imagen del logo">
-          <input type="text" id="facebook" v-model="facebook" required>
-        </div>
-        <div class="form-group">
-          <img style="width: 12%;" src="/src/assets/images/insta.png" alt="Imagen del logo">
-          <input type="text" id="insta" v-model="insta" required>
-        </div>
-        <div class="form-group">
-          <img style="width: 12%;height: 20%;" src="/src/assets/images/yt.png" alt="Imagen del logo">
-          <input type="text" id="youtube" v-model="youtube" required>
-        </div>
-        <div class="form-group">
-          <img style="width: 12%;" src="/src/assets/images/tiktok.png" alt="Imagen del logo">
-          <input type="text" id="tiktok" v-model="tiktok" required>
-        </div>
-        <div class="form-group">
-          <label style="margin-left: 2.5%;" for="attencion_dire">Atención Dirección:</label><br>
-          <textarea style="width: 175%;" id="attencion_dire" v-model="attencionDire" rows="4" required></textarea>
-        </div>
-        <div style="text-align: center;">
-          <!-- Botón para enviar el formulario -->
-          <button class="boton-guardar">Guardar</button>
-        </div>
-      </form>
+  <div>
+    <div v-if="notification" class="notification">
+      {{ notification }}
+    </div>
+    <div class="modal" v-show="showForm">
+      <div class="modal-content">
+        <form @submit.prevent="submitForm">
+          <!-- Input fields for the form -->
+          <div class="form-group">
+            <label for="link_video">Link del Video:</label><br>
+            <input type="text" id="link_video" v-model="linkVideo" required>
+          </div>
+          <div class="form-group">
+            <label for="link_soc_cien">Link Soc. Científica:</label><br>
+            <input type="text" id="link_soc_cien" v-model="linkSocCien" required>
+          </div>
+          <div class="form-group">
+            <label for="link_sembrando">Link Sembrando:</label><br>
+            <input type="text" id="link_sembrando" v-model="linkSembrando" required>
+          </div>
+          <div class="form-group">
+            <label for="link_psico_ucb">Link Psico UCB:</label><br>
+            <input type="text" id="link_psico_ucb" v-model="linkPsicoUcb" required>
+          </div>
+          <h1>Redes:</h1>
+          <div class="form-group">
+            <img style="width: 12%;" src="/src/assets/images/facebook.png" alt="Imagen del logo">
+            <input type="text" id="facebook" v-model="facebook" required>
+          </div>
+          <div class="form-group">
+            <img style="width: 12%;" src="/src/assets/images/insta.png" alt="Imagen del logo">
+            <input type="text" id="insta" v-model="insta" required>
+          </div>
+          <div class="form-group">
+            <img style="width: 12%;height: 20%;" src="/src/assets/images/yt.png" alt="Imagen del logo">
+            <input type="text" id="youtube" v-model="youtube" required>
+          </div>
+          <div class="form-group">
+            <img style="width: 12%;" src="/src/assets/images/tiktok.png" alt="Imagen del logo">
+            <input type="text" id="tiktok" v-model="tiktok" required>
+          </div>
+          <div class="form-group">
+            <label style="margin-left: 2.5%;" for="attencion_dire">Atención Dirección:</label><br>
+            <textarea style="width: 175%;" id="attencion_dire" v-model="attencionDire" rows="4" required></textarea>
+          </div>
+          <div style="text-align: center;">
+            <!-- Submit button -->
+            <button class="boton-guardar">Guardar</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </template>
+
 
 <script setup>
 import { ref, defineProps, watch } from 'vue';
 
 const showForm = ref(true);
+const notification = ref(null);
 const props = defineProps({
   linkVideo: String,
   linkSocCien: String,
@@ -131,7 +137,10 @@ const submitForm = async () => {
     
     if (response.ok) {
       console.log('Data updated successfully');
-      closeForm(); // Close the form after successful submission
+      notification.value = 'Actualización exitosa';
+      setTimeout(() => {
+        notification.value = null;
+      }, 3000);
     } else {
       console.error('Error updating data:', response.statusText);
     }
@@ -139,15 +148,26 @@ const submitForm = async () => {
     console.error('Error submitting form:', error);
   }
 };
-
-// Function to close the form
-const closeForm = () => {
-  console.log('Closing form...');
-  showForm.value = false; // Close the form directly
-};
 </script>
 
+
 <style scoped>
-@import url('./assets/formPaginanos.css');
-/* Your styles here */
+@import url('/src/assets/formPaginanos.css');
+
+/* Notification styles */
+.notification {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border-radius: 5px;
+  text-align: center;
+}
+
+/* Other styles here */
 </style>
+
