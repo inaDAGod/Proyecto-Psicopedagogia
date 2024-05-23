@@ -1,0 +1,24 @@
+[{
+  "_id": {
+    "$oid": "664bdf254cbb5535bfef039f"
+  },
+  "titulo": "Título de la investigación 1",
+  "descripcion": "Descripción de la investigación 1.",
+  "src_foto": "/src/assets/images/psico2.jpg"
+},
+{
+  "_id": {
+    "$oid": "664bdf254cbb5535bfef03a0"
+  },
+  "titulo": "Título de la investigación 2",
+  "descripcion": "Descripción de la investigación 2.",
+  "src_foto": "/src/assets/images/psico3.jpg"
+},
+{
+  "_id": {
+    "$oid": "664bdf254cbb5535bfef03a1"
+  },
+  "titulo": "Título de la investigación 3",
+  "descripcion": "Descripción de la investigación 3.",
+  "src_foto": "/src/assets/images/psico3.jpg"
+}]
