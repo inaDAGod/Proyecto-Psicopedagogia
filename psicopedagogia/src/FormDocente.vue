@@ -1,6 +1,13 @@
 <template>
-  <div class="modalf" v-show="showForm">
-    <div class="modal-contentf">
+ <div>
+    <!-- Notification -->
+    <div v-show="showNotification" class="notification">
+      Docente creado exitosamente!
+    </div>
+
+    <!-- Modal form -->
+    <div class="modalf" v-show="showForm">
+      <div class="modal-contentf">
       <h2>Agregar Nuevo Docente</h2>
       <form @submit.prevent="submitForm">
         <!-- Input fields para el formulario -->
@@ -35,19 +42,17 @@
         </div>
       </form>
     </div>
-  </div>
+  </div></div>
 </template>
 
 <script setup>
-  // Import necessary functions from Vue
   import { ref } from 'vue';
   import { defineProps } from 'vue';
 
-  // Define reactive variables
   const showForm = ref(true);
+  const showNotification = ref(false);
   const currentFile = ref(null);
 
-  // Define props
   const props = defineProps({
     nombre: String,
     apodo: String,
@@ -59,7 +64,6 @@
     onclose: Function
   });
 
-  // Initialize refs with props values
   const nombre = ref(props.nombre);
   const apodo = ref(props.apodo);
   const cargo = ref(props.cargo);
@@ -67,58 +71,73 @@
   const datoc = ref(props.datoc);
   const imagen = ref(props.imagen);
 
-  // Function to submit the form data to the server
   const submitForm = async () => {
     try {
       const direc = "/backend/images/";
       console.log(currentFile.value);
       imagen.value = direc + currentFile.value.name;
+      
       const formData = new FormData();
       formData.append('sampleFile', currentFile.value);
-      fetch('http://localhost:3000/upload', {
+      
+      const uploadResponse = await fetch('http://localhost:3000/upload', {
         method: 'POST',
         body: formData
-      }).then(async (res) => {
-        console.log(res);
-        const formData = new FormData();
-        formData.append('nombre', nombre.value);
-        formData.append('apodo', apodo.value);
-        formData.append('cargo', cargo.value);
-        formData.append('correo', correo.value);
-        formData.append('datoc', datoc.value);
-        formData.append('imagen', imagen.value); // Update to 'imagen' attribute
-        console.log(imagen.value);
-        const response = await fetch('http://localhost:3000/api/docentes', {
-          method: 'POST',
-          body: formData
-        });
-        if (response.ok) {
-          console.log('Docente guardado correctamente');
-          closeForm(); // Close the form after successful save
-        } else {
-          console.error('Error al guardar el docente:', response.statusText);
-        }
       });
+
+      console.log(uploadResponse);
+
+      const docenteFormData = new FormData();
+      docenteFormData.append('nombre', nombre.value);
+      docenteFormData.append('apodo', apodo.value);
+      docenteFormData.append('cargo', cargo.value);
+      docenteFormData.append('correo', correo.value);
+      docenteFormData.append('datoc', datoc.value);
+      docenteFormData.append('imagen', imagen.value);
+
+      const response = await fetch('http://localhost:3000/api/docentes', {
+        method: 'POST',
+        body: docenteFormData
+      });
+
+      if (response.ok) {
+        console.log('Docente guardado correctamente');
+        showNotification.value = true; // Show notification
+        setTimeout(() => {
+          showNotification.value = false; // Hide notification after a delay
+        }, 3000);
+        // Reset form fields
+        nombre.value = '';
+        apodo.value = '';
+        cargo.value = '';
+        correo.value = '';
+        datoc.value = '';
+        currentFile.value = null;
+      } else {
+        console.error('Error al guardar el docente:', response.statusText);
+      }
     } catch (error) {
       console.error('Error al enviar el formulario:', error);
     }
   };
 
-  // Function to handle file change
   const onFileChange = (event) => {
     const file = event.target.files[0];
     currentFile.value = file;
   };
-
-  // Function to close the form
-  
-
-  const closeForm = () => {
-  console.log('Closing form...');
-  showForm.value = false; // Close the form directly
-};
 </script>
-
 <style scoped>
 @import url('.\assets\formagrnos.css');
+.notification {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  border-radius: 5px;
+  text-align: center;
+}
 </style>

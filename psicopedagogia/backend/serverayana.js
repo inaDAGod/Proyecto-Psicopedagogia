@@ -60,6 +60,89 @@ app.get('/api/cursoscf', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
+
+app.post('/api/cursoscf', async (req, res) => {
+  try {
+    const { titulo, about, competencia, requisitos, fecha, img } = req.body;
+    const client = await pool.connect();
+    await client.query('INSERT INTO cursosfc (titulo, about, competencia, requisitos, fecha, img) VALUES ($1, $2, $3, $4, $5, $6)', [titulo, about, competencia, requisitos, fecha, img]);
+    client.release();
+    res.status(201).json({ message: 'Curso guardado correctamente' });
+  } catch (error) {
+    console.error('Error al guardar el curso:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.post('/api/cursoscfUpdate', async (req, res) => {
+  try {
+    const { id_cur, titulo, about, competencia, requisitos, fecha, img } = req.body;
+
+    const query = `
+      UPDATE cursosfc 
+      SET titulo = $2, about = $3, competencia = $4, requisitos = $5, fecha = $6, img = $7
+      WHERE id_cur = $1
+    `;
+    const values = [id_cur, titulo, about, competencia, requisitos, fecha, img];
+
+    const client = await pool.connect();
+    await client.query(query, values);
+    client.release();
+
+    console.log('Data updated successfully in cursosfc table');
+    res.status(200).json({ message: 'Data updated successfully in cursosfc table' });
+  } catch (error) {
+    console.error('Error updating data in cursosfc table:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+app.delete('/api/cursoscf/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const query = `
+      DELETE FROM cursosfc 
+      WHERE id_cur = $1
+    `;
+    const values = [id];
+
+    const client = await pool.connect();
+    await client.query(query, values);
+    client.release();
+
+    console.log('Curso deleted successfully');
+    res.status(200).json({ message: 'Curso deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting curso:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
 app.get('/api/maestria', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -251,12 +334,80 @@ app.delete('/api/docentes/:id', async (req, res) => {
 
 
 
+// Routes for maestria table
+app.post('/api/maestria', async (req, res) => {
+  try {
+    const { titulo, about, competencia, requisitos, fecha, img } = req.body;
+    const client = await pool.connect();
+    await client.query('INSERT INTO maestria (titulo, about, competencia, requisitos, fecha, img) VALUES ($1, $2, $3, $4, $5, $6)', [titulo, about, competencia, requisitos, fecha, img]);
+    client.release();
+    res.status(201).json({ message: 'Maestría guardada correctamente' });
+  } catch (error) {
+    console.error('Error al guardar la maestría:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 
 
 
 
 
 
+
+
+// Update route for cursosfc table
+
+
+// Update route for maestria table
+app.post('/api/maestriaUpdate', async (req, res) => {
+  try {
+    const { id_pos, titulo, about, competencia, requisitos, fecha, img } = req.body;
+
+    const query = `
+      UPDATE maestria 
+      SET titulo = $2, about = $3, competencia = $4, requisitos = $5, fecha = $6, img = $7
+      WHERE id_pos = $1
+    `;
+    const values = [id_pos, titulo, about, competencia, requisitos, fecha, img];
+
+    const client = await pool.connect();
+    await client.query(query, values);
+    client.release();
+
+    console.log('Data updated successfully in maestria table');
+    res.status(200).json({ message: 'Data updated successfully in maestria table' });
+  } catch (error) {
+    console.error('Error updating data in maestria table:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+// Delete route for cursosfc table
+
+
+// Delete route for maestria table
+app.delete('/api/maestria/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const query = `
+      DELETE FROM maestria 
+      WHERE id_pos = $1
+    `;
+    const values = [id];
+
+    const client = await pool.connect();
+    await client.query(query, values);
+    client.release();
+
+    console.log('Maestría deleted successfully');
+    res.status(200).json({ message: 'Maestría deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting maestría:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 
 
