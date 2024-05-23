@@ -9,6 +9,8 @@
           <li><router-link to="/aboutadmi"> About</router-link></li>
           <br>
           <li><router-link to="/redadmi"> Red </router-link></li>
+          <br>
+          <li><router-link to="/publicacionesadmi"> Publicaciones </router-link></li>
           
         </ul>
       </div>

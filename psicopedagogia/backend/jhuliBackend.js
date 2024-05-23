@@ -174,8 +174,6 @@ app.get('/api/publicaciones', async (req, res) => {
   try {
     // Obtener los parámetros de consulta
     const { titulo, autor, anio, descripcion } = req.query;
-
-    // Inicializar el filtro como un objeto vacío
     let filtro = {};
 
     // Construir el filtro basado en los parámetros de consulta proporcionados
@@ -186,11 +184,34 @@ app.get('/api/publicaciones', async (req, res) => {
 
     // Consultar la base de datos utilizando el filtro
     const publicaciones = await db.collection('publicaciones').find(filtro).toArray();
-
     // Enviar las publicaciones filtradas como respuesta
     res.json(publicaciones);
   } catch (error) {
     console.error('Error al obtener las publicaciones:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.post('/api/publicaciones', async (req, res) => {
+  try {
+    const {  titulo, autor, anio, descripcion, portada, ruta } = req.body;
+    await db.collection('publicaciones').insertOne({ titulo, autor, anio, descripcion, publicacion_src: portada, ruta });
+    res.status(201).json({ message: 'Publicacion guardada correctamente' });
+  } catch (error) {
+    console.error('Error al guardar el publicacion:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.delete('/api/publicaciones/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    const result = await db.collection('publicaciones').deleteOne({ _id: ObjectId(id) });
+    if (result.deletedCount === 1) {
+      res.status(200).json({ message: 'Publicación eliminada correctamente' });
+    } else {
+      res.status(404).json({ error: 'No se encontró la publicación' });
+    }
+  } catch (error) {
+    console.error('Error al eliminar la publicación:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
