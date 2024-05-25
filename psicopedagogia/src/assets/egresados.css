@@ -59,15 +59,18 @@ h2 {
 
 .car-control-prev,
 .car-control-next {
+  background-color: #BEAFE5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6vh;
+    font-size: 3vh;
+    padding: 3vh;
   position: absolute;
-  top: 68%;
+  top: 65%;
   transform: translateY(-50%);
-  background-color: transparent;
-  border: none;
-  font-size: 60px;
-  font-weight: 200;
-  color: #000; 
-  cursor: pointer;
+  z-index: 1000;
+  
 }
 
 .car-control-prev {
@@ -156,7 +159,7 @@ h2 {
   }
   h2 {
 
-    font-size: 200%;
+    font-size: 250%;
     padding-bottom: 0%;
     text-align: center;
 }
