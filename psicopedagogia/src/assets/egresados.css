@@ -59,13 +59,16 @@ h2 {
 
 .car-control-prev,
 .car-control-next {
-  background-color: #BEAFE5;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 6vh;
-    font-size: 3vh;
-    padding: 3vh;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #BADF3A;
+  border: none;
+  color: #fff;
+  font-family: monospace;
+  font-weight: bold;
+  transition: 0.5s;
+  cursor: pointer;
   position: absolute;
   top: 65%;
   transform: translateY(-50%);
