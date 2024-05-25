@@ -12,6 +12,10 @@
           <label for="descripcion">Descripcion:</label><br>
           <textarea id="descripcion" v-model="descripcion"></textarea>
         </div>
+        <div class="for-group">
+            <label for="src_foto">Foto Investigacion:</label><br>
+            <input type="file" id="src" @change="onFileChange">
+          </div>
         <div style="text-align: center;">
           <button class="bot-guardar" @click="">Guardar</button>
           <br><br><br><br>
@@ -38,7 +42,7 @@ const emit = defineEmits(['onclose']);
 const index = ref('');
 const titulo = ref('');
 const descripcion = ref('');
-
+const currentFile = ref(null);
 
 watch(props, () => {
   if (props.investigacion) {
@@ -50,10 +54,30 @@ watch(props, () => {
 
 const submitForm = async () => {
   try {
+        const direc = "/backend/images/";
+        let imageSrc = props.investigacion.src_foto; 
+
+        if (currentFile.value) {
+            const formDataImage = new FormData();
+            formDataImage.append('sampleFile', currentFile.value);
+
+            const imageResponse = await fetch('http://localhost:3000/upload', {
+                method: 'POST',
+                body: formDataImage
+            });
+
+            if (!imageResponse.ok) {
+                throw new Error('Error al subir la imagen');
+            }
+
+            const responseData = await imageResponse.json();
+            imageSrc = direc + currentFile.value.name; 
+        }
     const formData = new FormData();
     formData.append('index', index.value);
     formData.append('titulo', titulo.value);
     formData.append('descripcion', descripcion.value);
+    formData.append('foto',  imageSrc); 
     const response = await fetch(`http://localhost:3000/api/sociedad/investigacionUpdate`, {
       method: 'POST',
       body: formData
@@ -83,6 +107,10 @@ const borrarInvestigacion = async () => {
 };
 
 
+const onFileChange = (event) => {
+    const file = event.target.files[0];
+    currentFile.value = file;
+  };
 
 const closeForm = () => {
   emit('onclose');

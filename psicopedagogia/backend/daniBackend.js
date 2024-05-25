@@ -377,11 +377,11 @@ app.post('/api/investigacionZona', async (req, res) => {
 
 app.post('/api/sociedad/investigacionUpdate', async (req, res) => {
   try {
-    const { index, titulo, descripcion } = req.body;
+    const { index, titulo, descripcion, foto } = req.body;
 
     await db.collection('investigaciones_sociedad').updateOne(
       { _id: new ObjectId(index) },
-      { $set:{titulo, descripcion }}
+      { $set:{titulo, descripcion, src_foto: foto }}
     );
 
     res.status(200).json({ message: 'Investigación de sociedad actualizada correctamente' });
@@ -392,11 +392,11 @@ app.post('/api/sociedad/investigacionUpdate', async (req, res) => {
 });
 app.post('/api/zona/investigacionUpdate', async (req, res) => {
   try {
-    const { index, titulo, descripcion } = req.body;
+    const { index, titulo, descripcion, foto } = req.body;
 
     await db.collection('investigaciones_zona').updateOne(
       { _id: new ObjectId(index) },
-      { $set:{titulo, descripcion }}
+      { $set:{titulo, descripcion, src_foto: foto }}
     );
 
     res.status(200).json({ message: 'Investigación de zona actualizada correctamente' });
