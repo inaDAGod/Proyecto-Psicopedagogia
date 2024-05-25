@@ -10,7 +10,11 @@
           </div>
           <div class="for-group">
             <label for="link">Link externo:</label><br>
-            <input type="text" id="link" v-model="link" required>
+            <input type="text" id="link" v-model="link" >
+          </div>
+          <div class="for-group">
+            <label for="src_foto">Foto Red:</label><br>
+            <input type="file" id="src" @change="onFileChange" >
           </div>
           <div style="text-align: center;">
             <button class="bot-guardar">Guardar</button>
@@ -39,6 +43,7 @@
   const titulo = ref('');
   const link = ref('');
   const index =  ref('');
+  const currentFile = ref(null);
   
   watch(props, () => {
     if (props.red) {
@@ -50,10 +55,31 @@
   
   const submitForm = async () => {
     try {
+      const direc = "/backend/images/";
+        let imageSrc = props.red.src; 
+
+        if (currentFile.value) {
+            const formDataImage = new FormData();
+            formDataImage.append('sampleFile', currentFile.value);
+
+            const imageResponse = await fetch('http://localhost:3000/upload', {
+                method: 'POST',
+                body: formDataImage
+            });
+
+            if (!imageResponse.ok) {
+                throw new Error('Error al subir la imagen');
+            }
+
+            const responseData = await imageResponse.json();
+            imageSrc = direc + currentFile.value.name; 
+        }
+
       const formData = new FormData();
       formData.append('index', index.value);
       formData.append('titulo', titulo.value);
       formData.append('link', link.value);
+      formData.append('foto',  imageSrc); 
       const response = await fetch('http://localhost:3000/api/redUpdate', {
         method: 'POST',
         body: formData
@@ -81,6 +107,11 @@
     } catch (error) {
       console.error('Error al eliminar el egresado:', error);
     }
+  };
+
+  const onFileChange = (event) => {
+    const file = event.target.files[0];
+    currentFile.value = file;
   };
   const closeForm = () => {
     emit('onclose');

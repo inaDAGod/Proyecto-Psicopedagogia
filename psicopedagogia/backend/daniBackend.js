@@ -531,10 +531,10 @@ app.post('/api/red', async (req, res) => {
 
 app.post('/api/redUpdate', async (req, res) => {
   try {
-    const { index, titulo, link } = req.body;
+    const { index, titulo, link,foto } = req.body;
     await db.collection('red').updateOne(
       { _id: new ObjectId(index) },
-      { $set: {  titulo, link } }
+      { $set: {  titulo, link, src:foto } }
     );
     res.status(200).send('Red actualizado correctamente');
   } catch (error) {

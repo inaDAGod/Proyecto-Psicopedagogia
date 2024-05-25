@@ -68,7 +68,7 @@ watch(props, () => {
 const submitForm = async () => {
     try {
         const direc = "/backend/images/";
-        let imageSrc = props.egresado.src_foto; // Establecer el valor inicial de imageSrc
+        let imageSrc = props.egresado.src_foto; 
 
         if (currentFile.value) {
             const formDataImage = new FormData();
