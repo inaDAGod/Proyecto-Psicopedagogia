@@ -24,13 +24,14 @@
           <label for="comentario">Comentario:</label><br>
           <textarea id="comentario" v-model="comentario"></textarea>
         </div>
+        <div class="for-group">
+          <label for="src_foto">Foto egresado:</label><br>
+          <input type="file" id="src_foto" @change="onFileChange">
+        </div>
         <div style="text-align: center;">
           <button class="bot-guardar">Guardar</button>
-          <br>
-          <br>
-          <br>
-          <br>
-          <button class="bot-borrar" @click="borrarEgresado()" >Borrar Egresado</button>
+          <br><br><br><br>
+          <button class="bot-borrar" @click="borrarEgresado">Borrar Egresado</button>
         </div>
       </form>
     </div>
@@ -52,6 +53,7 @@ const anioGraduacion = ref('');
 const trabajo = ref('');
 const comentario = ref('');
 const index =  ref('');
+const currentFile = ref(null); // Agregamos la referencia para el archivo actual
 
 watch(props, () => {
   if (props.egresado) {
@@ -63,30 +65,51 @@ watch(props, () => {
     index.value = props.egresado._id;
   }
 });
-
 const submitForm = async () => {
-  try {
-    const formData = new FormData();
-    formData.append('index', index.value);
-    formData.append('nombre', nombre.value);
-    formData.append('correo', correo.value);
-    formData.append('anio_graduacion', anioGraduacion.value);
-    formData.append('trabajo', trabajo.value);
-    formData.append('comentario', comentario.value);
-    const response = await fetch('http://localhost:3000/api/egresadosUpdate', {
-      method: 'POST',
-      body: formData
-    });
-    
-    if (response.ok) {
-      console.log('Egresado actualizado correctamente');
-      closeForm();
-    } else {
-      console.error('Error al actualizar el egresado:', response.statusText);
+    try {
+        const direc = "/backend/images/";
+        let imageSrc = props.egresado.src_foto; // Establecer el valor inicial de imageSrc
+
+        if (currentFile.value) {
+            const formDataImage = new FormData();
+            formDataImage.append('sampleFile', currentFile.value);
+
+            const imageResponse = await fetch('http://localhost:3000/upload', {
+                method: 'POST',
+                body: formDataImage
+            });
+
+            if (!imageResponse.ok) {
+                throw new Error('Error al subir la imagen');
+            }
+
+            const responseData = await imageResponse.json();
+            imageSrc = direc + currentFile.value.name; 
+        }
+
+        const formData = new FormData();
+        formData.append('index', index.value);
+        formData.append('nombre', nombre.value);
+        formData.append('correo', correo.value);
+        formData.append('anio_graduacion', anioGraduacion.value);
+        formData.append('trabajo', trabajo.value);
+        formData.append('comentario', comentario.value);
+        formData.append('foto', imageSrc); // Si no se subió un nuevo archivo, se usará el valor de props.egresado.src_foto
+
+        const response = await fetch('http://localhost:3000/api/egresadosUpdate', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            console.log('Egresado actualizado correctamente');
+            closeForm();
+        } else {
+            console.error('Error al actualizar el egresado:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error al enviar el formulario:', error);
     }
-  } catch (error) {
-    console.error('Error al enviar el formulario:', error);
-  }
 };
 
 const borrarEgresado = async () => {
@@ -95,12 +118,17 @@ const borrarEgresado = async () => {
     if (response.status === 200) {
       console.log('Egresado eliminado correctamente');
       closeForm();
-    
     }
   } catch (error) {
     console.error('Error al eliminar el egresado:', error);
   }
 };
+
+const onFileChange = (event) => {
+    const file = event.target.files[0];
+    currentFile.value = file;
+};
+
 const closeForm = () => {
   emit('onclose');
 };

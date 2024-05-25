@@ -38,7 +38,7 @@ app.post('/upload', function(req, res) {
   let uploadPath;
 
   if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send('No files were uploaded.');
+    return res.status(400).json({ error: 'No files were uploaded.' });
   }
 
   sampleFile = req.files.sampleFile;
@@ -46,9 +46,8 @@ app.post('/upload', function(req, res) {
 
   sampleFile.mv(uploadPath, function(err) {
     if (err)
-      return res.status(500).send(err);
-
-    res.send('File uploaded!');
+      return res.status(500).json({ error: err }); 
+    res.json({ message: 'File uploaded!' });
   });
 });
 
@@ -76,10 +75,10 @@ app.post('/api/egresados', async (req, res) => {
 
 app.post('/api/egresadosUpdate', async (req, res) => {
   try {
-    const { index, nombre, correo, anio_graduacion, trabajo, comentario } = req.body;
+    const { index, nombre, correo, anio_graduacion, trabajo, comentario, foto } = req.body;
     await db.collection('egresados').updateOne(
       { _id: new ObjectId(index) },
-      { $set: { nombre, correo, anio_graduacion, trabajo, comentario } }
+      { $set: { nombre, correo, anio_graduacion, trabajo, comentario,src_foto: foto  } }
     );
     res.status(200).send('Egresado actualizado correctamente');
   } catch (error) {
