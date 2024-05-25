@@ -1,6 +1,5 @@
 <template>
     <div class="info-container">
-      <div>
         <div class="circle-background"></div>
         <img :src="srcFoto" class="info-img" alt="Egresado">
         <div class="info-content">
@@ -10,7 +9,7 @@
           <h3>Trabajo actual: {{ trabajo }}</h3>
           <p>{{ comentario }}</p>
         </div>
-      </div>
+
     </div>
   </template>
   
