@@ -204,7 +204,8 @@ app.post('/api/publicaciones', async (req, res) => {
 app.delete('/api/publicaciones/:id', async (req, res) => {
   try {
     const id = req.params.id;
-    const result = await db.collection('publicaciones').deleteOne({ _id: ObjectId(id) });
+    await db.collection('publicaciones').deleteOne({ _id: new ObjectId(id) });
+
     if (result.deletedCount === 1) {
       res.status(200).json({ message: 'Publicación eliminada correctamente' });
     } else {
@@ -215,7 +216,19 @@ app.delete('/api/publicaciones/:id', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
-
+app.post('/api/publicacionesUpdate', async (req, res) => {
+  try {
+    const { id, titulo, autor, descripcion, anio, ruta } = req.body;
+    await db.collection('publicacion').updateOne(
+      { _id: ObjectId(id) },
+      { $set: { titulo, autor, descripcion, anio, ruta } }
+    );
+    res.status(200).send('Publicación actualizada correctamente');
+  } catch (error) {
+    console.error('Error al actualizar la publicación:', error);
+    res.status(500).send('Error al actualizar la publicación');
+  }
+});
 
 //-----------OTROS---------
 //egresados
@@ -235,7 +248,7 @@ app.post('/api/egresados', async (req, res) => {
     await db.collection('egresados').insertOne({ nombre, correo, anio_graduacion, trabajo, comentario, src_foto: foto });
     res.status(201).json({ message: 'Egresado guardado correctamente' });
   } catch (error) {
-    console.error('Error al guardar el egresado:', error);
+    console.log('Error al guardar el egresado:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
