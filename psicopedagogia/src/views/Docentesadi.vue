@@ -1,6 +1,7 @@
 <template>
     <div id="app" class="container">
       <!-- Use Docentes component -->
+      <div style="flex: content;">
       <div class="container_main">
       <div class="column"> 
         <Docentes @closeForm="closeForm('docentes')" />
@@ -10,7 +11,7 @@
       <div class="column"> 
         <Formpaginanos @closeForm="closeForm('formPaginanos')" />
       </div>
-    </div>
+    </div></div>
   </template>
   
   <script setup>

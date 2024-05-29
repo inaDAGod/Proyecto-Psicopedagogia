@@ -7,7 +7,7 @@ import About from '@/views/Nosotrosadmin.vue';
 //import Social from '@/views/social.vue'
 import Red from '@/views/Red.vue'
 //import Publicaciones from '@/views/publicaciones.vue'
-import Pregrado from '@/views/Pregradoadmin.vue'
+import Pregrado from '@/views/Formpregrado.vue'
 import Postgrado from '@/views/Postgradoadi.vue'
 import Docentes from '@/views/Docentesadi.vue'
 

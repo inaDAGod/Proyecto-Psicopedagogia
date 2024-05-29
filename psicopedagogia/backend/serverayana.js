@@ -47,6 +47,17 @@ app.get('/api/info-pagina', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+app.get('/api/pregrado', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM pregrado');
+    client.release();
+    res.json(result.rows[0]); // Suponiendo que solo hay una fila en la tabla pagina_nosotros
+  } catch (error) {
+    console.error('Error al obtener pregrado:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 //NUEVOSSSSSSSS
 
 app.get('/api/cursoscf', async (req, res) => {
@@ -234,6 +245,75 @@ app.post('/api/info-paginaUpdate', async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 });
+
+
+app.post('/api/pregrado', async (req, res) => {
+  try {
+    const { videos_asignaturas_1, videos_asignaturas_2, videos_asignaturas_3, videos_asignaturas_4, videos_asignaturas_5,
+            videos_actividades_1, videos_actividades_2, videos_actividades_3, videos_actividades_4, videos_actividades_5,
+            videos_perfiles_1, videos_perfiles_2, videos_perfiles_3, videos_perfiles_4, videos_perfiles_5,
+            images_1, images_2, images_3, images_4, images_5, educativo, imgedu, intercambio, alianza } = req.body;
+
+    const client = await pool.connect();
+
+    // Use UPDATE statement without a WHERE clause to update all rows in the table
+    await client.query(`
+      UPDATE pregrado 
+      SET 
+        videos_asignaturas_1 = $1, videos_asignaturas_2 = $2, videos_asignaturas_3 = $3, videos_asignaturas_4 = $4, videos_asignaturas_5 = $5,
+        videos_actividades_1 = $6, videos_actividades_2 = $7, videos_actividades_3 = $8, videos_actividades_4 = $9, videos_actividades_5 = $10,
+        videos_perfiles_1 = $11, videos_perfiles_2 = $12, videos_perfiles_3 = $13, videos_perfiles_4 = $14, videos_perfiles_5 = $15,
+        images_1 = $16, images_2 = $17, images_3 = $18, images_4 = $19, images_5 = $20,
+        educativo = $21, imgedu = $22, intercambio = $23, alianza = $24
+    `, [videos_asignaturas_1, videos_asignaturas_2, videos_asignaturas_3, videos_asignaturas_4, videos_asignaturas_5,
+        videos_actividades_1, videos_actividades_2, videos_actividades_3, videos_actividades_4, videos_actividades_5,
+        videos_perfiles_1, videos_perfiles_2, videos_perfiles_3, videos_perfiles_4, videos_perfiles_5,
+        images_1, images_2, images_3, images_4, images_5,
+        educativo, imgedu, intercambio, alianza]);
+
+    client.release();
+
+    res.status(200).json({ message: 'Data updated successfully in pregrado table' });
+  } catch (error) {
+    console.error('Error updating data in pregrado table:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+
+app.post('/api/pregradoUpdate', async (req, res) => {
+  try {
+    const { videos_asignaturas_1, videos_asignaturas_2, videos_asignaturas_3, videos_asignaturas_4, videos_asignaturas_5,
+            videos_actividades_1, videos_actividades_2, videos_actividades_3, videos_actividades_4, videos_actividades_5,
+            videos_perfiles_1, videos_perfiles_2, videos_perfiles_3, videos_perfiles_4, videos_perfiles_5,
+            images_1, images_2, images_3, images_4, images_5, educativo, imgedu, intercambio, alianza } = req.body;
+
+    const query = `
+      UPDATE pregrado 
+      SET videos_asignaturas_1 = $1, videos_asignaturas_2 = $2, videos_asignaturas_3 = $3, videos_asignaturas_4 = $4, videos_asignaturas_5 = $5,
+          videos_actividades_1 = $6, videos_actividades_2 = $7, videos_actividades_3 = $8, videos_actividades_4 = $9, videos_actividades_5 = $10,
+          videos_perfiles_1 = $11, videos_perfiles_2 = $12, videos_perfiles_3 = $13, videos_perfiles_4 = $14, videos_perfiles_5 = $15,
+          images_1 = $16, images_2 = $17, images_3 = $18, images_4 = $19, images_5 = $20,
+          educativo = $21, imgedu = $22, intercambio = $23, alianza = $24
+    `;
+    const values = [videos_asignaturas_1, videos_asignaturas_2, videos_asignaturas_3, videos_asignaturas_4, videos_asignaturas_5,
+                    videos_actividades_1, videos_actividades_2, videos_actividades_3, videos_actividades_4, videos_actividades_5,
+                    videos_perfiles_1, videos_perfiles_2, videos_perfiles_3, videos_perfiles_4, videos_perfiles_5,
+                    images_1, images_2, images_3, images_4, images_5,
+                    educativo, imgedu, intercambio, alianza];
+
+    const client = await pool.connect();
+    await client.query(query, values);
+    client.release();
+
+    console.log('Data updated successfully in pregrado table');
+    res.status(200).json({ message: 'Data updated successfully in pregrado table' });
+  } catch (error) {
+    console.error('Error updating data in pregrado table:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 
 
