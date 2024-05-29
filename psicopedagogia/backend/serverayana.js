@@ -60,7 +60,7 @@ app.get('/api/pregrado', async (req, res) => {
 });
 //NUEVOSSSSSSSS
 
-app.get('/api/cursoscf', async (req, res) => {
+app.get('/api/cursosfc', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM cursosfc');
@@ -73,7 +73,7 @@ app.get('/api/cursoscf', async (req, res) => {
 });
 
 
-app.post('/api/cursoscf', async (req, res) => {
+app.post('/api/cursosfc', async (req, res) => {
   try {
     const { titulo, about, competencia, requisitos, fecha, img } = req.body;
     const client = await pool.connect();
@@ -108,7 +108,7 @@ app.post('/api/cursoscf', async (req, res) => {
 
 
 
-app.post('/api/cursoscfUpdate', async (req, res) => {
+app.post('/api/cursosfcUpdate', async (req, res) => {
   try {
     const { id_cur, titulo, about, competencia, requisitos, fecha, img } = req.body;
 
@@ -131,7 +131,7 @@ app.post('/api/cursoscfUpdate', async (req, res) => {
   }
 });
 
-app.delete('/api/cursoscf/:id', async (req, res) => {
+app.delete('/api/cursosfc/:id', async (req, res) => {
   try {
     const { id } = req.params;
 

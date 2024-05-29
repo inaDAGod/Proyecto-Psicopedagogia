@@ -58,7 +58,6 @@ CREATE TABLE maestria (
 );
 
 CREATE TABLE pregrado (
-    id SERIAL PRIMARY KEY,
     videos_asignaturas_1 VARCHAR(255),
     videos_asignaturas_2 VARCHAR(255),
     videos_asignaturas_3 VARCHAR(255),

@@ -25,7 +25,7 @@
           </div>
           <div class="form-group">
             <label for="educativo">Área Educativa:</label><br>
-            <input type="text" id="educativo" v-model="educativo">
+            <textarea style="width: 175%;" id="educativo" v-model="educativo" rows="4" required></textarea>
           </div>
           <div class="form-group">
             <label for="imgedu">Imagen Educativa:</label><br>
