@@ -493,7 +493,53 @@ app.delete('/api/maestria/:id', async (req, res) => {
 
 
 
+/*app.get('/api/docentes', async (req, res) => {
+  try {
+    const docentes = await db.collection('docentes').find().toArray();
+    res.json(docentes);
+  } catch (error) {
+    console.error('Error al obtener los docentes:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 
+app.post('/api/docentes', async (req, res) => {
+  try {
+    const { nombre, apodo, cargo, correo, datoc, imagen } = req.body;
+    await db.collection('docentes').insertOne({ nombre, apodo, cargo, correo, datoc, imagen });
+    res.status(201).json({ message: 'Docente guardado correctamente' });
+  } catch (error) {
+    console.error('Error al guardar el docente:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.post('/api/docentesUpdate', async (req, res) => {
+  try {
+    const { index, nombre, apodo, cargo, correo, datoc, imagen } = req.body;
+    await db.collection('docentes').updateOne(
+      { _id: new ObjectId(index) },
+      { $set: { nombre, apodo, cargo, correo, datoc, imagen } }
+    );
+    res.status(200).send('Docente actualizado correctamente');
+  } catch (error) {
+    console.error('Error al actualizar el docente:', error);
+    res.status(500).send('Error al actualizar el docente');
+  }
+});
+
+app.delete('/api/docentes/:id', async (req, res) => {
+  try {
+    const docenteId = req.params.id;
+    // Realizar la lógica para eliminar el docente de la base de datos utilizando el ID proporcionado
+    await db.collection('docentes').deleteOne({ _id: new ObjectId(docenteId) });
+    res.status(200).send('Docente eliminado correctamente');
+  } catch (error) {
+    console.error('Error al eliminar el docente:', error);
+    res.status(500).send('Error al eliminar el docente');
+  }
+});
+*/
 
 
 
