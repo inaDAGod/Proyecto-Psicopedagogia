@@ -127,7 +127,7 @@
    };
  </script>
  <style scoped>
- @import url('.\assets\formagrnos.css');
+ @import url('/src/assets/formagrnos.css');
  .notification {
    background-color: #4CAF50; /* Green */
    color: white;

@@ -3,20 +3,25 @@
       <!-- Use Docentes component -->
       <div style="flex: content;">
       <div class="container_main">
-      <div class="column"> 
-        <Docentes @closeForm="closeForm('docentes')" />
-      </div>
-      </div>
-      <!-- Use Formpaginanos component -->
-      <div class="column"> 
-        <Formpaginanos @closeForm="closeForm('formPaginanos')" />
-      </div>
-    </div></div>
+        <table>
+        
+        <tr>
+          <td style="width: 70%;">
+            <Docentes @closeForm="closeForm('docentes')" />
+          </td>
+          <td style="width: 30%;">
+            <Formpaginanos @closeForm="closeForm('formPaginanos')" />
+          </td>
+        </tr>
+      </table>
+
+
+      </div></div></div>
   </template>
   
   <script setup>
   import { ref } from 'vue';
-  import Formpaginanos from '/src/FormDocente.vue'; // Adjusted import path
+  import Formpaginanos from '@/components/FormDocente.vue'; // Adjusted import path
   import Docentes from './Docentesadmin.vue'; // Adjusted import path
   
   // Define a ref to track the visibility of each form
@@ -34,19 +39,11 @@
   </script>
   
   <style scoped>
-  .container {
+  .container_main {
+    width: 100%; /* Adjusted width */
     display: flex;
+    margin-top: -5%;
   }
-  
-  .column {
-    flex: 1;
-  }
-  #app {
-  display: flex;
-}
-.container_main{
-    width: 65%;
-}
   </style>
   
   

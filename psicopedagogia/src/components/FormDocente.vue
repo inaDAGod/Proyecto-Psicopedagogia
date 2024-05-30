@@ -147,7 +147,7 @@
  
  
  <style scoped>
- @import url('.\assets\formdoc.css');
+ @import url('/src/assets/formdoc.css');
  .notification {
    background-color: #4CAF50; /* Green */
    color: white;
