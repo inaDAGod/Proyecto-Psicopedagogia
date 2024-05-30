@@ -6,8 +6,8 @@
           <div class="docentes-container">
             <div v-for="maestria in maestrias" :key="maestria.id" class="docente-item">
               <div v-html="generateTable(maestria)"></div>
-              <button class="b-formnad" @click="openModForm(maestria)">Modificar</button>
-              <button class="b-formnad" @click="openDelForm(maestria)">Eliminar</button>
+              <button class="b-forma" style="background-color: #5BA45A;border-color: #5BA45A;" @click="openModForm(maestria)">Modificar</button>
+              <button class="b-forma" style="background-color: #DF351B;border-color: #DF351B;" @click="openDelForm(maestria)">Eliminar</button>
             </div>
           </div>
           <FormDocMod v-if="showFormDocMod" :maestria="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
@@ -63,15 +63,14 @@
   const tableHTML = `<center>
     <div class="maestriadi">
       <div class="maestriadi-info">
+        <img src="${maestria.img}" alt="${maestria.titulo}" class="maestriadi-image">
         <h5 class="maestriadi-head">Título: ${maestria.titulo}</h5><p class="maestria-info p"><b>
         About: ${maestria.about}<br><br>
         Competencia: ${maestria.competencia}<br><br>
         Requisitos: ${maestria.requisitos}<br><br>
         Fecha: ${maestria.fecha}</b></p>
       </div>
-      <div class="maestriadi-img">
-        <img src="${maestria.img}" alt="${maestria.titulo}" class="maestriadi-image">
-      </div>
+      
     </div>
   <center>`;
 
@@ -82,6 +81,27 @@
   <style>
  
  @import url('/src/assets/Postgradoadmi.css');
+ 
+    .b-forma {
+        font-size: 36px;
+        width: 32%;
+        padding: 1%;
+        color: white;
+        border-radius: 40px;
+        font-size: 150%;
+        left:0;
+        margin:2%;
+        margin-top: -7%;
+        padding-left:2% ;
+        padding-right:2% ;
+    }
+    .content-wrapper {
+      display: flex
+    }
+    
+    .main-content {
+      width: 100%; /* Adjust width as needed */
+    }
   
   
   </style>

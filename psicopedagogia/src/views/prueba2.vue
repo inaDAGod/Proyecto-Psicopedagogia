@@ -6,8 +6,8 @@
           <div class="docentes-container">
             <div v-for="cursosfc in cursosfcs" :key="cursosfc.id" class="docente-item">
               <div v-html="generateTable(cursosfc)"></div>
-              <button class="b-formnad" @click="openModForm(cursosfc)">Modificar</button>
-              <button class="b-formnad" @click="openDelForm(cursosfc)">Eliminar</button>
+              <button class="b-formca"  style="background-color: #5BA45A;border-color: #5BA45A;" @click="openModForm(cursosfc)">Modificar</button>
+              <button class="b-formca"  style="background-color: #DF351B;border-color: #DF351B;" @click="openDelForm(cursosfc)">Eliminar</button>
             </div>
           </div>
           <FormDocMod v-if="showFormDocMod" :cursosfc="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
@@ -62,16 +62,17 @@
   const generateTable  = (cursosfc) => {
   const tableHTML = `<center>
     <div class="cursodi">
+        
+      
       <div class="cursodi-info">
+        <img src="${cursosfc.img}" alt="${cursosfc.titulo}" class="cursodi-image">
         <h5 class="cursodi-head">Título: ${cursosfc.titulo}</h5><p class="curso-info p"><b>
         About: ${cursosfc.about}<br><br>
         Competencia: ${cursosfc.competencia}<br><br>
         Requisitos: ${cursosfc.requisitos}<br><br>
         Fecha: ${cursosfc.fecha}</b></p>
       </div>
-      <div class="cursodi-img">
-        <img src="${cursosfc.img}" alt="${cursosfc.titulo}" class="cursodi-image">
-      </div>
+      
     </div>
   <center>`;
 
@@ -84,7 +85,19 @@
   
  
   
-  
+  .b-formca {
+    font-size: 36px;
+        width: 32%;
+        padding: 1%;
+        color: white;
+        border-radius: 40px;
+        font-size: 150%;
+        left:0;
+        margin:2%;
+        margin-top: -7%;
+        padding-left:2% ;
+        padding-right:2% ;
+    }
   
   
   </style>
