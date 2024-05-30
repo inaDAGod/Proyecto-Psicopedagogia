@@ -60,6 +60,6 @@
   .container_main {
     width: 100%; /* Adjusted width */
     display: flex;
-    margin-top: -5%;
+    margin-top: -10%;
   }
 </style>
