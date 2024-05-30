@@ -1,46 +1,49 @@
-.mod {
+.modal {
     display: flex;
     justify-content: center;
+    
     align-items: center;
     position: fixed;
+    padding-left: 30%;
+    padding-right: 30%;
     top: 0;
     left: 0;
-    width: 40%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
   }
   
   
-  .mod-content {
-    background-color: #FFCEE8;
+  .modal-content {
+    background-color: #E0EEAD;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     position: relative; /* Para que el botón de cierre esté posicionado correctamente */
   }
   
-  .clo {
+  .close {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 30px;
     cursor: pointer;
     background-color: transparent;
-    color: #FF7001; /* Color naranja para el botón de cierre */
+    color: #FF2A9D; /* Color naranja para el botón de cierre */
     text-align: right;
     
   }
   
-  .for-group {
+  .form-group {
     margin-bottom: 10px;
   }
   
-  .mod label {
+  .modal label {
     font-weight: bold;
   }
   
-  .mod input[type="text"],
+  .modal input[type="text"],
   input[type="email"],
   input[type="number"],
   textarea {
@@ -51,14 +54,14 @@
     box-sizing: border-box;
   }
   
-  .mod h2 {
-    color: #FF7001;
+  .modal h2 {
+    color: #FF2A9D;
     text-align: center;
     font-size: 150%;
   }
   
-  .bot-guardar {
-    background-color: #FF7001;
+  .boton-guardar {
+    background-color: #FF2A9D;
     color: white;
     padding: 10px 20px;
     border: none;

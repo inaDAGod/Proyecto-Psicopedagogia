@@ -33,7 +33,7 @@
                     <p>Año: {{ publicacion.anio }}</p>
                     <p>{{ publicacion.descripcion }}</p>
                     <div class="acciones-publicacion">
-                      <button class="boton-accion" @click="toggleForm()"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
+                      <button class="boton-accion" @click="toggleForm(publicacion,publicacion._id)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
                       <button class="boton-accion" @click="openDeleteModal(publicacion)" ><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
                     </div>
                   </div>
@@ -47,15 +47,7 @@
         </table>
       </div>
     </div>
-    <EditModal v-show="showForm" 
-      :onclose="toggleForm"
-      :titulo="titulo"
-      :autor="autor"
-      :descripcion="descripcion"
-      :anio="anio"
-      :ruta="ruta"
-      :id="id" 
-    />
+    <EditModal v-show="selectedPublicacion" :publicacion="selectedPublicacion"  @onclose="toggleForm(null)" /> 
     <ConfirmDeleteModal
       v-if="showDeleteModal"
       :item="publicacionToDelete.titulo"
@@ -68,7 +60,7 @@
       @onClose="closeSuccessModal"
     />
     <div class="formulario-publicaciones">
-      <div class="modifi">
+      <div class="cuadro">
         <div class="modal-content-home">
           <h2>Añadir publicación</h2>
           <form @submit.prevent="submitForm">
@@ -120,10 +112,21 @@ const props = defineProps({
   ruta: String,
   id: String
 });
-const showForm = ref(false);
-const toggleForm = () => {
-  showForm.value = !showForm.value;
-};
+const publicacionesS = ref([]);
+const selectedPublicacion = ref(null);
+  
+  const toggleForm = (publicacion,id) => {
+    selectedPublicacion.value = publicacion;
+  };
+  
+  onMounted(async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/api/publicaciones');
+      publicacionesS.value = response.data;
+    } catch (error) {
+      console.error('Error al obtener las investigaciones:', error);
+    }
+  });
 const limpiarFormulario = () => {
   tituloAnadir.value = '';
   autorAnadir.value = '';
@@ -150,6 +153,7 @@ const closeDeleteModal = () => {
 const confirmDelete = async () => {
   try {
     const id = publicacionToDelete.value._id;
+    obtenerPublicaciones();
     const response = await axios.delete(`http://localhost:3000/api/publicaciones/${id}`);
     obtenerPublicaciones()
     if (response.status === 200) {
@@ -298,7 +302,7 @@ onMounted(() => {
 .pub_admi {
   width: 50%;
 }
-.modifi {
+.cuadro {
   background-color: #d9d9d9;
   padding-top: 7vh;
   padding-left: 7vh;
@@ -333,6 +337,15 @@ onMounted(() => {
 .formulario-publicaciones label {
   font-size: 2vh;
 }
+.formulario-publicaciones input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+  }
 .titulo-publicacion h1 {
   font-size: 4vh;
   color: #ff7001;
@@ -388,7 +401,12 @@ onMounted(() => {
 }
 .boton-guardar {
   margin-top: 2.5vh;
-  size: 4vh;
+  size: 5vh;
+  background-color: #badf3a;
+  border-color: #badf3a;
+  padding: 0.7vh;
+  border-radius: 3vh;
+  box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452)
 }
 .buscarPubli:hover {
   background-color: #ff7001;

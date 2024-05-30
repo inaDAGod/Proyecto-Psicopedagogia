@@ -218,17 +218,21 @@ app.delete('/api/publicaciones/:id', async (req, res) => {
 });
 app.post('/api/publicacionesUpdate', async (req, res) => {
   try {
-    const { id, titulo, autor, descripcion, anio, ruta } = req.body;
-    await db.collection('publicacion').updateOne(
-      { _id: ObjectId(id) },
-      { $set: { titulo, autor, descripcion, anio, ruta } }
+    // Extract the form data
+    const { id, titulo, autor, descripcion, anio, ruta, portada } = req.body;
+    
+    const parsedAnio = parseInt(anio);
+    await db.collection('publicaciones').updateOne(
+      { _id: new ObjectId(id) },
+      { $set: { titulo, autor, descripcion, anio: parsedAnio, publicacion_src: portada, ruta } }
     );
-    res.status(200).send('Publicación actualizada correctamente');
+    res.status(200).json({ message: 'Publicación actualizada correctamente' });
   } catch (error) {
     console.error('Error al actualizar la publicación:', error);
-    res.status(500).send('Error al actualizar la publicación');
+    res.status(500).json({ error: 'Error al actualizar' });
   }
 });
+
 
 //-----------OTROS---------
 //egresados
