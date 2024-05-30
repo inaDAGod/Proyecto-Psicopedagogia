@@ -24,6 +24,7 @@
             </div>
             <div class="images-section">
               <h2>Imágenes del Carrusel</h2>
+              <br><br>
               <div class="images-carrusel">
                 <div class="carrusel-primer">
                   <div class="form-group">
@@ -66,7 +67,9 @@
                   <br>
                 </div>
               </div>
+              <br><br>
               <h2>Imágenes de Información Adicional</h2>
+              <br><br>
               <div class="form-group">
                 <label for="imgMision">Imagen Misión: </label><br>
                 <img :src="imgMision" alt="Imagen Misión">

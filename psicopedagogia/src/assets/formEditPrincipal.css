@@ -1,8 +1,11 @@
 .tit-principal{
-    color:#FF7001;
-    padding: 3%;
+    color:hsl(26, 100%, 50%);
+    padding-top: 10vh;
+    padding-left: 15vh;
+    padding-bottom: 8vh;
     font-size: 250%;
     font-family: 'Koulen';
+    font-size: 8vh;
   }
   .container {
     display: flex;
