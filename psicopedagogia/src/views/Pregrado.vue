@@ -20,6 +20,8 @@
         <iframe class="vidma" :src="getYouTubeEmbedUrl('https://www.youtube.com/watch?v=nPL5hCXxmBw')" frameborder="0" allowfullscreen></iframe>
       </div><br><br>
 
+      <TableWithCards />
+      
       <!-- Asignaturas carousel -->
       <h4 class="prehead4">Asignaturas representativas</h4>
       <div class="div-previd">
@@ -107,18 +109,20 @@
   </div>
 </template>
 
-
 <script>
 import { defineComponent, ref, onMounted, computed } from 'vue';
 import { Carousel, Slide } from 'vue3-carousel';
 import axios from 'axios';
 import 'vue3-carousel/dist/carousel.css';
 
+import TableWithCards from '@/components/TableWithCards.vue';
+
 export default defineComponent({
   name: 'Pregrado',
   components: {
     Carousel,
     Slide,
+    TableWithCards,
   },
   setup() {
     const paginaNosotros = ref({
@@ -265,8 +269,6 @@ export default defineComponent({
 });
 </script>
 
-
-
 <style>
 @import url('/src/assets/pregrado.css');
 .background-container {
@@ -308,5 +310,14 @@ export default defineComponent({
 .flecha {
   border-radius: 100%;
   width: 25%;
+}
+
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  margin-top: 60px;
 }
 </style>
