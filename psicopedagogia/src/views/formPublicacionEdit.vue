@@ -31,16 +31,17 @@
         <div style="text-align: center;">
           <button class="boton-guardar" type="submit">Guardar</button>
           <br><br><br><br>
-        </div>
+        </div> 
       </form>
+      <SuccessEdit v-if="showSuccessModal" @onClose="closeSuccessModal" :message="'La publicación ha sido actualizada correctamente'"></SuccessEdit>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, watch, defineProps, defineEmits, onMounted, computed } from 'vue';
+import { ref, watch, defineProps, defineEmits } from 'vue';
 import axios from 'axios';
-
+import SuccessEdit from '/src/components/SuccessEditModal.vue'; 
 const props = defineProps({
   publicacion: Object,
 });
@@ -53,6 +54,7 @@ const descripcion = ref('');
 const anio = ref('');
 const ruta = ref('');
 const currentFile = ref(null);
+const showSuccessModal = ref(false); 
 
 watch(props, () => {
   if (props.publicacion) {
@@ -102,7 +104,7 @@ const submitForm = async () => {
 
     if (response.ok) {
       console.log('Actualizado correctamente');
-      closeForm();
+      showSuccessModal.value = true; // Mostrar el modal de éxito
     } else {
       console.error('Error al actualizar:', response.statusText);
     }
@@ -118,6 +120,10 @@ const onFileChange = (event) => {
 
 const closeForm = () => {
   emit('onclose');
+};
+const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
 };
 </script>
 

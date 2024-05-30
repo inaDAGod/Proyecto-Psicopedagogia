@@ -2,7 +2,7 @@
     <div class="modal-success">
       <div class="modal-content">
         <span class="close-button" @click="$emit('onClose')">&times;</span>
-        <h2>Registro Exitoso</h2>
+        <h2>Actualización exitosa</h2>
         <p>{{ message }}</p>
       </div>
     </div>

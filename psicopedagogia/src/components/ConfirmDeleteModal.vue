@@ -5,8 +5,8 @@
         <h2>Confirmar eliminación</h2>
         <p>¿Estás seguro de que quieres eliminar la publicación "{{ item }}"?</p>
         <div class="modal-actions">
-          <button @click="$emit('onConfirm')">Eliminar</button>
-          <button @click="$emit('onClose')">Cancelar</button>
+          <button class="boton-cancelar" @click="$emit('onClose')">Cancelar</button>
+          <button class="boton-confirmar" @click="$emit('onConfirm')">Eliminar</button>
         </div>
       </div>
     </div>
@@ -40,6 +40,40 @@
     padding: 20px;
     border-radius: 8px;
     text-align: center;
+  }
+  .boton-confirmar{
+    background-color: #FF7001;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 25%;
+    width: 25%;
+    font-size: 100%;
+  }
+  .modal-confirm-delete h2{
+    font-family:'Roboto Condensed', sans-serif;
+    font-size: 5vh;
+    padding: 2vh;
+    text-align: center;
+    margin-bottom: 3vh;
+  }
+  .modal-confirm-delete p{
+    font-family:'Roboto Condensed', sans-serif;
+    font-size: 3vh;
+    text-align: center;
+  }
+  .boton-cancelar{
+    background-color: #E4E4E4;
+    color: rgb(44, 44, 44);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    height: 25%;
+    width: 25%;
+    font-size: 100%;
   }
   .close-button {
     position: absolute;
