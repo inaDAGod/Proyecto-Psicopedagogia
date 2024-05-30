@@ -49,7 +49,7 @@ const obtenerMaestrias = async () => {
 };
 const obtenerCursos = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/cursoscf'); // Corregido el nombre de la ruta
+    const response = await axios.get('http://localhost:3000/api/cursosfc'); // Corregido el nombre de la ruta
     cursos.value = response.data;
   } catch (error) {
     console.error('Error fetching cursos:', error);

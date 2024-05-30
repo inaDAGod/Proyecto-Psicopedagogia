@@ -400,6 +400,17 @@ app.get('/api/cursosfc', async (req, res) => {
   }
 });
 
+app.post('/api/cursosfc', async (req, res) => {
+  try {
+    const { titulo, about, competencia, requisitos, fecha, img } = req.body;
+    await db.collection('cursosfc').insertOne({ titulo, about, competencia, requisitos, fecha, img });
+    res.status(201).json({ message: 'Curso guardado correctamente' });
+  } catch (error) {
+    console.error('Error al guardar el curso:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 app.get('/api/maestria', async (req, res) => {
   try {
     const maestria = await db.collection('maestria').find().toArray();
@@ -409,6 +420,18 @@ app.get('/api/maestria', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
+app.post('/api/maestria', async (req, res) => {
+  try {
+    const { titulo, about, competencia, requisitos, fecha, img } = req.body;
+    await db.collection('maestria').insertOne({ titulo, about, competencia, requisitos, fecha, img });
+    res.status(201).json({ message: 'Curso guardado correctamente' });
+  } catch (error) {
+    console.error('Error al guardar el curso:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
 
 //Interaccion social
 app.get('/api/interaccionsocial', async (req, res) => {

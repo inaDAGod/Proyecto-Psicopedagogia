@@ -8,7 +8,7 @@
       <!-- Modal form -->
       <div class="modalf" v-show="showForm">
         <div class="modal-contentf">
-          <h2>Agregar Nuevo Curso</h2>
+          <h2>Agregar Nueva Maestria</h2>
           <form @submit.prevent="submitForm">
             <!-- Input fields para el formulario -->
             <div class="form-groupf">
@@ -95,7 +95,7 @@
          docenteFormData.append('fecha', fecha.value);
          docenteFormData.append('img', img.value);
    
-         const response = await fetch('http://localhost:3000/api/cursosfc', {
+         const response = await fetch('http://localhost:3000/api/maestria', {
            method: 'POST',
            body: docenteFormData
          });
@@ -127,7 +127,7 @@
      };
    </script>
    <style scoped>
-   @import url('.\assets\formagrnos.css');
+   @import url('.\assets\formagrnos2.css');
    .notification {
      background-color: #4CAF50; /* Green */
      color: white;
