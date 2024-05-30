@@ -32,7 +32,7 @@
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
-        <div>
+        <div style="margin-left: -45%;">
           <button @click="prevAsignaturas" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
           <button @click="nextAsignaturas" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
         </div>
@@ -48,7 +48,7 @@
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
-        <div>
+        <div style="margin-left: -45%;">
           <button @click="prevActividades" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
           <button @click="nextActividades" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
         </div>
@@ -64,7 +64,7 @@
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
-        <div>
+        <div style="margin-left: -45%;">
           <button @click="prevExperiencias" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
           <button @click="nextExperiencias" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
         </div>
@@ -80,7 +80,7 @@
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
-        <div>
+        <div style="margin-left: -45%;">
           <button @click="prevPerfiles" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
           <button @click="nextPerfiles" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
         </div>
