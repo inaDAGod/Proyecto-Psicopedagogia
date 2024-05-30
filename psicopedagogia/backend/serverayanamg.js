@@ -412,6 +412,38 @@ app.post('/api/cursosfc', async (req, res) => {
   }
 });
 
+
+app.put('/api/cursosfc/:id', async (req, res) => {
+  try {
+    const cursosfcId = req.params.id;
+    const { titulo, about, competencia, requisitos, fecha, img } = req.body;
+    await db.collection('cursosfc').updateOne(
+      { _id: new ObjectId(cursosfcId) },
+      { $set: { titulo, about, competencia, requisitos, fecha, img } }
+    );
+    res.status(200).send('cursosfc updated successfully');
+  } catch (error) {
+    console.error('Error updating cursosfc:', error);
+    res.status(500).send('Error updating cursosfc');
+  }
+});
+
+app.delete('/api/cursosfc/:id', async (req, res) => {
+  try {
+    const cursosfcId = req.params.id;
+    await db.collection('cursosfc').deleteOne({ _id: new ObjectId(cursosfcId) });
+    res.status(200).send('cursosfc deleted successfully');
+  } catch (error) {
+    console.error('Error deleting cursosfc:', error);
+    res.status(500).send('Error deleting cursosfc');
+  }
+});
+
+
+
+
+
+
 app.get('/api/maestria', async (req, res) => {
   try {
     const maestria = await db.collection('maestria').find().toArray();
@@ -432,6 +464,35 @@ app.post('/api/maestria', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+
+
+app.put('/api/maestria/:id', async (req, res) => {
+  try {
+    const maestriaId = req.params.id;
+    const { titulo, about, competencia, requisitos, fecha, img } = req.body;
+    await db.collection('maestria').updateOne(
+      { _id: new ObjectId(maestriaId) },
+      { $set: { titulo, about, competencia, requisitos, fecha, img } }
+    );
+    res.status(200).send('maestria updated successfully');
+  } catch (error) {
+    console.error('Error updating maestria:', error);
+    res.status(500).send('Error updating maestria');
+  }
+});
+
+app.delete('/api/maestria/:id', async (req, res) => {
+  try {
+    const maestriaId = req.params.id;
+    await db.collection('maestria').deleteOne({ _id: new ObjectId(maestriaId) });
+    res.status(200).send('maestria deleted successfully');
+  } catch (error) {
+    console.error('Error deleting maestria:', error);
+    res.status(500).send('Error deleting maestria');
+  }
+});
+
+
 
 
 //Interaccion social
