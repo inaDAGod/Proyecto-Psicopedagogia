@@ -95,20 +95,7 @@ const closeForm = () => {
 };
 </script>
 
-
-
 <style scoped>
-@import url('.\assets\formDocentes.css');
-.notification {
-  background-color: #4CAF50; /* Green */
-  color: white;
-  padding: 15px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
-  border-radius: 5px;
-  text-align: center;
-}
+@import url('/src/assets/formDocentes.css');
+/* Add your styles here */
 </style>
