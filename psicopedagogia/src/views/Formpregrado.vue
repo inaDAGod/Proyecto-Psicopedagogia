@@ -64,29 +64,40 @@
 import { ref } from 'vue';
 import axios from 'axios';
 
+// Define direc variable
+const direc = "/backend/images/";
+
+const currentFile = ref(null);
 const showForm = ref(true);
 const notification = ref(null);
-
-// Initialize arrays with null values instead of strings
 const videosAsignaturas = ref(new Array(5).fill(null));
 const videosActividades = ref(new Array(5).fill(null));
 const videosPerfiles = ref(new Array(5).fill(null));
 const images = ref(new Array(5).fill(null));
-
 const educativo = ref('');
 const imgedu = ref('');
 const intercambio = ref('');
 const alianza = ref('');
 
-// Function to send the form data to the server
 const submitForm = async () => {
   try {
+    console.log(currentFile.value);
+    imgedu.value = direc + currentFile.value.name;
+
     const formData = new FormData();
+    formData.append('sampleFile', currentFile.value);
+
+    const uploadResponse = await fetch('http://localhost:3000/upload', {
+      method: 'POST',
+      body: formData
+    });
+
+    console.log(uploadResponse);
+
     for (let i = 0; i < 5; i++) {
       formData.append(`videos_asignaturas_${i + 1}`, videosAsignaturas.value[i]);
       formData.append(`videos_actividades_${i + 1}`, videosActividades.value[i]);
       formData.append(`videos_perfiles_${i + 1}`, videosPerfiles.value[i]);
-      // Only append if the file object is not null
       if (images.value[i] !== null) {
         formData.append(`images_${i + 1}`, images.value[i]);
       }
@@ -112,28 +123,14 @@ const submitForm = async () => {
   }
 };
 
-// Function to handle file change event
-const onFileChange = async (event, index) => { // Include index parameter
-  try {
-    const file = event.target.files[0];
-
-    // Update the images array with the new file
-    const updatedImages = [...images.value];
-    updatedImages.splice(index, 1, file); // Update the index directly
-    images.value = updatedImages;
-
-    // Upload file to server (you may adjust the URL)
-    const formData = new FormData();
-    formData.append('sampleFile', file);
-
-    const uploadResponse = await axios.post('http://localhost:3000/upload', formData);
-
-    console.log(uploadResponse);
-  } catch (error) {
-    console.error('Error uploading file:', error);
-  }
+// Pass direc to onFileChange function
+const onFileChange = (event, index) => {
+  const file = event.target.files[0];
+  images.value[index - 1] = direc + file.name;
+  currentFile.value = file;
 };
 </script>
+
 
 
 
