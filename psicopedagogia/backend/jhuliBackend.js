@@ -59,40 +59,17 @@ app.post('/upload', function(req, res) {
 
 app.post('/api/homeUpdate', async (req, res) => {
   try {
-    const { imagen1, imagen2, imagen3, imagen4, imagen5, imagen6, quienes_somos, mision, mision_src, vision, vision_src, perfil_estudiante, perfil_estudiante_src } = req.body;
-
+    const { id, img1, img2, img3, img4, img5, img6, quienes_somos, mision, imgMision, vision, imgVision, perfil_estudiante, imgPerfil } = req.body;
     await db.collection('home').updateOne(
-      {
-        $set: {
-          imagen1,
-          imagen2,
-          imagen3,
-          imagen4,
-          imagen5,
-          imagen6,
-          quienes_somos,
-          mision,
-          mision_src,
-          vision,
-          vision_src,
-          perfil_estudiante,
-          perfil_estudiante_src
-        }
-      }
+      { _id: new ObjectId(id) },
+      { $set: { imagen1: img1, imagen2: img2, imagen3: img3, imagen4: img4, imagen5: img5, imagen6: img6, 
+        quienes_somos, mision, mision_src: imgMision, vision, vision_src: imgVision, 
+        perfil_estudiante, perfil_estudiante_src: imgPerfil } }
     );
-    console.log(req.body);
-    // También puedes verificar si se están enviando las imágenes correctamente
-    console.log(req.files); 
-   
-    console.error("Ocurrió un error durante el procesamiento");
-
-    // Finalmente, envías una respuesta al cliente
-    res.status(200).json({ message: 'Solicitud procesada correctamente' });
-    console.log('Home actualizado correctamente');
-    res.status(200).send('Home actualizado correctamente');
+    res.status(200).json({ message: 'Pagina de inicio actualizado correctamente' });
   } catch (error) {
-    console.error('Error al actualizar el home:', error);
-    res.status(500).send('Error al actualizar el home');
+    console.error('Error al actualizar el inicio:', error);
+    res.status(500).json({ error: 'Error al actualizar' });
   }
 });
 
@@ -232,7 +209,7 @@ app.post('/api/publicacionesUpdate', async (req, res) => {
     res.status(500).json({ error: 'Error al actualizar' });
   }
 });
-
+//cd  C:\Users\HP\Documents\Proyecto-Psicopedagogia\psicopedagogia\backend>
 
 //-----------OTROS---------
 //egresados
