@@ -1,29 +1,33 @@
 <template>
   <div id="app" class="container">
-    <!-- Use Docentes component -->
     <div class="container_main">
-      <div class="column" style="width: 80%;">
-        <div>
-              <Curso @closeForm="closeForm('curso')" />
-
-              <Docentes @closeForm="closeForm('docentes')" />
-           </div>
-      </div>
-
-      <div class="column" style="width: 35%;">
-      <Formpaginanos2 @closeForm="closeForm('formPaginanos2')" />
-  
-        <Formpaginanos @closeForm="closeForm('formPaginanos')" /></div>
-        
-      
+      <table>
+        <tr>
+          <td style="width: 50%;">
+            <Curso @closeForm="closeForm('curso')" />
+          </td>
+          <td style="width: 50%;">
+            <Formpaginanos @closeForm="closeForm('formPaginanos')" />
+          </td>
+        </tr>
+        <tr>
+          <td style="width: 70%;">
+            <Docentes @closeForm="closeForm('docentes')" />
+          </td>
+          <td style="width: 30%;">
+            <Formpaginanos2 @closeForm="closeForm('formPaginanos2')" />
+          </td>
+        </tr>
+      </table>
     </div>
   </div>
 </template>
 
+
 <script setup>
   import { ref } from 'vue';
-  import Formpaginanos from '/src/Formcurso.vue'; // Adjusted import path
-  import Formpaginanos2 from '/src/Formmast.vue'; // Adjusted import path
+  import Formpaginanos from '@/components/Formcurso.vue'; // Adjusted import path
+  import Formpaginanos2 from '@/components/Formmast.vue'; // Adjusted import path
   import Docentes from './prueba.vue'; // Adjusted import path
   import Curso from './prueba2.vue'; // Adjusted import path
 

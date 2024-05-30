@@ -14,7 +14,7 @@
   margin: 0;
   z-index: 1001;
   overflow-y: auto; /* Add overflow-y to enable vertical scrolling */
-  margin-top: 2%;
+  margin-top: -180%;
 }
 
 
@@ -38,11 +38,7 @@
     border-radius: 20px;
     cursor: pointer;
     font-family: 'Koulen';
-    font-size: 250%;
-    display: block;
-    margin-left: auto; /* Align the button to the right */
-    margin-right: 0; /* Remove margin-right to make it flush with the container */
-    text-align: center;
+    font-size: 200%;
   }
   
   /* Other existing styles */
@@ -57,6 +53,7 @@
   
   .form-groupf {
     margin-bottom: 20px;
+    text-align: left;
   }
   
   input[type="text"],

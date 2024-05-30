@@ -32,7 +32,7 @@
             <input type="date" id="fecha" v-model="fecha" required>
           </div>
           <div class="form-groupf">
-            <label for="img">img:</label><br>
+            <label for="img">Imagen:</label><br>
             <input type="file" id="img" @change="onFileChange" required>
           </div>
           <div style="text-align: center;">
