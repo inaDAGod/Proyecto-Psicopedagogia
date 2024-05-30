@@ -6,7 +6,7 @@
         <ul class="menu">
           <li><router-link to="/admi"> Inicio</router-link></li>
           <br>
-          <li><router-link to="/aboutadmi"> About</router-link></li>
+          <li><router-link to="/aboutadmi"> Nosotros</router-link></li>
           <br>
           <li><router-link to="/docentesadmi"> Docentes </router-link></li>
           <br>

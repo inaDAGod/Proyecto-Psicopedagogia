@@ -19,17 +19,28 @@
             <label :for="'videos_perfiles_' + i">Video Perfiles {{ i }}:</label><br>
             <input type="text" :id="'videos_perfiles_' + i" v-model="videosPerfiles[i - 1]">
           </div>
-          <div v-for="i in 5" :key="'images_' + i" class="form-group">
-            <label :for="'images_' + i">Imagen {{ i }}:</label><br>
-            <input type="file" :id="'images_' + i" @change="onFileChange($event, i)">
-          </div>
+          <div class="row">
+  <div v-for="i in 4" :key="'images_' + i" class="col-md-6">
+    <div class="form-group">
+      <label :for="'images_' + i">Imagen {{ i }}:</label>
+      <input type="file" :id="'images_' + i" @change="onFileChange($event, i)">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label :for="'images_5'">Imagen 5:</label>
+      <input type="file" id="images_5" @change="onFileChange($event, 5)">
+    </div>
+  </div>
+</div>
+
           <div class="form-group">
             <label for="educativo">Área Educativa:</label><br>
-            <textarea style="width: 175%;" id="educativo" v-model="educativo" rows="4" required></textarea>
+            <textarea style="width: 100%;" id="educativo" v-model="educativo" rows="4" required></textarea>
           </div>
           <div class="form-group">
-            <label for="imgedu">Imagen Educativa:</label><br>
-            <input type="file" id="imgedu" @change="onFileChange($event)">
+            <label for="imgedu" style="margin-left: -78%;">Imagen Educativa:</label><br>
+            <input type="file" style="margin-left: -55%;" id="imgedu" @change="onFileChange($event)">
           </div>
           <div class="form-group">
             <label for="intercambio">Link Intercambio:</label><br>
@@ -127,7 +138,7 @@ const onFileChange = async (event, index) => { // Include index parameter
 
 
 <style scoped>
-@import url('/src/assets/formPaginanos.css');
+@import url('/src/assets/formPregrado.css');
 
 /* Notification styles */
 .notification {
