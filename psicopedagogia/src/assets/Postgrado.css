@@ -103,10 +103,10 @@
 .curso-image {
   border-radius: 20px;
   width: 60%; /* Set the width of the image */
-  min-width: 200%;
+  min-width: 180%;
   max-width: 400px;
   min-height: 200%;
-  max-height: 800px;
+  max-height: 600px;
   height: auto; /* Maintain aspect ratio */
   margin-left: -80px;
 }
