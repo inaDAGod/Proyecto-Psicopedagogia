@@ -2,10 +2,10 @@
   <div class="modal" v-show="showForm">
     <div class="modal-content">
       <button style="margin-left: 90%;width: 9%;" class="close" @click="closeForm">&times;</button>
-      <h2>Modificar curso</h2>
+      <h2>Modificar Curso</h2>
       <form @submit.prevent="submitForm">
         <div class="form-group">
-          <label for="titulo">Titulo:</label><br>
+          <label for="titulo">Título:</label><br>
           <input type="text" id="titulo" v-model="formData.titulo" disabled>
         </div>
         <div class="form-group">
@@ -17,16 +17,15 @@
           <input type="text" id="competencia" v-model="formData.competencia" required>
         </div>
         <div class="form-group">
-          <label for="requisitos">requisitos:</label><br>
+          <label for="requisitos">Requisitos:</label><br>
           <input type="text" id="requisitos" v-model="formData.requisitos" required>
         </div>
         <div class="form-group">
           <label for="fecha">Fecha:</label><br>
           <input type="date" id="fecha" v-model="formData.fecha" required>
-          
         </div>
         <div class="form-group">
-          <label for="img">Imagen:</label><br>
+          <label for="img">img:</label><br>
           <input type="file" id="img" @change="onFileChange">
         </div>
         <div style="text-align: center;">
@@ -41,7 +40,7 @@
 import { ref, watch } from 'vue';
 import axios from 'axios';
 
-const props = defineProps(['curso', 'showForm']);
+const props = defineProps(['cursosfc', 'showForm']);
 const emit = defineEmits(['closeForm']);
 
 const formData = ref({
@@ -54,9 +53,9 @@ const formData = ref({
 
 const currentFile = ref(null);
 
-watch(() => props.curso, (newcurso) => {
-  if (newcurso) {
-    formData.value = { ...newcurso };
+watch(() => props.cursosfc, (newcursosfc) => {
+  if (newcursosfc) {
+    formData.value = { ...newcursosfc };
   }
 }, { immediate: true });
 
@@ -68,23 +67,26 @@ const submitForm = async () => {
     formDataToSend.append('competencia', formData.value.competencia);
     formDataToSend.append('requisitos', formData.value.requisitos);
     formDataToSend.append('fecha', formData.value.fecha);
+   
     if (currentFile.value) {
-      const imgURL = "/backend/images/" + currentFile.value.name;
-      formDataToSend.append('img', imgURL);
+      const imagenURL = "/backend/images/" + currentFile.value.name;
+      formDataToSend.append('img', imagenURL);
       formDataToSend.append('sampleFile', currentFile.value);
     }
 
-    const response = await axios.put(`http://localhost:3000/api/cursos/${formData.value._id}`, formDataToSend);
+    const response = await axios.put(`http://localhost:3000/api/cursosfc/${formData.value._id}`, formDataToSend);
     if (response.status === 200) {
-      console.log('curso actualizado correctamente');
+      console.log('cursosfc actualizada correctamente');
       closeForm();
     } else {
-      console.error('Error al actualizar el curso:', response.statusText);
+      console.error('Error al actualizar la cursosfc:', response.statusText);
     }
   } catch (error) {
     console.error('Error al enviar el formulario:', error);
   }
 };
+
+
 
 const onFileChange = (event) => {
   const file = event.target.files[0];
@@ -95,8 +97,9 @@ const closeForm = () => {
   emit('closeForm');
 };
 </script>
-
-<style scoped>
-@import url('/src/assets/formDocentes.css');
-/* Add your styles here */
-</style>
+  
+  <style scoped>
+  @import url('/src/assets/formDocentes.css');
+  /* Add your styles here */
+  </style>
+  

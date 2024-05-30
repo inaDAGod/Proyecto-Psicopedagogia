@@ -2,16 +2,16 @@
     <div id="app">
       <div class="content-wrapper">
         <div class="main-content">
-          <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
-          <div class=" cursos-container">
-            <div v-for=" curso in  cursos" :key=" curso.id" class=" curso-item">
-              <div v-html="generateTable( curso)"></div>
-              <button class="b-formnad" @click="openModForm( curso)">Modificar</button>
-              <button class="b-formnad" @click="openDelForm( curso)">Eliminar</button>
+          <h1 class="titulo-nos">Cursos</h1>
+          <div class="docentes-container">
+            <div v-for="cursosfc in cursosfcs" :key="cursosfc.id" class="docente-item">
+              <div v-html="generateTable(cursosfc)"></div>
+              <button class="b-formnad" @click="openModForm(cursosfc)">Modificar</button>
+              <button class="b-formnad" @click="openDelForm(cursosfc)">Eliminar</button>
             </div>
           </div>
-          <FormcursoMod v-if="showFormcursoMod" :curso="selectedcurso" :showForm="showFormcursoMod" @closeForm="closeForm('FormcursoMod')" />
-          <FormcursoElim v-if="showFormcursoElim" :curso="selectedcurso" :showForm="showFormcursoElim" @closeForm="closeForm('FormcursoElim')" />
+          <FormDocMod v-if="showFormDocMod" :cursosfc="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
+          <FormDocElim v-if="showFormDocElim" :cursosfc="selectedDocente" :showForm="showFormDocElim" @closeForm="closeForm('formDocElim')" />
         </div>
       </div>
     </div>
@@ -20,120 +20,122 @@
   <script setup>
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
-  import FormcursoMod from '/src/components/FormCursoMod.vue';
-  import FormcursoElim from '/src/components/FormCursoElim.vue';
+  import FormDocMod from '/src/components/FormCursoMod.vue';
+  import FormDocElim from '/src/components/FormCursoElim.vue';
   
-  const showFormcursoMod = ref(false);
-  const showFormcursoElim = ref(false);
-  const  cursos = ref([]);
-  const selectedcurso = ref(null);
+  const showFormDocMod = ref(false);
+  const showFormDocElim = ref(false);
+  const cursosfcs = ref([]);
+  const selectedDocente = ref(null);
   
-  const obtenercursos = async () => {
+  const obtenerDocentes = async () => {
     try {
       const response = await axios.get('http://localhost:3000/api/cursosfc');
-       cursos.value = response.data;
+      cursosfcs.value = response.data;
     } catch (error) {
-      console.error('Error fetching  cursos:', error);
+      console.error('Error fetching cursosfcs:', error);
     }
   };
   
-  const openModForm = ( curso) => {
-    selectedcurso.value =  curso;
-    showFormcursoMod.value = true;
+  const openModForm = (cursosfc) => {
+    selectedDocente.value = cursosfc;
+    showFormDocMod.value = true;
   };
   
-  const openDelForm = ( curso) => {
-    selectedcurso.value =  curso;
-    showFormcursoElim.value = true;
+  const openDelForm = (cursosfc) => {
+    selectedDocente.value = cursosfc;
+    showFormDocElim.value = true;
   };
   
   const closeForm = (formName) => {
-    if (formName === 'FormcursoMod') {
-      showFormcursoMod.value = false;
-    } else if (formName === 'FormcursoElim') {
-      showFormcursoElim.value = false;
+    if (formName === 'formDocMod') {
+      showFormDocMod.value = false;
+    } else if (formName === 'formDocElim') {
+      showFormDocElim.value = false;
     }
   };
   
   onMounted(() => {
-    obtenercursos();
+    obtenerDocentes();
   });
   
-  const generateTable = ( curso) => {
-    const tableHTML = `<center>
-      <div class=" cursosnad">
-        <div class=" cursos-infonad">
-          <p><b>Nombre: ${ curso.nombre}</b><br>Apodo:${ curso.apodo}<br>Cargo: ${ curso.cargo}<br> 
-          Correo:${ curso.correo}<br>Dato curioso:${ curso.datoc}</p>
-        </div>
-        <div class=" cursos-avatarnad">
-          <img src="${ curso.imagen}" alt="${ curso.nombre}" class=" cursos-imagenad">
-        </div>
+  const generateTable  = (cursosfc) => {
+  const tableHTML = `<center>
+    <div class="maestria">
+      <div class="maestria-info">
+        <h5 class="maestria-head">Título: ${cursosfc.titulo}</h5><p class="maestria-info p"><b>
+        About: ${cursosfc.about}<br><br>
+        Competencia: ${cursosfc.competencia}<br><br>
+        Requisitos: ${cursosfc.requisitos}<br><br>
+        Fecha: ${cursosfc.fecha}</b></p>
       </div>
-    <center>`;
-    return tableHTML;
-  };
+      <div class="maestria-img">
+        <img src="${cursosfc.img}" alt="${cursosfc.titulo}" class="maestria-image">
+      </div>
+    </div>
+  <center>`;
+
+  return tableHTML;
+};
   </script>
   
   <style>
   @import url('/src/assets/nostrosadmin.css');
+  .docentes-infonad {
+    text-align: left;
+    margin-left: 7%;
+    margin-top: 8%;
+  }
+  
+  .docentes-infonad p{
+    font-size: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 55%;
+  }
+  
+  .docentes-containernad {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+    
+  .docente-itemnad {
+    flex-basis: calc(46% - 10px); 
+    margin-bottom: 20px; 
+  }
+  
+  .docentesnad {
+    position: relative;
+    background-color: rgba(255, 206, 232, 1);
+    border-radius: 40px;
+    text-align: center;
+    width: 320px;
+    display: flex;
+    margin-top: 8%;
+    margin-bottom: 20px;
+    height: 400px;
+  }
   
   
-  @import url('/src/assets/nostrosadmin.css');
-.curso-infonad {
-  text-align: left;
-  margin-left: 7%;
-  margin-top: 8%;
-}
-
-.curso-infonad p{
-  font-size: 100%;
-  font-family: 'Roboto Condensed', sans-serif;
-  width: 55%;
-}
-
-.curso-containernad {
-  display: flex;
-  flex-wrap: wrap;
   
-}
+  .docentes-avatarnad {
+    display: inline-block;
+    position: absolute;
+    right: 3%; 
+    top: 25%; 
+  }
   
-.docente-itemnad {
-  flex-basis: calc(46% - 10px); 
-  margin-bottom: 20px; 
-}
-
-.cursonad {
-  position: relative;
-  background-color: rgba(255, 206, 232, 1);
-  border-radius: 40px;
-  text-align: center;
-  width: 320px;
-  display: flex;
-  margin-top: 8%;
-  margin-bottom: 20px;
-  height: 400px;
-}
-
-
-
-.curso-avatarnad {
-  display: inline-block;
-  position: absolute;
-  right: 3%; 
-  top: 25%; 
-}
-
-.curso-imagenad { 
-  border-radius: 50%;
-  text-align: right;
-  position: relative; 
-  z-index: 1; 
-  margin-top: -50px; 
-  width: 100px;
-  height: 100px;
-}
-
+  .docentes-imagenad { 
+    border-radius: 50%;
+    text-align: right;
+    position: relative; 
+    z-index: 1; 
+    margin-top: -50px; 
+    width: 100px;
+    height: 100px;
+  }
+  
+  
   .b-formnad {
       font-size: 36px;
       width: 100%;

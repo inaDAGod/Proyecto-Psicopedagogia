@@ -14,9 +14,9 @@
     justify-content: flex-start;
     align-items: flex-start;
     margin: 0;
-    z-index: 1001;
+    z-index: 1002;
     overflow-y: auto; /* Add overflow-y to enable vertical scrolling */
-    margin-top: 98%;
+    margin-top: 100%;
   }
   
 

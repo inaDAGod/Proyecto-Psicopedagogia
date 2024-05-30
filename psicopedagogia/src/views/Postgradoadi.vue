@@ -5,11 +5,17 @@
       <div class="column"> 
         <Docentes @closeForm="closeForm('docentes')" />
       </div>
+      <div class="column"> 
+        <Curso @closeForm="closeForm('curso')" />
+      </div>
       </div>
       <!-- Use Formpaginanos component -->
       <div class="column"> 
-        <Formpaginanos @closeForm="closeForm('formPaginanos')" />
-        <Formpaginanos2 @closeForm="closeForm('formPaginanos2')" />
+        <div>
+        <Formpaginanos @closeForm="closeForm('formPaginanos')" /></div>
+        <div>
+          <br><br>
+        <Formpaginanos2 @closeForm="closeForm('formPaginanos2')" /></div>
       </div>
     </div>
   </template>
@@ -19,9 +25,11 @@
   import Formpaginanos from '/src/Formcurso.vue'; // Adjusted import path
   import Formpaginanos2 from '/src/Formmast.vue'; // Adjusted import path
   import Docentes from './prueba.vue'; // Adjusted import path
+  import Curso from './prueba2.vue'; // Adjusted import path
   
   // Define a ref to track the visibility of each form
   const showFormDocentes = ref(false);
+  const showFormCurso = ref(false);
   const showFormPaginanos = ref(false);
   const showFormPaginanos2 = ref(false);
   
@@ -34,6 +42,9 @@
     }
     else if (formName === 'formPaginanos2') {
       showFormPaginanos2.value = false;
+    }
+    else if(formName === 'curso') {
+      showFormCurso.value = false;
     }
   };
   </script>
