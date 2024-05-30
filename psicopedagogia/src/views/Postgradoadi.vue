@@ -1,38 +1,38 @@
 <template>
-    <div id="app" class="container">
-      <!-- Use Docentes component -->
-      <div class="container_main">
-      <div class="column"> 
-        <Docentes @closeForm="closeForm('docentes')" />
-      </div>
-      <div class="column"> 
-        <Curso @closeForm="closeForm('curso')" />
-      </div>
-      </div>
-      <!-- Use Formpaginanos component -->
-      <div class="column"> 
+  <div id="app" class="container">
+    <!-- Use Docentes component -->
+    <div class="container_main">
+      <div class="column" style="width: 80%;">
         <div>
-        <Formpaginanos @closeForm="closeForm('formPaginanos')" /></div>
-        <div>
-          <br><br>
-        <Formpaginanos2 @closeForm="closeForm('formPaginanos2')" /></div>
+              <Curso @closeForm="closeForm('curso')" />
+
+              <Docentes @closeForm="closeForm('docentes')" />
+           </div>
       </div>
-    </div>
-  </template>
+
+      <div class="column" style="width: 35%;">
+      <Formpaginanos2 @closeForm="closeForm('formPaginanos2')" />
   
-  <script setup>
+        <Formpaginanos @closeForm="closeForm('formPaginanos')" /></div>
+        
+      
+    </div>
+  </div>
+</template>
+
+<script setup>
   import { ref } from 'vue';
   import Formpaginanos from '/src/Formcurso.vue'; // Adjusted import path
   import Formpaginanos2 from '/src/Formmast.vue'; // Adjusted import path
   import Docentes from './prueba.vue'; // Adjusted import path
   import Curso from './prueba2.vue'; // Adjusted import path
-  
+
   // Define a ref to track the visibility of each form
   const showFormDocentes = ref(false);
   const showFormCurso = ref(false);
   const showFormPaginanos = ref(false);
   const showFormPaginanos2 = ref(false);
-  
+
   // Method to close a form based on its name
   const closeForm = (formName) => {
     if (formName === 'docentes') {
@@ -47,22 +47,14 @@
       showFormCurso.value = false;
     }
   };
-  </script>
+</script>
+
+<style scoped>
+ 
   
-  <style scoped>
-  .container {
+
+  .container_main {
+    width: 100%; /* Adjusted width */
     display: flex;
   }
-  
-  .column {
-    flex: 1;
-  }
-  #app {
-  display: flex;
-}
-.container_main{
-    width: 60%;
-}
-  </style>
-  
-  
+</style>

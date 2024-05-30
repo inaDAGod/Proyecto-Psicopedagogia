@@ -61,16 +61,16 @@
   
   const generateTable  = (cursosfc) => {
   const tableHTML = `<center>
-    <div class="maestria">
-      <div class="maestria-info">
-        <h5 class="maestria-head">Título: ${cursosfc.titulo}</h5><p class="maestria-info p"><b>
+    <div class="cursodi">
+      <div class="cursodi-info">
+        <h5 class="cursodi-head">Título: ${cursosfc.titulo}</h5><p class="curso-info p"><b>
         About: ${cursosfc.about}<br><br>
         Competencia: ${cursosfc.competencia}<br><br>
         Requisitos: ${cursosfc.requisitos}<br><br>
         Fecha: ${cursosfc.fecha}</b></p>
       </div>
-      <div class="maestria-img">
-        <img src="${cursosfc.img}" alt="${cursosfc.titulo}" class="maestria-image">
+      <div class="cursodi-img">
+        <img src="${cursosfc.img}" alt="${cursosfc.titulo}" class="cursodi-image">
       </div>
     </div>
   <center>`;
@@ -80,82 +80,9 @@
   </script>
   
   <style>
-  @import url('/src/assets/nostrosadmin.css');
-  .docentes-infonad {
-    text-align: left;
-    margin-left: 7%;
-    margin-top: 8%;
-  }
+  @import url('/src/assets/Postgradoadmi.css');
   
-  .docentes-infonad p{
-    font-size: 100%;
-    font-family: 'Roboto Condensed', sans-serif;
-    width: 55%;
-  }
-  
-  .docentes-containernad {
-    display: flex;
-    flex-wrap: wrap;
-    
-  }
-    
-  .docente-itemnad {
-    flex-basis: calc(46% - 10px); 
-    margin-bottom: 20px; 
-  }
-  
-  .docentesnad {
-    position: relative;
-    background-color: rgba(255, 206, 232, 1);
-    border-radius: 40px;
-    text-align: center;
-    width: 320px;
-    display: flex;
-    margin-top: 8%;
-    margin-bottom: 20px;
-    height: 400px;
-  }
-  
-  
-  
-  .docentes-avatarnad {
-    display: inline-block;
-    position: absolute;
-    right: 3%; 
-    top: 25%; 
-  }
-  
-  .docentes-imagenad { 
-    border-radius: 50%;
-    text-align: right;
-    position: relative; 
-    z-index: 1; 
-    margin-top: -50px; 
-    width: 100px;
-    height: 100px;
-  }
-  
-  
-  .b-formnad {
-      font-size: 36px;
-      width: 100%;
-      padding: 1px;
-      padding-left: 10px;
-      padding-right: 10px;
-      background-color: rgba(255, 42, 157, 1);
-      color: white;
-      border-radius: 40px;
-      border-color: rgb(98, 39, 71);
-      left:0;
-  }
-  .content-wrapper {
-    display: flex
-  }
-  
-  .main-content {
-    width: 100%; /* Adjust width as needed */
-  }
-  
+ 
   
   
   

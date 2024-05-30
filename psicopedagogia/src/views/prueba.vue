@@ -61,16 +61,16 @@
   
   const generateTable  = (maestria) => {
   const tableHTML = `<center>
-    <div class="maestria">
-      <div class="maestria-info">
-        <h5 class="maestria-head">Título: ${maestria.titulo}</h5><p class="maestria-info p"><b>
+    <div class="maestriadi">
+      <div class="maestriadi-info">
+        <h5 class="maestriadi-head">Título: ${maestria.titulo}</h5><p class="maestria-info p"><b>
         About: ${maestria.about}<br><br>
         Competencia: ${maestria.competencia}<br><br>
         Requisitos: ${maestria.requisitos}<br><br>
         Fecha: ${maestria.fecha}</b></p>
       </div>
-      <div class="maestria-img">
-        <img src="${maestria.img}" alt="${maestria.titulo}" class="maestria-image">
+      <div class="maestriadi-img">
+        <img src="${maestria.img}" alt="${maestria.titulo}" class="maestriadi-image">
       </div>
     </div>
   <center>`;
@@ -80,84 +80,8 @@
   </script>
   
   <style>
-  @import url('/src/assets/nostrosadmin.css');
-  .docentes-infonad {
-    text-align: left;
-    margin-left: 7%;
-    margin-top: 8%;
-  }
-  
-  .docentes-infonad p{
-    font-size: 100%;
-    font-family: 'Roboto Condensed', sans-serif;
-    width: 55%;
-  }
-  
-  .docentes-containernad {
-    display: flex;
-    flex-wrap: wrap;
-    
-  }
-    
-  .docente-itemnad {
-    flex-basis: calc(46% - 10px); 
-    margin-bottom: 20px; 
-  }
-  
-  .docentesnad {
-    position: relative;
-    background-color: rgba(255, 206, 232, 1);
-    border-radius: 40px;
-    text-align: center;
-    width: 320px;
-    display: flex;
-    margin-top: 8%;
-    margin-bottom: 20px;
-    height: 400px;
-  }
-  
-  
-  
-  .docentes-avatarnad {
-    display: inline-block;
-    position: absolute;
-    right: 3%; 
-    top: 25%; 
-  }
-  
-  .docentes-imagenad { 
-    border-radius: 50%;
-    text-align: right;
-    position: relative; 
-    z-index: 1; 
-    margin-top: -50px; 
-    width: 100px;
-    height: 100px;
-  }
-  
-  
-  .b-formnad {
-      font-size: 36px;
-      width: 100%;
-      padding: 1px;
-      padding-left: 10px;
-      padding-right: 10px;
-      background-color: rgba(255, 42, 157, 1);
-      color: white;
-      border-radius: 40px;
-      border-color: rgb(98, 39, 71);
-      left:0;
-  }
-  .content-wrapper {
-    display: flex
-  }
-  
-  .main-content {
-    width: 100%; /* Adjust width as needed */
-  }
-  
-  
-  
+ 
+ @import url('/src/assets/Postgradoadmi.css');
   
   
   </style>

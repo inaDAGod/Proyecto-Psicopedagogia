@@ -1,0 +1,128 @@
+.maestriadi-info {
+    text-align: left;
+    margin-left: 7%;
+    margin-top: 8%;
+  }
+  
+  .maestriadi-info p{
+    font-size: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 55%;
+  }
+  
+  .maestriadi-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+    
+  .maestriadi-item {
+    flex-basis: calc(46% - 10px); 
+    margin-bottom: 20px; 
+  }
+  
+  .maestriadi {
+    position: relative;
+    background-color: rgba(170, 214, 251, 1);
+    border-radius: 40px;
+    text-align: center;
+    width: 320px;
+    display: flex;
+    margin-top: 8%;
+    margin-bottom: 20px;
+    height: auto;
+  }
+  
+  .maestriadi-img {
+    display: inline-block;
+    position: absolute;
+    right: 3%; 
+    top: 25%; 
+  }
+  
+  
+  .maestriadi-image { 
+    border-radius: 50%;
+    text-align: right;
+    position: relative; 
+    z-index: 1; 
+    margin-top: -50px; 
+    width: 100px;
+    height: 100px;
+  }
+  
+   
+  .cursodi-info {
+    text-align: left;
+    margin-left: 7%;
+    margin-top: 8%;
+  }
+  
+  .cursodi-info p{
+    font-size: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 55%;
+  }
+  
+  .cursodi-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+    
+  .cursodi-item {
+    flex-basis: calc(46% - 10px); 
+    margin-bottom: 20px; 
+  }
+  
+  .cursodi {
+    position: relative;
+    background-color: rgba(219, 238, 150, 1);
+    border-radius: 40px;
+    text-align: center;
+    width: 320px;
+    display: flex;
+    margin-top: 8%;
+    margin-bottom: 20px;
+    height: auto;
+  }
+  
+  .cursodi-img {
+    display: inline-block;
+    position: absolute;
+    right: 3%; 
+    top: 25%; 
+  }
+  
+  
+  .cursodi-image { 
+    border-radius: 50%;
+    text-align: right;
+    position: relative; 
+    z-index: 1; 
+    margin-top: -50px; 
+    width: 100px;
+    height: 100px;
+  }
+  
+  
+    .b-formnad {
+        font-size: 36px;
+        width: 40px;
+        padding: 1px;
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: rgb(63, 42, 255);
+        color: white;
+        border-radius: 40px;
+        border-color: rgb(98, 39, 71);
+        left:0;
+    }
+    .content-wrapper {
+      display: flex
+    }
+    
+    .main-content {
+      width: 100%; /* Adjust width as needed */
+    }
+    

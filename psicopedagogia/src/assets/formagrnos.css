@@ -1,37 +1,32 @@
-/* Update .modal CSS */
-/* Update .modal-content CSS */
 .modal-contentf {
-    background-color: rgba(228, 228, 228, 1);
-    padding: 4%;
-    border-radius: 10px;
-    
-    position: relative;
-    max-width: 100%; /* Set max-width to allow responsiveness */
-    width: 100%; /* Set width to 100% to fill the modal */
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin: 0;
-    z-index: 1002;
-    overflow-y: auto; /* Add overflow-y to enable vertical scrolling */
-    margin-top: 100%;
-  }
+  background-color: rgba(228, 228, 228, 1);
+  padding: 4%;
+  border-radius: 10px;
   
+  position: relative;
+  max-width: 100%; /* Set max-width to allow responsiveness */
+  width: 100%; /* Set width to 100% to fill the modal */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin: 0;
+  z-index: 1001;
+  overflow-y: auto; /* Add overflow-y to enable vertical scrolling */
+  margin-top: 2%;
+}
+
 
 .modalf {
-    display: block;
-    width: 30%; /* Adjusted to cover 40% of the screen width */
-    height: 85%;
-    background-color: transparent;
-    padding: 20px;
-    position: fixed; /* Changed to fixed positioning */
-    top:0;
-    right: 0; /* Positioned to the right side of the screen */
-    z-index: 1000;
-  }
-  
+  width: 110%; /* Adjusted to cover 40% of the screen width */
+  height: 85%;
+  padding: 20px; /* Changed to fixed positioning */
+  top:0;
+  right: 0; /* Positioned to the right side of the screen */
+  z-index: 1000;
+  margin-left: -7%;
+}
   
   
   /* Update .boton-guardar CSS */
