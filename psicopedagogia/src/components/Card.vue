@@ -12,7 +12,9 @@
         <div class="modal-content" @click.stop>
           <span class="close" @click="closeModal">&times;</span>
           <h3>{{ title }}</h3>
-          <p>{{ description }}</p>
+          <p style="text-align: center;font-size: 200%;">{{ sigla }}</p>
+          <br>
+          <p style="font-size: 280%;">{{ description }}</p>
         </div>
       </div>
     </transition>
