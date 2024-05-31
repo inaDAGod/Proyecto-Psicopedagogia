@@ -6,8 +6,8 @@
         <h1>PUBLICACIONES Y LIBROS</h1>
       </div>
       <div>
-        <input type="text" class="busquedaPubli">
-        <button class="buscarPubli">
+        <input type="text" v-model="filtro.todos" class="busquedaPubli" placeholder="Buscar por título, autor, año o descripción">
+        <button class="buscarPubli" @click="filtrarPublicaciones">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
           </svg>
@@ -18,13 +18,13 @@
     
     <table class="container-publicaciones">
       <tbody>
-        <tr v-for="(publicacionRow, rowIndex) in publicacionesRows" :key="rowIndex">
+        <tr v-if="publicacionesFiltradasEnFilas.length > 0" v-for="(publicacionRow, rowIndex) in publicacionesFiltradasEnFilas" :key="rowIndex">
           <td v-for="(publicacion, index) in publicacionRow" :key="index">
-            <div class="publicaciones">
+            <div class="publicaciones" v-if="publicacion._id">
               <a :href="publicacion.ruta" target="_blank" rel="noopener noreferrer">
-                  <div class="publicacion-imagen" @mouseover="aumentarImagen(rowIndex, index)" @mouseleave="reducirImagen(rowIndex, index)">
-                      <img :src="publicacion.publicacion_src" :alt="publicacion.titulo" :style="{ transform: imagenesAgrandadas[rowIndex][index] ? 'scale(1.05)' : 'scale(1)' }">
-                  </div>
+                <div class="publicacion-imagen" @mouseover="aumentarImagen(rowIndex, index)" @mouseleave="reducirImagen(rowIndex, index)">
+                  <img :src="publicacion.publicacion_src" :alt="publicacion.titulo" :style="{ transform: imagenesAgrandadas[rowIndex][index] ? 'scale(1.05)' : 'scale(1)' }">
+                </div>
               </a>
               <div class="info-publicacion">
                 <h1>{{ publicacion.titulo }}</h1>
@@ -35,41 +35,56 @@
             </div>
           </td>
         </tr>
+        <tr v-else>
+          <td colspan="2">No se encontraron publicaciones</td>
+        </tr>
       </tbody>
     </table>
-
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
 
 const publicaciones = ref([]);
-const publicacionesRows = ref([]);
 const imagenesAgrandadas = ref([]);
+const filtro = ref({
+  todos: ''
+});
+
+const publicacionesFiltradas = computed(() => {
+  const terminos = filtro.value.todos.toLowerCase().split(' ');
+  return publicaciones.value.filter(publicacion => {
+    return terminos.every(termino => {
+      return Object.values(publicacion).some(valor => {
+        return String(valor).toLowerCase().includes(termino);
+      });
+    });
+  });
+});
+
+const publicacionesFiltradasEnFilas = computed(() => {
+  const filas = [];
+  for (let i = 0; i < publicacionesFiltradas.value.length; i += 2) {
+    filas.push(publicacionesFiltradas.value.slice(i, i + 2));
+  }
+  return filas;
+});
 
 const obtenerPublicaciones = async () => {
   try {
     const response = await axios.get('http://localhost:3000/api/publicaciones');
     publicaciones.value = response.data;
-    calcularFilasDePublicaciones();
-    imagenesAgrandadas.value = Array.from({ length: publicacionesRows.value.length }, () => Array(publicacionesRows.value[0].length).fill(false));
+    inicializarImagenesAgrandadas();
   } catch (error) {
     console.error('Error fetching publicaciones:', error);
   }
 };
 
-const calcularFilasDePublicaciones = () => {
-  publicacionesRows.value = [];
-
-  for (let i = 0; i < publicaciones.value.length; i += 2) {
-    const row = [];
-    for (let j = i; j < i + 2 && j < publicaciones.value.length; j++) {
-      row.push(publicaciones.value[j]);
-    }
-    publicacionesRows.value.push(row);
-  }
+const inicializarImagenesAgrandadas = () => {
+  const filas = publicacionesFiltradasEnFilas.value;
+  imagenesAgrandadas.value = filas.map(fila => fila.map(() => false));
 };
 
 const aumentarImagen = (rowIndex, index) => {
@@ -79,12 +94,13 @@ const aumentarImagen = (rowIndex, index) => {
 const reducirImagen = (rowIndex, index) => {
   imagenesAgrandadas.value[rowIndex][index] = false;
 };
+
 onMounted(() => {
   obtenerPublicaciones();
 });
 </script>
 
-<style>
+<style scoped>
   .titulo-publicacion h1{
     font-size: 11vh;
     color: #FF7001;
@@ -148,5 +164,8 @@ onMounted(() => {
   }
   .info-publicacion {
     flex: 2.5;
+  }
+  .filtro{
+    display: none;
   }
 </style>
