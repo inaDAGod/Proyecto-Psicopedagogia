@@ -382,9 +382,53 @@ app.get('/api/pregrado', async (req, res) => {
     }
   });
   
+  app.get('/api/semestre', async (req, res) => {
+    try {
+      const semestre = await db.collection('semestre').find().toArray();
+      res.json(semestre);
+    } catch (error) {
+      console.error('Error fetching semestre:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
 
-
-
+  app.post('/api/semestre', async (req, res) => {
+    try {
+      const { semestre, area, sigla, materia, requisito, descrip} = req.body;
+      await db.collection('semestre').insertOne({ semestre, area, sigla, materia, requisito, descrip });
+      res.status(201).json({ message: 'semestre saved successfully' });
+    } catch (error) {
+      console.error('Error saving semestre:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
+  app.put('/api/semestre/:id', async (req, res) => {
+    try {
+      const semestreId = req.params.id;
+      const { semestre, area, sigla, materia, requisito, descrip } = req.body;
+      await db.collection('semestre').updateOne(
+        { _id: new ObjectId(semestreId) },
+        { $set: { semestre, area, sigla, materia, requisito, descrip } }
+      );
+      res.status(200).send('semestre updated successfully');
+    } catch (error) {
+      console.error('Error updating semestre:', error);
+      res.status(500).send('Error updating semestre');
+    }
+  });
+  
+  app.delete('/api/semestre/:id', async (req, res) => {
+    try {
+      const semestreId = req.params.id;
+      await db.collection('semestre').deleteOne({ _id: new ObjectId(semestreId) });
+      res.status(200).send('semestre deleted successfully');
+    } catch (error) {
+      console.error('Error deleting semestre:', error);
+      res.status(500).send('Error deleting semestre');
+    }
+  });
 
 
 

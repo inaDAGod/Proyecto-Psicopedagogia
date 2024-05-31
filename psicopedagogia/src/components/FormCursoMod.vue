@@ -6,7 +6,7 @@
       <form @submit.prevent="submitForm">
         <div class="form-group">
           <label for="titulo">Título:</label><br>
-          <input type="text" id="titulo" v-model="formData.titulo" disabled>
+          <input type="text" id="titulo" v-model="formData.titulo" required>
         </div>
         <div class="form-group">
           <label for="about">About:</label><br>

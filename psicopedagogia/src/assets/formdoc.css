@@ -13,10 +13,10 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  margin: 0;
+  margin: 2%;
   z-index: 1001;
   overflow-y: auto; /* Add overflow-y to enable vertical scrolling */
-    margin-top: -100%;
+    
   }
   
 

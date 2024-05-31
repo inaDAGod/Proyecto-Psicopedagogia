@@ -1,47 +1,102 @@
-<!-- src/components/Card.vue -->
 <template>
-    <div class="card">
-      <h3>{{ title }}</h3>
-      <p>{{ content }}</p>
+  <div>
+    <div class="card" @click="showDescription">
+      <h3 style="font-size: 180%;">{{ title }}</h3>
+      <p style="text-align: center;font-size: 100%;">{{ sigla }}</p>
+      <p style="text-align: center;font-size: 100%;">▪ Req: {{ requisito }}</p>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    props: {
-      title: String,
-      content: String,
+
+    <!-- Modal -->
+    <transition name="modal">
+      <div v-if="isModalVisible" class="modal-overlay" @click="closeModal">
+        <div class="modal-content" @click.stop>
+          <span class="close" @click="closeModal">&times;</span>
+          <h3>{{ title }}</h3>
+          <p>{{ description }}</p>
+        </div>
+      </div>
+    </transition>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    title: String,
+    sigla: String,
+    materia: String,
+    requisito: String,
+    description: String,
+  },
+  data() {
+    return {
+      isModalVisible: false,
+    };
+  },
+  methods: {
+    showDescription() {
+      this.isModalVisible = true;
     },
-  };
-  </script>
+    closeModal() {
+      this.isModalVisible = false;
+    },
+  },
+};
+</script>
+
+<style scoped>
+.card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 5px;
+  width: 100%;
+  cursor: pointer;
   
-  <style scoped>
-  .card {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 1rem;
-    margin: 0.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  @media (max-width: 768px) {
-    .card {
-      padding: 0.75rem;
-      margin: 0.5rem 0;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .card {
-      padding: 0.5rem;
-      margin: 0.25rem 0;
-    }
-  }
-  </style>
-  
+}
+
+.modal-overlay {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+/* Add transition effects */
+.modal-enter-active, .modal-leave-active {
+  transition: opacity 0.3s ease;
+}
+.modal-enter, .modal-leave-to /* .modal-leave-active in <2.1.8 */ {
+  opacity: 0;
+}
+</style>

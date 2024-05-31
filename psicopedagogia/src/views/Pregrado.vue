@@ -16,9 +16,7 @@
           </div>
         </div>
       </div>
-      <div class="prevideo-container">
-        <iframe class="vidma" :src="getYouTubeEmbedUrl('https://www.youtube.com/watch?v=nPL5hCXxmBw')" frameborder="0" allowfullscreen></iframe>
-      </div><br><br>
+      
 
       <TableWithCards />
       

@@ -10,6 +10,7 @@ import Red from '@/views/Red.vue'
 import Pregrado from '@/views/Formpregrado.vue'
 import Postgrado from '@/views/Postgradoadi.vue'
 import Docentes from '@/views/Docentesadi.vue'
+import Malla from '@/views/Mallaadi.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -52,7 +53,12 @@ const router = createRouter({
       name: 'Pregrado',
       component: Pregrado,
     }
-    
+    ,
+    {
+      path: '/mallaadmi',
+      name: 'Malla',
+      component: Malla,
+    }
   ],
 });
 

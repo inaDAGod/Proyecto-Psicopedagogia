@@ -83,3 +83,13 @@ CREATE TABLE pregrado (
     intercambio VARCHAR(255),
     alianza VARCHAR(255)
 );
+
+
+CREATE TABLE semestre (
+    semestre int  NOT NULL,
+    area varchar(200)  NOT NULL,
+    sigla varchar(200)  NOT NULL,
+    materia varchar(200)  NOT NULL,
+    requisito varchar(200)  NOT NULL,
+    descrip varchar(2000)  NOT NULL
+);

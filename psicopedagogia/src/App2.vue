@@ -15,6 +15,8 @@
           <li><router-link to="/postgradoadmi"> Postgrado </router-link></li>
           <br>
           <li><router-link to="/pregradoadmi"> Pregrado </router-link></li>
+          <br>
+          <li><router-link to="/mallaadmi"> Malla </router-link></li>
         </ul>
       </div>
       <div class="mainContentAdmi">
