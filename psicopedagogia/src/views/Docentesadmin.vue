@@ -4,7 +4,7 @@
       <div class="main-content">
         <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
         <div class="docentes-container">
-          <div v-for="docente in docentes" :key="docente.id" class="docente-item">
+          <div v-for="docente in docentes" :key="docente.id" class="docente-item" style="background-color:  rgba(255, 206, 232, 1); margin: 2%;border-radius: 20px;" >
             <div v-html="generateTable(docente)"></div>
             <button class="b-formnad" style="background-color: #5BA45A;border-color: #5BA45A;" @click="openModForm(docente)">Modificar</button>
             <button class="b-formnad" style="background-color: #DF351B;border-color: #DF351B;" @click="openDelForm(docente)">Eliminar</button>
@@ -75,17 +75,20 @@ const generateTable = (docente) => {
 </script>
 
 <style>
-@import url('/src/assets/nostrosadmin.css');
 .docentes-infonad {
   text-align: left;
-    padding: 2%;
+    padding: 5%;
     margin-top: 8%;
+    background-color: white;
+    border-radius: 20px;
 }
 
 .docentes-infonad p{
   font-size: 100%;
     font-family: 'Roboto Condensed', sans-serif;
     width: 100%;
+    padding: 2%;
+    
 }
 
 .docentes-containernad {
@@ -96,7 +99,7 @@ const generateTable = (docente) => {
   
 .docente-itemnad {
   flex-basis: calc(46% - 10px); 
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .docentesnad {
@@ -118,7 +121,8 @@ const generateTable = (docente) => {
     z-index: 1; 
     width: 100%;
     height: 40%;
-    padding-bottom: 2%;
+    padding: 1%;
+    
 }
 
 
