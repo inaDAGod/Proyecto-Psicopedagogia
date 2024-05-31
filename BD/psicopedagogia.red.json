@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "66414de39b6f5e7121bcda30"
+  },
+  "titulo": "Conferencia Episcopal Boliviana (CEB)",
+  "src": "/src/assets/images/red1.jpg",
+  "link": "https://ceb.bo/"
+},
+{
+  "_id": {
+    "$oid": "66414de39b6f5e7121bcda31"
+  },
+  "titulo": "Conferencia Boliviana de Religiosas y Religiosos (CBR)",
+  "src": "/src/assets/images/red2.jpg",
+  "link": ""
+},
+{
+  "_id": {
+    "$oid": "66414de39b6f5e7121bcda32"
+  },
+  "titulo": "Escuela de Cristo",
+  "src": "/src/assets/images/red3.jpg",
+  "link": ""
+},
+{
+  "_id": {
+    "$oid": "66414de39b6f5e7121bcda33"
+  },
+  "titulo": "Fundación Arco Iris",
+  "src": "/src/assets/images/red4.jpg",
+  "link": ""
+},
+{
+  "_id": {
+    "$oid": "66414de39b6f5e7121bcda34"
+  },
+  "titulo": "Fundación Levántate Mujer",
+  "src": "/src/assets/images/red5.webp",
+  "link": ""
+},
+{
+  "_id": {
+    "$oid": "66414de39b6f5e7121bcda35"
+  },
+  "titulo": "Fundación Munasim Kullakita",
+  "src": "/src/assets/images/red6.png",
+  "link": ""
+},
+{
+  "_id": {
+    "$oid": "66414de39b6f5e7121bcda36"
+  },
+  "titulo": "Comedor San Calixto",
+  "src": "/src/assets/images/red7.png",
+  "link": ""
+},
+{
+  "_id": {
+    "$oid": "66414de39b6f5e7121bcda37"
+  },
+  "titulo": "Centro Waliña",
+  "src": "/src/assets/images/red8.jpg",
+  "link": ""
+},
+{
+  "_id": {
+    "$oid": "66414de39b6f5e7121bcda38"
+  },
+  "titulo": "Fe y alegría",
+  "src": "/backend/images/red9.jpg",
+  "link": ""
+}]
