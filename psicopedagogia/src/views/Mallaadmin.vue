@@ -103,11 +103,12 @@
     background-color: rgba(255, 206, 232, 1);
     border-radius: 40px;
       text-align: center;
-      width: 320px;
+      width: 250px;
       display: flex;
       margin-top: 8%;
       margin-bottom: 20px;
       height: 120%;
+      padding: 2%;
   }
   
   
@@ -127,7 +128,7 @@
           padding: 1%;
           color: white;
           border-radius: 40px;
-          font-size: 150%;
+          font-size: 100%;
           left:0;
           margin:2%;
           margin-top: -7%;
