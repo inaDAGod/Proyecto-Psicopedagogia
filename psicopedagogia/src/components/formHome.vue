@@ -65,39 +65,97 @@
   <script setup>
   import { ref } from 'vue';
   import { defineProps } from 'vue';
-  // Variables reactivas para los campos del formulario
-  const imagen1 = ref('');
-  const quienes_somos = ref('');
-  const mision = ref('');
-  const mision_src = ref('');
-  const vision = ref('');
-  const vision_src = ref('');
-  const perfil_estudiante = ref('');
-  const perfil_estudiante_src = ref('');
+  import { watch} from 'vue';
+
   const showForm = ref(true);
-  const currentFile = ref(null);
-  
   const props = defineProps({
-    onclose: Function,
+    imagen1: String,
+    imagen2: String,
+    imagen3: String,
+    imagen4: String,
+    imagen5: String,
+    imagen6: String,
+    quienes_somos: String,
+    mision: String,
+    mision_src: String,
+    vision: String,
+    vision_src: String,
+    perfil_estudiante: String,
+    perfil_estudiante_src: String,
+    onclose: Function
   });
+  // Variables reactivas para los campos del formulario
+  const imagen1 = ref(props.imagen1);
+  const imagen2 = ref(props.imagen2);
+  const imagen3 = ref(props.imagen3);
+  const imagen4 = ref(props.imagen4);
+  const imagen5 = ref(props.imagen5);
+  const imagen6 = ref(props.imagen6);
+  const quienes_somos = ref(props.quienes_somos);
+  const mision = ref(props.mision);
+  const mision_src = ref(props.mision_src);
+  const vision = ref(props.vision);
+  const vision_src = ref(props.vision_src);
+  const perfil_estudiante = ref(props.perfil_estudiante);
+  const perfil_estudiante_src = ref(props.perfil_estudiante_src);
+  
+  watch(
+    () => [
+      props.imagen1,
+      props.imagen2,
+      props.imagen3,
+      props.imagen4,
+      props.imagen5,
+      props.imagen6,
+      props.quienes_somos,
+      props.mision,
+      props.mision_src,
+      props.vision,
+      props.vision_src,
+      props.perfil_estudiante,
+      props.perfil_estudiante_src
+    ],
+    ([
+      newImagen1,
+      newImagen2,
+      newImagen3,
+      newImagen4,
+      newImagen5,
+      newImagen6,
+      newQuienesSomos,
+      newMision,
+      newMisionSrc,
+      newVision,
+      newVisionSrc,
+      newPerfilEstudiante,
+      newPerfilEstudianteSrc
+    ]) => {
+      imagen1.value = newImagen1;
+      imagen2.value = newImagen2;
+      imagen3.value = newImagen3;
+      imagen4.value = newImagen4;
+      imagen5.value = newImagen5;
+      imagen6.value = newImagen6;
+      quienes_somos.value = newQuienesSomos;
+      mision.value = newMision;
+      mision_src.value = newMisionSrc;
+      vision.value = newVision;
+      vision_src.value = newVisionSrc;
+      perfil_estudiante.value = newPerfilEstudiante;
+      perfil_estudiante_src.value = newPerfilEstudianteSrc;
+    },
+    { deep: true }
+  );
   // Función para enviar el formulario al servidor
   const submitForm = async () => {
-    // Después de confirmar que la actualización se realizó correctamente en el backend
-    // Actualiza los datos del home en el frontend
-    paginaHome.value = {
-      imagen1: imagen1.value,
-      quienes_somos: quienes_somos.value,
-      mision: mision.value,
-      mision_src: mision_src.value,
-      vision: vision.value,
-      vision_src: vision_src.value,
-      perfil_estudiante: perfil_estudiante.value,
-      perfil_estudiante_src: perfil_estudiante_src.value
-    };
-
     try {
       const direc = "/backend/images/";
-      imagen1.value = direc + currentFile.value.name;//AÑADIR PARA ALS 6 IMAGENES
+      imagen1.value = direc + currentFile.value.name;
+      imagen2.value = direc + currentFile.value.name;
+      imagen3.value = direc + currentFile.value.name;
+      imagen4.value = direc + currentFile.value.name;
+      imagen5.value = direc + currentFile.value.name;
+      imagen6.value = direc + currentFile.value.name;
       mision_src.value = direc + currentFile.value.name;
       vision_src.value = direc + currentFile.value.name;
       perfil_estudiante_src.value = direc + currentFile.value.name;
@@ -112,6 +170,11 @@
         console.log(res);
         const formData = new FormData();
         formData.append('imagen1', imagen1.value);
+        formData.append('imagen2', imagen1.value);
+        formData.append('imagen3', imagen1.value);
+        formData.append('imagen4', imagen1.value);
+        formData.append('imagen5', imagen1.value);
+        formData.append('imagen6', imagen1.value);
         formData.append('quienes_somos', quienes_somos.value);
         formData.append('mision', mision.value);
         formData.append('mision_src', mision_src.value);
@@ -149,7 +212,7 @@
   };
   </script>
   
-  <style scoped>
+  <style>
   .modal {
     display: flex;
     justify-content: center;
