@@ -247,7 +247,7 @@ onMounted(() => {
   });
 </script>
   
-<style>
+<style scoped>
   @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');

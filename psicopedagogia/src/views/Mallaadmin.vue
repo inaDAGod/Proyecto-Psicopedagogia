@@ -62,8 +62,8 @@
   
   const generateTable = (semestre) => {
     const tableHTML = `<center>
-      <div class="docentesnad">
-        <div class="docentes-infonad">
+      <div class="docentesnad" style="background-color:white;margin:3%;border-radius:20px;padding:2%">
+        <div class="docentes-infonad" stty>
           <p><b>Semestre: ${semestre.semestre}</b><br>Area:${semestre.area}<br>Sigla: ${semestre.sigla}<br> 
             Materia:${semestre.materia}<br>Requisito:${semestre.requisito}<br>Description:${semestre.descrip}</p>
         </div>
@@ -74,7 +74,7 @@
   };
   </script>
   
-  <style>
+  <style >
   .docentes-infonad {
     text-align: left;
       padding: 2%;

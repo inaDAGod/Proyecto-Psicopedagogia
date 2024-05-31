@@ -13,6 +13,7 @@ import Pregrado from '@/views/Formpregrado.vue'
 import Postgrado from '@/views/Postgradoadi.vue'
 import Docentes from '@/views/Docentesadi.vue'
 import Malla from '@/views/Mallaadi.vue'
+
 //import Pregrado from '@/views/Pregrado.vue'
 //import Postgrado from '@/views/Postgrado.vue'
 const router = createRouter({
@@ -79,7 +80,12 @@ const router = createRouter({
       path: '/mallaadmi',
       name: 'Malla',
       component: Malla,
+    },{
+      path: '/docentesadmi',
+      name: 'Docentes',
+      component: Docentes,
     }
+    
 
   ],
 });
