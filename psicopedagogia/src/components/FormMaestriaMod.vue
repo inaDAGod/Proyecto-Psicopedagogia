@@ -25,9 +25,9 @@
           <input type="date" id="fecha" v-model="formData.fecha" required>
         </div>
         <div class="form-group">
-          <label for="img">img:</label><br>
+          <label for="img">Imagen:</label><br>
           <input type="file" id="img" @change="onFileChange">
-        </div>
+        </div><br>
         <div style="text-align: center;">
           <button class="boton-guardar">Guardar</button>
         </div>

@@ -27,7 +27,7 @@
         <div class="form-group">
           <label for="imagen">Imagen:</label><br>
           <input type="file" id="imagen" @change="onFileChange">
-        </div>
+        </div><br>
         <div style="text-align: center;">
           <button class="boton-guardar">Guardar</button>
         </div>

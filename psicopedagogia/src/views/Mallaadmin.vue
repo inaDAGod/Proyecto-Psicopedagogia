@@ -4,11 +4,12 @@
         <div class="main-content">
           <h1 class="titulo-nos">Malla</h1>
           <div class="docentes-container">
-            <div v-for="semestre in semestres" :key="semestre.id" class="docente-item">
+            <div v-for="semestre in semestres" :key="semestre.id" class="docente-item" style="background-color: rgba(170, 214, 251, 1);margin: 2%;border-radius: 20px;">
               <div v-html="generateTable(semestre)"></div>
-              <button class="b-formnad" style="background-color: #5BA45A;border-color: #5BA45A;" @click="openModForm(semestre)">Modificar</button>
-              <button class="b-formnad" style="background-color: #DF351B;border-color: #DF351B;" @click="openDelForm(semestre)">Eliminar</button>
-            </div>
+              <button class="b-formnad" style="background-color: #FFA198;border-color: #FFA198;margin-right: 20%;" @click="openDelForm(semestre)"><img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;"></button>
+            
+              <button class="b-formnad" style="background-color: #BADF3A;border-color: #BADF3A;" @click="openModForm(semestre)"><img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;"></button>
+              </div>
           </div>
           <FormDocMod v-if="showFormDocMod" :semestre="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
           <FormDocElim v-if="showFormDocElim" :semestre="selectedDocente" :showForm="showFormDocElim" @closeForm="closeForm('formDocElim')" />
@@ -74,17 +75,18 @@
   </script>
   
   <style>
-  @import url('/src/assets/nostrosadmin.css');
   .docentes-infonad {
     text-align: left;
       padding: 2%;
       margin-top: 8%;
+      width: 100%;
   }
   
   .docentes-infonad p{
     font-size: 100%;
       font-family: 'Roboto Condensed', sans-serif;
       width: 100%;
+      
   }
   
   .docentes-containernad {
@@ -100,7 +102,7 @@
   
   .docentesnad {
     position: relative;
-    background-color: rgba(255, 206, 232, 1);
+    background-color:rgba(170, 214, 251, 1);
     border-radius: 40px;
       text-align: center;
       width: 250px;

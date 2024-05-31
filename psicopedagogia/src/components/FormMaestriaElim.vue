@@ -3,10 +3,9 @@
       <div class="modal-content">
         <button style="margin-left: 90%;width: 9%;" class="close" @click="closeForm">&times;</button>
         <h2>Eliminar maestria</h2>
-        <p>¿Estás seguro de que deseas eliminar al maestria {{ maestria.nombre }}?</p>
+        <p style="background-color: white;padding: 2%;border-radius: 20px;font-size: 140%;">¿Estás seguro de que deseas eliminar  {{ maestria.titulo }}?</p>
         <div style="text-align: center;">
-          <button class="boton-eliminar" @click="submitForm">Eliminar</button>
-          <button class="boton-cancelar" @click="closeForm">Cancelar</button>
+          <button class="boton-eliminar" style="background-color: #FFA198;border-color: #FFA198;font-size: 150%;" @click="submitForm">Eliminar</button>
         </div>
       </div>
     </div>

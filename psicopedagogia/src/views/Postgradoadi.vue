@@ -25,8 +25,8 @@
 import { ref } from 'vue';
 import Formpaginanos from '@/components/Formcurso.vue'; // Adjusted import path
 import Formpaginanos2 from '@/components/Formmast.vue'; // Adjusted import path
-import Docentes from './prueba.vue'; // Adjusted import path
-import Curso from './prueba2.vue'; // Adjusted import path
+import Docentes from './Maestria.vue'; // Adjusted import path
+import Curso from './Curso.vue'; // Adjusted import path
 
 // Define a ref to track the visibility of each form
 const showFormDocentes = ref(false);

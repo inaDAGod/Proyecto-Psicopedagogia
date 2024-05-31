@@ -2,11 +2,10 @@
   <div class="modal" v-show="showForm">
     <div class="modal-content">
       <button style="margin-left: 90%;width: 9%;" class="close" @click="closeForm">&times;</button>
-      <h2>Eliminar cursosfc</h2>
-      <p>¿Estás seguro de que deseas eliminar al cursosfc {{ cursosfc.nombre }}?</p>
+      <h2>Eliminar Curso</h2>
+      <p style="background-color: white;padding: 2%;border-radius: 20px;font-size: 140%;">¿Estás seguro de que deseas eliminar  {{ cursosfc.titulo }}?</p>
       <div style="text-align: center;">
-        <button class="boton-eliminar" @click="submitForm">Eliminar</button>
-        <button class="boton-cancelar" @click="closeForm">Cancelar</button>
+        <button style="background-color: #FFA198;border-color: #FFA198;font-size: 150%;" class="boton-eliminar" @click="submitForm">Eliminar</button>
       </div>
     </div>
   </div>

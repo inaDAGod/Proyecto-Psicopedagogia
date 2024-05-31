@@ -2,13 +2,14 @@
     <div id="app">
       <div class="content-wrapper">
         <div class="main-content">
-          <h1 class="titulo-nos">Cursos</h1>
+          <h1 class="titulo-nos">Formacion Continua</h1>
           <div class="docentes-container">
-            <div v-for="cursosfc in cursosfcs" :key="cursosfc.id" class="docente-item">
+            <div v-for="cursosfc in cursosfcs" :key="cursosfc.id" class="docente-item" style="margin:2%;border-radius: 20px;background-color: rgba(219, 238, 150, 1);">
               <div v-html="generateTable(cursosfc)"></div>
-              <button class="b-formca"  style="background-color: #5BA45A;border-color: #5BA45A;" @click="openModForm(cursosfc)">Modificar</button>
-              <button class="b-formca"  style="background-color: #DF351B;border-color: #DF351B;" @click="openDelForm(cursosfc)">Eliminar</button>
-            </div>
+              <button class="b-formca"  style="background-color: #FFA198;border-color: #FFA198;margin-right: 20%;"  @click="openDelForm(cursosfc)"><img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;"></button>
+            
+              <button class="b-formca"  style="background-color: #BADF3A;border-color: #BADF3A;" @click="openModForm(cursosfc)"><img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%"></button>
+              </div>
           </div>
           <FormDocMod v-if="showFormDocMod" :cursosfc="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
           <FormDocElim v-if="showFormDocElim" :cursosfc="selectedDocente" :showForm="showFormDocElim" @closeForm="closeForm('formDocElim')" />
@@ -66,11 +67,11 @@
       
       <div class="cursodi-info">
         <img src="${cursosfc.img}" alt="${cursosfc.titulo}" class="cursodi-image">
-        <h5 class="cursodi-head">Título: ${cursosfc.titulo}</h5><p class="curso-info p"><b>
+        <h5 class="cursodi-head">Título: ${cursosfc.titulo}</h5><p class="curso-info p">
         About: ${cursosfc.about}<br><br>
         Competencia: ${cursosfc.competencia}<br><br>
         Requisitos: ${cursosfc.requisitos}<br><br>
-        Fecha: ${cursosfc.fecha}</b></p>
+        Fecha: ${cursosfc.fecha}</p>
       </div>
       
     </div>
