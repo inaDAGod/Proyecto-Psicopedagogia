@@ -5,7 +5,7 @@
         <h2>Modificar Malla</h2>
         <form @submit.prevent="submitForm">
           <div class="form-groupf">
-            <label for="semestre">Número:</label><br>
+            <label for="semestre">Semestre:</label><br>
             <input type="number" id="semestre" v-model="formData.semestre" min="1" max="9" required>
           </div>
           <div class="form-groupf">
@@ -21,15 +21,15 @@
             </select>
           </div>
           <div class="form-groupf">
-            <label for="sigla">sigla:</label><br>
+            <label for="sigla">Sigla:</label><br>
             <input type="text" id="sigla" v-model="formData.sigla">
           </div>
           <div class="form-groupf">
-            <label for="materia">materia:</label><br>
+            <label for="materia">Materia:</label><br>
             <input type="text" id="materia" v-model="formData.materia">
           </div>
           <div class="form-groupf">
-            <label for="requisito">requisito:</label><br>
+            <label for="requisito">Requisito:</label><br>
             <input type="text" id="requisito" v-model="formData.requisito">
           </div>
           <div class="form-groupf">

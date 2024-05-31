@@ -8,11 +8,11 @@
       <!-- Modal form -->
       <div class="modalf" v-show="showForm">
         <div class="modal-contentf">
-          <h2>Agregar Nuevo Semestre</h2>
+          <h2 style="margin-left: 23%">Agregar a la Malla</h2>
           <form @submit.prevent="submitForm">
             <!-- Input fields para el formulario -->
             <div class="form-groupf">
-              <label for="semestre">Número:</label><br>
+              <label for="semestre">Semestre:</label><br>
               <input type="number" id="semestre" v-model="semestre" min="1" max="9" required>
             </div>
             <div class="form-groupf">
@@ -28,15 +28,15 @@
               </select>
             </div>
             <div class="form-groupf">
-           <label for="sigla">sigla:</label><br>
+           <label for="sigla">Sigla:</label><br>
            <input type="text" id="sigla" v-model="sigla" >
          </div>
          <div class="form-groupf">
-           <label for="materia">materia:</label><br>
+           <label for="materia">Materia:</label><br>
            <input type="text" id="materia" v-model="materia" >
          </div>
          <div class="form-groupf">
-           <label for="requisito">requisito:</label><br>
+           <label for="requisito">Requisito:</label><br>
            <input type="text" id="requisito" v-model="requisito" >
          </div>
             <div class="form-groupf">

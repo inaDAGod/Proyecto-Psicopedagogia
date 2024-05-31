@@ -22,13 +22,13 @@
           <div class="row">
             <div v-for="i in 4" :key="'images_' + i" class="col-md-6">
               <div class="form-group">
-                <label :for="'images_' + i">Imagen {{ i }}:</label>
+                <label style="margin-right: -11%;" :for="'images_' + i">Imagen {{ i }}:</label>
                 <input type="file" :id="'images_' + i" @change="onFileChange($event, i)">
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="images_5">Imagen 5:</label>
+                <label style="margin-right: -11%;" for="images_5">Imagen 5:</label>
                 <input type="file" id="images_5" @change="onFileChange($event, 5)">
               </div>
             </div>

@@ -26,7 +26,7 @@
         <Carousel ref="asignaturasCarousel" :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosAsignaturas" :key="video.id">
             <iframe v-if="video.url" class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
-            <div v-else class="video-preb">Video not available</div>
+            <div v-else class="video-preb"></div>
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
@@ -42,7 +42,7 @@
         <Carousel ref="actividadesCarousel" :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosActividades" :key="video.id">
             <iframe v-if="video.url" class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
-            <div v-else class="video-preb">Video not available</div>
+            <div v-else class="video-preb"></div>
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
@@ -58,7 +58,7 @@
         <Carousel ref="experienciasCarousel" :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="image in images" :key="image.id">
             <img v-if="image.url" class="img-preb" :src="image.url" alt="carousel image">
-            <div v-else class="img-preb">Image not available</div>
+            <div v-else class="img-preb"></div>
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
@@ -74,7 +74,7 @@
         <Carousel ref="perfilesCarousel" :itemsToShow="1" :wrapAround="true" :transition="500">
           <Slide v-for="video in videosPerfiles" :key="video.id">
             <iframe v-if="video.url" class="video-preb" :src="getYouTubeEmbedUrl(video.url)" frameborder="0" allowfullscreen></iframe>
-            <div v-else class="video-preb">Video not available</div>
+            <div v-else class="video-preb"></div>
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
