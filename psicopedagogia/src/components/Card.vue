@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="card" @click="showDescription">
-      <h3 style="font-size: 180%;">{{ title }}</h3>
+      <h3 style="font-size: 140%;">{{ title }}</h3>
       <p style="text-align: center;font-size: 100%;">{{ sigla }}</p>
       <p style="text-align: center;font-size: 100%;">▪ Req: {{ requisito }}</p>
     </div>

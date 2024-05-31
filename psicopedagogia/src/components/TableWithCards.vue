@@ -100,10 +100,10 @@ export default {
 };
 </script>
 
+
 <style scoped>
 .table-container {
   width: 70%;
-  
   margin: 1%;
 }
 
@@ -115,15 +115,27 @@ export default {
 
 th,
 td {
-  border: 1px solid #ddd;
   padding: 8px;
   text-align: center;
   font-size: 50%;
+  width: 100%;
+}
+
+thead th {
+  background-color: rgba(13, 137, 244, 1);
+  color: white;
+  font-weight: bold;
+  font-size: 80%;
 }
 
 .semestre-cell {
-  background-color: #f5f5f5;
+  background-color: rgba(170, 214, 251, 1);
+  color: black;
   font-weight: bold;
+  /* Make the text vertical */
+  writing-mode: vertical-rl; /* Vertical writing mode from right to left */
+  transform: rotate(180deg); /* Rotate the text 180 degrees */
+  font-size: 70%;
 }
 
 .cell {
