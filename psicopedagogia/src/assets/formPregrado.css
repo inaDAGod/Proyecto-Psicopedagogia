@@ -1,0 +1,105 @@
+/* Remove the positioning and centering from .modal */
+.modal {
+    display: block; /* Change from flex to block to follow normal flow */
+    width: 80%; /* Full width */
+    height: auto; /* Let the content dictate the height */
+    background-color: transparent; /* Remove the background overlay */
+    padding: 20px; /* Optional: add padding to the container */
+    margin: 20px auto; /* Center the modal horizontally if desired */
+    overflow-y: visible; /* Remove the vertical scroll */
+    position: static; /* Make it static to follow the normal flow */
+    transform: none; /* Remove any transformations */
+    top: auto; /* Reset top position */
+    left: auto; /* Reset left position */
+  }
+  
+  /* Update .modal-content if necessary */
+  .modal-content {
+    background-color: rgba(228, 228, 228, 1);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative; /* Keep relative for child elements */
+    max-width: 100%; /* Set to 100% to use the full container width */
+    width: 100%; /* Set width to 100% */
+    display: flex; /* Ensure flex properties apply */
+    flex-direction: column; /* Stack child elements vertically */
+    justify-content: flex-start; /* Align child elements to the start (left) */
+    align-items: flex-start; /* Align child elements to the start (left) */
+    margin: 0; /* Reset margin */
+  }
+  
+  .boton-guardar {
+    background-color: rgba(186, 223, 58, 1);
+    color: black;
+    padding: 1% 2%;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Koulen';
+    font-size: 250%;
+    display: block;  /* Ensure the button is treated as a block-level element */
+    margin-left: 40%;
+    text-align: center; /* Center text inside the button */
+  }
+  
+  
+  
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  label {
+    text-align: left;
+    font-weight: bold;
+    margin-left: -78%;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-left: 10px;
+    height: 100%;
+  }
+  
+
+  
+  h2 {
+    color: #FF7001;
+    text-align: center;
+    font-family: 'Koulen';
+    font-size: 46px;
+    margin-left: 40%;
+  }
+  
+  h1 {
+    color: black;
+    text-align: left;
+    font-family: 'Koulen';
+    font-size: 24px;
+    margin-left: 2%;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 27%;
+    padding: 0 15px;
+  }
+  

@@ -27,20 +27,7 @@
         <tbody>
           <tr v-for="(actividadRow, rowIndex) in actividadRows" :key="rowIndex">
             <td v-for="(actividad, index) in actividadRow" :key="index">
-              <div class="actividades">
-                <div class="actividad-imagen">
-                  <img :src="actividad.actividad_src" :alt="actividad.actividad">
-                </div>
-                <div class="actividad-nombre">
-                  <button class="btn-actividad" @click="toggleInfoActividad(rowIndex, index)">{{ actividad.actividad }}</button>
-                  <div v-if="expandedInfoActividad[rowIndex][index]" class="info-actividad">
-                    <p>Fecha: {{ actividad.fecha }}</p>
-                    <p>Hora: {{ actividad.hora }}</p>
-                    <p>Ubicación: {{ actividad.ubicacion }}</p>
-                    <p>Descripción: {{ actividad.descripcion }}</p>
-                  </div>
-                </div>
-              </div>
+              <Actividad :actividad="actividad" />
             </td>
           </tr>
         </tbody>
@@ -53,18 +40,7 @@
         <tbody>
           <tr v-for="(noticiaRow, rowIndex) in noticiaRows" :key="rowIndex">
             <td v-for="(noticia, index) in noticiaRow" :key="index">
-              <div class="noticia">
-                <div class="noticia-imagen">
-                  <img :src="noticia.noticia_src" :alt="noticia.noticia">
-                </div>
-                <div class="noticia-contenido">
-                  <button class="btn-noticia" @click="toggleInfoNoticia(rowIndex, index)">{{ noticia.noticia }}</button>
-                  <div v-if="expandedInfoNoticia[rowIndex][index]" class="info-noticia">
-                    <p>{{ noticia.contenido }}</p>
-                    <p>Fecha: {{ noticia.fecha }}</p>
-                  </div>
-                </div>
-              </div>
+              <Noticia :noticia="noticia" />
             </td>
           </tr>
         </tbody>
@@ -75,7 +51,9 @@
   <script setup>
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
-  
+  import Actividad from '/src/components/Actividad.vue';
+  import Noticia from '/src/components/Noticia.vue';
+
   const actividades = ref([]);
   const actividadRows = ref([]);
   const expandedInfoActividad = ref([]);
@@ -203,78 +181,6 @@
     text-align: center;
   }
   
-  .actividades,
-  .noticias {
-    width: 90%;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-  }
-  
-  .actividad-imagen img,
-  .noticia-imagen img {
-    width: 60vh; /* Establece el ancho al 100% */
-    height: 40vh; /* Establece la altura a 20vh (puedes ajustar este valor según tus necesidades) */
-    object-fit: cover; /* Para mantener la relación de aspecto */
-  }
-
-  .actividad-nombre {
-    margin-top: 1vh;
-  }
-  
-  .btn-actividad{
-    color:white;
-    font-family: 'Roboto Condensed', sans-serif;
-    background-color: #0D89F4;
-    border: none;
-    cursor: pointer;
-    border-radius: 6vh;
-    font-size: 3vh;
-    padding: 3vh;
-    padding-left: 5%;
-    padding-right: 5%;
-    width: auto; /* Ancho automático por defecto */
-  }
-  .btn-noticia{
-    color:white;
-    font-family: 'Roboto Condensed', sans-serif;
-    background-color: #BADF3A;
-    border: none;
-    cursor: pointer;
-    border-radius: 6vh;
-    font-size: 3vh;
-    padding: 3vh;
-    margin-top: 2vh;
-    padding-left: 5%;
-    padding-right: 5%;
-    width: auto; /* Ancho automático por defecto */
-
-  }
-  .btn-actividad:hover,
-  .btn-noticia:hover {
-      transform: scale(1.10); /* Aumenta el tamaño del botón en un 5% cuando el mouse pasa sobre él */
-  }
-  
-  .info-actividad {
-    margin-top: 2vh;
-    padding: 2vh;
-    background-color: #AAD6FB;
-    border-radius: 3vh;
-  }
-  
-  .info-noticia {
-    margin-top: 2vh;
-    padding: 2vh;
-    background-color: #DBEE96;
-    border-radius: 3vh;
-  }
-  .info-actividad p,
-  .info-noticia p{
-    font-family: 'Roboto Condensed', 'sans-serif';
-    font-size: 2.5vh;
-    color: #333333;
-    text-align: center;
-    align-items: center;
-  }
   h1{
     margin-left: 5vh;
     font-family: 'Oswald', 'sans-serif';

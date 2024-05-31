@@ -25,16 +25,21 @@
       <a :href="paginaNosotros.link_psico_ucb"><button class="b-links">Psicopedagogía La Paz</button></a><br>
     </div>
     
-    <footer>
-        <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernos-img">
+    <footer class="footernos" style="background-color:  rgba(170, 214, 251, 1)">
+        
         <div class="footernos-container">
+          <div>
           <table class="footernos-table">
-      <tr class="footernos-tr">
+            
+              <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernos-img">
+          
+
+      <tr class="footernos-tr" >
         <td class="footernos-td">
-          <a :href="paginaNosotros.facebook"><img class="imgnos" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
+          <a :href="paginaNosotros.facebook"><img style="margin-top: 10%;" class="imgnos" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
         </td>
-        <td class="footernos-td">
-          <p class="footernos-p">Psicopedagogía UCB La Paz</p>
+        <td class="footernos-td2">
+          <p class="footernos-p" style="margin-top: 10%;">Psicopedagogía UCB La Paz</p>
         </td>
       </tr>
       <tr class="footernos-tr">
@@ -61,7 +66,8 @@
           <p class="footernos-p">psp.ucb.lapaz</p>
         </td>
       </tr>
-    </table>
+    
+    </table></div>
   
           <div class="footernos-info">
             <h2 class="footernos-mainnos">Atención de Dirección de Carrera</h2>
@@ -156,7 +162,7 @@ const generateTable = (docente) => {
 
 
 </script>
-<style>
+<style >
 @import url('/src/assets/nosotros.css');
 
 

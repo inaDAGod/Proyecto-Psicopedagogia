@@ -1,0 +1,114 @@
+
+    
+  .maestriadi-item {
+    flex-basis: calc(46% - 10px); 
+    margin-bottom: 20px; 
+  }
+  
+
+
+
+
+
+
+    .maestriadi-info {
+      text-align: left;
+      padding: 2%;
+      margin-top: 8%;
+    }
+    
+    .maestriadi-info p{
+      font-size: 100%;
+      font-family: 'Roboto Condensed', sans-serif;
+      width: 100%;
+    }
+    
+    .maestriadi-container {
+      display: flex;
+      flex-wrap: wrap;
+      
+    }
+      
+    .maestriadi-item {
+      flex-basis: calc(46% - 10px); 
+      margin-bottom: 20px; 
+    }
+    
+    .maestriadi {
+      position: relative;
+      background-color: white;
+      border-radius: 40px;
+      text-align: center;
+      width: 300px;
+      display: flex;
+      margin-top: 8%;
+      margin-bottom: 10%;
+      height: 100%;
+    }
+    
+   
+    .maestriadi-image { 
+      border-radius: 20px;
+      z-index: 1; 
+      width: 105%;
+      height: 30%;
+      padding-bottom: 2%;
+      margin-top: -10%;
+      margin-left: -2.5%;
+      margin-bottom: 4%;
+    }
+    
+
+
+
+
+   
+  .cursodi-info {
+    text-align: left;
+    padding: 2%;
+    margin-top: 8%;
+  }
+  
+  .cursodi-info p{
+    font-size: 100%;
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 100%;
+  }
+  
+  .cursodi-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
+    
+  .cursodi-item {
+    flex-basis: calc(46% - 10px); 
+    margin-bottom: 20px; 
+  }
+  
+  .cursodi {
+    position: relative;
+    background-color: white;
+    border-radius: 40px;
+    text-align: center;
+    width: 300px;
+    display: flex;
+    margin-top: 8%;
+    margin-bottom: 10%;
+    height: 100%;
+  }
+  
+ 
+  .cursodi-image { 
+    border-radius: 20px;
+      z-index: 1; 
+      width: 105%;
+      height: 30%;
+      padding-bottom: 2%;
+      margin-top: -10%;
+      margin-left: -2.5%;
+      margin-bottom: 4%;
+  }
+  
+  
+    

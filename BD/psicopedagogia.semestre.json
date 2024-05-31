@@ -1,0 +1,179 @@
+[
+    {
+      "_id": { "$oid": "6640e5739b6f5e7121bcda1a" },
+      "semestre": 1,
+      "area": "ASIGNATURAS BÁSICAS",
+      "sigla": "PSP-101/UVE 5",
+      "materia": "Psicopedagogía",
+      "requisito": "Ninguno",
+      "descrip": "Descripción 1"
+    },
+    {
+      "_id": { "$oid": "6640e5739b6f5e7121bcda1b" },
+      "semestre": 1,
+      "area": "PSICOPEDAGOGÍA DE LA EDUCACIÓN FORMAL Y NO FORMAL",
+      "sigla": "PSP-121/UVE 5",
+      "materia": "Modelos Pedagógicos en el Tiempo y la Actualidad",
+      "requisito": "Ninguno",
+      "descrip": "Descripción 1"
+    },
+    {
+      "_id": { "$oid": "6640e5739b6f5e7121bcda1c" },
+      "semestre": 1,
+      "area": "PSICOPEDAGOGÍA DE LA EDUCACIÓN FORMAL Y NO FORMAL",
+      "sigla": "PSP-151/UVE 5",
+      "materia": "Aprender a Aprender",
+      "requisito": "Ninguno",
+      "descrip": "Descripción 1"
+    },
+    {
+      "_id": { "$oid": "6640e5739b6f5e7121bcda1d" },
+      "semestre": 1,
+      "area": "PSICOPEDAGOGÍA CLÍNICA",
+      "sigla": "PSI-108/UVE 5",
+      "materia": "Psicofisiología",
+      "requisito": "Ninguno",
+      "descrip": "Descripción 1"
+    },
+    {
+      "_id": { "$oid": "6640e5739b6f5e7121bcda1e" },
+      "semestre": 1,
+      "area": "PSICOPEDAGOGÍA SOCIAL",
+      "sigla": "CAE-204/UVE 5",
+      "materia": "Antropología Cultural de la Identidad",
+      "requisito": "Ninguno",
+      "descrip": "Descripción 1"
+    },
+    {
+      "_id": { "$oid": "6640e5739b6f5e7121bcda1f" },
+      "semestre": 1,
+      "area": "FORMACIÓN GENÉRICA",
+      "sigla": "CAR-109/UVE 5",
+      "materia": "Escritura Académica",
+      "requisito": "Ninguno",
+      "descrip": "Descripción 1"
+    }]
+    [
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda3a" },
+          "semestre": 2,
+          "area": "ASIGNATURAS BÁSICAS",
+          "sigla": "PSI-110/UVE 5",
+          "materia": "Psicología del Desarrollo Infantil",
+          "requisito": "Ninguno",
+          "descrip": "Descripción 2"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda3b" },
+          "semestre": 2,
+          "area": "ASIGNATURAS BÁSICAS",
+          "sigla": "PSI-111/UVE 2",
+          "materia": "Taller de Psicología del Desarrollo Infantil",
+          "requisito": "Ninguno",
+          "descrip": "Descripción 2"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda3c" },
+          "semestre": 2,
+          "area": "ASIGNATURAS BÁSICAS",
+          "sigla": "PSI-410/UVE 5",
+          "materia": "Psicología Educativa y del Aprendizaje",
+          "requisito": "Ninguno",
+          "descrip": "Descripción 2"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda3d" },
+          "semestre": 2,
+          "area": "PSICOPEDAGOGÍA DE LA EDUCACIÓN FORMAL Y NO FORMAL",
+          "sigla": "PSP-113/UVE 5",
+          "materia": "Didáctica Formal y No Forma",
+          "requisito": "Ninguno",
+          "descrip": "Descripción 1"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda3e" },
+          "semestre": 2,
+          "area": "PSICOPEDAGOGÍA CLÍNICA",
+          "sigla": "PSI-209/UVE 5",
+          "materia": "Psicobiología y Neurociencia",
+          "requisito": "PSI-108",
+          "descrip": "Descripción 1"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda3f" },
+          "semestre": 2,
+          "area": "PSICOPEDAGOGÍA SOCIAL",
+          "sigla": "PSP-144/UVE 5",
+          "materia": "Desarrollo Personal y Creativo",
+          "requisito": "Ninguno",
+          "descrip": "Descripción 1"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda4a" },
+          "semestre": 2,
+          "area": "FORMACIÓN GENÉRICA",
+          "sigla": "PSI-310/UVE 5",
+          "materia": "Psicoestadística",
+          "requisito": "Ninguno",
+          "descrip": "Descripción 1"
+        }
+      ]
+      
+      [
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda9a" },
+          "semestre": 8,
+          "area": "PSICOPEDAGOGÍA CLÍNICA",
+          "sigla": "PSP-322/UVE 5",
+          "materia": "Intervención en Familia y Comunidad",
+          "requisito": "PSP-321",
+          "descrip": "Descripción 1"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda9b" },
+          "semestre": 8,
+          "area": "PSICOPEDAGOGÍA LABORAL",
+          "sigla": "PSP-331/UVE 5",
+          "materia": "Gestión del Aprendizaje en Contexto Laboral",
+          "requisito": "PSP-213",
+          "descrip": "Descripción 1"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda9c" },
+          "semestre": 8,
+          "area": "PSICOPEDAGOGÍA LABORAL",
+          "sigla": "PSI-712/UVE 5",
+          "materia": "Orientación Profesional",
+          "requisito": "PSI-511",
+          "descrip": "Descripción 1"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda9d" },
+          "semestre": 8,
+          "area": "FORMACIÓN GENÉRICA",
+          "sigla": "PSP-353/UVE 5",
+          "materia": "Práctica Preprofesional II",
+          "requisito": "PSP-352",
+          "descrip": "Descripción 1"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda9e" },
+          "semestre": 8,
+          "area": "FORMACIÓN GENÉRICA",
+          "sigla": "PSP-354/UVE 15",
+          "materia": "Taller de Investigación de Grado I",
+          "requisito": "PSP-254",
+          "descrip": "Descripción 1"
+        },
+        {
+          "_id": { "$oid": "6640e5739b6f5e7121bcda9f" },
+          "semestre": 8,
+          "area": "LIBRES",
+          "sigla": "",
+          "materia": "Libre II",
+          "requisito": "",
+          "descrip": "Descripción 1"
+        }
+      ]
+      
+  

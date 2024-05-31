@@ -1,0 +1,85 @@
+.modal-contentf {
+  background-color: rgba(228, 228, 228, 1);
+  padding: 4%;
+  border-radius: 10px;
+  
+  position: relative;
+  max-width: 100%; /* Set max-width to allow responsiveness */
+  width: 100%; /* Set width to 100% to fill the modal */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin: 0;
+  z-index: 1001;
+  overflow-y: auto; /* Add overflow-y to enable vertical scrolling */
+  margin-top: 5%;
+}
+
+
+.modalf {
+  width: 110%; /* Adjusted to cover 40% of the screen width */
+  height: 85%;
+  padding: 20px; /* Changed to fixed positioning */
+  top:0;
+  right: 0; /* Positioned to the right side of the screen */
+  z-index: 1000;
+  margin-left: -7%;
+}
+  
+  
+  /* Update .boton-guardar CSS */
+  .boton-guardarf {
+    background-color: rgba(186, 223, 58, 1);
+    color: black;
+    padding: 1% 2%;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Koulen';
+    font-size: 200%;
+  }
+  
+  /* Other existing styles */
+  
+  /* Add any other necessary styles here */
+  
+  label {
+    text-align: left;
+    font-weight: bold;
+    margin-left: 2.5%;
+  }
+  
+  .form-groupf {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+    margin-top: 10px;
+    height: 100%;
+  }
+  
+  h2 {
+    color: #FF7001;
+    text-align: center;
+    font-family: 'Koulen';
+    font-size: 250%;
+  }
+  
+  h1 {
+    color: black;
+    text-align: left;
+    font-family: 'Koulen';
+    font-size: 200%;
+  }
+  

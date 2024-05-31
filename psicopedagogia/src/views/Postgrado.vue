@@ -47,16 +47,16 @@ const obtenerMaestrias = async () => {
     console.error('Error fetching maestrias:', error);
   }
 };
-
-// Function to fetch data for Cursos Continuos
 const obtenerCursos = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/cursosfc'); // Ensure the endpoint is correct here
+    const response = await axios.get('http://localhost:3000/api/cursosfc'); // Corregido el nombre de la ruta
     cursos.value = response.data;
   } catch (error) {
     console.error('Error fetching cursos:', error);
   }
 };
+
+
 
 
 // Call the functions to fetch data when the component is mounted
@@ -89,23 +89,28 @@ const generateMaestriaTable = (maestria) => {
 const generateCursoTable = (curso) => {
   const tableHTML = `<center>
     <div class="curso">
-        <div class="curso-img">
-        <img src="${curso.img}" alt="${curso.titulo}" class="curso-image">
-      </div>
-      <div class="curso-info">
-        <h4 class="curso-head"> ${curso.titulo}<h4>
-            <p class="curso-info p">
-        About: ${curso.about}<br><br>
-        Competencia: ${curso.competencia}<br><br>
-        Requisitos: ${curso.requisitos}<br><br>
-        Fecha: ${curso.fecha}</p>
-      </div>
-      
-    </div>
+  <div class="curso-img">
+    <img src="${curso.img}" alt="${curso.titulo}" class="curso-image">
+  </div>
+  <div class="curso-info">
+    <h4 class="curso-head">${curso.titulo}</h4>
+    <p class="curso-info p"><b>
+      About: ${curso.about}<br><br>
+      Competencia: ${curso.competencia}<br><br>
+      Requisitos: ${curso.requisitos}<br><br>
+      Fecha: ${curso.fecha}</b>
+    </p>
+  </div>
+</div>
+
   <center>`;
 
   return tableHTML;
 };
+
+
+
+
 </script>
   <style>
   @import url('/src/assets/Postgrado.css');

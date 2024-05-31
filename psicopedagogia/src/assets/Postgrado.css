@@ -1,6 +1,6 @@
 .titulo-pos {
     font-family: 'Koulen';
-    font-size: 60px;
+    font-size: 300%;
     color: rgba(255, 42, 157, 1);
     padding: 2%;
 }
@@ -10,101 +10,177 @@
   color: rgba(255, 42, 157, 1);
   padding: 2%;
 }
+/*-----------------------------------------------------------*/
 
-.maestria-info{
-    background-color: rgba(170, 214, 251, 1);
-    width: 50%;
-    border-radius: 20px;
-    padding: 2%;
-    margin-left: 10%;
-    
+.maestrias-container {
+  display: flex;
+  justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  align-items: flex-start; /* Alinea los elementos arriba */
+  flex-wrap: wrap; /* Envuelve los elementos en múltiples líneas si es necesario */
+  margin-left: -60px; /* Mueve el contenedor hacia la derecha */
 }
-.maestria {
-    display: flex; /* Use flexbox layout */
-    align-items: center; /* Center items vertically */
-    margin-bottom: 4%; /* Add some bottom margin for spacing */
-    
-    
-    
-  }
-  
-  .maestria-img {
-     /* Add right margin to create space between image and text */
-    z-index: 2;
-    
-    
-  }
-  .maestria-image{
-    border-radius: 20px;
-    width: 400px;
-    height: 400px;
-    margin-left: -75%;
-  }
-  
-  .maestria-info p {
-    margin: 0; /* Remove default margin for paragraphs */
-    margin-right: 25%;
-    font-size: 23px;
-    width: 75%;
-    font-family:'Roboto Condensed', sans-serif;
-  }
-  .maestria-head{
-    text-align: center;
-    font-size: 25px;
-    margin-right: 31%;
-    font-family: 'Oswald';
-  }
 
+.maestria-item {
+  margin: 2px; /* Añade espaciado entre los elementos */
+}
+
+
+
+.maestria {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4%;
+  background-color: rgba(170, 214, 251, 1);
+  border-radius: 20px;
+  width: 80%;
+  height: auto;
+  max-width: 1300px; /* Ancho máximo del contenedor */
+}
+
+.maestria-info {
+  padding: 2%;
+
+  width: 100%; /* Establece el ancho del contenedor de información */
+}
+
+.maestria-image {
+  border-radius: 20px;
+  width: 60%; /* Establece el ancho de la imagen */
+  min-width: 150%;
+  max-width: 400px;
+  min-height: 200%;
+  max-height: 800px;
+  height: auto; /* Altura automática para mantener la proporción */
+  
+}
+
+.maestria-info p {
+  margin: 0;
+  width: 100%;
+  max-width: 600px;
+  font-size: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.maestria-head {
+  text-align: center;
+  font-size: 200%;
+  font-family: 'Oswald';
+}
 
 /*-------------------------------------------------------------------------------------------*/
 
-
-
-
-  .curso-info{
-    background-color: rgba(219, 238, 150, 1);
-    width: 80%;
-    border-radius: 40px;
-    padding: 2%;
-    margin-right: 2%;
-    
+.curso-container {
+  display: flex;
+  justify-content: flex-end; /* Align container to the right */
+  align-items: flex-end; /* Align items to the top */
+  flex-wrap: wrap; /* Wrap items */
+  margin-right: 2%; /* Adjust margin for spacing */
 }
+
+
+.curso-item {
+  margin: 2px; /* Add spacing between items */
+}
+
 .curso {
-    display: flex; /* Use flexbox layout */
-    align-items: center; /* Center items vertically */
-    margin-bottom: 4%; /* Add some bottom margin for spacing */
-  
-    width: 80%;
-  }
-  
-  .curso-img {
-     /* Add right margin to create space between image and text */
-    z-index: 2;
-    
-    
-  }
-  .curso-image{
-    border-radius: 20px;
-    width: 400px;
-    height: 400px;
-    margin-right: -80%;
-  }
-  
-  .curso-info p {
-    margin: 0; /* Remove default margin for paragraphs */
-    margin-left: 13%;
-    width: 70%;
-    font-size:25px;
-    font-family: 'Roboto Condensed', sans-serif;
-  }
-  .curso-head{
-    text-align: left;
-    font-size: 25px;
-    margin-left: 24%;
-    font-family: 'Oswald';
+  display: flex;
+  align-items: center;
+  margin-bottom: 4%;
+  background-color: rgba(219, 238, 150, 1);
+  border-radius: 20px;
+  width: 80%;
+  height: auto;
+  max-width: 900px; /* Maximum width of the container */
+  padding: 1%;
+}
+
+.curso-info {
+  padding: 2%;
+  width: 100%; /* Set the width of the info container */
+}
+
+.curso-image {
+  border-radius: 20px;
+  width: 60%; /* Set the width of the image */
+  min-width: 180%;
+  max-width: 400px;
+  min-height: 200%;
+  max-height: 600px;
+  height: auto; /* Maintain aspect ratio */
+  margin-left: -80px;
+}
+
+.curso-info p {
+  margin: 0;
+  width: 80%;
+  max-width: 600px;
+  font-size: 100%;
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-left: 22%;
+}
+
+.curso-head {
+  text-align: center;
+  font-size: 200%;
+  font-family: 'Oswald';margin-left: 22%;
+}
+
+.container-pos {
+  text-align: left;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .curso {
+    flex-direction: row; /* Change flex direction to row */
   }
 
-  .container-pos{
-    text-align: center;
+  .curso-img {
+    width: 30%; /* Set image width */
+    max-width: 200px; /* Set maximum width for smaller screens */
+    margin-right: 20px; /* Add space between image and text */
+  }
+
+  .curso-info {
+    flex: 1; /* Take up remaining space */
+  }
+}
+
+
+
+/* Media queries para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+  .maestria {
+    width: 90%; /* Cambia el ancho de .maestria */
   }
   
+  .maestria-image {
+    width: 100%; /* Haz que la imagen ocupe todo el ancho del contenedor */
+    margin-right: 0; /* Elimina el margen derecho de la imagen */
+  }
+  
+  /* Añade más ajustes según sea necesario para pantallas pequeñas */
+}
+
+/* Media queries para pantallas medianas */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .maestria {
+    width: 70%; /* Cambia el ancho de .maestria */
+  }
+  
+  .maestria-image {
+    width: 50%; /* Reduce el ancho de la imagen */
+    margin-right: 0; /* Elimina el margen derecho de la imagen */
+  }
+  
+  /* Añade más ajustes según sea necesario para pantallas medianas */
+}
+
+/* Media queries para pantallas grandes */
+@media only screen and (min-width: 1025px) {
+  /* Aquí puedes añadir estilos específicos para pantallas grandes si es necesario */
+}
+/* Estilos base */
+/* .curso-info, .curso, .curso-img, .curso-image, .curso-info p, .curso-head, .container-pos */
+/* Añade aquí tus estilos base */

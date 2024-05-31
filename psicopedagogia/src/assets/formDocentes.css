@@ -8,7 +8,7 @@
   width: 100%;
   height: 100%; /* Change height to 100% */
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
+  z-index: 1005;
   overflow-y: auto; /* Allow vertical scrolling for the entire modal */
 }
 
@@ -21,6 +21,7 @@
   max-width: 500px; /* Limit the maximum width of the modal content */
   width: 100%; /* Set width to 100% */
   margin-top: 80px; /* Add more margin to the top */
+  z-index: 1005;
 }
 
 .close {
@@ -29,15 +30,22 @@
   right: 10px;
   font-size: 24px;
   cursor: pointer;
-  color: rgba(186, 223, 58, 1); /* Color naranja para el botón de cierre */
+  color: black; /* Color naranja para el botón de cierre */
 }
 
 .form-group {
   margin-bottom: 20px; /* Increased margin between form groups */
+  text-align: left;
 }
+.form-groupf {
+  margin-bottom: 20px; /* Increased margin between form groups */
+  text-align: left;
+}
+
 
 label {
   font-weight: bold;
+  
 }
 
 input[type="text"],
@@ -54,24 +62,41 @@ textarea {
 h2 {
   color: #FF7001;
   text-align: center;
+  font-family: 'Koulen';
+  font-size: 250%;
 }
 
 .boton-guardar {
-  background-color: rgba(186, 223, 58, 1);
-    color: black;
-  padding: 15px 30px; /* Increased padding for button */
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: 'Koulen';
-      font-size: 36px;
+  font-size: 36px;
+  width: 32%;
+  padding: 1%;
+  color: black;
+  border-radius: 40px;
+  font-size: 150%;
+  left:0;
+  margin:2%;
+  margin-top: -7%;
+  padding-left:2% ;
+  padding-right:2% ;
 }
+.boton-guardarf {
+  font-size: 36px;
+  width: 32%;
+  padding: 1%;
+  color: black;
+  border-radius: 40px;
+  font-size: 150%;
+  left:0;
+  margin:2%;
+  margin-top: -7%;
+  padding-left:2% ;
+  padding-right:2% ;
+}
+
 
 button{
   border-radius: 20px;
-  
-  background-color: rgba(186, 223, 58, 1);
+  background-color: #BADF3A;border-color: #BADF3A;
   color: black;
-  border-color:  rgba(186, 223, 58, 1);
   
 }
