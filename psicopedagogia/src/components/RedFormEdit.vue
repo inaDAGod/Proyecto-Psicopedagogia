@@ -24,7 +24,7 @@
             <br>
             <br>
             <br>
-            <button class="bot-borrar" @click="borrarRed()" >Borrar Red</button>
+            <button class="bot-borrar" @click="borrarRed()" ><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
           </div>
         </form>
       </div>

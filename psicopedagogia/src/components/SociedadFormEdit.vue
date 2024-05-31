@@ -23,7 +23,7 @@
         </div>
       </form>
       <div style="text-align: center;">
-        <button class="bot-borrar" @click="borrarInvestigacion()">Borrar Investigacion</button>
+        <button class="bot-borrar" @click="borrarInvestigacion()"><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
       </div>
       
     </div>

@@ -8,7 +8,7 @@
           <p><b>{{ investigacion.titulo }}</b></p>
           <div class="divBoton">
             <div class="botones">
-              <button class="bot-editar" @click="toggleForm(investigacion,index)">Editar</button>
+              <button class="bot-editar" @click="toggleForm(investigacion,index)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
             </div>
           </div>
         </div>
@@ -104,8 +104,6 @@
       border: none;
       border-radius: 20px;
       cursor: pointer;
-      height: 20%;
-      width: 50%;
       font-size: 100%;
     }
   </style>

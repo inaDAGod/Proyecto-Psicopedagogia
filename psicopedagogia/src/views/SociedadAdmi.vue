@@ -31,7 +31,7 @@
                 <input type="text" id="contactos" :disabled="!editar" v-model="contactos" required>
             </div>
               <div style="text-align: center;">
-                <button v-if="!mostrarBotonGuardar && !editar" class="bot-guardar" @click="editar = true">Editar</button>
+                <button v-if="!mostrarBotonGuardar && !editar" class="bot-guardar" @click="editar = true"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
                 <button v-if="editar" class="bot-guardar" @click="guardarCambios">Guardar</button>
               </div>
             </form>

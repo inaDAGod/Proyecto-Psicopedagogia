@@ -31,7 +31,7 @@
         <div style="text-align: center;">
           <button class="bot-guardar">Guardar</button>
           <br><br><br><br>
-          <button class="bot-borrar" @click="borrarEgresado">Borrar Egresado</button>
+          <button class="bot-borrar" @click="borrarEgresado"><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
         </div>
       </form>
     </div>

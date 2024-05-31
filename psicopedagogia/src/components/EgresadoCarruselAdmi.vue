@@ -9,7 +9,7 @@
         <p>{{ egresado.correo }}</p>
         <div class="divBoton">
           <div class="botones">
-            <button class="bot-editar" @click="toggleForm(egresado)">Editar</button>
+            <button class="bot-editar" @click="toggleForm(egresado)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
           </div>
         </div>
       </div>
@@ -105,8 +105,6 @@ onMounted(async () => {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    height: 20%;
-    width: 50%;
     font-size: 100%;
   }
 </style>
