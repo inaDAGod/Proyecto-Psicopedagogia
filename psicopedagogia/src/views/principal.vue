@@ -162,30 +162,29 @@ body {
 }
 .content-home {
     padding: 0px;
-    width: 10%; /* Ajustar el ancho al 100% para que ocupe todo el ancho disponible */
-    max-width: 100px;
 }
 .titulo-psico {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center; /* Centramos el contenido horizontalmente */
-  padding-left: 5%; /* Ajustamos el espacio izquierdo según sea necesario */
-  padding-right: 5%; /* Ajustamos el espacio derecho según sea necesario */
+  align-items: flex-start;
+  padding-left: 5%; /* Ajusta el espacio izquierdo según sea necesario */
 }
-.titulo-psico h1 {
-  font-family: 'Koulen', sans-serif;
-  font-size: 6vh;
-  color: #0D89F4;
-  padding-top: 10vh;
-  margin-bottom: 2vh;
+.titulo-psico h1{
+    font-family: 'Koulen', sans-serif;
+    font-size: 10vh;
+    color: #0D89F4;
+    padding-top: 10vh;
+    padding-left: 3vh;
+    margin-bottom: 2vh;
 }
-.titulo-psico h2 {
-  font-family: 'Koulen', sans-serif;
-  font-size: 8vh;
-  padding-top: 2vh;
-  color: #FF7001;
-  margin-bottom: 2vh;
+.titulo-psico h2{
+    font-family: 'Koulen', sans-serif;
+    font-size: 12vh;
+    padding-top: 2vh;
+    color: #FF7001;
+    padding-left: 8vh;
+    margin-bottom: 2vh;
 }
 
 
