@@ -2,10 +2,10 @@
   <div id="app" class="container">
     <div class="container_main">
       <div class="flex-container">
-        <div class="flex-item" style="flex: 1;">
+        <div class="flex-item" style="flex: 7;">
           <Curso @closeForm="closeForm('curso')" />
         </div>
-        <div class="flex-item" style="flex: 1;">
+        <div class="flex-item" style="flex: 3;">
           <Formpaginanos @closeForm="closeForm('formPaginanos')" />
         </div>
       </div>
