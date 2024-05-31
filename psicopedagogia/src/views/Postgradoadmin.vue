@@ -11,8 +11,8 @@
       <div class=" maestrias-container">
             <div v-for=" maestria in  maestrias" :key=" maestria.id" class=" maestria-item">
               <div v-html="generateMaestriaTable( maestria)"></div>
-              <button class="b-formnad" @click="openModForma( maestria)">Modificar</button>
-              <button class="b-formnad" @click="openDelForma( maestria)">Eliminar</button>
+              <button class="b-formnad" @click="openModForma( maestria)"><img src="/backend/images/edit.png" width="28vh" height="auto"></button>
+              <button class="b-formnad" @click="openDelForma( maestria)"><img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;"></button>
             </div>
           </div>
           <FormMaestriaMod v-if="showFormMaestriaMod" :maestria="selectedmaestria" :showForm="showFormMaestriaMod" @closeForma="closeForma('FormMaestriaMod')" />
@@ -25,8 +25,8 @@
       <div class=" cursos-container">
             <div v-for=" curso in  cursos" :key=" curso.id" class=" curso-item">
               <div v-html="generateCursoTable( curso)"></div>
-              <button class="b-formnad" @click="openModForm( curso)">Modificar</button>
-              <button class="b-formnad" @click="openDelForm( curso)">Eliminar</button>
+              <button class="b-formnad" @click="openModForm( curso)"><img src="/backend/images/edit.png" width="28vh" height="auto"></button>
+              <button class="b-formnad" @click="openDelForm( curso)"><img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;"></button>
             </div>
           </div>
           <FormcursoMod v-if="showFormcursoMod" :curso="selectedcurso" :showForm="showFormcursoMod" @closeForm="closeForm('FormcursoMod')" />

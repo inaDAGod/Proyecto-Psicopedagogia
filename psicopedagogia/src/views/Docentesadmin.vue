@@ -6,8 +6,9 @@
         <div class="docentes-container">
           <div v-for="docente in docentes" :key="docente.id" class="docente-item" style="background-color:  rgba(255, 206, 232, 1); margin: 2%;border-radius: 20px;" >
             <div v-html="generateTable(docente)"></div>
-            <button class="b-formnad" style="background-color: #5BA45A;border-color: #5BA45A;" @click="openModForm(docente)"><img src="./src/assets/images/edit.png" width="20vh" height="auto"></button>
-            <button class="b-formnad" style="background-color: #DF351B;border-color: #DF351B;" @click="openDelForm(docente)"><img src="./src/assets/images/trash2.png" width="20vh" height="auto"></button>
+            
+            <button class="b-formn" style="background-color: #FFA198;border-color: #FFA198;margin-right: 20%;" @click="openDelForm(docente)"><img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;"></button>
+            <button class="b-formn" style="background-color: #BADF3A;border-color: #BADF3A;" @click="openModForm(docente)"><img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;"></button>
           </div>
         </div>
         <FormDocMod v-if="showFormDocMod" :docente="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
@@ -117,18 +118,17 @@ const generateTable = (docente) => {
 
 
 .docentes-imagenad { 
-  border-radius: 20px;
     z-index: 1; 
     width: 100%;
-    height: 40%;
+    height: 60%;
     padding: 1%;
     
 }
 
 
-.b-formnad {
+.b-formn {
   font-size: 36px;
-        width: 32%;
+  width: 32%;
         padding: 1%;
         color: white;
         border-radius: 40px;
@@ -138,6 +138,7 @@ const generateTable = (docente) => {
         margin-top: -7%;
         padding-left:2% ;
         padding-right:2% ;
+
 }
 .content-wrapper {
   display: flex

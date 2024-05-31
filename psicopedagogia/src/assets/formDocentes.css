@@ -30,7 +30,7 @@
   right: 10px;
   font-size: 24px;
   cursor: pointer;
-  color: rgba(186, 223, 58, 1); /* Color naranja para el botón de cierre */
+  color: black; /* Color naranja para el botón de cierre */
 }
 
 .form-group {
@@ -55,24 +55,27 @@ textarea {
 h2 {
   color: #FF7001;
   text-align: center;
+  font-family: 'Koulen';
+  font-size: 250%;
 }
 
 .boton-guardar {
-  background-color: rgba(186, 223, 58, 1);
-    color: black;
-  padding: 15px 30px; /* Increased padding for button */
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: 'Koulen';
-      font-size: 36px;
+  font-size: 36px;
+  width: 32%;
+  padding: 1%;
+  color: white;
+  border-radius: 40px;
+  font-size: 150%;
+  left:0;
+  margin:2%;
+  margin-top: -7%;
+  padding-left:2% ;
+  padding-right:2% ;
 }
 
 button{
   border-radius: 20px;
-  
-  background-color: rgba(186, 223, 58, 1);
+  background-color: #BADF3A;border-color: #BADF3A;
   color: black;
-  border-color:  rgba(186, 223, 58, 1);
   
 }

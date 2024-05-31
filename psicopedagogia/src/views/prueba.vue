@@ -2,12 +2,16 @@
     <div id="app">
       <div class="content-wrapper">
         <div class="main-content">
-          <h1 class="titulo-nos">maestria</h1>
+          <h1 style="font-family: 'Koulen';
+    font-size: 400%;
+    color: rgba(255, 112, 1, 1);
+    padding: 2%;" >Diplomados,especialidades y Maestría</h1>
           <div class="docentes-container">
-            <div v-for="maestria in maestrias" :key="maestria.id" class="docente-item">
+            <div v-for="maestria in maestrias" :key="maestria.id" class="docente-item" style="background-color: rgba(170, 214, 251, 1);margin:2%;border-radius: 20px;">
               <div v-html="generateTable(maestria)"></div>
-              <button class="b-forma" style="background-color: #5BA45A;border-color: #5BA45A;" @click="openModForm(maestria)">Modificar</button>
-              <button class="b-forma" style="background-color: #DF351B;border-color: #DF351B;" @click="openDelForm(maestria)">Eliminar</button>
+              
+              <button class="b-forma" style="background-color: #FFA198;border-color: #FFA198;margin-right: 20%;" @click="openDelForm(maestria)"><img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;"></button>
+              <button class="b-forma" style="background-color: #BADF3A;border-color: #BADF3A;" @click="openModForm(maestria)"><img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%"></button>
             </div>
           </div>
           <FormDocMod v-if="showFormDocMod" :maestria="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
@@ -64,11 +68,11 @@
     <div class="maestriadi">
       <div class="maestriadi-info">
         <img src="${maestria.img}" alt="${maestria.titulo}" class="maestriadi-image">
-        <h5 class="maestriadi-head">Título: ${maestria.titulo}</h5><p class="maestria-info p"><b>
+        <h5 class="maestriadi-head">Título: ${maestria.titulo}</h5><p class="maestria-info p">
         About: ${maestria.about}<br><br>
         Competencia: ${maestria.competencia}<br><br>
         Requisitos: ${maestria.requisitos}<br><br>
-        Fecha: ${maestria.fecha}</b></p>
+        Fecha: ${maestria.fecha}</p>
       </div>
       
     </div>
