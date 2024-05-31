@@ -41,7 +41,7 @@
             <input type="text" id="tiktok" v-model="tiktok" required>
           </div>
           <div class="form-group">
-            <label  for="attencion_dire">Atención Dirección:</label><br>
+            <label for="attencion_dire">Atención Dirección:</label><br>
             <textarea style="width: 175%;" id="attencion_dire" v-model="attencionDire" rows="4" required></textarea>
           </div>
           <div style="text-align: center;">
@@ -54,9 +54,8 @@
   </div>
 </template>
 
-
 <script setup>
-import { ref, defineProps, watch } from 'vue';
+import { ref, onMounted, defineProps } from 'vue';
 
 const showForm = ref(true);
 const notification = ref(null);
@@ -73,15 +72,15 @@ const props = defineProps({
   onclose: Function
 });
 
-const linkVideo = ref(props.linkVideo);
-const linkSocCien = ref(props.linkSocCien);
-const linkSembrando = ref(props.linkSembrando);
-const linkPsicoUcb = ref(props.linkPsicoUcb);
-const facebook = ref(props.facebook);
-const insta = ref(props.insta);
-const youtube = ref(props.youtube);
-const tiktok = ref(props.tiktok);
-const attencionDire = ref(props.attencionDire);
+const linkVideo = ref(props.linkVideo || '');
+const linkSocCien = ref(props.linkSocCien || '');
+const linkSembrando = ref(props.linkSembrando || '');
+const linkPsicoUcb = ref(props.linkPsicoUcb || '');
+const facebook = ref(props.facebook || '');
+const insta = ref(props.insta || '');
+const youtube = ref(props.youtube || '');
+const tiktok = ref(props.tiktok || '');
+const attencionDire = ref(props.attencionDire || '');
 
 // Function to fetch data from the database
 const fetchData = async () => {
@@ -91,15 +90,15 @@ const fetchData = async () => {
       const data = await response.json();
       console.log('Fetched data:', data);
       // Update variables with fetched data
-      linkVideo.value = data.linkVideo;
-      linkSocCien.value = data.linkSocCien;
-      linkSembrando.value = data.linkSembrando;
-      linkPsicoUcb.value = data.linkPsicoUcb;
+      linkVideo.value = data.link_video;
+      linkSocCien.value = data.link_soc_cien;
+      linkSembrando.value = data.link_sembrando;
+      linkPsicoUcb.value = data.link_psico_ucb;
       facebook.value = data.facebook;
       insta.value = data.insta;
       youtube.value = data.youtube;
       tiktok.value = data.tiktok;
-      attencionDire.value = data.attencionDire;
+      attencionDire.value = data.attencion_dire;
     } else {
       console.error('Error fetching data:', response.statusText);
     }
@@ -108,12 +107,8 @@ const fetchData = async () => {
   }
 };
 
-// Watch for changes in props and fetch data accordingly
-watch(
-  () => [props.linkVideo, props.linkSocCien, props.linkSembrando, props.linkPsicoUcb, props.facebook, props.insta, props.youtube, props.tiktok, props.attencionDire],
-  fetchData,
-  { deep: true }
-);
+// Fetch data when the component is mounted
+onMounted(fetchData);
 
 // Function to send the form data to the server
 const submitForm = async () => {
@@ -170,5 +165,3 @@ const submitForm = async () => {
 
 /* Other styles here */
 </style>
-
-
