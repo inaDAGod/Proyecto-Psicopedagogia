@@ -38,6 +38,7 @@
 .tituloNav {
   padding: 2%;
   animation: ocean-animation 5s infinite alternate;
+  color: white;
 }
 
 @keyframes ocean-animation {

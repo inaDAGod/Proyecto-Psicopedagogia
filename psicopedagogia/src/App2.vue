@@ -4,12 +4,17 @@
     <div class="contentWrapper">
       <div class="menuDiv">
         <ul class="menu">
-          <li><router-link to="/admi"> Inicio</router-link></li>
+          <li><router-link to="/redadmi"> Inicio</router-link></li>
           <br>
           <li><router-link to="/aboutadmi"> About</router-link></li>
           <br>
+          <li><router-link to="/egresadosadmi"> Egresados </router-link></li>
+          <br>
           <li><router-link to="/redadmi"> Red </router-link></li>
-          
+          <br>
+          <li><router-link to="/sociedadadmi"> Sociedad </router-link></li>
+          <br>
+          <li><router-link to="/zonaadmi"> Zona </router-link></li>
         </ul>
       </div>
       <div class="mainContentAdmi">

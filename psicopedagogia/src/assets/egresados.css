@@ -52,18 +52,28 @@ h2 {
 .espacio{
   min-height: 110px;
 }
+.espacio1{
+  min-height: 110px;
+}
+
 
 .car-control-prev,
 .car-control-next {
-  position: absolute;
-  top: 68%;
-  transform: translateY(-50%);
-  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #BADF3A;
   border: none;
-  font-size: 60px;
-  font-weight: 200;
-  color: #000; 
+  color: #fff;
+  font-family: monospace;
+  font-weight: bold;
+  transition: 0.5s;
   cursor: pointer;
+  position: absolute;
+  top: 65%;
+  transform: translateY(-50%);
+  z-index: 1000;
+  
 }
 
 .car-control-prev {
@@ -145,4 +155,52 @@ h2 {
   padding-bottom: 20px;
   padding-right: 20px;
   text-align: right;
+}
+@media (max-width: 768px) {
+  .circle-background {
+    display: none; 
+  }
+  h2 {
+
+    font-size: 250%;
+    padding-bottom: 0%;
+    text-align: center;
+}
+ 
+
+  .car-item {
+      display: none; 
+    }
+
+    .car-item.focused {
+      display: block; 
+    }
+  .info-content {
+    padding-left: 30px;
+    padding-top: 0%;
+    
+  }
+  .info-container{
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 50%;
+  }
+  .info-img {
+    position: relative;
+    width: 100%;
+    height: 200px; 
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+    object-fit: cover; 
+    margin: 0 auto;
+    left: 1%;
+    top: none;
+    transform: none;
+    margin-bottom: 1%;
+  }
+  .espacio1{
+    min-height: 1px;
+  }
 }

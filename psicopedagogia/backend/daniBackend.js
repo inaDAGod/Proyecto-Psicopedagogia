@@ -38,7 +38,7 @@ app.post('/upload', function(req, res) {
   let uploadPath;
 
   if (!req.files || Object.keys(req.files).length === 0) {
-    return res.status(400).send('No files were uploaded.');
+    return res.status(400).json({ error: 'No files were uploaded.' });
   }
 
   sampleFile = req.files.sampleFile;
@@ -46,9 +46,8 @@ app.post('/upload', function(req, res) {
 
   sampleFile.mv(uploadPath, function(err) {
     if (err)
-      return res.status(500).send(err);
-
-    res.send('File uploaded!');
+      return res.status(500).json({ error: err }); 
+    res.json({ message: 'File uploaded!' });
   });
 });
 
@@ -76,15 +75,27 @@ app.post('/api/egresados', async (req, res) => {
 
 app.post('/api/egresadosUpdate', async (req, res) => {
   try {
-    const { index, nombre, correo, anio_graduacion, trabajo, comentario } = req.body;
+    const { index, nombre, correo, anio_graduacion, trabajo, comentario, foto } = req.body;
     await db.collection('egresados').updateOne(
-      { _id: ObjectId(index) },
-      { $set: { nombre, correo, anio_graduacion, trabajo, comentario } }
+      { _id: new ObjectId(index) },
+      { $set: { nombre, correo, anio_graduacion, trabajo, comentario,src_foto: foto  } }
     );
     res.status(200).send('Egresado actualizado correctamente');
   } catch (error) {
     console.error('Error al actualizar el egresado:', error);
     res.status(500).send('Error al actualizar el egresado');
+  }
+});
+
+app.delete('/api/egresados/:id', async (req, res) => {
+  try {
+    const egresadoId = req.params.id;
+    // Realizar la lógica para eliminar el egresado de la base de datos utilizando el ID proporcionado
+    await db.collection('egresados').deleteOne({ _id: new ObjectId(egresadoId) });
+    res.status(200).send('Egresado eliminado correctamente');
+  } catch (error) {
+    console.error('Error al eliminar el egresado:', error);
+    res.status(500).send('Error al eliminar el egresado');
   }
 });
 
@@ -274,15 +285,153 @@ app.get('/api/noticias', async (req, res) => {
 
 //investigaciones
 
-app.get('/api/investigaciones', async (req, res) => {
+app.get('/api/zona', async (req, res) => {
   try {
-    const investigacion = await db.collection('investigaciones').findOne();
+    const investigacion = await db.collection('zona').findOne();
     res.json(investigacion);
   } catch (error) {
     console.error('Error al obtener la investigación:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+app.get('/api/zona/investigaciones', async (req, res) => {
+  try {
+    const investigacion = await db.collection('investigaciones_zona').find().toArray();
+    res.json(investigacion);
+  } catch (error) {
+    console.error('Error al obtener la investigación:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.get('/api/sociedad/investigaciones', async (req, res) => {
+  try {
+    const investigacion = await db.collection('investigaciones_sociedad').find().toArray();
+    res.json(investigacion);
+  } catch (error) {
+    console.error('Error al obtener la investigación:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
+app.get('/api/sociedad', async (req, res) => {
+  try {
+    const sociedad = await db.collection('sociedad').findOne();
+    res.json(sociedad);
+  } catch (error) {
+    console.error('Error al obtener la investigación:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.post('/api/sociedadUpdate', async (req, res) => {
+  try {
+    const { quienes_somos, desdecuando, quienes_conforman, como_unirse,link_face, contactos } = req.body;
+    await db.collection('sociedad').updateOne(
+      {}, // Filtro vacío para actualizar todos los documentos
+      { $set: { quienes_somos, desdecuando, quienes_conforman, como_unirse,link_face, contactos } }
+    );
+    res.status(200).send('Actualizado correctamente');
+  } catch (error) {
+    console.error('Error al actualizar:', error);
+    res.status(500).send('Error al actualizar');
+  }
+});
+app.post('/api/zonaUpdate', async (req, res) => {
+  try {
+    const { quienes_somos, desdecuando, quienes_conforman, como_unirse,link_face, contactos } = req.body;
+    await db.collection('zona').updateOne(
+      {}, // Filtro vacío para actualizar todos los documentos
+      { $set: { quienes_somos, desdecuando, quienes_conforman, como_unirse,link_face, contactos } }
+    );
+    res.status(200).send('Actualizado correctamente');
+  } catch (error) {
+    console.error('Error al actualizar:', error);
+    res.status(500).send('Error al actualizar');
+  }
+});
+
+app.post('/api/investigacionSociedad', async (req, res) => {
+  try {
+    const { titulo, descripcion, foto } = req.body;
+
+    await db.collection('investigaciones_sociedad').insertOne({ titulo, descripcion, src_foto: foto });
+    res.status(201).json({ message: 'Guardado correctamente' });
+  } catch (error) {
+    console.error('Error al guardar investigación:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.post('/api/investigacionZona', async (req, res) => {
+  try {
+    const { titulo, descripcion, foto } = req.body;
+
+    await db.collection('investigaciones_zona').insertOne({ titulo, descripcion, src_foto: foto });
+    res.status(201).json({ message: 'Guardado correctamente' });
+  } catch (error) {
+    console.error('Error al guardar investigación:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
+app.post('/api/sociedad/investigacionUpdate', async (req, res) => {
+  try {
+    const { index, titulo, descripcion, foto } = req.body;
+
+    await db.collection('investigaciones_sociedad').updateOne(
+      { _id: new ObjectId(index) },
+      { $set:{titulo, descripcion, src_foto: foto }}
+    );
+
+    res.status(200).json({ message: 'Investigación de sociedad actualizada correctamente' });
+  } catch (error) {
+    console.error('Error al actualizar la investigación:', error);
+    res.status(500).json({ error: 'Error al actualizar' });
+  }
+});
+app.post('/api/zona/investigacionUpdate', async (req, res) => {
+  try {
+    const { index, titulo, descripcion, foto } = req.body;
+
+    await db.collection('investigaciones_zona').updateOne(
+      { _id: new ObjectId(index) },
+      { $set:{titulo, descripcion, src_foto: foto }}
+    );
+
+    res.status(200).json({ message: 'Investigación de zona actualizada correctamente' });
+  } catch (error) {
+    console.error('Error al actualizar la investigación:', error);
+    res.status(500).json({ error: 'Error al actualizar' });
+  }
+});
+
+app.delete('/api/sociedad/inv/:index', async (req, res) => {
+  try {
+    const Investigaciónindex = req.params.index;
+    //console.log(Investigaciónindex);
+    await db.collection('investigaciones_sociedad').deleteOne({ _id: new ObjectId(Investigaciónindex) });
+    res.status(200).json({ message: 'Investigación eliminada correctamente' });
+  } catch (error) {
+    console.error('Error al eliminar la investigación:', error);
+    res.status(500).json({ error: 'Error al eliminar la investigación' });
+  }
+});
+app.delete('/api/zona/inv/:index', async (req, res) => {
+  try {
+    const Investigaciónindex = req.params.index;
+    //console.log(Investigaciónindex);
+    await db.collection('investigaciones_zona').deleteOne({ _id: new ObjectId(Investigaciónindex) });
+    res.status(200).json({ message: 'Investigación eliminada correctamente' });
+  } catch (error) {
+    console.error('Error al eliminar la investigación:', error);
+    res.status(500).json({ error: 'Error al eliminar la investigación' });
+  }
+});
+
+
+
+
 
 //Postgrado
 app.get('/api/cursosfc', async (req, res) => {
@@ -368,6 +517,43 @@ app.get('/api/red', async (req, res) => {
   }
 });
 
+
+app.post('/api/red', async (req, res) => {
+  try {
+    const {  titulo, link, foto } = req.body;
+    await db.collection('red').insertOne({ titulo, link, src: foto });
+    res.status(201).json({ message: 'Red guardado correctamente' });
+  } catch (error) {
+    console.error('Error al guardar red', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+app.post('/api/redUpdate', async (req, res) => {
+  try {
+    const { index, titulo, link,foto } = req.body;
+    await db.collection('red').updateOne(
+      { _id: new ObjectId(index) },
+      { $set: {  titulo, link, src:foto } }
+    );
+    res.status(200).send('Red actualizado correctamente');
+  } catch (error) {
+    console.error('Error al actualizar el red:', error);
+    res.status(500).send('Error al actualizar el red');
+  }
+});
+
+app.delete('/api/red/:id', async (req, res) => {
+  try {
+    const redId = req.params.id;
+    // Realizar la lógica para eliminar el egresado de la base de datos utilizando el ID proporcionado
+    await db.collection('red').deleteOne({ _id: new ObjectId(redId) });
+    res.status(200).send('Red eliminado correctamente');
+  } catch (error) {
+    console.error('Error al eliminar red:', error);
+    res.status(500).send('Error al eliminar red');
+  }
+});
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor backend en funcionamiento en el puerto ${PORT}`);

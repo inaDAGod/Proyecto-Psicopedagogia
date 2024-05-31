@@ -2,23 +2,21 @@
     width: 100%;
 }
 .redFace{
-    font-size: 130%;
     color: #0D89F4;
-    font-size: 30px;
+    font-size: 20px;
     padding-top: 4%;
 }
 .faceImg{
-    padding-left: 10%;
-    padding-right: 0%;
+    padding-left: 30%;
 }
 .contenido{
     background-color: #AAD6FB;
     margin-top: -20px; /* Ajusta este valor según lo que necesites */
 }
 .derechaTable{
+    padding-top: 5%;
     text-align: right;
     padding-right: 10%;
-    padding-top: 2%;
     color: #0D89F4;
     font-size: 20px;
 }
@@ -27,4 +25,23 @@
 }
 .footer-img {
     margin-bottom: -40px; /* Ajusta este valor según lo que necesites */
+}
+@media (max-width: 768px){
+    .footer-img{
+        width: 20%;
+    }
+    .faceImg img{
+        display: none;
+    }
+    .redFace{
+        font-size: 10px;
+        padding-left: 16%;
+    }
+    .derechaTable{
+        font-size: 10px;
+    }
+    .contenido{
+        height: auto;
+        padding: 5%;
+    }
 }
