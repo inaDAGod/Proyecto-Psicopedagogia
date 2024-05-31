@@ -18,7 +18,7 @@
           >
         </button>
       </div>
-      <div class="espacio"></div>
+      <div class="espacio1"></div>
       <div v-if="egresados[currentIndex]">
         <Info
           :nombre="egresados[currentIndex].nombre"
