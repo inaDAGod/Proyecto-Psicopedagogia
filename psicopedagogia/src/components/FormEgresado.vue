@@ -1,7 +1,6 @@
 <template>
-    <div class="mod" v-show="showForm">
+    <div class="mod">
       <div class="mod-content">
-        <button class="clo" @click="closeForm">&times;</button>
         <h2>Agregar Nuevo Egresado</h2>
         <form @submit.prevent="submitForm">
           <!-- Input fields para el formulario -->
@@ -81,8 +80,8 @@
         });
         if (response.ok) {
           console.log('Egresado guardado correctamente');
-          // Aquí puedes agregar lógica adicional después de guardar exitosamente
-          closeForm(); // Cerrar el formulario después de guardar exitosamente
+          
+          clearFields();
         } else {
           console.error('Error al guardar el egresado:', response.statusText);
         }
@@ -104,9 +103,20 @@
   const closeForm = () => {
    props.onclose();
   };
+
+  const clearFields = () => {
+  nombre.value = '';
+  correo.value = '';
+  anioGraduacion.value = '';
+  trabajo.value = '';
+  comentario.value = '';
+  src_foto.value = '';
+
+};
+
   </script>
   
   <style scoped>
-  @import url('/src/assets/formEgresados.css');
+  @import url('/src/assets/formEgresados2.css');
   </style>
   

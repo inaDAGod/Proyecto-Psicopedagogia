@@ -2,16 +2,10 @@
   "_id": {
     "$oid": "6640d45a9b6f5e7121bcd9f7"
   },
-  "imagen1": "/src/assets/images/psico2.jpg",
-  "imagen2": "/src/assets/images/psico3.jpg",
-  "imagen3": "/src/assets/images/psico3.jpg",
-  "imagen4": "/src/assets/images/psico4.jpg",
-  "imagen5": "/src/assets/images/psico2.jpg",
-  "imagen6": "/src/assets/images/psico3.jpg",
   "quienes_somos": "Somos una organización dedicada a la investigación científica. sd gs gfdsfsdfdsf dsfdsfds fdsfsdfsd dsfdsfdsfds  dfsfsdfsdf",
   "desdecuando": "Desde hace más de una década jdajdl  dsfsdf  dsf sd ds f dsf dsf sd f fds fds f sd .",
   "quienes_conforman": "Nuestro equipo está conformado por expertos en diversas áreas de conocimiento.",
   "como_unirse": "Para unirse a nuestro equipo, puede enviar su solicitud a nuestro correo electrónico.",
-  "presente_investigacion": "Nuestro proyecto actual se centra en el estudio del cambio climático.",
-  "presente_investigacion_src": "/src/assets/images/psico3.jpg"
+  "link_face": "",
+  "contactos": "1235555"
 }]

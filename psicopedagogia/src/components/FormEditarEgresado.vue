@@ -1,5 +1,5 @@
 <template>
-  <div class="mod" v-show="showForm">
+  <div class="mod">
     <div class="mod-content">
       <button class="clo" @click="closeForm">&times;</button>
       <h2>Editar Egresado</h2>
@@ -24,9 +24,14 @@
           <label for="comentario">Comentario:</label><br>
           <textarea id="comentario" v-model="comentario"></textarea>
         </div>
+        <div class="for-group">
+          <label for="src_foto">Foto egresado:</label><br>
+          <input type="file" id="src_foto" @change="onFileChange">
+        </div>
         <div style="text-align: center;">
-          <!-- Botón para enviar el formulario -->
           <button class="bot-guardar">Guardar</button>
+          <br><br><br><br>
+          <button class="bot-borrar" @click="borrarEgresado"><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
         </div>
       </form>
     </div>
@@ -34,69 +39,98 @@
 </template>
 
 <script setup>
-import { ref, defineProps, watch } from 'vue';
-
-const showForm = ref(true);
+import { ref, watch, defineProps, defineEmits } from 'vue';
+import axios from 'axios';
 const props = defineProps({
-  nombre: String,
-  correo: String,
-  anioGraduacion: Number,
-  trabajo: String,
-  comentario: String,
-  index: Number,
-  onclose: Function
+  egresado: Object,
 });
 
-const nombre = ref(props.nombre);
-const correo = ref(props.correo);
-const anioGraduacion = ref(props.anioGraduacion);
-const trabajo = ref(props.trabajo);
-const comentario = ref(props.comentario);
+const emit = defineEmits(['onclose']);
 
-// Watch global para actualizar las variables locales cuando cambian las propiedades
-watch(
-  () => [props.nombre, props.correo, props.anioGraduacion, props.trabajo, props.comentario],
-  ([newNombre, newCorreo, newAnioGraduacion, newTrabajo, newComentario]) => {
-    nombre.value = newNombre;
-    correo.value = newCorreo;
-    anioGraduacion.value = newAnioGraduacion;
-    trabajo.value = newTrabajo;
-    comentario.value = newComentario;
-  },
-  { deep: true }
-);
+const nombre = ref('');
+const correo = ref('');
+const anioGraduacion = ref('');
+const trabajo = ref('');
+const comentario = ref('');
+const index =  ref('');
+const currentFile = ref(null); // Agregamos la referencia para el archivo actual
 
-// Función para enviar el formulario al servidor
+watch(props, () => {
+  if (props.egresado) {
+    nombre.value = props.egresado.nombre;
+    correo.value = props.egresado.correo;
+    anioGraduacion.value = props.egresado.anio_graduacion;
+    trabajo.value = props.egresado.trabajo;
+    comentario.value = props.egresado.comentario;
+    index.value = props.egresado._id;
+  }
+});
 const submitForm = async () => {
-  try {
-    const formData = new FormData(); // Crear objeto FormData para enviar datos al servidor
-    formData.append('index', props.index);
-    formData.append('nombre', nombre.value);
-    formData.append('correo', correo.value);
-    formData.append('anio_graduacion', anioGraduacion.value);
-    formData.append('trabajo', trabajo.value);
-    formData.append('comentario', comentario.value);
+    try {
+        const direc = "/backend/images/";
+        let imageSrc = props.egresado.src_foto; 
 
-    // Enviar el formulario al servidor
-    const response = await fetch('http://localhost:3000/api/egresadosUpdate', {
-      method: 'POST',
-      body: formData 
-    });
-    
-    if (response.ok) {
-      console.log('Egresado actualizado correctamente');
-      closeForm(); 
-    } else {
-      console.error('Error al actualizar el egresado:', response.statusText);
+        if (currentFile.value) {
+            const formDataImage = new FormData();
+            formDataImage.append('sampleFile', currentFile.value);
+
+            const imageResponse = await fetch('http://localhost:3000/upload', {
+                method: 'POST',
+                body: formDataImage
+            });
+
+            if (!imageResponse.ok) {
+                throw new Error('Error al subir la imagen');
+            }
+
+            const responseData = await imageResponse.json();
+            imageSrc = direc + currentFile.value.name; 
+        }
+
+        const formData = new FormData();
+        formData.append('index', index.value);
+        formData.append('nombre', nombre.value);
+        formData.append('correo', correo.value);
+        formData.append('anio_graduacion', anioGraduacion.value);
+        formData.append('trabajo', trabajo.value);
+        formData.append('comentario', comentario.value);
+        formData.append('foto', imageSrc); // Si no se subió un nuevo archivo, se usará el valor de props.egresado.src_foto
+
+        const response = await fetch('http://localhost:3000/api/egresadosUpdate', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            console.log('Egresado actualizado correctamente');
+            closeForm();
+        } else {
+            console.error('Error al actualizar el egresado:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error al enviar el formulario:', error);
+    }
+};
+
+const borrarEgresado = async () => {
+  try {
+    const response = await axios.delete(`http://localhost:3000/api/egresados/${index.value}`);
+    if (response.status === 200) {
+      console.log('Egresado eliminado correctamente');
+      closeForm();
     }
   } catch (error) {
-    console.error('Error al enviar el formulario:', error);
+    console.error('Error al eliminar el egresado:', error);
   }
 };
 
-// Función para cerrar el formulario
+const onFileChange = (event) => {
+    const file = event.target.files[0];
+    currentFile.value = file;
+};
+
 const closeForm = () => {
-  props.onclose();
+  emit('onclose');
 };
 </script>
 
