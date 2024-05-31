@@ -6,8 +6,8 @@
         <div class="docentes-container">
           <div v-for="docente in docentes" :key="docente.id" class="docente-item" style="background-color:  rgba(255, 206, 232, 1); margin: 2%;border-radius: 20px;" >
             <div v-html="generateTable(docente)"></div>
-            <button class="b-formnad" style="background-color: #5BA45A;border-color: #5BA45A;" @click="openModForm(docente)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
-            <button class="b-formnad" style="background-color: #DF351B;border-color: #DF351B;" @click="openDelForm(docente)"><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
+            <button class="b-formnad" style="background-color: #5BA45A;border-color: #5BA45A;" @click="openModForm(docente)"><img src="./src/assets/images/edit.png" width="20vh" height="auto"></button>
+            <button class="b-formnad" style="background-color: #DF351B;border-color: #DF351B;" @click="openDelForm(docente)"><img src="./src/assets/images/trash2.png" width="20vh" height="auto"></button>
           </div>
         </div>
         <FormDocMod v-if="showFormDocMod" :docente="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
