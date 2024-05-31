@@ -13,6 +13,8 @@
           <li><router-link to="/publicacionesadmi"> Publicaciones </router-link></li>
           <br>
           <li><router-link to="/interaccionsadmi"> Interaccion Social </router-link></li>
+          <br>
+          <li><router-link to="/noticiasadmi"> Noticias</router-link></li>
         </ul>
       </div>
       <div class="mainContentAdmi">

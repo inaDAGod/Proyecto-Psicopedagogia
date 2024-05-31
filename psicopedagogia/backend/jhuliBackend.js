@@ -92,8 +92,46 @@ app.get('/api/actividades', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+app.post('/api/actividades', async (req, res) => {
+  try {
+    const { actividad, fecha, hora, ubicacion, descripcion, imagenA} = req.body;
+    await db.collection('actividades').insertOne({
+      actividad, fecha, hora, ubicacion, descripcion, actividad_src:imagenA});
+    res.status(201).json({ message: 'Actividad de guardada correctamente' });
+  } catch (error) {
+    console.error('Error al guardar la actividad:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.post('/api/actividadesUpdate', async (req, res) => {
+  try {
+    // Extract the form data
+    const { id, actividad, fecha, hora, ubicacion, descripcion, imagenA } = req.body;
+    await db.collection('actividades').updateOne(
+      { _id: new ObjectId(id) },
+      { $set: { actividad, fecha, hora, ubicacion, descripcion, actividad_src: imagenA} }
+    );
+    res.status(200).json({ message: 'Actividad actualizada correctamente' });
+  } catch (error) {
+    console.error('Error al actualizar laactividad:', error);
+    res.status(500).json({ error: 'Error al actualizar' });
+  }
+});
+app.delete('/api/actividades/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    await db.collection('actividades').deleteOne({ _id: new ObjectId(id) });
 
-
+    if (result.deletedCount === 1) {
+      res.status(200).json({ message: 'Actividad eliminada correctamente' });
+    } else {
+      res.status(404).json({ error: 'No se encontró la actividad' });
+    }
+  } catch (error) {
+    console.error('Error al eliminar la actividad:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 //noticias
 app.get('/api/noticias', async (req, res) => {
   try {
@@ -104,7 +142,46 @@ app.get('/api/noticias', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
+app.post('/api/noticias', async (req, res) => {
+  try {
+    const { actividad, fecha,descripcion, imagenN} = req.body;
+    await db.collection('noticias').insertOne({
+      noticia, fecha, descripcion, noticia_src: imagenN});
+    res.status(201).json({ message: 'Noticia de guardada correctamente' });
+  } catch (error) {
+    console.error('Error al guardar la noticia:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.post('/api/noticiasUpdate', async (req, res) => {
+  try {
+    // Extract the form data
+    const { id, noticia, fecha, descripcion, imagenN } = req.body;
+    await db.collection('noticias').updateOne(
+      { _id: new ObjectId(id) },
+      { $set: { noticia, fecha, descripcion, noticia_src: imagenN} }
+    );
+    res.status(200).json({ message: 'Noticia actualizada correctamente' });
+  } catch (error) {
+    console.error('Error al actualizar la noticia:', error);
+    res.status(500).json({ error: 'Error al actualizar' });
+  }
+});
+app.delete('/api/noticias/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    await db.collection('noticias').deleteOne({ _id: new ObjectId(id) });
 
+    if (result.deletedCount === 1) {
+      res.status(200).json({ message: 'Noticia eliminada correctamente' });
+    } else {
+      res.status(404).json({ error: 'No se encontró la noticia' });
+    }
+  } catch (error) {
+    console.error('Error al eliminar la noticia:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
 //Interaccion social
 app.get('/api/interaccionsocial', async (req, res) => {
   try {
