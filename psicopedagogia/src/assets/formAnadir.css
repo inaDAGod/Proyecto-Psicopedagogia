@@ -1,0 +1,30 @@
+.cuadro-formulario {
+  background-color: #d9d9d9;
+  padding-top: 7vh;
+  padding-left: 7vh;
+  padding-right: 7vh;
+  padding-bottom: 7vh;
+  width: 90%;
+  margin-top: 0%;
+  margin-left: 2%;
+}
+.formulario-anadir {
+  width: 35%;
+}
+.formulario-anadir h2 {
+  font-size: 4vh;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+.formulario-anadir label {
+  font-size: 2vh;
+}
+.formulario-anadir input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+}
+

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '@/views/homeEditar.vue';
+import Inicio from '@/views/homeEditar.vue';
 import Egresados from '@/views/EgresadosAdmi.vue';
 import About from '@/views/Nosotrosadmin.vue';
 //import Sociedad from '@/views/Sociedad.vue'
@@ -7,6 +7,7 @@ import About from '@/views/Nosotrosadmin.vue';
 //import Social from '@/views/social.vue'
 import Red from '@/views/Red.vue'
 import Publicaciones from '@/views/publicacionesadmin.vue'
+import InteraccionSocial from'@/views/interaccionadmin.vue'
 //import Pregrado from '@/views/Pregrado.vue'
 //import Postgrado from '@/views/Postgrado.vue'
 const router = createRouter({
@@ -15,7 +16,7 @@ const router = createRouter({
     {
       path: '/admi',
       name: 'Home',
-      component: Home,
+      component: Inicio,
     },
     {
       path: '/redadmi',
@@ -36,8 +37,12 @@ const router = createRouter({
       path: '/publicacionesadmi',
       name: 'Publicaciones',
       component: Publicaciones,
+    },
+    {
+      path: '/interaccionsadmi',
+      name: 'InteraccionSocial',
+      component: InteraccionSocial,
     }
-    
   ],
 });
 

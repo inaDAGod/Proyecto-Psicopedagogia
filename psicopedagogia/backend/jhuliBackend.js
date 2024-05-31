@@ -115,7 +115,19 @@ app.get('/api/interaccionsocial', async (req, res) => {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 });
-
+app.post('/api/interaccionsocialUpdate', async (req, res) => {
+  try {
+    const { id, objetivo,lineas} = req.body;
+    await db.collection('interaccion_social').updateOne(
+      { _id: new ObjectId(id) },
+      { $set: { objetivo,lineas } }
+    );
+    res.status(200).json({ message: 'Interaccion social actualizado correctamente' });
+  } catch (error) {
+    console.error('Error al actualizar el interaccion social:', error);
+    res.status(500).json({ error: 'Error al actualizar' });
+  }
+});
 app.get('/api/actividades_universidad', async (req, res) => {
   try {
     const actividadesUniversidad = await db.collection('actividad_interaccion_social').find({ tipo: 'Universidad' }).toArray();
@@ -143,6 +155,48 @@ app.get('/api/actividades_internacional', async (req, res) => {
   } catch (error) {
     console.error('Error al obtener las actividades internacionales:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.post('/api/actividades_social', async (req, res) => {
+  try {
+    const { actividad, fecha, hora, ubicacion, descripcion, imagen, tipo } = req.body;
+    await db.collection('actividad_interaccion_social').insertOne({
+      actividad, fecha, hora, ubicacion, descripcion, actividad_src:imagen, tipo});
+    res.status(201).json({ message: 'Actividad de universidad guardada correctamente' });
+  } catch (error) {
+    console.error('Error al guardar la actividad de universidad:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+
+
+app.delete('/api/actividades_social/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    await db.collection('actividad_interaccion_social').deleteOne({ _id: new ObjectId(id) });
+
+    if (result.deletedCount === 1) {
+      res.status(200).json({ message: 'Actividad eliminada correctamente' });
+    } else {
+      res.status(404).json({ error: 'No se encontró la actividad' });
+    }
+  } catch (error) {
+    console.error('Error al eliminar la actividad:', error);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+});
+app.post('/api/actividades_socialUpdate', async (req, res) => {
+  try {
+    // Extract the form data
+    const { id, actividad, fecha, hora, ubicacion, descripcion, imagen, tipo } = req.body;
+    await db.collection('actividad_interaccion_social').updateOne(
+      { _id: new ObjectId(id) },
+      { $set: { actividad, fecha, hora, ubicacion, descripcion, actividad_src: imagen, tipo} }
+    );
+    res.status(200).json({ message: 'Actividad actualizada correctamente' });
+  } catch (error) {
+    console.error('Error al actualizar laactividad:', error);
+    res.status(500).json({ error: 'Error al actualizar' });
   }
 });
 
