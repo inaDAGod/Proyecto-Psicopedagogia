@@ -4,19 +4,27 @@
     <div class="contentWrapper">
       <div class="menuDiv">
         <ul class="menu">
-          <li><router-link to="/admi"> Inicio</router-link></li>
+          <li><router-link to="/redadmi"> Inicio</router-link></li>
           <br>
           <li><router-link to="/aboutadmi"> Nosotros</router-link></li>
           <br>
           <li><router-link to="/docentesadmi"> Docentes </router-link></li>
           <br>
+          <li><router-link to="/egresadosadmi"> Egresados </router-link></li>
+          <br>
           <li><router-link to="/redadmi"> Red </router-link></li>
           <br>
+<<<<<<< HEAD
           <li><router-link to="/postgradoadmi"> Postgrado </router-link></li>
           <br>
           <li><router-link to="/pregradoadmi"> Pregrado </router-link></li>
           <br>
           <li><router-link to="/mallaadmi"> Malla </router-link></li>
+=======
+          <li><router-link to="/sociedadadmi"> Sociedad </router-link></li>
+          <br>
+          <li><router-link to="/zonaadmi"> Zona </router-link></li>
+>>>>>>> main
         </ul>
       </div>
       <div class="mainContentAdmi">
