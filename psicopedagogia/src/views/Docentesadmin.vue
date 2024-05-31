@@ -62,8 +62,8 @@ onMounted(() => {
 
 const generateTable = (docente) => {
   const tableHTML = `<center>
-    <div class="docentesnad">
-      <div class="docentes-infonad">
+    <div class="docentesnad" style="background-color:white;padding:1%">
+      <div  class="docentes-infonad">
         <img src="${docente.imagen}" alt="${docente.nombre}" class="docentes-imagenad">
         <p><b>Nombre: ${docente.nombre}</b><br>Apodo:${docente.apodo}<br>Cargo: ${docente.cargo}<br> 
         Correo:${docente.correo}<br>Dato curioso:${docente.datoc}</p>
@@ -75,8 +75,8 @@ const generateTable = (docente) => {
 };
 </script>
 
-<style>
-.docentes-infonad {
+<style scoped>
+.docentes-infonad{
   text-align: left;
     padding: 5%;
     margin-top: 8%;

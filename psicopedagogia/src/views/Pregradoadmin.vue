@@ -267,7 +267,7 @@ export default defineComponent({
 
 
 
-<style>
+<style scoped>
 @import url('/src/assets/pregrado.css');
 .background-container {
   background-image: url('/src/assets/images/background.png');

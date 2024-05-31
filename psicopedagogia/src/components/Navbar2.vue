@@ -3,7 +3,7 @@
     <nav class="nav-container">
       <div class="navIzquierda">
         <img src="/src/assets/images/logo.png" alt="Imagen del logo" class="logo" style="width: 80px;">
-        <h1 class="tituloNav">Psicopedagogia</h1>
+        <h1 class="tituloNav" style=" color: white;">Psicopedagogia</h1>
       </div>
     </nav>
   </div>
