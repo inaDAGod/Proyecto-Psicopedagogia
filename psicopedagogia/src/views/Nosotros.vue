@@ -25,7 +25,7 @@
       <a :href="paginaNosotros.link_psico_ucb"><button class="b-links">Psicopedagogía La Paz</button></a><br>
     </div>
     
-    <footer class="footernos">
+    <footer class="footernos" style="background-color:  rgba(170, 214, 251, 1)">
         
         <div class="footernos-container">
           <div>
@@ -162,7 +162,7 @@ const generateTable = (docente) => {
 
 
 </script>
-<style>
+<style >
 @import url('/src/assets/nosotros.css');
 
 

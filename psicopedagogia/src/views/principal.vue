@@ -151,7 +151,7 @@ const reiniciarAnimacion = () => {
 <script>
 import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'
 </script>
-<style>
+<style scoped>
     @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Koulen&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');

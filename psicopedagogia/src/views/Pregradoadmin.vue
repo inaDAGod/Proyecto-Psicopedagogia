@@ -108,7 +108,7 @@
 </template>
 
 
-<script>
+<script scoped>
 import { defineComponent, ref, onMounted, computed } from 'vue';
 import { Carousel, Slide } from 'vue3-carousel';
 import axios from 'axios';
