@@ -40,8 +40,8 @@
            <input type="text" id="requisito" v-model="requisito" >
          </div>
             <div class="form-groupf">
-              <label for="descripcion">Descripción:</label><br>
-              <textarea id="descripcion" v-model="descripcion"></textarea>
+              <label for="descrip">Descripción:</label><br>
+              <textarea id="descrip" v-model="descrip"></textarea>
             </div>
             <div style="text-align: center;">
               <!-- Botón para enviar el formulario  -->
