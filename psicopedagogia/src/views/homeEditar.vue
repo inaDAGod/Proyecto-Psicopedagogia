@@ -1,7 +1,7 @@
 <template>
   <div class="cuadro">
     <div class="formDatos">
-      <h2 class="tit-principal">Inicio</h2>
+      <h2 class="titu-principal">Inicio</h2>
       <div class="modifi">
         <div class="modal-content">
           <h2>Información principal</h2>

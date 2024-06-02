@@ -87,10 +87,6 @@
     expandedInfoActividad.value[rowIndex][index] = !expandedInfoActividad.value[rowIndex][index];
   };
   
-  onMounted(() => {
-    obtenerActividades();
-  });
-  
   const noticias = ref([]);
   const noticiaRows = ref([]);
   const expandedInfoNoticia = ref([]);
@@ -126,6 +122,7 @@
   
   onMounted(() => {
     obtenerNoticias();
+    obtenerActividades();
   });
   </script>
   
@@ -137,10 +134,10 @@
   @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
   
   .titulo h1{
-    font-size: 11vh;
+    font-size: 4vh;
     color: #FF7001;
     font-family: 'Koulen', 'sans-serif';
-    margin-top: 4vh;
+    margin-top: 3vh;
   }
   .subtitulo-actividad h1{
     font-size: 7vh;

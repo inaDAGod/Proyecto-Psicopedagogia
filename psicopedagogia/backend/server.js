@@ -144,9 +144,9 @@ app.get('/api/noticias', async (req, res) => {
 });
 app.post('/api/noticias', async (req, res) => {
   try {
-    const { actividad, fecha,descripcion, imagenN} = req.body;
+    const { noticia, contenido, fecha, imagenN} = req.body;
     await db.collection('noticias').insertOne({
-      noticia, fecha, descripcion, noticia_src: imagenN});
+      noticia, contenido, fecha, noticia_src: imagenN});
     res.status(201).json({ message: 'Noticia de guardada correctamente' });
   } catch (error) {
     console.error('Error al guardar la noticia:', error);
@@ -156,10 +156,10 @@ app.post('/api/noticias', async (req, res) => {
 app.post('/api/noticiasUpdate', async (req, res) => {
   try {
     // Extract the form data
-    const { id, noticia, fecha, descripcion, imagenN } = req.body;
+    const { id, noticia, contenido, fecha, imagenN } = req.body;
     await db.collection('noticias').updateOne(
       { _id: new ObjectId(id) },
-      { $set: { noticia, fecha, descripcion, noticia_src: imagenN} }
+      { $set: { noticia, contenido, fecha, noticia_src: imagenN} }
     );
     res.status(200).json({ message: 'Noticia actualizada correctamente' });
   } catch (error) {
