@@ -43,47 +43,29 @@
                     </div>
                 </div>
         </div>
-       
-        <div class="animation-container" @click="reiniciarAnimacion">
-            <div class="image-left" ref="imageLeft">
-                <img src="/src/assets/images/home-area1.png" alt="Imagen izquierda">
-            </div>
-            <div class="animation-text">
-                <p>Areas de estudio</p>
-            </div>
-            <div class="image-right" ref="imageRight">
-                <img src="/src/assets/images/home-area2.png" alt="Imagen derecha">
-            </div>
-        </div>
-        <div class="vacio">
-            <br>
-            <br>
-            <br>
-        </div>
+
+        <Animation
+            :leftImage="'/src/assets/images/home-area1.png'"
+            :rightImage="'/src/assets/images/home-area2.png'"
+            text="Areas de estudio"
+        />
         <div class="container-misionvision">
-            <div class="mision">
-                <div class="text-box-mision">
-                    <div class="text-content1">
-                        <h1>MISIÓN</h1>
-                        <img :src="paginaHome.mision_src" class="d-block w-100" alt="mision_img" >
-                        <p>{{paginaHome.mision}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="vision">
-                <div class="text-box-vision">
-                    <div class="text-content1">
-                        <h1>VISIÓN</h1>
-                        <img :src="paginaHome.vision_src" class="d-block w-100" alt="vision_img">
-                        <p>{{paginaHome.vision}}</p>
-                    </div>
-                </div>
-            </div>
+            <CardInfo
+                title="MISIÓN"
+                :imageSrc="paginaHome.mision_src"
+                :text="paginaHome.mision"
+                bgColor="bg-mision"
+            />
+            <CardInfo
+                title="VISIÓN"
+                :imageSrc="paginaHome.vision_src"
+                :text="paginaHome.vision"
+                bgColor="bg-vision"
+            />
         </div>
         <br><br><br>
         <div class="container-perfilestudiante">
             <div class="text-box-perfilestudiante">
-                <div class="perfil_estudiante">
                     <div class="img-content-perfilestudiante">
                         <img :src="paginaHome.perfil_estudiante_src" class="d-block w-100" alt="Perfil del estudiante">
                     </div>
@@ -91,18 +73,17 @@
                         <h1>PERFIL DE ESTUDIANTE</h1>
                         <p>{{paginaHome.perfil_estudiante}}</p>
                     </div>
-                </div>
             </div>     
         </div>
-
+        
 
     </div>
-    <AnimacionHome />
 </template>
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-
+import CardInfo from '/src/components/cardInfo.vue';
+import Animation from '/src/components/AnimacionHome.vue';
 // Define the reactive variables to home
 const paginaHome = ref({
     imagen1: '',
@@ -243,50 +224,59 @@ body {
 @media screen and (max-width: 768px) {
     .content-home {
         margin-left: 2%;
-        width: 50%; /* Cambia el ancho al 90% en pantallas más pequeñas */
+        width: 90%; /* Cambia el ancho al 90% en pantallas más pequeñas */
         max-width: none; /* Elimina el ancho máximo en pantallas más pequeñas */
     }
+
     .container-misionvision {
-        margin-left: 2%;
+        flex-direction:column; /* Poner Misión y Visión una debajo de la otra */
         width: 50%; /* Cambia el ancho al 90% en pantallas más pequeñas */
         max-width: none; /* Elimina el ancho máximo en pantallas más pequeñas */
     }
+
     .content-home .titulo-psico h1 {
         font-size: 4vh; /* Tamaño del título h1 en dispositivos muy pequeños */
     }
+
     .content-home .titulo-psico h2 {
         font-size: 5vh; /* Tamaño del título h2 en dispositivos muy pequeños */
     }
-    .text-box-quienessomos{
-        max-width: 60%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
-        margin-left: 5%;
-        margin-right: 5%;;
+
+    .text-box-quienessomos {
+        max-width: 95%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
+        margin-left: 0;
+        margin-right: 0;
     }
-    .text-box-perfilestudiante{
-        max-width: 70%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
-        margin-left: 5%;
-        margin-right: 5%;;
+
+    .text-box-perfilestudiante {
+        max-width: 95%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
+        margin-left: 0;
+        margin-right: 0;
+        flex-direction:column;
     }
-    .text-box-mision,  .text-box-vision{
+    .text-box-perfilestudiante img {
+        margin-left: 10%;
         max-width: 100%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
-        margin-left: 100%;
-        margin-right: 5%;
+        text-align: center;
     }
     .text-content1 h1 {
-        font-size: 1vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
-        max-width: 50%;
+        font-size: 2vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
+        max-width: 100%;
     }
+
     .text-content1 p {
-        font-size: 1vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
-        max-width: 50%;
+        font-size: 1.5vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
+        max-width: 100%;
     }
+
     .text-content-perfilestudiante h1 {
-        font-size: 1vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
-        max-width: 50%;
+        font-size: 2vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
+        max-width: 100%;
     }
+
     .text-content-perfilestudiante p {
-        font-size: 1vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
-        max-width: 50%;
+        font-size: 1.5vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
+        max-width: 100%;
     }
 
 }
@@ -309,76 +299,6 @@ body {
   max-height: 70vh; /* Establece un máximo de altura para las imágenes para evitar que sean demasiado altas */
 }
 
-
-/* PARA LA ANIMACION */
-.animation-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-.image-left img,
-.image-right img {
-    width: 100%;
-    height: auto;
-}
-
-.image-left {
-  flex: 1; 
-  transform: translateX(-100%);
-  animation: slideInLeft 2s forwards;
-}
-.image-right {
-  flex: 1; 
-  transform: translateX(100%);
-  animation: slideInRight 2s forwards;
-}
-.animation-text {
-  position: relative;
-  z-index: 1; /* Para que el texto esté por encima de las imágenes */
-  font-size: 24px;
-  animation: slideIn 2s forwards;
-}
-.animation-text p {
-    font-family:'Oswald', sans-serif;
-    text-align: center;
-    font-size: 5.5vw;
-    max-width: 100%;
-}
-@keyframes slideInLeft {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-}
-  
-@keyframes slideInRight {
-    from {
-      transform: translateX(100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-}
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(0px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@media screen and (max-width: 768px) {
-  /* Estilos adicionales para pantallas pequeñas */
-  .animation-text p {
-      font-size: 8vw; /* Cambia el tamaño del texto para adaptarse a pantallas más pequeñas */
-  }
-}
-
 /* PARA MISION-VISION-PERFIL ESTUDIANTE*/
 
 .container-misionvision {
@@ -388,27 +308,7 @@ body {
     width: 90%;
     margin-right: 5%;
     margin-left: 5%;
-    max-width: 80%; 
-}
-.text-box-mision {
-    background-color: #AAD6FB;
-    color:black;
-    border-radius: 5vh;
-    padding: 3vh;
-    margin-top: 3vh;
-    margin-bottom: 1vh; 
-    margin-right: 5%;
-    max-width: 100%; 
-}
-.text-box-vision {
-    background-color: #FEF684;
-    color:black;
-    border-radius: 5vh;
-    padding: 5vh;
-    margin-top: 5vh;
-    margin-bottom: 1vh;
-    margin-left: 5%;
-    
+    gap: 2rem;
 }
 .text-box-perfilestudiante {
   background-color: #BEAFE5;
@@ -425,22 +325,17 @@ body {
     transition: transform 0.3s ease; /* Agrega una transición suave para la animación */
 }
 
-.text-box-mision:hover,
-.text-box-vision:hover,
 .text-box-perfilestudiante:hover {
     transform: scale(1.05); /* Aumenta el tamaño del text box en un 5% cuando el mouse pasa sobre él */
     transition: transform 0.3s ease; /* Agrega una transición suave para la animación */
 }
-.text-box-vision .text-content1 h1,
-.text-box-mision .text-content1 h1,
+
 .text-box-perfilestudiante .text-content1 h1 {
     padding-top: 20px;
     font-family: 'Koulen', sans-serif;
     text-align: center;
     font-size: 3vmax;
 }
-.text-box-vision .text-content1 p,
-.text-box-mision .text-content1 p,
 .text-box-perfilestudiante .text-content1 p {
     padding-top: 20px;
     font-family: 'Roboto Condensed', sans-serif;
@@ -448,21 +343,7 @@ body {
     font-size: 1.5vmax;
 }
 
-.mision,
-.vision {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-    margin-left: 20px;
-}
-.mision,
-.vision img{
-    width: 50vh; 
-    height: auto;
-    text-align: center;
-}
+
 .img-content-perfilestudiante {
     flex: 1;
     margin-right: 5%; /* Espacio entre la imagen y el texto */
@@ -475,22 +356,13 @@ body {
     height: auto;
     text-align: center;
 }
-.text-box-mision h1,
-.text-box-vision h1,
+
 .text-box-perfilestudiante h1 {
     padding-top: 5px;;
     color: black;
     font-family: 'Koulen', sans-serif;
     font-size: 40px;
     text-align: center;
-}
-.sidebar-mision, .sidebar-vision {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-    margin-left: 20px;
 }
 
 .container-perfilestudiante {
