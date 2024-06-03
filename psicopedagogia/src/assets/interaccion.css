@@ -3,12 +3,7 @@
     color: #FF7001;
     font-family: 'Koulen', 'sans-serif';
   }
-  .subtitulo-actividad h1{
-    font-size: 7vh;
-    color: #FF7001;
-    font-family: 'Koulen', 'sans-serif';
-    margin-top: 4vh;
-  }
+  
   .container-actividades {
     margin-left: 5vh;
     margin-right:5vh;

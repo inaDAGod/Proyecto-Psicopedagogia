@@ -73,5 +73,11 @@
     text-align: center;
     align-items: center;
   }
+  @media (max-width: 992px) {
+    .noticia-imagen img {
+      width: 70vw; /* Establece el ancho al 100% */
+      height: 50vw; /* Establece la altura a 20vh (puedes ajustar este valor según tus necesidades) */
+      object-fit: cover; /* Para mantener la relación de aspecto */
+    }
+  }
   </style>
-  

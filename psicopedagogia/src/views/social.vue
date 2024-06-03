@@ -78,9 +78,6 @@ const obtenerInteraccion = async () => {
     console.error('Error fetching home:', error);
   }
 };
-onMounted(() => {
-  obtenerInteraccion();
-});
 
 // Actividades Universitarias
 const actividadesU = ref([]);
@@ -92,9 +89,6 @@ const obtenerActividades_Universidad = async () => {
     console.error('Error fetching Actividades:', error);
   }
 };
-onMounted(() => {
-  obtenerActividades_Universidad();
-});
 
 // Actividades Departamentales
 const actividadesD = ref([]);
@@ -106,9 +100,6 @@ const obtenerActividades_Departamental = async () => {
     console.error('Error fetching Actividades:', error);
   }
 };
-onMounted(() => {
-  obtenerActividades_Departamental();
-});
 
 // Actividades Internacionales
 const actividadesI = ref([]);
@@ -121,7 +112,10 @@ const obtenerActividades_Internacional = async () => {
   }
 };
 onMounted(() => {
+  obtenerInteraccion();
   obtenerActividades_Internacional();
+  obtenerActividades_Departamental();
+  obtenerActividades_Universidad();
 });
 </script>
 
