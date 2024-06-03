@@ -15,30 +15,13 @@
       </div>
     </div>
     <br>
-    
     <table class="container-publicaciones">
-      <tbody>
-        <tr v-if="publicacionesFiltradasEnFilas.length > 0" v-for="(publicacionRow, rowIndex) in publicacionesFiltradasEnFilas" :key="rowIndex">
-          <td v-for="(publicacion, index) in publicacionRow" :key="index">
-            <div class="publicaciones" v-if="publicacion._id">
-              <a :href="publicacion.ruta" target="_blank" rel="noopener noreferrer">
-                <div class="publicacion-imagen" @mouseover="aumentarImagen(rowIndex, index)" @mouseleave="reducirImagen(rowIndex, index)">
-                  <img :src="publicacion.publicacion_src" :alt="publicacion.titulo" :style="{ transform: imagenesAgrandadas[rowIndex][index] ? 'scale(1.05)' : 'scale(1)' }">
-                </div>
-              </a>
-              <div class="info-publicacion">
-                <h1>{{ publicacion.titulo }}</h1>
-                <p>Autor: {{ publicacion.autor }}</p>
-                <p>Año: {{ publicacion.anio }}</p>
-                <p>{{ publicacion.descripcion }}</p>
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr v-else>
-          <td colspan="2">No se encontraron publicaciones</td>
-        </tr>
-      </tbody>
+      <div class="grid-container">
+        <Publicacion v-for="(publicacion, index) in publicacionesFiltradas" :key="index" :publicacion="publicacion" />
+      </div>
+      <div v-if="publicacionesFiltradas.length === 0">
+        No se encontraron publicaciones
+      </div>
     </table>
   </div>
 </template>
@@ -46,13 +29,12 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import axios from 'axios';
+import Publicacion from '/src/components/CardPublicacion.vue';
 
 const publicaciones = ref([]);
-const imagenesAgrandadas = ref([]);
 const filtro = ref({
   todos: ''
 });
-
 const publicacionesFiltradas = computed(() => {
   const terminos = filtro.value.todos.toLowerCase().split(' ');
   return publicaciones.value.filter(publicacion => {
@@ -63,38 +45,14 @@ const publicacionesFiltradas = computed(() => {
     });
   });
 });
-
-const publicacionesFiltradasEnFilas = computed(() => {
-  const filas = [];
-  for (let i = 0; i < publicacionesFiltradas.value.length; i += 2) {
-    filas.push(publicacionesFiltradas.value.slice(i, i + 2));
-  }
-  return filas;
-});
-
 const obtenerPublicaciones = async () => {
   try {
     const response = await axios.get('http://localhost:3000/api/publicaciones');
     publicaciones.value = response.data;
-    inicializarImagenesAgrandadas();
   } catch (error) {
     console.error('Error fetching publicaciones:', error);
   }
 };
-
-const inicializarImagenesAgrandadas = () => {
-  const filas = publicacionesFiltradasEnFilas.value;
-  imagenesAgrandadas.value = filas.map(fila => fila.map(() => false));
-};
-
-const aumentarImagen = (rowIndex, index) => {
-  imagenesAgrandadas.value[rowIndex][index] = true;
-};
-
-const reducirImagen = (rowIndex, index) => {
-  imagenesAgrandadas.value[rowIndex][index] = false;
-};
-
 onMounted(() => {
   obtenerPublicaciones();
 });
@@ -102,7 +60,7 @@ onMounted(() => {
 
 <style scoped>
   .titulo-publicacion h1{
-    font-size: 11vh;
+    font-size: 8vh;
     color: #FF7001;
     font-family: 'Koulen', 'sans-serif';
   }
@@ -111,33 +69,10 @@ onMounted(() => {
     margin-left: 3%;
     width:90%;
   }
-  .info-publicacion p {
-    color: black;
-    text-align: left;
-    align-items: center;
-    font-size: 3vh;
-    font-family: 'Roboto Condensed', sans-serif;
-    
-  }
-  .info-publicacion h1 {
-    color: black;
-    text-align: center;
-    align-items: center;
-    font-size: 3.5vh;
-    font-family: 'Oswald', sans-serif;
-  }
-  .publicacion-imagen img {
-    width: 30vh;
-    height: 45vh;
-    margin-right: 3vh;
-    transition: transform 0.3s ease; /* Agrega una transición suave */
-  }
-  .publicaciones {
-    display: flex;
-    margin-top: 3vh;
-    margin-bottom: 3vh;
-    padding: 1%;
-    margin: 2%;
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40vw, 2fr));
+    gap: 30px;
   }
   .busquedaPubli{
     width: 60%;
@@ -159,13 +94,26 @@ onMounted(() => {
     background-color: #FF7001;
     border-color: #FF7001;
   }
-  .publicacion-imagen{
-    flex:1;
-  }
-  .info-publicacion {
-    flex: 2.5;
-  }
   .filtro{
     display: none;
   }
+
+  @media (max-width: 768px) {
+  .titulo-publicacion h1 {
+    font-size: 3.7vw;
+    color: #FF7001;
+    font-family: 'Koulen', 'sans-serif';
+  }
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70vw, 2fr));
+    gap: 30px;
+  }
+
+  .container-publicaciones {
+    width: 100%;
+    margin: 0;
+  }
+  
+}
 </style>
