@@ -66,6 +66,7 @@
         <br><br><br>
         <div class="container-perfilestudiante">
             <div class="text-box-perfilestudiante">
+                <div class="perfil_estudiante">
                     <div class="img-content-perfilestudiante">
                         <img :src="paginaHome.perfil_estudiante_src" class="d-block w-100" alt="Perfil del estudiante">
                     </div>
@@ -73,6 +74,8 @@
                         <h1>PERFIL DE ESTUDIANTE</h1>
                         <p>{{paginaHome.perfil_estudiante}}</p>
                     </div>
+                </div>
+                    
             </div>     
         </div>
         
@@ -254,10 +257,13 @@ body {
         margin-right: 0;
         flex-direction:column;
     }
-    .text-box-perfilestudiante img {
-        margin-left: 10%;
+    .text-box-perfilestudiante,
+    .perfil_estudiante{
         max-width: 100%; /* Hacer el text box ocupar el ancho completo en pantallas pequeñas */
-        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+        flex-direction:column;
+        
     }
     .text-content1 h1 {
         font-size: 2vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
@@ -277,6 +283,11 @@ body {
     .text-content-perfilestudiante p {
         font-size: 1.5vh; /* Tamaño de fuente más pequeño para adaptarse a pantallas más pequeñas */
         max-width: 100%;
+    }
+    .perfil_estudiante img{
+        text-align: center;
+        width:100%;
+
     }
 
 }
@@ -375,10 +386,11 @@ body {
 .perfil_estudiante {
     display: flex;
     align-items: center;
+    text-align: center;
 }
 .img-content-perfilestudiante {
     flex: 1;
-    margin-right: 5vh; /* Espacio entre la imagen y el texto */
+   /* Espacio entre la imagen y el texto */
 }
 
 .text-content-perfilestudiante {
