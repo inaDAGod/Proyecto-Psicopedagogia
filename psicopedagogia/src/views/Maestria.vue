@@ -100,6 +100,13 @@ onMounted(() => {
   obtenerDocentes();
 });
 </script>
-<style scoped>
-@import url('/src/assets/Postgradoadmi.css');
-</style>
+
+  
+  <style scoped>
+ 
+ @import url('/src/assets/Postgradoadmi.css');
+ 
+   
+  </style>
+  
+
