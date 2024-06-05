@@ -1,11 +1,11 @@
 .maest-container {
   display: flex;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .maest-item {
   width: 40%;
-      margin: 1%;
+  margin: 1%;
 }
 
 .maest-card {
@@ -21,8 +21,8 @@
 
 .maest-image {
   width: 100%;
-      height: auto;
-      border-radius: 10px;
+  height: auto;
+  border-radius: 10px;
 }
 
 .maest-info {
@@ -45,8 +45,8 @@
 
 .maest-actions {
   display: flex;
-      justify-content: center;
-      margin-top: 10px;
+  justify-content: center;
+  margin-top: 10px;
 }
 
 .b-formma {
@@ -58,10 +58,10 @@
   font-size: 150%;
   left: 0;
   margin: 2%;
-  
   padding-left: 2%;
   padding-right: 2%;
 }
+
 
 /*----------------------------Curso-------------------------------------------------------*/
 

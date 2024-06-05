@@ -10,10 +10,10 @@
         </div>
       </div>
       <div class="flex-container">
-        <div class="flex-item" style="flex: 7;">
+        <div class="flex-item" style="flex: 8;">
           <Docentes @closeForm="closeForm('docentes')" />
         </div>
-        <div class="flex-item" style="flex: 3;">
+        <div class="flex-item" style="flex: 2;">
           <Formpaginanos2 @closeForm="closeForm('formPaginanos2')" />
         </div>
       </div>

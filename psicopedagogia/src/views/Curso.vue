@@ -2,13 +2,7 @@
   <div id="app">
     <div class="content-wrapper">
       <div class="main-content">
-        <h1 style="
-            font-family: 'Koulen';
-            font-size: 400%;
-            color: rgba(255, 112, 1, 1);
-            padding: 2%;
-          "
-        >Formación Continua</h1>
+        <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;">Formación Continua</h1>
         <div class="curss-container">
           <div
             v-for="cursosfc in cursosfcs"
@@ -20,7 +14,7 @@
               <img :src="cursosfc.img" alt="cursosfc.titulo" class="curs-image" />
               <div class="curs-info">
                 <h5 class="curs-titulo">Título: {{ cursosfc.titulo }}</h5>
-                <p class="curs-about">Curso: {{ cursosfc.about }}</p>
+                <p class="curs-about">Sobre curso: {{ cursosfc.about }}</p>
                 <p class="curs-competencia">Competencia: {{ cursosfc.competencia }}</p>
                 <p class="curs-requisitos">Requisitos: {{ cursosfc.requisitos }}</p>
                 <p class="curs-fecha">Fecha: {{ cursosfc.fecha }}</p>
