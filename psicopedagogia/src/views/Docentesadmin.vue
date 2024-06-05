@@ -155,7 +155,6 @@ onMounted(() => {
   margin: 4%;
   padding-left: 2%;
   padding-right: 2%;
-  margin-bottom: 10%;
 }
 
 .content-wrapper {
