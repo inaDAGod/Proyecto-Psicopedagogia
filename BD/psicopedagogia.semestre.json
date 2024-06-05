@@ -52,8 +52,7 @@
       "materia": "Escritura Académica",
       "requisito": "Ninguno",
       "descrip": "Descripción 1"
-    }]
-    [
+    },
         {
           "_id": { "$oid": "6640e5739b6f5e7121bcda3a" },
           "semestre": 2,
@@ -116,10 +115,7 @@
           "materia": "Psicoestadística",
           "requisito": "Ninguno",
           "descrip": "Descripción 1"
-        }
-      ]
-      
-      [
+        },
         {
           "_id": { "$oid": "6640e5739b6f5e7121bcda9a" },
           "semestre": 8,

@@ -50,7 +50,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 body, html {
   margin: 0;
   padding: 0;
@@ -78,6 +78,8 @@ body, html {
 
 .menu {
   list-style: none;
+  width: 100%;
+  background-color: #FEF684;
 }
 
 .menu li a {

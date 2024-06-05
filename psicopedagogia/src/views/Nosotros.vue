@@ -162,7 +162,7 @@ const generateTable = (docente) => {
 
 
 </script>
-<style >
+<style scoped>
 @import url('/src/assets/nosotros.css');
 
 

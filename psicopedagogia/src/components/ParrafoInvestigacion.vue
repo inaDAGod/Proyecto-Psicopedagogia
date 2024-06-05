@@ -25,7 +25,7 @@
   });
   </script>
   
-  <style>
+  <style scoped>
   @import url('https://fonts.googleapis.com/css2?family=Koulen&family=Oswald:wght@200..700&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Koulen&family=Oswald:wght@200..700&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
   
