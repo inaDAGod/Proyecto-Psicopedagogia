@@ -6,52 +6,66 @@
     <div class="modal" v-show="showForm">
       <div class="modal-content">
         <form @submit.prevent="submitForm">
-          <!-- Input fields for the form -->
+          <!-- Input field for link_malla -->
+          <div class="form-group">
+            <label for="link_malla">Link Malla:</label><br>
+            <input type="text" id="link_malla" v-model="linkMalla" required>
+          </div>
+          
+          <!-- Input fields for videos_asignaturas -->
           <div v-for="i in 5" :key="'videos_asignaturas_' + i" class="form-group">
             <label :for="'videos_asignaturas_' + i">Video Asignaturas {{ i }}:</label><br>
             <input type="text" :id="'videos_asignaturas_' + i" v-model="videosAsignaturas[i - 1]">
           </div>
+
+          <!-- Input fields for videos_actividades -->
           <div v-for="i in 5" :key="'videos_actividades_' + i" class="form-group">
             <label :for="'videos_actividades_' + i">Video Actividades {{ i }}:</label><br>
             <input type="text" :id="'videos_actividades_' + i" v-model="videosActividades[i - 1]">
           </div>
+
+          <!-- Input fields for videos_perfiles -->
           <div v-for="i in 5" :key="'videos_perfiles_' + i" class="form-group">
             <label :for="'videos_perfiles_' + i">Video Perfiles {{ i }}:</label><br>
             <input type="text" :id="'videos_perfiles_' + i" v-model="videosPerfiles[i - 1]">
           </div>
+
+          <!-- Input fields for images -->
           <div class="row">
-            <div v-for="i in 4" :key="'images_' + i" class="col-md-6">
+            <div v-for="i in 5" :key="'images_' + i" class="col-md-6">
               <div class="form-group">
-                <label style="margin-right: -11%;" :for="'images_' + i">Imagen {{ i }}:</label>
+                <label :for="'images_' + i">Imagen {{ i }}:</label>
                 <input type="file" :id="'images_' + i" @change="onFileChange($event, i)">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label style="margin-right: -11%;" for="images_5">Imagen 5:</label>
-                <input type="file" id="images_5" @change="onFileChange($event, 5)">
               </div>
             </div>
           </div>
 
+          <!-- Input field for educativo -->
           <div class="form-group">
             <label for="educativo">Área Educativa:</label><br>
-            <textarea style="width: 100%;" id="educativo" v-model="educativo" rows="4" required></textarea>
+            <textarea id="educativo" v-model="educativo" rows="4" required></textarea>
           </div>
+
+          <!-- Input field for imgedu -->
           <div class="form-group">
-            <label for="imgedu" style="margin-left: -78%;">Imagen Educativa:</label><br>
-            <input type="file" style="margin-left: -55%;" id="imgedu" @change="onFileChange($event)">
+            <label for="imgedu">Imagen Educativa:</label><br>
+            <input type="file" id="imgedu" @change="onFileChange($event, 'imgedu')">
           </div>
+
+          <!-- Input field for intercambio -->
           <div class="form-group">
             <label for="intercambio">Link Intercambio:</label><br>
             <input type="text" id="intercambio" v-model="intercambio">
           </div>
+
+          <!-- Input field for alianza -->
           <div class="form-group">
             <label for="alianza">Link Alianza:</label><br>
             <input type="text" id="alianza" v-model="alianza">
           </div>
+
+          <!-- Submit button -->
           <div style="text-align: center;">
-            <!-- Submit button -->
             <button class="boton-guardar">Guardar</button>
           </div>
         </form>
@@ -64,18 +78,20 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
-// Define direc variable
-const direc = "/backend/images/";
+// Define the base directory for image storage
+const direc = "backend/images/";
 
+// Define reactive variables
 const currentFile = ref(null);
 const showForm = ref(true);
 const notification = ref(null);
+const linkMalla = ref('');
 const videosAsignaturas = ref(new Array(5).fill(''));
 const videosActividades = ref(new Array(5).fill(''));
 const videosPerfiles = ref(new Array(5).fill(''));
-const images = ref(new Array(5).fill(''));
+const images = ref(new Array(5).fill(null));
 const educativo = ref('');
-const imgedu = ref('');
+const imgedu = ref(null);
 const intercambio = ref('');
 const alianza = ref('');
 
@@ -87,7 +103,8 @@ const fetchData = async () => {
       const data = response.data;
       console.log('Fetched data:', data);
 
-      // Update variables with fetched data, ensuring arrays are filled correctly
+      // Update variables with fetched data
+      linkMalla.value = data.link_malla || '';
       videosAsignaturas.value = [
         data.videos_asignaturas_1 || '',
         data.videos_asignaturas_2 || '',
@@ -113,15 +130,15 @@ const fetchData = async () => {
       ];
 
       images.value = [
-        data.images_1 ? direc + data.images_1 : '',
-        data.images_2 ? direc + data.images_2 : '',
-        data.images_3 ? direc + data.images_3 : '',
-        data.images_4 ? direc + data.images_4 : '',
-        data.images_5 ? direc + data.images_5 : ''
+        data.images_1 ? direc + data.images_1 : null,
+        data.images_2 ? direc + data.images_2 : null,
+        data.images_3 ? direc + data.images_3 : null,
+        data.images_4 ? direc + data.images_4 : null,
+        data.images_5 ? direc + data.images_5 : null
       ];
 
       educativo.value = data.educativo || '';
-      imgedu.value = data.imgedu ? direc + data.imgedu : '';
+      imgedu.value = data.imgedu ? direc + data.imgedu : null;
       intercambio.value = data.intercambio || '';
       alianza.value = data.alianza || '';
     } else {
@@ -137,32 +154,28 @@ onMounted(fetchData);
 
 const submitForm = async () => {
   try {
-    if (currentFile.value) {
-      imgedu.value = direc + currentFile.value.name;
-
-      const formData = new FormData();
-      formData.append('sampleFile', currentFile.value);
-
-      await fetch('http://localhost:3000/upload', {
-        method: 'POST',
-        body: formData
-      });
-    }
-
     const formData = new FormData();
+
+    // Append all form data to the FormData object
+    formData.append('link_malla', linkMalla.value);
     for (let i = 0; i < 5; i++) {
       formData.append(`videos_asignaturas_${i + 1}`, videosAsignaturas.value[i]);
       formData.append(`videos_actividades_${i + 1}`, videosActividades.value[i]);
       formData.append(`videos_perfiles_${i + 1}`, videosPerfiles.value[i]);
       if (images.value[i]) {
-        formData.append(`images_${i + 1}`, images.value[i].replace(direc, ''));
+        formData.append(`images_${i + 1}`, images.value[i]);
       }
     }
+
+    if (imgedu.value) {
+      formData.append('imgedu', imgedu.value);
+    }
+
     formData.append('educativo', educativo.value);
-    formData.append('imgedu', imgedu.value.replace(direc, ''));
     formData.append('intercambio', intercambio.value);
     formData.append('alianza', alianza.value);
 
+    // Send form data to the server
     const response = await axios.post('http://localhost:3000/api/pregrado', formData);
 
     if (response.status === 200) {
@@ -181,8 +194,19 @@ const submitForm = async () => {
 
 const onFileChange = (event, index) => {
   const file = event.target.files[0];
-  images.value[index - 1] = direc + file.name;
-  currentFile.value = file;
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const imgPath = direc + file.name;
+      if (index === 'imgedu') {
+        imgedu.value = imgPath;
+        currentFile.value = file;
+      } else {
+        images.value[index - 1] = imgPath;
+      }
+    };
+    reader.readAsDataURL(file);
+  }
 };
 </script>
 

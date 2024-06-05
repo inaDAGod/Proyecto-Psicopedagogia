@@ -665,12 +665,12 @@ app.get('/api/pregrado', async (req, res) => {
 
 app.post('/api/pregrado', async (req, res) => {
   try {
-    const { videos_asignaturas_1  ,videos_asignaturas_2  ,videos_asignaturas_3  ,videos_asignaturas_4  ,videos_asignaturas_5  ,videos_actividades_1, videos_actividades_2  ,videos_actividades_3  ,videos_actividades_4  , videos_actividades_5  , videos_perfiles_1  ,videos_perfiles_2  , videos_perfiles_3  ,videos_perfiles_4  ,videos_perfiles_5  ,images_1  ,images_2  ,images_3  ,images_4  ,images_5  ,educativo  ,imgedu  ,intercambio  ,alianza  } = req.body;
+    const { link_malla, videos_asignaturas_1  ,videos_asignaturas_2  ,videos_asignaturas_3  ,videos_asignaturas_4  ,videos_asignaturas_5  ,videos_actividades_1, videos_actividades_2  ,videos_actividades_3  ,videos_actividades_4  , videos_actividades_5  , videos_perfiles_1  ,videos_perfiles_2  , videos_perfiles_3  ,videos_perfiles_4  ,videos_perfiles_5  ,images_1  ,images_2  ,images_3  ,images_4  ,images_5  ,educativo  ,imgedu  ,intercambio  ,alianza  } = req.body;
     
     // Actualiza el primer documento de la colección (suponiendo que solo hay uno)
     await db.collection('pregrado').updateOne({}, {
       $set: {
-          
+        link_malla,
               videos_asignaturas_1  ,
               videos_asignaturas_2  ,
               videos_asignaturas_3  ,
@@ -708,11 +708,12 @@ app.post('/api/pregrado', async (req, res) => {
 
 app.post('/api/pregradoUpdate', async (req, res) => {
   try {
-    const { videos_asignaturas_1  ,videos_asignaturas_2  ,videos_asignaturas_3  ,videos_asignaturas_4  ,videos_asignaturas_5  ,videos_actividades_1, videos_actividades_2  ,videos_actividades_3  ,videos_actividades_4  , videos_actividades_5  , videos_perfiles_1  ,videos_perfiles_2  , videos_perfiles_3  ,videos_perfiles_4  ,videos_perfiles_5  ,images_1  ,images_2  ,images_3  ,images_4  ,images_5  ,educativo  ,imgedu  ,intercambio  ,alianza  } = req.body;
+    const {link_malla, videos_asignaturas_1  ,videos_asignaturas_2  ,videos_asignaturas_3  ,videos_asignaturas_4  ,videos_asignaturas_5  ,videos_actividades_1, videos_actividades_2  ,videos_actividades_3  ,videos_actividades_4  , videos_actividades_5  , videos_perfiles_1  ,videos_perfiles_2  , videos_perfiles_3  ,videos_perfiles_4  ,videos_perfiles_5  ,images_1  ,images_2  ,images_3  ,images_4  ,images_5  ,educativo  ,imgedu  ,intercambio  ,alianza  } = req.body;
 
     // Actualiza el primer documento de la colección (suponiendo que solo hay uno)
     await db.collection('pregrado').updateOne({}, {
       $set: {
+        link_malla,
           videos_asignaturas_1  ,
           videos_asignaturas_2  ,
           videos_asignaturas_3  ,

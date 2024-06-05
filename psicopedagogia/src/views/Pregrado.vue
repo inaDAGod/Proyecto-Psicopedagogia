@@ -8,7 +8,7 @@
           <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
             <div style="margin:20px;">
               <div style="margin:20px;">
-                <a :href="'https://lpz.ucb.edu.bo/wp-content/uploads/2023/12/PSP-2024.pdf'">
+                <a :href="paginaNosotros.link_malla">
                   <button class="b-preMalla">Descargar malla</button>
                 </a>
               </div>
@@ -124,6 +124,7 @@ export default defineComponent({
   },
   setup() {
     const paginaNosotros = ref({
+      link_malla:'',
       videos_asignaturas_1: '',
       videos_asignaturas_2: '',
       videos_asignaturas_3: '',
