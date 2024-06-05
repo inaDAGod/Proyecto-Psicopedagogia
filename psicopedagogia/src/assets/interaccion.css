@@ -3,12 +3,7 @@
     color: #FF7001;
     font-family: 'Koulen', 'sans-serif';
   }
-  .subtitulo-actividad h1{
-    font-size: 7vh;
-    color: #FF7001;
-    font-family: 'Koulen', 'sans-serif';
-    margin-top: 4vh;
-  }
+  
   .container-actividades {
     margin-left: 5vh;
     margin-right:5vh;
@@ -116,43 +111,35 @@
     height: 40vh; /* Establece la altura a 20vh (puedes ajustar este valor según tus necesidades) */
     object-fit: cover; /* Para mantener la relación de aspecto */
   }
-  .text-box-objetivo {
-    background-color: #FFC497; /* Color de fondo para el text box de objetivo */
-    text-align: center; /* Centra el texto */
-    color: black; /* Color del texto */
-    border-radius: 5vh;
-    padding: 7vh;
-    margin-bottom: 5%; /* Espacio entre el recuadro y el carrusel */
-    max-width: 90%;
+  @media (max-width: 992px) {
+    .actividad-imagen img {
+      width: 70vw; /* Establece el ancho al 100% */
+      height: 50vw; /* Establece la altura a 20vh (puedes ajustar este valor según tus necesidades) */
+      object-fit: cover; /* Para mantener la relación de aspecto */
+    }
+    
+    .subtitulo-actividad h1{
+      font-size: 1vh;
+      color: #FF7001;
+      font-family: 'Koulen', 'sans-serif';
+      margin-top: 4vh;
+    }
   }
-  .text-box-lineas {
-    background-color: #FFCEE8; /* Color de fondo para el text box de líneas */
-    text-align: center; /* Centra el texto */
-    color: black; /* Color del texto */
-    border-radius: 5vh;
-    padding: 7vh;
-    margin-bottom: 5%; /* Espacio entre el recuadro y el carrusel */
-    max-width: 90%;
+  
+  @media (max-width: 768px) {
+    .subtitulo-actividad h1{
+      font-size: 1vh;
+      color: #FF7001;
+      font-family: 'Koulen', 'sans-serif';
+      margin-top: 4vh;
+    }
   }
-  .container-objetivo,
-  .container-lineas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .text-box-objetivo p,
-  .text-box-lineas p{
-    padding-top: 3vh;
-    padding-left: 3vh;
-    padding-right: 3vh;
-    padding-bottom: 3vh;
-    font-family: 'Roboto Condensed', sans-serif;
-    text-align: center;
-    font-size: 3.5vh;
-  }
-  .text-box-objetivo h1,
-  .text-box-lineas h1 {
-    color: black; /* Color del texto */
-    font-size: 4vh;
+  
+  @media (max-width: 576px) {
+    .subtitulo-actividad h1{
+      font-size: 1vh;
+      color: #FF7001;
+      font-family: 'Koulen', 'sans-serif';
+      margin-top: 4vh;
+    }
   }

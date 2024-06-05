@@ -1,5 +1,5 @@
 <template>
-    <h2 class="tit-principal">Sembrando semillas de paz</h2>
+    <h2 class="titu-principal">Sembrando semillas de paz</h2>
     <div class="recuadros">
       <div class="cuadro">
         <div class="formDatos">

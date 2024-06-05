@@ -9,12 +9,12 @@
             <input type="text" id="noticia" v-model="noticia" required>
           </div>
           <div class="form-group">
-            <label for="fecha">Fecha:</label><br>
-            <input type="date" id="fecha" v-model="fecha" required>
+            <label for="contenido">Contenido:</label><br>
+            <textarea id="contenido" v-model="contenido"></textarea>
           </div>
           <div class="form-group">
-            <label for="descripcion">Descripción:</label><br>
-            <textarea id="descripcion" v-model="descripcion"></textarea>
+            <label for="fecha">Fecha:</label><br>
+            <input type="date" id="fecha" v-model="fecha" required>
           </div>
           <div class="form-group">
             <label for="noticia_src">Imagen:</label><br>
@@ -41,9 +41,9 @@
   
   const emit = defineEmits(['onclose']);
   const id = ref('');
-  const actividad = ref('');
+  const noticia = ref('');
   const fecha = ref('');
-  const descripcion = ref('');
+  const contenido = ref('');
   const currentFile = ref(null);
   const showSuccessModal = ref(false);
   
@@ -55,7 +55,7 @@
         id.value = newNoticia._id || '';
         noticia.value = newNoticia.noticia || '';
         fecha.value = newNoticia.fecha || '';
-        descripcion.value = newNoticia.descripcion || '';
+        contenido.value = newNoticia.contenido || '';
       }
     },
     { immediate: true }
@@ -86,7 +86,7 @@
       formData.append('id', id.value);
       formData.append('noticia', noticia.value);
       formData.append('fecha', fecha.value);
-      formData.append('descripcion', descripcion.value);
+      formData.append('contenido', contenido.value);
       formData.append('imagenN', imagenN);
   
       const response = await fetch('http://localhost:3000/api/noticiasUpdate', {
