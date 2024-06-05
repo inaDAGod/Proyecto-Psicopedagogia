@@ -4,20 +4,53 @@
       <div class="main-content">
         <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
         <div class="docentes-container">
-          <div v-for="docente in docentes" :key="docente.id" class="docente-item" style="background-color:  rgba(255, 206, 232, 1); margin: 2%;border-radius: 20px;" >
-            <div v-html="generateTable(docente)"></div>
-            
-            <button class="b-formn" style="background-color: #FFA198;border-color: #FFA198;margin-right: 20%;" @click="openDelForm(docente)"><img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;"></button>
-            <button class="b-formn" style="background-color: #BADF3A;border-color: #BADF3A;" @click="openModForm(docente)"><img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;"></button>
+          <div
+            v-for="docente in docentes"
+            :key="docente.id"
+            class="docente-item"
+            style="margin-left: 3%;margin-right: 2%; border-radius: 20px;"
+          >
+            <div class="docente-card">
+              <img :src="docente.imagen" alt="docente.nombre" class="docente-image" />
+              <div class="docente-info">
+                <h5 class="docente-titulo">Nombre: {{ docente.nombre }}</h5>
+              
+              <div class="docente-actions">
+                <button
+                  class="b-formn"
+                  style="background-color: #ffa198; border-color: #ffa198;margin-right: 10%;"
+                  @click="openDelForm(docente)"
+                >
+                  <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
+                </button>
+                <button
+                  class="b-formn"
+                  style="background-color: #badf3a; border-color: #badf3a;"
+                  @click="openModForm(docente)"
+                >
+                  <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <FormDocMod v-if="showFormDocMod" :docente="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
-        <FormDocElim v-if="showFormDocElim" :docente="selectedDocente" :showForm="showFormDocElim" @closeForm="closeForm('formDocElim')" />
+        </div>
+        <FormDocMod
+          v-if="showFormDocMod"
+          :docente="selectedDocente"
+          :showForm="showFormDocMod"
+          @closeForm="closeForm('formDocMod')"
+        />
+        <FormDocElim
+          v-if="showFormDocElim"
+          :docente="selectedDocente"
+          :showForm="showFormDocElim"
+          @closeForm="closeForm('formDocElim')"
+        />
       </div>
     </div>
   </div>
 </template>
-
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
@@ -59,97 +92,77 @@ const closeForm = (formName) => {
 onMounted(() => {
   obtenerDocentes();
 });
-
-const generateTable = (docente) => {
-  const tableHTML = `<center>
-    <div class="docentesnad" style="background-color:white;padding:1%">
-      <div  class="docentes-infonad">
-        <img src="${docente.imagen}" alt="${docente.nombre}" class="docentes-imagenad">
-        <p><b>Nombre: ${docente.nombre}</b><br>Apodo:${docente.apodo}<br>Cargo: ${docente.cargo}<br> 
-        Correo:${docente.correo}<br>Dato curioso:${docente.datoc}</p>
-      </div>
-      
-    </div>
-  <center>`;
-  return tableHTML;
-};
 </script>
-
 <style scoped>
-.docentes-infonad{
-  text-align: left;
-    padding: 5%;
-    margin-top: 8%;
-    background-color: white;
-    border-radius: 20px;
-}
-
-.docentes-infonad p{
-  font-size: 100%;
-    font-family: 'Roboto Condensed', sans-serif;
-    width: 100%;
-    padding: 2%;
-    
-}
-
-.docentes-containernad {
+.docentes-container {
   display: flex;
-    flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.docente-item {
+  width: 40%;
+  margin: 1%;
+}
+
+.docente-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.docente-image {
+  width: 100%;
+  height: auto;
   
 }
-  
-.docente-itemnad {
-  flex-basis: calc(46% - 10px); 
-  margin-bottom: 20px;
+
+.docente-info {
+  margin-top: 15px;
+  text-align: center;
+  padding: 2%;
 }
 
-.docentesnad {
-  position: relative;
-  background-color: rgba(255, 206, 232, 1);
-  border-radius: 40px;
-    text-align: center;
-    width: 320px;
-    display: flex;
-    margin-top: 8%;
-    margin-bottom: 20px;
-    height: 120%;
+.docente-titulo {
+  font-size: 1.2em;
+  margin-bottom: 9px;
 }
 
-
-
-.docentes-imagenad { 
-    z-index: 1; 
-    width: 100%;
-    height: 60%;
-    padding: 1%;
-    
+.docente-apodo,
+.docente-cargo,
+.docente-correo,
+.docente-datoc {
+  font-size: 0.9em;
+  margin-bottom: 5px;
 }
 
+.docente-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
 
 .b-formn {
   font-size: 36px;
-  width: 32%;
-        padding: 1%;
-        color: white;
-        border-radius: 40px;
-        font-size: 150%;
-        left:0;
-        margin:2%;
-        margin-top: -7%;
-        padding-left:2% ;
-        padding-right:2% ;
-
+  width: 120%;
+  padding: 1%;
+  color: white;
+  border-radius: 40px;
+  font-size: 100%;
+  left: 0;
+  margin: 4%;
+  padding-left: 2%;
+  padding-right: 2%;
+  margin-bottom: 10%;
 }
+
 .content-wrapper {
-  display: flex
+  display: flex;
 }
 
 .main-content {
-  width: 100%; /* Adjust width as needed */
+  width: 100%;
 }
-
-
-
-
-
 </style>

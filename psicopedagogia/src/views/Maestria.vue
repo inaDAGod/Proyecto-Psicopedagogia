@@ -12,20 +12,15 @@
             v-for="maestria in maestrias"
             :key="maestria.id"
             class="maest-item"
-            style="margin: 2%; border-radius: 20px; background-color: rgba(170, 214, 251, 1);"
+            style="margin-left: 3%;margin-right: 2%; border-radius: 20px;"
           >
             <div class="maest-card">
               <img :src="maestria.img" alt="maestria.titulo" class="maest-image" />
               <div class="maest-info">
-                <h5 class="maest-titulo">Título: {{ maestria.titulo }}</h5>
-                <p class="maest-about">Sobre curso: {{ maestria.about }}</p>
-                <p class="maest-competencia">Competencia: {{ maestria.competencia }}</p>
-                <p class="maest-requisitos">Requisitos: {{ maestria.requisitos }}</p>
-                <p class="maest-fecha">Fecha: {{ maestria.fecha }}</p>
-              </div></div>
+                <h5 class="maest-titulo"> {{ maestria.titulo }}</h5>
 
 
-            <div class="maest-actions">
+                <div class="maest-actions">
               <button
                 class="b-formma"
                 style="background-color: #ffa198; border-color: #ffa198; margin-right: 10%;"
@@ -41,6 +36,10 @@
                 <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%" />
               </button>
             </div>
+              </div></div>
+
+
+            
           </div>
         </div>
         <FormDocMod

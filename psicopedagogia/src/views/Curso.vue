@@ -8,22 +8,17 @@
             v-for="cursosfc in cursosfcs"
             :key="cursosfc.id"
             class="curs-item"
-            style="margin: 2%; border-radius: 20px; background-color: rgba(219, 238, 150, 1);"
+            style="margin: 2%; border-radius: 20px; "
           >
             <div class="curs-card">
               <img :src="cursosfc.img" alt="cursosfc.titulo" class="curs-image" />
               <div class="curs-info">
-                <h5 class="curs-titulo">Título: {{ cursosfc.titulo }}</h5>
-                <p class="curs-about">Sobre curso: {{ cursosfc.about }}</p>
-                <p class="curs-competencia">Competencia: {{ cursosfc.competencia }}</p>
-                <p class="curs-requisitos">Requisitos: {{ cursosfc.requisitos }}</p>
-                <p class="curs-fecha">Fecha: {{ cursosfc.fecha }}</p>
-              </div>
-            </div>
-            <div class="curs-actions">
+                <h5 class="curs-titulo">   {{ cursosfc.titulo }}</h5>
+              
+              <div class="curs-actions">
               <button
                 class="b-formca"
-                style="background-color: #ffa198; border-color: #ffa198; margin-right: 20%;"
+                style="background-color: #ffa198; border-color: #ffa198; margin-right: 10%;"
                 @click="openDelForm(cursosfc)"
               >
                 <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
@@ -33,9 +28,11 @@
                 style="background-color: #badf3a; border-color: #badf3a;"
                 @click="openModForm(cursosfc)"
               >
-                <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%" />
+                <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;" />
               </button>
+            </div></div>
             </div>
+           
           </div>
         </div>
         <FormDocMod

@@ -40,7 +40,6 @@ const closeForm = (formName) => {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: -10%;
 }
 
 .flex-container {

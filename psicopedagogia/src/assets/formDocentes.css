@@ -13,7 +13,7 @@
 }
 
 .modal-content {
-  background-color: #FFCEE8;
+  background-color:rgba(228, 228, 228, 1);
   padding: 40px; /* Increased padding for all sides */
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
