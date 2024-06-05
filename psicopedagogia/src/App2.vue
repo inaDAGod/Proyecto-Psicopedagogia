@@ -78,6 +78,8 @@ body, html {
 
 .menu {
   list-style: none;
+  width: 100%;
+  background-color: #FEF684;
 }
 
 .menu li a {
