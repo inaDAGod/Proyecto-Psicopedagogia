@@ -38,7 +38,7 @@
   </script>
   
   <style scoped>
-  @import url('/src/assets/formDocentes.css');
+  @import url('/src/assets/notiMod.css');
   
   .notification {
     background-color: #4CAF50; /* Green */
