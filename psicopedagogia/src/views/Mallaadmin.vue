@@ -1,153 +1,164 @@
 <template>
-    <div id="app">
-      <div class="content-wrapper">
-        <div class="main-content">
-          <h1 class="titulo-nos">Malla</h1>
-          <div class="docentes-container">
-            <div v-for="semestre in semestres" :key="semestre.id" class="docente-item" style="background-color: rgba(170, 214, 251, 1);margin: 2%;border-radius: 20px;">
-              <div v-html="generateTable(semestre)"></div>
-              <button class="b-formnad" style="background-color: #FFA198;border-color: #FFA198;margin-right: 20%;" @click="openDelForm(semestre)"><img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;"></button>
+  <div id="app">
+    <div class="content-wrapper">
+      <div class="main-content">
+        <h1 class="titulo-nos">Malla</h1>
+        <div class="semestres-container">
+          <div
+            v-for="semestre in semestres"
+            :key="semestre.id"
+            class="semestre-item"
+          >
+            <div class="semestre-card">
+              <div class="semestre-info">
+                <h5 class="semestre-materia">{{ semestre.materia }}</h5>
+                <p class="semestre-sigla">{{ semestre.sigla }}</p>
+                </div>
             
-              <button class="b-formnad" style="background-color: #BADF3A;border-color: #BADF3A;" @click="openModForm(semestre)"><img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;"></button>
+              <div class="semestre-actions">
+                <button
+                  class="b-formmalla"
+                  style="background-color: #ffa198; border-color: #ffa198;"
+                  @click="openDelForm(semestre)"
+                >
+                  <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
+                </button>
+                <button
+                  class="b-formmalla"
+                  style="background-color: #badf3a; border-color: #badf3a;"
+                  @click="openModForm(semestre)"
+                >
+                  <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;" />
+                </button>
               </div>
+              
+            </div>
           </div>
-          <FormDocMod v-if="showFormDocMod" :semestre="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
-          <FormDocElim v-if="showFormDocElim" :semestre="selectedDocente" :showForm="showFormDocElim" @closeForm="closeForm('formDocElim')" />
         </div>
+        <FormDocMod
+          v-if="showFormDocMod"
+          :semestre="selectedDocente"
+          :showForm="showFormDocMod"
+          @closeForm="closeForm('formDocMod')"
+        />
+        <FormDocElim
+          v-if="showFormDocElim"
+          :semestre="selectedDocente"
+          :showForm="showFormDocElim"
+          @closeForm="closeForm('formDocElim')"
+        />
       </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref, onMounted } from 'vue';
-  import axios from 'axios';
-  import FormDocMod from '/src/components/FormMallaMod.vue';
-  import FormDocElim from '/src/components/FormMallaElim.vue';
-  
-  const showFormDocMod = ref(false);
-  const showFormDocElim = ref(false);
-  const semestres = ref([]);
-  const selectedDocente = ref(null);
-  
-  const obtenerDocentes = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/api/semestre');
-      semestres.value = response.data;
-    } catch (error) {
-      console.error('Error fetching docentes:', error);
-    }
-  };
-  
-  const openModForm = (semestre) => {
-    selectedDocente.value = semestre;
-    showFormDocMod.value = true;
-  };
-  
-  const openDelForm = (semestre) => {
-    selectedDocente.value = semestre;
-    showFormDocElim.value = true;
-  };
-  
-  const closeForm = (formName) => {
-    if (formName === 'formDocMod') {
-      showFormDocMod.value = false;
-    } else if (formName === 'formDocElim') {
-      showFormDocElim.value = false;
-    }
-  };
-  
-  onMounted(() => {
-    obtenerDocentes();
-  });
-  
-  const generateTable = (semestre) => {
-    const tableHTML = `<center>
-      <div class="docentesnad" style="background-color:white;margin:3%;border-radius:20px;padding:2%">
-        <div class="docentes-infonad" stty>
-          <p><b>Semestre: ${semestre.semestre}</b><br>Area:${semestre.area}<br>Sigla: ${semestre.sigla}<br> 
-            Materia:${semestre.materia}<br>Requisito:${semestre.requisito}<br>Description:${semestre.descrip}</p>
-        </div>
-        
-      </div>
-    <center>`;
-    return tableHTML;
-  };
-  </script>
-  
-  <style >
-  .docentes-infonad {
-    text-align: left;
-      padding: 2%;
-      margin-top: 8%;
-      width: 100%;
+  </div>
+</template>
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import FormDocMod from '/src/components/FormMallaMod.vue';
+import FormDocElim from '/src/components/FormMallaElim.vue';
+
+const showFormDocMod = ref(false);
+const showFormDocElim = ref(false);
+const semestres = ref([]);
+const selectedDocente = ref(null);
+
+const obtenerDocentes = async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/api/semestre');
+    semestres.value = response.data;
+  } catch (error) {
+    console.error('Error fetching semestres:', error);
   }
-  
-  .docentes-infonad p{
-    font-size: 100%;
-      font-family: 'Roboto Condensed', sans-serif;
-      width: 100%;
-      
+};
+
+const openModForm = (semestre) => {
+  selectedDocente.value = semestre;
+  showFormDocMod.value = true;
+};
+
+const openDelForm = (semestre) => {
+  selectedDocente.value = semestre;
+  showFormDocElim.value = true;
+};
+
+const closeForm = (formName) => {
+  if (formName === 'formDocMod') {
+    showFormDocMod.value = false;
+  } else if (formName === 'formDocElim') {
+    showFormDocElim.value = false;
   }
-  
-  .docentes-containernad {
-    display: flex;
-      flex-wrap: wrap;
-    
-  }
-    
-  .docente-itemnad {
-    flex-basis: calc(46% - 10px); 
-    margin-bottom: 20px; 
-  }
-  
-  .docentesnad {
-    position: relative;
-    background-color:rgba(170, 214, 251, 1);
-    border-radius: 40px;
-      text-align: center;
-      width: 250px;
-      display: flex;
-      margin-top: 8%;
-      margin-bottom: 20px;
-      height: 120%;
-      padding: 2%;
-  }
-  
-  
-  
-  .docentes-imagenad { 
-    border-radius: 20px;
-      z-index: 1; 
-      width: 100%;
-      height: 40%;
-      padding-bottom: 2%;
-  }
-  
-  
-  .b-formnad {
-    font-size: 36px;
-          width: 32%;
-          padding: 1%;
-          color: white;
-          border-radius: 40px;
-          font-size: 100%;
-          left:0;
-          margin:2%;
-          margin-top: -7%;
-          padding-left:2% ;
-          padding-right:2% ;
-  }
-  .content-wrapper {
-    display: flex
-  }
-  
-  .main-content {
-    width: 100%; /* Adjust width as needed */
-  }
-  
-  
-  
-  
-  
-  </style>
-  
+};
+
+onMounted(() => {
+  obtenerDocentes();
+});
+</script>
+<style scoped>
+.semestres-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.semestre-item {
+  width: 48%;
+  margin: 1%;
+}
+
+.semestre-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3%;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.semestre-info {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.semestre-titulo {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.semestre-area,
+.semestre-sigla,
+.semestre-materia,
+.semestre-requisito,
+.semestre-descrip {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.semestre-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.b-formmalla {
+  font-size: 36px;
+  font-size: 36px;
+  width: 120%;
+  padding: 1%;
+  color: white;
+  border-radius: 40px;
+  font-size: 100%;
+  left: 0;
+  margin: 4%;
+  padding-left: 2%;
+  padding-right: 2%;
+}
+
+.content-wrapper {
+  display: flex;
+}
+
+.main-content {
+  width: 100%;
+}
+</style>

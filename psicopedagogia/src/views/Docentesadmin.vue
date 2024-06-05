@@ -2,7 +2,7 @@
   <div id="app">
     <div class="content-wrapper">
       <div class="main-content">
-        <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
+        <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;">NUESTRA FAMILIA</h1>
         <div class="docentes-container">
           <div
             v-for="docente in docentes"
@@ -94,68 +94,8 @@ onMounted(() => {
 });
 </script>
 <style scoped>
-.docentes-container {
-  display: flex;
-  flex-wrap: wrap;
-}
+@import url('/src/assets/Postgradoadmi.css');
 
-.docente-item {
-  width: 40%;
-  margin: 1%;
-}
-
-.docente-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 20px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.docente-image {
-  width: 100%;
-  height: auto;
-  
-}
-
-.docente-info {
-  margin-top: 15px;
-  text-align: center;
-  padding: 2%;
-}
-
-.docente-titulo {
-  font-size: 1.2em;
-  margin-bottom: 9px;
-}
-
-.docente-apodo,
-.docente-cargo,
-.docente-correo,
-.docente-datoc {
-  font-size: 0.9em;
-  margin-bottom: 5px;
-}
-
-.docente-actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.b-formn {
-  font-size: 36px;
-  width: 120%;
-  padding: 1%;
-  color: white;
-  border-radius: 40px;
-  font-size: 100%;
-  left: 0;
-  margin: 4%;
-  padding-left: 2%;
-  padding-right: 2%;
-}
 
 .content-wrapper {
   display: flex;

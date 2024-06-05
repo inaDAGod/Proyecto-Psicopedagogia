@@ -16,17 +16,17 @@
               <input type="text" id="titulo" v-model="titulo" required>
             </div>
             <div class="form-groupf">
-              <label for="about">About:</label><br>
-              <input type="text" id="about" v-model="about" required>
-            </div>
-            <div class="form-groupf">
-              <label for="competencia">Competencia:</label><br>
-              <input type="text" id="competencia" v-model="competencia" required>
-            </div>
-            <div class="form-groupf">
-              <label for="requisitos">Requisitos:</label><br>
-              <input type="text" id="requisitos" v-model="requisitos" required>
-            </div>
+            <label for="about">Sobre Curso:</label><br>
+            <textarea style="width: 100%;" id="about" v-model="about" rows="2" required></textarea>
+          </div>
+          <div class="form-groupf">
+            <label for="competencia">Competencia:</label><br>
+            <textarea style="width: 100%;" id="competencia" v-model="competencia" rows="2" required></textarea>
+          </div>
+          <div class="form-groupf">
+            <label for="requisitos">Requisitos:</label><br>
+            <textarea style="width: 100%;" id="requisitos" v-model="requisitos" rows="2" required></textarea>
+          </div>
             <div class="form-groupf">
               <label for="fecha">Fecha:</label><br>
               <input type="date" id="fecha" v-model="fecha" required>
