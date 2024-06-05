@@ -35,7 +35,7 @@
             <div v-for="i in 5" :key="'images_' + i" class="col-md-6">
               <div class="form-group">
                 <label :for="'images_' + i">Imagen {{ i }}:</label>
-                <input type="file" :id="'images_' + i" @change="onFileChange($event, i)">
+                <input type="file" :id="'images_' + i" @change="(event) => onFileChange(event, 'images_' + i)">
               </div>
             </div>
           </div>
@@ -49,7 +49,7 @@
           <!-- Input field for imgedu -->
           <div class="form-group">
             <label for="imgedu">Imagen Educativa:</label><br>
-            <input type="file" id="imgedu" @change="onFileChange($event, 'imgedu')">
+            <input type="file" id="imgedu" @change="(event) => onFileChange(event, 'imgedu')">
           </div>
 
           <!-- Input field for intercambio -->
@@ -78,10 +78,8 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 
-// Define the base directory for image storage
-const direc = "backend/images/";
+const direc = "/src/assets/images/";
 
-// Define reactive variables
 const currentFile = ref(null);
 const showForm = ref(true);
 const notification = ref(null);
@@ -95,15 +93,11 @@ const imgedu = ref(null);
 const intercambio = ref('');
 const alianza = ref('');
 
-// Function to fetch data from the database
 const fetchData = async () => {
   try {
     const response = await axios.get('http://localhost:3000/api/pregrado');
     if (response.status === 200) {
       const data = response.data;
-      console.log('Fetched data:', data);
-
-      // Update variables with fetched data
       linkMalla.value = data.link_malla || '';
       videosAsignaturas.value = [
         data.videos_asignaturas_1 || '',
@@ -112,7 +106,6 @@ const fetchData = async () => {
         data.videos_asignaturas_4 || '',
         data.videos_asignaturas_5 || ''
       ];
-
       videosActividades.value = [
         data.videos_actividades_1 || '',
         data.videos_actividades_2 || '',
@@ -120,7 +113,6 @@ const fetchData = async () => {
         data.videos_actividades_4 || '',
         data.videos_actividades_5 || ''
       ];
-
       videosPerfiles.value = [
         data.videos_perfiles_1 || '',
         data.videos_perfiles_2 || '',
@@ -128,7 +120,6 @@ const fetchData = async () => {
         data.videos_perfiles_4 || '',
         data.videos_perfiles_5 || ''
       ];
-
       images.value = [
         data.images_1 ? direc + data.images_1 : null,
         data.images_2 ? direc + data.images_2 : null,
@@ -136,7 +127,6 @@ const fetchData = async () => {
         data.images_4 ? direc + data.images_4 : null,
         data.images_5 ? direc + data.images_5 : null
       ];
-
       educativo.value = data.educativo || '';
       imgedu.value = data.imgedu ? direc + data.imgedu : null;
       intercambio.value = data.intercambio || '';
@@ -149,14 +139,11 @@ const fetchData = async () => {
   }
 };
 
-// Fetch data when the component is mounted
 onMounted(fetchData);
 
 const submitForm = async () => {
   try {
     const formData = new FormData();
-
-    // Append all form data to the FormData object
     formData.append('link_malla', linkMalla.value);
     for (let i = 0; i < 5; i++) {
       formData.append(`videos_asignaturas_${i + 1}`, videosAsignaturas.value[i]);
@@ -166,16 +153,13 @@ const submitForm = async () => {
         formData.append(`images_${i + 1}`, images.value[i]);
       }
     }
-
     if (imgedu.value) {
       formData.append('imgedu', imgedu.value);
     }
-
     formData.append('educativo', educativo.value);
     formData.append('intercambio', intercambio.value);
     formData.append('alianza', alianza.value);
 
-    // Send form data to the server
     const response = await axios.post('http://localhost:3000/api/pregrado', formData);
 
     if (response.status === 200) {
@@ -192,20 +176,45 @@ const submitForm = async () => {
   }
 };
 
-const onFileChange = (event, index) => {
+const onFileChange = async (event, imageName) => {
   const file = event.target.files[0];
   if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const imgPath = direc + file.name;
-      if (index === 'imgedu') {
-        imgedu.value = imgPath;
-        currentFile.value = file;
-      } else {
-        images.value[index - 1] = imgPath;
-      }
-    };
-    reader.readAsDataURL(file);
+    const formDataImage = new FormData();
+    formDataImage.append('sampleFile', file);
+
+    const imageResponse = await fetch('http://localhost:3000/upload', {
+      method: 'POST',
+      body: formDataImage
+    });
+
+    if (!imageResponse.ok) {
+      console.error(`Error al subir la imagen ${imageName}`);
+      return;
+    }
+
+    const imageUrl = direc + file.name;
+    switch (imageName) {
+      case 'images_1':
+        images.value[0] = imageUrl;
+        break;
+      case 'images_2':
+        images.value[1] = imageUrl;
+        break;
+      case 'images_3':
+        images.value[2] = imageUrl;
+        break;
+      case 'images_4':
+        images.value[3] = imageUrl;
+        break;
+      case 'images_5':
+        images.value[4] = imageUrl;
+        break;
+      case 'imgedu':
+        imgedu.value = imageUrl;
+        break;
+      default:
+        break;
+    }
   }
 };
 </script>
@@ -213,9 +222,8 @@ const onFileChange = (event, index) => {
 <style scoped>
 @import url('/src/assets/formPregrado.css');
 
-/* Notification styles */
 .notification {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   color: white;
   padding: 15px;
   position: fixed;
@@ -226,6 +234,4 @@ const onFileChange = (event, index) => {
   border-radius: 5px;
   text-align: center;
 }
-
-/* Other styles here */
 </style>
