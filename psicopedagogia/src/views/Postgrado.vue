@@ -112,7 +112,7 @@ const generateCursoTable = (curso) => {
 
 
 </script>
-  <style >
+  <style scoped >
   @import url('/src/assets/Postgrado.css');
   
   

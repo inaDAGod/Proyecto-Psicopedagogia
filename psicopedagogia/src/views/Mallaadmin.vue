@@ -74,7 +74,7 @@
   };
   </script>
   
-  <style >
+  <style scoped>
   .docentes-infonad {
     text-align: left;
       padding: 2%;
