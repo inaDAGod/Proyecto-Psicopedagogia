@@ -82,7 +82,7 @@
 };
   </script>
   
-  <style>
+  <style scoped>
  
  @import url('/src/assets/Postgradoadmi.css');
  

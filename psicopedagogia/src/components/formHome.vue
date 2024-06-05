@@ -212,7 +212,7 @@
   };
   </script>
   
-  <style>
+  <style scoped>
   .modal {
     display: flex;
     justify-content: center;
