@@ -30,17 +30,15 @@
 }
 
 .boton-guardar {
-  background-color: rgba(186, 223, 58, 1);
-  color: black;
-  padding: 1% 2%;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: 'Koulen';
-  font-size: 250%;
-  display: block;  /* Ensure the button is treated as a block-level element */
-  margin-left: 70%;
-  text-align: center; /* Center text inside the button */
+  background-color: #FF7001;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 100%;
+    text-align: center;
+    margin-left: 70%;
 }
 
 

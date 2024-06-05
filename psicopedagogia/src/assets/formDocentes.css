@@ -66,30 +66,22 @@ h2 {
 }
 
 .boton-guardar {
-  font-size: 36px;
-  width: 32%;
-  padding: 1%;
-  color: black;
-  border-radius: 40px;
-  font-size: 150%;
-  left:0;
-  margin:2%;
-  margin-top: -7%;
-  padding-left:2% ;
-  padding-right:2% ;
+  background-color: #FF7001;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 100%;
 }
 .boton-guardarf {
-  font-size: 36px;
-  width: 32%;
-  padding: 1%;
-  color: black;
-  border-radius: 40px;
-  font-size: 150%;
-  left:0;
-  margin:2%;
-  margin-top: -7%;
-  padding-left:2% ;
-  padding-right:2% ;
+  background-color: #FF7001;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 100%;
 }
 
 
