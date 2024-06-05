@@ -20,7 +20,6 @@
   position: relative; /* Para que el botón de cierre esté posicionado correctamente */
   max-width: 500px; /* Limit the maximum width of the modal content */
   width: 100%; /* Set width to 100% */
-  margin-top: 80px; /* Add more margin to the top */
   z-index: 1005;
 }
 
