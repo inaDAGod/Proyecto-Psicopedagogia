@@ -101,7 +101,7 @@
       formData.append('hora', hora.value);
       formData.append('ubicacion', ubicacion.value);
       formData.append('descripcion', descripcion.value);
-      formData.append('imagenA', imagen);
+      formData.append('imagenA', imagenA);
   
       const response = await fetch('http://localhost:3000/api/actividadesUpdate', {
         method: 'POST',
