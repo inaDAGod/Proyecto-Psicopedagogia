@@ -2,7 +2,9 @@
   <div id="app">
     <div class="content-wrapper">
       <div class="main-content">
-        <h1 class="titulo-nos">Malla</h1>
+        <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;">Malla</h1>
+        
+        
         <div class="semestres-container">
           <div
             v-for="semestre in semestres"
@@ -11,24 +13,24 @@
           >
             <div class="semestre-card">
               <div class="semestre-info">
-                <h5 class="semestre-materia">{{ semestre.materia }}</h5>
+                <h5 class="semestre-titulo">{{ semestre.materia }}</h5>
                 <p class="semestre-sigla">{{ semestre.sigla }}</p>
                 </div>
             
               <div class="semestre-actions">
                 <button
                   class="b-formmalla"
-                  style="background-color: #ffa198; border-color: #ffa198;"
+                  style="background-color: #ffa198; border-color: #ffa198;margin-right: 20%;"
                   @click="openDelForm(semestre)"
                 >
-                  <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
+                  <img src="/backend/images/trash2.png" width="28vh" height="auto"  />
                 </button>
                 <button
                   class="b-formmalla"
                   style="background-color: #badf3a; border-color: #badf3a;"
                   @click="openModForm(semestre)"
                 >
-                  <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;" />
+                  <img src="/backend/images/edit.png" width="28vh" height="auto" />
                 </button>
               </div>
               
@@ -108,7 +110,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3%;
+  padding: 2%;
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -142,16 +144,15 @@ onMounted(() => {
 
 .b-formmalla {
   font-size: 36px;
-  font-size: 36px;
-  width: 120%;
+  width: 100%;
   padding: 1%;
   color: white;
-  border-radius: 40px;
   font-size: 100%;
   left: 0;
   margin: 4%;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 20px;
 }
 
 .content-wrapper {

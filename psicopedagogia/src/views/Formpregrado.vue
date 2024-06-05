@@ -4,7 +4,9 @@
       {{ notification }}
     </div>
     <div class="modal" v-show="showForm">
+      <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;text-align: center;">Pregrado</h1>
       <div class="modal-content">
+        
         <form @submit.prevent="submitForm">
           <!-- Input field for link_malla -->
           <div class="form-group">

@@ -1,7 +1,8 @@
 <template>
   <div class="background-container">
     <div id="app">
-      <h1 class="prehead1">PREGRADO</h1>
+      
+        
       <div style="margin:20px;">
         <div style="display: flex; align-items: center;">
           <h3 class="prehead3"></h3>
