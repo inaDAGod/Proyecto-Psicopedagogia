@@ -54,7 +54,6 @@ const closeForm = (formName) => {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-top: -10%;
 }
 
 .flex-container {

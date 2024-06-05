@@ -2,7 +2,13 @@
   <div id="app">
     <div class="content-wrapper">
       <div class="main-content">
-        <h1 class="titulo-nos">Formación Continua</h1>
+        <h1 style="
+            font-family: 'Koulen';
+            font-size: 400%;
+            color: rgba(255, 112, 1, 1);
+            padding: 2%;
+          "
+        >Formación Continua</h1>
         <div class="curss-container">
           <div
             v-for="cursosfc in cursosfcs"
@@ -101,70 +107,10 @@ onMounted(() => {
 
   
 <style scoped>
-.curss-container {
-  display: flex;
-  flex-wrap: wrap;
-}
 
-.curs-item {
-  width: 40%;
-  margin: 1%;
-}
+@import url('/src/assets/Postgradoadmi.css');
 
-.curs-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3%;
-  background-color: white;
-  border-radius: 15px;
-  margin: 2%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
 
-.curs-image {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.curs-info {
-  margin-top: 15px;
-  text-align: center;
-}
-
-.curs-titulo {
-  font-size: 1.2em;
-  margin-bottom: 10px;
-}
-
-.curs-about,
-.curs-competencia,
-.curs-requisitos,
-.curs-fecha {
-  font-size: 0.9em;
-  margin-bottom: 5px;
-}
-
-.curs-actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-}
-
-.b-formca {
-  font-size: 36px;
-  width: 20%;
-  padding: 1%;
-  color: white;
-  border-radius: 40px;
-  font-size: 150%;
-  left: 0;
-  margin: 2%;
-  
-  padding-left: 2%;
-  padding-right: 2%;
-}
 </style>
 
   

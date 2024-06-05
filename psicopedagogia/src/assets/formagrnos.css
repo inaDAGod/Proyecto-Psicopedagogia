@@ -13,8 +13,7 @@
   align-items: flex-start;
   margin: 0;
   z-index: 1001;
-  overflow-y: auto; /* Add overflow-y to enable vertical scrolling */
-  margin-top: 22%;
+  overflow-y: auto; 
 }
 
 
