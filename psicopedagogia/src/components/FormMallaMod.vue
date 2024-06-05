@@ -10,7 +10,7 @@
           </div>
           <div class="form-groupf">
             <label for="area">Área:</label><br>
-            <select style="width: 90%;" id="area" v-model="formData.area" required>
+            <select style="width: 95.4%;border-radius: 20px;height: 40px;" id="area" v-model="formData.area" required>
               <option value="ASIGNATURAS BÁSICAS">ASIGNATURAS BÁSICAS</option>
               <option value="PSICOPEDAGOGÍA DE LA EDUCACIÓN FORMAL Y NO FORMAL">PSICOPEDAGOGÍA DE LA EDUCACIÓN FORMAL Y NO FORMAL</option>
               <option value="PSICOPEDAGOGÍA CLÍNICA">PSICOPEDAGOGÍA CLÍNICA</option>
