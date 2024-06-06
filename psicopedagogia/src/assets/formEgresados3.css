@@ -1,15 +1,25 @@
 
   
-
-  .mod {
-    width: 100%;
+  .modal {
+    display: block; 
+    width: 80%; 
+    height: auto; 
+    background-color: transparent;
+    padding: 20px; 
+    margin: 20px auto; 
+    overflow-y: visible; 
+    position: static; 
+    transform: none; 
+    top: auto; 
+    left: auto; 
   }
+  
   .mod-content {
     background-color: #D9D9D9;
     padding: 20px;
     position: relative; 
     border-radius: 10px;
-  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   
   .clo {
@@ -29,11 +39,11 @@
     margin-bottom: 10px;
   }
   
-  .mod label {
+  .modal label {
     font-family: 'Oswald';
   }
   
-  .mod input[type="text"],
+  .modal input[type="text"],
   input[type="email"],
   input[type="number"],
   textarea {
@@ -44,7 +54,7 @@
     box-sizing: border-box;
   }
   
-  .mod h2 {
+  .modal h2 {
     color: #FF7001;
     text-align: center;
     font-size: 150%;
