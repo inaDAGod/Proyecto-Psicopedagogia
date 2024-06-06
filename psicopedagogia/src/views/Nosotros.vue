@@ -149,6 +149,7 @@ onMounted(() => {
   border-bottom-left-radius: 20px;
   border-top-right-radius: 280px; /* Adjust this value as needed to make it circular */
   border-bottom-right-radius: 280px; /* Adjust this value as needed to make it circular */
+  height: 270px;
 }
 
 .doc-info {
@@ -188,21 +189,24 @@ onMounted(() => {
 }
 
 .doc-image {
-  width: 120%;
-  height: auto;
+  width: 270px;
+  height: 270px;
   border-radius: 50%; /* Match the card's border-radius */
   object-fit: cover;
-  margin-left: -20%;
+  margin-left: -10%;
 }
 
 .doc-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: stretch; /* Ensure all items stretch to the same height */
 }
 
 .doc-item {
   flex: 1 1 calc(33% - 20px);
   margin: 10px;
 }
+
+
 </style>
