@@ -11,6 +11,7 @@
   transform: none; /* Remove any transformations */
   top: auto; /* Reset top position */
   left: auto; /* Reset left position */
+  font-family: 'Oswald', sans-serif;
 }
 
 /* Update .modal-content if necessary */
@@ -50,7 +51,6 @@ form {
 
 label {
   text-align: left;
-  font-weight: bold;
 }
 
 .form-group {

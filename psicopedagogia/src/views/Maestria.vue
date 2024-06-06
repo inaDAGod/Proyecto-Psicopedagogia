@@ -21,20 +21,21 @@
 </div>
 
                 <div class="maest-actions">
-              <button
+                  <button
                 class="b-formma"
-                style="background-color: #ffa198; border-color: #ffa198; margin-right: 40%;"
-                @click="openDelForm(maestria)"
-              >
-                <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
-              </button>
-              <button
-                class="b-formma"
-                style="background-color: #badf3a; border-color: #badf3a;"
+                style="background-color: #badf3a; border-color: #badf3a;margin-right: 40%;"
                 @click="openModForm(maestria)"
               >
                 <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%" />
               </button>
+              <button
+                class="b-formma"
+                style="background-color: #ffa198; border-color: #ffa198; "
+                @click="openDelForm(maestria)"
+              >
+                <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
+              </button>
+              
             </div>
               </div>
 

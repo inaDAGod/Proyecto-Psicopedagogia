@@ -19,18 +19,19 @@
               <div class="semestre-actions">
                 <button
                   class="b-formmalla"
-                  style="background-color: #ffa198; border-color: #ffa198;margin-right: 20%;"
-                  @click="openDelForm(semestre)"
-                >
-                  <img src="/backend/images/trash2.png" width="28vh" height="auto" />
-                </button>
-                <button
-                  class="b-formmalla"
-                  style="background-color: #badf3a; border-color: #badf3a;"
+                  style="background-color: #badf3a; border-color: #badf3a;margin-right: 20%;"
                   @click="openModForm(semestre)"
                 >
                   <img src="/backend/images/edit.png" width="28vh" height="auto" />
                 </button>
+                <button
+                  class="b-formmalla"
+                  style="background-color: #ffa198; border-color: #ffa198;"
+                  @click="openDelForm(semestre)"
+                >
+                  <img src="/backend/images/trash2.png" width="28vh" height="auto" />
+                </button>
+                
               </div>
             </div>
           </div>

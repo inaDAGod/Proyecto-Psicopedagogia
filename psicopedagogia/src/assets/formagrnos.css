@@ -2,7 +2,7 @@
   background-color: rgba(228, 228, 228, 1);
   padding: 4%;
   border-radius: 10px;
-  
+  font-family: 'Oswald', sans-serif;
   position: relative;
   max-width: 100%; /* Set max-width to allow responsiveness */
   width: 100%; /* Set width to 100% to fill the modal */
@@ -45,7 +45,6 @@
   
   label {
     text-align: left;
-    font-weight: bold;
     margin-left: 2.5%;
   }
   

@@ -18,18 +18,19 @@
               <div class="docente-actions">
                 <button
                   class="b-formn"
-                  style="background-color: #ffa198; border-color: #ffa198;margin-right: 40%;"
-                  @click="openDelForm(docente)"
-                >
-                  <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
-                </button>
-                <button
-                  class="b-formn"
-                  style="background-color: #badf3a; border-color: #badf3a;"
+                  style="background-color: #badf3a; border-color: #badf3a;margin-right: 40%;"
                   @click="openModForm(docente)"
                 >
                   <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;" />
                 </button>
+                <button
+                  class="b-formn"
+                  style="background-color: #ffa198; border-color: #ffa198;"
+                  @click="openDelForm(docente)"
+                >
+                  <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
+                </button>
+               
               </div>
             </div>
           
