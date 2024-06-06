@@ -372,9 +372,9 @@ const obtenerActividades = async () => {
 
 const calcularFilasDeActividades = () => {
   actividadRows.value = [];
-  for (let i = 0; i < actividades.value.length; i += 3) {
+  for (let i = 0; i < actividades.value.length; i += 2) {
     const row = [];
-    for (let j = i; j < i + 3 && j < actividades.value.length; j++) {
+    for (let j = i; j < i + 2 && j < actividades.value.length; j++) {
       row.push(actividades.value[j]);
     }
     actividadRows.value.push(row);
@@ -400,9 +400,9 @@ const obtenerNoticias = async () => {
 
 const calcularFilasDeNoticias = () => {
   noticiaRows.value = [];
-  for (let i = 0; i < noticias.value.length; i += 3) {
+  for (let i = 0; i < noticias.value.length; i += 2) {
     const row = [];
-    for (let j = i; j < i + 3 && j < noticias.value.length; j++) {
+    for (let j = i; j < i + 2 && j < noticias.value.length; j++) {
       row.push(noticias.value[j]);
     }
     noticiaRows.value.push(row);
