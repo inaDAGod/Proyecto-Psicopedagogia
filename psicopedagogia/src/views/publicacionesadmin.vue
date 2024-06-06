@@ -5,7 +5,7 @@
         <div class="content">
           <div class="titulo-publicacion">
             <br><br>
-            <h1>PUBLICACIONES Y LIBROS</h1>
+            <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;padding-left: 4%;text-align: left;" >PUBLICACIONES Y LIBROS</h1>
           </div>
           <div>
             <input type="text" v-model="filtro.todos" class="busquedaPubli" placeholder="Buscar por título, autor, año o descripción">
@@ -62,7 +62,7 @@
     <div class="formulario-publicaciones">
       <div class="cuadro">
         <div class="modal-content-home">
-          <h2>Añadir publicación</h2>
+          <h2 style="font-family: 'Koulen';font-size: 200%;color: rgba(255, 112, 1, 1);padding: 2%;text-align: left;">Añadir publicación</h2>
           <form @submit.prevent="submitForm">
             <div class="form-group-home">
               <label for="tituloAnadir">Título:</label><br>

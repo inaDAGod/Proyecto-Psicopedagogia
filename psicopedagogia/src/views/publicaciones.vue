@@ -3,7 +3,7 @@
     <div class="content">
       <div class="titulo-publicacion">
         <br><br>
-        <h1>PUBLICACIONES Y LIBROS</h1>
+        <h1 style="padding-left: 2%;" >PUBLICACIONES Y LIBROS</h1>
       </div>
       <div>
         <input type="text" v-model="filtro.todos" class="busquedaPubli" placeholder="Buscar por título, autor, año o descripción">

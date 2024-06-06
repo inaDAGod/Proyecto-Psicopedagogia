@@ -2,7 +2,7 @@
   <div class="modal">
     <div class="modal-content">
       <button class="close" @click="closeForm">&times;</button>
-      <h2>Editar publicación</h2>
+      <h2 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;text-align: left;">Editar publicación</h2>
       <form @submit.prevent="submitForm">
         <div class="form-group">
           <label for="titulo">Titulo:</label><br>
