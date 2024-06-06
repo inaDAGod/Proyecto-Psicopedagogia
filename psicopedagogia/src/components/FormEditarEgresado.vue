@@ -37,6 +37,7 @@
       </form>
     </div>
     <delete-confirmation :egresado="props.egresado" :showForm="showDeleteForm" @closeForm="closeDeleteModal" @egresadoEliminado="handleEgresadoEliminado" />
+    <SuccessEdit v-if="showSuccessModal" @onClose="closeSuccessModal" :message="'El egresado ha sido actualizada correctamente'" :titulo="'Actualización exitosa'"></SuccessEdit>
   </div>
 </template>
 
@@ -44,6 +45,9 @@
 import { ref, watch, defineProps, defineEmits } from 'vue';
 import axios from 'axios';
 import DeleteConfirmation from './ModEliminarEgresado.vue';
+import SuccessEdit from '/src/components/ModalNoti.vue'; 
+
+const showSuccessModal = ref(false); 
 
 const props = defineProps({
   egresado: Object,
@@ -109,7 +113,8 @@ const submitForm = async () => {
 
     if (response.ok) {
       console.log('Egresado actualizado correctamente');
-      closeForm();
+      showSuccessModal.value = true; 
+      //closeForm();
     } else {
       console.error('Error al actualizar el egresado:', response.statusText);
     }
@@ -124,6 +129,10 @@ const showDeleteModal = () => {
 
 const closeDeleteModal = () => {
   showDeleteForm.value = false;
+};
+const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
 };
 
 const handleEgresadoEliminado = () => {

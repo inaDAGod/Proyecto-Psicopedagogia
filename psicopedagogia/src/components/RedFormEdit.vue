@@ -24,6 +24,7 @@
       </form>
     </div>
     <delete-confirmation-red :red="props.red" :showForm="showDeleteForm" @closeForm="closeDeleteModal" @redEliminado="handleRedEliminado" />
+    <SuccessEdit v-if="showSuccessModal" @onClose="closeSuccessModal" :message="'La red ha sido actualizada correctamente'" :titulo="'Actualización exitosa'"></SuccessEdit>
   </div>
 </template>
 
@@ -31,7 +32,9 @@
 import { ref, watch, defineProps, defineEmits } from 'vue';
 import axios from 'axios';
 import DeleteConfirmationRed from './ModEliminarRed.vue';
+import SuccessEdit from '/src/components/ModalNoti.vue'; 
 
+const showSuccessModal = ref(false); 
 const props = defineProps({
   red: Object,
 });
@@ -87,7 +90,7 @@ const submitForm = async () => {
 
     if (response.ok) {
       console.log('Red actualizada correctamente');
-      closeForm();
+      showSuccessModal.value = true; 
     } else {
       console.error('Error al actualizar la red:', response.statusText);
     }
@@ -102,6 +105,11 @@ const showDeleteModal = () => {
 
 const closeDeleteModal = () => {
   showDeleteForm.value = false;
+};
+
+const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
 };
 
 const handleRedEliminado = () => {

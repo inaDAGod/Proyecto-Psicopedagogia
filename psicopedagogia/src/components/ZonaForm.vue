@@ -20,12 +20,22 @@
           </div>
         </form>
       </div>
+      <SuccessEdit
+      v-if="showSuccessModal"
+      @onClose="closeSuccessModal"
+      :message="'La investigación ha sido agregada correctamente'"
+      :titulo="'Investigación agregada'"
+    />
     </div>
   </template>
   
   <script setup>
   import { ref } from 'vue';
   import { defineProps } from 'vue';
+  import SuccessEdit from '/src/components/ModalNoti.vue'; 
+
+  const showSuccessModal = ref(false); 
+
   // Variables reactivas para los campos del formulario
   const titulo = ref('');
   const descripcion = ref('');
@@ -60,7 +70,7 @@
         });
         if (response.ok) {
           console.log('Red guardada correctamente');
-          
+          showSuccessModal.value = true;
           clearFields();
         } else {
           console.error('Error al guardar la red:', response.statusText);
@@ -84,11 +94,18 @@
    props.onclose();
   };
 
-  const clearFields = () => {
+  const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
+};
+
+const clearFields = () => {
   titulo.value = '';
   descripcion.value = '';
-  src.value = '';
-
+  currentFile.value = null;
+  if (fileInput.value) {
+    fileInput.value.value = ''; 
+  }
 };
 
   </script>
