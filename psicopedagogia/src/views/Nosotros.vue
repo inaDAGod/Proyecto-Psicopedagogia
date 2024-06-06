@@ -1,20 +1,24 @@
 <template>
   <div id="app">
-    
-    
     <h1 class="titulo-nos">NOSOTROS</h1>
     <div class="video-container">
-      <!-- Paste the iframe code here -->
       <iframe class="video-nos" :src="getEmbeddedLink(paginaNosotros.link_video)" frameborder="0" allowfullscreen></iframe>
     </div>
 
     <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
 
-    
-
-    <div class="docentes-container">
-      <div v-for="docente in docentes" :key="docente.id" class="docente-item">
-        <div v-html="generateTable(docente)"></div>
+    <div class="doc-container">
+      <div v-for="docente in docentes" :key="docente.id" class="doc-card">
+        <div class="doc-info">
+          <p><b>{{ docente.nombre }}</b><br><br>
+          {{ docente.cargo }}<br>
+          <u>{{ docente.correo }}</u><br>
+          Dato curioso: {{ docente.datoc }}</p>
+        </div>
+        <div class="doc-avatar">
+          <div class="doc-nickname">{{ docente.apodo }}</div>
+          <img :src="docente.imagen" :alt="docente.nombre" class="doc-image">
+        </div>
       </div>
     </div>
 
@@ -25,58 +29,52 @@
       <a :href="paginaNosotros.link_psico_ucb"><button class="b-links">Psicopedagogía La Paz</button></a><br>
     </div>
     
-    <footer class="footernos" style="background-color:  rgba(170, 214, 251, 1)">
-        
-        <div class="footernos-container">
-          <div>
+    <footer class="footernos" style="background-color: rgba(170, 214, 251, 1)">
+      <div class="footernos-container">
+        <div>
           <table class="footernos-table">
-            
-              <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernos-img">
-          
-
-      <tr class="footernos-tr" >
-        <td class="footernos-td">
-          <a :href="paginaNosotros.facebook"><img style="margin-top: 10%;" class="imgnos" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
-        </td>
-        <td class="footernos-td2">
-          <p class="footernos-p" style="margin-top: 10%;">Psicopedagogía UCB La Paz</p>
-        </td>
-      </tr>
-      <tr class="footernos-tr">
-        <td class="footernos-td">
-          <a :href="paginaNosotros.insta"><img class="imgnos"   src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
-        </td>
-        <td class="footernos-td">
-          <p class="footernos-p">ucb.psp</p>
-        </td>
-      </tr>
-      <tr class="footernos-tr">
-        <td class="footeros-td">
-          <a :href="paginaNosotros.youtube"><img class="imgnos"  src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
-        </td>
-        <td class="footernos-td">
-          <p class="footernos-p">canal de youtube</p>
-        </td>
-      </tr>
-      <tr class="footernos-tr">
-        <td class="footernos-td">
-          <a :href="paginaNosotros.tiktok"><img class="imgnos"  src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
-        </td>
-        <td class="footernos-td">
-          <p class="footernos-p">psp.ucb.lapaz</p>
-        </td>
-      </tr>
-    
-    </table></div>
-  
-          <div class="footernos-info">
-            <h2 class="footernos-mainnos">Atención de Dirección de Carrera</h2>
-            <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
-          </div>
+            <img src="/src/assets/images/rocas.png" alt="Image Description" class="footernos-img">
+            <tr class="footernos-tr">
+              <td class="footernos-td">
+                <a :href="paginaNosotros.facebook"><img style="margin-top: 10%;" class="imgnos" src="/src/assets/images/facebook.png" alt="Imagen del logo"></a>
+              </td>
+              <td class="footernos-td2">
+                <p class="footernos-p" style="margin-top: 10%;">Psicopedagogía UCB La Paz</p>
+              </td>
+            </tr>
+            <tr class="footernos-tr">
+              <td class="footernos-td">
+                <a :href="paginaNosotros.insta"><img class="imgnos" src="/src/assets/images/insta.png" alt="Imagen del logo"></a>
+              </td>
+              <td class="footernos-td">
+                <p class="footernos-p">ucb.psp</p>
+              </td>
+            </tr>
+            <tr class="footernos-tr">
+              <td class="footeros-td">
+                <a :href="paginaNosotros.youtube"><img class="imgnos" src="/src/assets/images/yt.png" alt="Imagen del logo"></a>
+              </td>
+              <td class="footernos-td">
+                <p class="footernos-p">canal de youtube</p>
+              </td>
+            </tr>
+            <tr class="footernos-tr">
+              <td class="footernos-td">
+                <a :href="paginaNosotros.tiktok"><img class="imgnos" src="/src/assets/images/tiktok.png" alt="Imagen del logo"></a>
+              </td>
+              <td class="footernos-td">
+                <p class="footernos-p">psp.ucb.lapaz</p>
+              </td>
+            </tr>
+          </table>
         </div>
-      </footer>
-
-    </div>
+        <div class="footernos-info">
+          <h2 class="footernos-mainnos">Atención de Dirección de Carrera</h2>
+          <p id="direcion">{{ paginaNosotros.attencion_dire }}</p>
+        </div>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script setup>
@@ -117,7 +115,6 @@ const obtenerInfoPagina = async () => {
   }
 };
 
-
 const getEmbeddedLink = (link) => {
   // Verifica si el enlace es del formato "watch" y lo convierte a "embed"
   if (link.includes('youtube.com/watch')) {
@@ -133,39 +130,79 @@ onMounted(() => {
   obtenerDocentes();
   obtenerInfoPagina();
 });
-
-// Function to generate HTML table for docentes
-const generateTable = (docente) => {
-  const tableHTML = `<center>
-    <div class="docentes">
-      <div class="docentes-info">
-        <p ><b> ${docente.nombre}</b><br><br>
-         ${docente.cargo}<br>
-
-         <u>${docente.correo}</u><br>
-         Dato curioso:
-         ${docente.datoc}</p>
-      </div>
-      <div class="docentes-avatar">
-        <div class="docentes-nickname">${docente.apodo}</div>
-        <img src="${docente.imagen}" alt="${docente.nombre}" class="docentes-image">
-      </div>
-    </div>
-  <center>`;
-
-  return tableHTML;
-};
-
-
-
-
-
-
 </script>
+
 <style scoped>
 @import url('/src/assets/nosotros.css');
 
+.doc-card {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 206, 232, 1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  text-align: left;
+  width: 100%;
+  max-width: 550px;
+  margin-bottom: 3%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 280px; /* Adjust this value as needed to make it circular */
+  border-bottom-right-radius: 280px; /* Adjust this value as needed to make it circular */
+}
+
+.doc-info {
+  flex: 3; /* 60% of the card */
+  margin-right: 25px;
+  width: 60%;
+  padding: 10% 25px 3% 3%; /* Top, right, bottom, left padding */
+  margin-top: -10%;
+  font-family: 'Roboto Condensed', sans-serif; /* Correctly formatted font-family */
+}
 
 
+.doc-avatar {
+  position: relative;
+  flex: 2; /* 40% of the card */
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.doc-nickname {
+  position: absolute;
+  top: -5px;
+  left: 75%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 42, 157, 1);
+  color: white;
+  padding: 3% 5%;
+  padding-left: 12%;
+  padding-right: 12%;
+  font-size: 23px;
+  border-radius: 20px;
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+}
+
+.doc-image {
+  width: 120%;
+  height: auto;
+  border-radius: 50%; /* Match the card's border-radius */
+  object-fit: cover;
+  margin-left: -20%;
+}
+
+.doc-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.doc-item {
+  flex: 1 1 calc(33% - 20px);
+  margin: 10px;
+}
 </style>
