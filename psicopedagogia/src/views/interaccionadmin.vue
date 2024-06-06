@@ -26,6 +26,74 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="contenido">
+      <div class="actividades">
+        <div class="subtitulo-actividad">
+        <h1>ACTIVIDADES UNIVERSITARIAS</h1>
+        </div>
+        <br>
+        <table class="container-actividades">
+            <tbody>
+              <tr v-for="(actividadRow, rowIndex) in actividadURows" :key="rowIndex">
+                  <td v-for="(actividadU, index) in actividadRow" :key="index">
+                    <Actividad 
+                      :actividad="actividadU" 
+                      @edit-actividad="toggleForm"
+                      @delete-actividad="openDeleteModal"
+                    />
+                  </td>
+              </tr>
+            </tbody>
+        </table>
+        <!-- Actividades Departamentales -->
+        <div class="subtitulo-actividad">
+        <h1>ACTIVIDADES DEPARTAMENTALES</h1>
+        </div>
+        <br>
+        <table class="container-actividades">
+            <tbody>
+              <tr v-for="(actividadRow, rowIndex) in actividadDRows" :key="rowIndex">
+                  <td v-for="(actividadD, index) in actividadRow" :key="index">
+                    <Actividad 
+                      :actividad="actividadD" 
+                      @edit-actividad="toggleForm"
+                      @delete-actividad="openDeleteModal"
+                    />
+                  </td>
+              </tr>
+            </tbody>
+        </table>
+        <div class="subtitulo-actividad">
+        <h1>ACTIVIDADES INTERNACIONALES</h1>
+        </div>
+        <br>
+        <table class="container-actividades">
+            <tbody>
+              <tr v-for="(actividadRow, rowIndex) in actividadIRows" :key="rowIndex">
+                  <td v-for="(actividadI, index) in actividadRow" :key="index">
+                    <Actividad 
+                      :actividad="actividadI" 
+                      @edit-actividad="toggleForm"
+                      @delete-actividad="openDeleteModal"
+                    />
+                  </td>S
+              </tr>
+            </tbody>
+        </table>
+        <EditModal v-show="selectedActividad" :actividades="selectedActividad"  @onclose="toggleForm(null)" /> 
+        <ConfirmDeleteModal
+            v-if="showDeleteModal"
+            :item="actividadToDelete.actividad"
+            @onConfirm="confirmDelete"
+            @onClose="closeDeleteModal"
+        />
+        <SuccessModal
+            v-if="showSuccessModal"
+            message="La actividad se ha registrado exitosamente."
+            @onClose="closeSuccessModal"
+        />
+    </div>
       <div class="formulario-anadir">
         <div class="cuadro-formulario">
           <div class="modal-content-home">
@@ -63,6 +131,7 @@
                   <option value="Internacional">Actividad Internacional</option>
                 </select>
               </div>
+              <br>
               <div style="text-align: center;">
                 <button class="boton-guardar">Guardar</button>
               </div>
@@ -70,117 +139,15 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="actividades">
-        <div class="subtitulo-actividad">
-        <h1>ACTIVIDADES UNIVERSITARIAS</h1>
-        </div>
-        <br>
-        <table class="container-actividades">
-        <tbody>
-            <tr v-for="(actividadRow, rowIndex) in actividadURows" :key="rowIndex">
-            <td v-for="(actividadU, index) in actividadRow" :key="index">
-                <div class="actividades">
-                <div class="actividad-imagen">
-                    <img :src="actividadU.actividad_src" :alt="actividadU.actividad">
-                </div>
-                <div class="actividad-nombre">
-                    <button class="btn-actividad-universidad" @click="toggleInfoActividadU(rowIndex, index)">{{ actividadU.actividad }}</button>
-                    <div v-if="expandedInfoActividadU[rowIndex][index]" class="info-actividad-universidad">
-                    <p>Fecha: {{ actividadU.fecha }}</p>
-                    <p>Hora: {{ actividadU.hora }}</p>
-                    <p>Ubicación: {{ actividadU.ubicacion }}</p>
-                    <p>Descripción: {{ actividadU.descripcion }}</p>
-                    <div class="acciones-publicacion">
-                      <button class="boton-accion" @click="toggleForm(actividadU,actividadU._id)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
-                      <button class="boton-accion" @click="openDeleteModal(actividadU)" ><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </td>
-            </tr>
-        </tbody>
-        </table>
-        <!-- Actividades Departamentales -->
-        <div class="subtitulo-actividad">
-        <h1>ACTIVIDADES DEPARTAMENTALES</h1>
-        </div>
-        <br>
-        <table class="container-actividades">
-        <tbody>
-            <tr v-for="(actividadRow, rowIndex) in actividadDRows" :key="rowIndex">
-            <td v-for="(actividadD, index) in actividadRow" :key="index">
-                <div class="actividades">
-                <div class="actividad-imagen">
-                    <img :src="actividadD.actividad_src" :alt="actividadD.actividad">
-                </div>
-                <div class="actividad-nombre">
-                    <button class="btn-actividad-departamental" @click="toggleInfoActividadD(rowIndex, index)">{{ actividadD.actividad }}</button>
-                    <div v-if="expandedInfoActividadD[rowIndex][index]" class="info-actividad-departamental">
-                    <p>Fecha: {{ actividadD.fecha }}</p>
-                    <p>Hora: {{ actividadD.hora }}</p>
-                    <p>Ubicación: {{ actividadD.ubicacion }}</p>
-                    <p>Descripción: {{ actividadD.descripcion }}</p>
-                    <div class="acciones-publicacion">
-                      <button class="boton-accion" @click="toggleForm(actividadD,actividadD._id)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
-                      <button class="boton-accion" @click="openDeleteModal(actividadD)" ><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </td>
-            </tr>
-        </tbody>
-        </table>
-        <div class="subtitulo-actividad">
-        <h1>ACTIVIDADES INTERNACIONALES</h1>
-        </div>
-        <br>
-        <table class="container-actividades">
-        <tbody>
-            <tr v-for="(actividadRow, rowIndex) in actividadIRows" :key="rowIndex">
-            <td v-for="(actividadI, index) in actividadRow" :key="index">
-                <div class="actividades">
-                <div class="actividad-imagen">
-                    <img :src="actividadI.actividad_src" :alt="actividadI.actividad">
-                </div>
-                <div class="actividad-nombre">
-                    <button class="btn-actividad-internacional"  @click="toggleInfoActividadI(rowIndex, index)">{{ actividadI.actividad }}</button>
-                    <div v-if="expandedInfoActividadI[rowIndex][index]" class="info-actividad-internacional">
-                    <p>Fecha: {{ actividadI.fecha }}</p>
-                    <p>Hora: {{ actividadI.hora }}</p>
-                    <p>Ubicación: {{ actividadI.ubicacion }}</p>
-                    <p>Descripción: {{ actividadI.descripcion }}</p>
-                    <div class="acciones-publicacion">
-                      <button class="boton-accion" @click="toggleForm(actividadI, actividadI._id)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
-                      <button class="boton-accion" @click="openDeleteModal(actividadI)" ><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </td>
-            </tr>
-        </tbody>
-        </table>
-        <EditModal v-show="selectedActividad" :actividades="selectedActividad"  @onclose="toggleForm(null)" /> 
-        <ConfirmDeleteModal
-            v-if="showDeleteModal"
-            :item="actividadToDelete.actividad"
-            @onConfirm="confirmDelete"
-            @onClose="closeDeleteModal"
-        />
-        <SuccessModal
-            v-if="showSuccessModal"
-            message="La actividad se ha registrado exitosamente."
-            @onClose="closeSuccessModal"
-        />
+    
     </div>
 </template>
   
 <script setup>
     import { ref, onMounted } from 'vue';
+
     import axios from 'axios';
+    import Actividad from '/src/components/CardActividadAdmin.vue';
     import SuccessEdit from '/src/components/SuccessEditModal.vue';
     import EditModal from '/src/components/formActividadInteraccionEdit.vue';
     import ConfirmDeleteModal from '/src/components/ConfirmDeleteModal.vue';
@@ -454,7 +421,7 @@
   onMounted(() => {
     obtenerActividades_Internacional();
   });
-  </script>
+</script>
   
 <style scoped>
     @import url('/src/assets/formEditPrincipal.css');
@@ -479,6 +446,17 @@
     .recuadros{
       display:flex;
       width:100%;
+    }
+    .contenido{
+      display:flex;
+    }
+    .actividades{
+      width:60%;
+    }
+    .subtitulo-actividad{
+      color: #FF7001;
+      font-family: 'Koulen', 'sans-serif';
+      margin-top: 4vh;
     }
 </style>
   

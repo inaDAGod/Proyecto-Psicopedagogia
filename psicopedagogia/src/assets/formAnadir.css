@@ -4,7 +4,7 @@
   padding-left: 7vh;
   padding-right: 7vh;
   padding-bottom: 7vh;
-  width: 90%;
+  width: 100%;
   margin-top: 0%;
   margin-left: 2%;
 }
@@ -14,17 +14,46 @@
 .formulario-anadir h2 {
   font-size: 4vh;
   font-family: 'Roboto Condensed', sans-serif;
+  color: #FF7001;
 }
 .formulario-anadir label {
   font-size: 2vh;
 }
 .formulario-anadir input[type="text"],
-  input[type="number"],
+  input[type="number"], input[type="file"], input [type=""]
   textarea {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 40px;
     box-sizing: border-box;
+    font-size: 2vh;;
 }
+.formulario-anadir select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  box-sizing: border-box;
+  font-size: 2vh;
+}
+.formulario-anadir input[type="date"], input[type="time"] {
+    width: 50%;
 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    box-sizing: border-box;
+    font-size: 2vh;;
+}
+.boton-guardar {
+  background-color: #FF7001;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  height: 20%;
+  width: 50%;
+  font-size: 100%;
+}
