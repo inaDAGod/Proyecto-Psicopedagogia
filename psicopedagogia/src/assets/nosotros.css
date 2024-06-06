@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh; /* Optional: Adjust the height as needed */
+    margin-top: -10%;
 }
 
 .video-nos {
@@ -24,7 +25,7 @@
     font-family:'Oswald';
     text-align: center;
     background-color: rgba(255, 112, 1, 1);
-    font-size: 150%;
+    font-size: 100%;
     color: white;
     border-radius: 90px;
     padding: 1%;

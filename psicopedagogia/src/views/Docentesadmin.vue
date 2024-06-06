@@ -14,11 +14,11 @@
               <img :src="docente.imagen" alt="docente.nombre" class="docente-image" />
               <div class="docente-info">
                 <h5 class="docente-titulo">Nombre: {{ docente.nombre }}</h5>
-              
+              </div>
               <div class="docente-actions">
                 <button
                   class="b-formn"
-                  style="background-color: #ffa198; border-color: #ffa198;margin-right: 10%;"
+                  style="background-color: #ffa198; border-color: #ffa198;margin-right: 40%;"
                   @click="openDelForm(docente)"
                 >
                   <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
@@ -32,7 +32,7 @@
                 </button>
               </div>
             </div>
-          </div>
+          
         </div>
         </div>
         <FormDocMod

@@ -18,12 +18,12 @@
               <img :src="maestria.img" alt="maestria.titulo" class="maest-image" />
               <div class="maest-info">
                 <h5 class="maest-titulo"> {{ maestria.titulo }}</h5>
-
+</div>
 
                 <div class="maest-actions">
               <button
                 class="b-formma"
-                style="background-color: #ffa198; border-color: #ffa198; margin-right: 10%;"
+                style="background-color: #ffa198; border-color: #ffa198; margin-right: 40%;"
                 @click="openDelForm(maestria)"
               >
                 <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
@@ -36,7 +36,7 @@
                 <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%" />
               </button>
             </div>
-              </div></div>
+              </div>
 
 
             

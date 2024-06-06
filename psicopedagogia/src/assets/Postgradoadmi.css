@@ -1,3 +1,4 @@
+/*--------------------------Maest----------------------------------*/
 .maest-container {
   display: flex;
   flex-wrap: wrap;
@@ -5,12 +6,15 @@
 
 .maest-item {
   width: 40%;
-  border-radius: 20px;
+  margin: 1%;
+  display: flex;
 }
 
 .maest-card {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
   border-radius: 20px;
   background-color: white;
@@ -49,143 +53,146 @@
 
 .b-formma {
   font-size: 36px;
-  width: 120%;
+  width: 100%;
   padding: 1%;
   color: white;
-  border-radius: 40px;
   font-size: 100%;
   left: 0;
   margin: 4%;
-  padding-left: 2%;
-  padding-right: 2%;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 20px;
 }
 
+/*----------------------------Curso----------------------------------*/
+.curss-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-/*----------------------------Curso-------------------------------------------------------*/
+.curs-item {
+  width: 40%;
+  margin: 1%;
+  display: flex;
+}
 
-    .curss-container {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    
-    .curs-item {
-      width: 40%;
-      margin: 1%;
-    }
-    
-    .curs-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: white;
-      border-radius: 15px;
-      margin: 2%;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    
-    .curs-image {
-      width: 100%;
-      height: auto;
-      
-    }
-    
-    .curs-info {
-      margin-top: 15px;
-      text-align: center;
-    }
-    
-    .curs-titulo {
-      font-size: 1.2em;
-      margin-bottom: 9px;
-      margin: 2%;
-    }
-    
-    .curs-about,
-    .curs-competencia,
-    .curs-requisitos,
-    .curs-fecha {
-      font-size: 0.9em;
-      margin-bottom: 5px;
-    }
-    
-    .curs-actions {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
-    
-    .b-formca {
-      font-size: 36px;
-  width: 120%;
+.curs-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  border-radius: 15px;
+  margin: 2%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.curs-image {
+  width: 100%;
+  height: auto;
+}
+
+.curs-info {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.curs-titulo {
+  font-size: 1.2em;
+  margin-bottom: 9px;
+  margin: 2%;
+}
+
+.curs-about,
+.curs-competencia,
+.curs-requisitos,
+.curs-fecha {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.curs-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.b-formca {
+  font-size: 36px;
+  width: 100%;
   padding: 1%;
   color: white;
-  border-radius: 40px;
   font-size: 100%;
   left: 0;
   margin: 4%;
-  padding-left: 2%;
-  padding-right: 2%;
-    }
-  /*--------------------------Docentes--------------------------------------------------*/
-  .docentes-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  .docente-item {
-    width: 40%;
-    margin: 1%;
-  }
-  
-  .docente-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 20px;
-    background-color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .docente-image {
-    width: 100%;
-    height: auto;
-    
-  }
-  
-  .docente-info {
-    margin-top: 15px;
-    text-align: center;
-    padding: 2%;
-  }
-  
-  .docente-titulo {
-    font-size: 1.2em;
-    margin-bottom: 9px;
-  }
-  
-  .docente-apodo,
-  .docente-cargo,
-  .docente-correo,
-  .docente-datoc {
-    font-size: 0.9em;
-    margin-bottom: 5px;
-  }
-  
-  .docente-actions {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  .b-formn {
-    font-size: 36px;
-    width: 120%;
-    padding: 1%;
-    color: white;
-    border-radius: 40px;
-    font-size: 100%;
-    left: 0;
-    margin: 4%;
-    padding-left: 2%;
-    padding-right: 2%;
-  }
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 20px;
+}
+
+/*--------------------------Docentes----------------------------------*/
+.docentes-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.docente-item {
+  width: 40%;
+  margin: 1%;
+  display: flex;
+}
+
+.docente-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.docente-image {
+  width: 100%;
+  height: auto;
+}
+
+.docente-info {
+  margin-top: 15px;
+  text-align: center;
+  padding: 2%;
+}
+
+.docente-titulo {
+  font-size: 1.2em;
+  margin-bottom: 9px;
+}
+
+.docente-apodo,
+.docente-cargo,
+.docente-correo,
+.docente-datoc {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+}
+
+.docente-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.b-formn {
+  font-size: 36px;
+  width: 100%;
+  padding: 1%;
+  color: white;
+  font-size: 100%;
+  left: 0;
+  margin: 4%;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 20px;
+}

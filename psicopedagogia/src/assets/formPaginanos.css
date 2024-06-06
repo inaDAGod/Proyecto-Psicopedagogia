@@ -61,7 +61,6 @@ input[type="text"],
 input[type="email"],
 input[type="number"],
 textarea {
-  width: 175%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 20px;
@@ -69,6 +68,8 @@ textarea {
   margin-top: 10px;
   margin-left: 10px;
   height: 100%;
+  width: 100%;
+  max-width: 600px;
 }
 
 h2 {

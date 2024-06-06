@@ -14,11 +14,11 @@
               <img :src="cursosfc.img" alt="cursosfc.titulo" class="curs-image" />
               <div class="curs-info">
                 <h5 class="curs-titulo">   {{ cursosfc.titulo }}</h5>
-              
+              </div>
               <div class="curs-actions">
               <button
                 class="b-formca"
-                style="background-color: #ffa198; border-color: #ffa198; margin-right: 10%;"
+                style="background-color: #ffa198; border-color: #ffa198; margin-right: 40%;"
                 @click="openDelForm(cursosfc)"
               >
                 <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
@@ -31,7 +31,7 @@
                 <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;" />
               </button>
             </div></div>
-            </div>
+            
            
           </div>
         </div>

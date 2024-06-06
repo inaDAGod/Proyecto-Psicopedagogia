@@ -2,7 +2,7 @@
     <div class="cuerpo">
       <div class="formDatos">
         <h2 class="tituloE">Sociedad Científica Estudiantil INPSICOPEDIA</h2>
-        <div class="mod">
+        <div class="modal">
           <div class="mod-content">
             <h2>Informacion general</h2>
             <form @submit.prevent="submitForm">
@@ -29,6 +29,12 @@
             <div class="for-group">
                 <label for="contactos">Contactos:</label><br>
                 <input type="text" id="contactos" :disabled="!editar" v-model="contactos" required>
+            </div>
+            <label for="contactos">Ordenar componentes ventana:</label><br>
+            <div v-for="(item, index) in items" :key="index">
+              <button @click="moverElemento(index, 'arriba')" v-if="index !== 0">⬆️</button>
+              <button @click="moverElemento(index, 'abajo')" v-if="index !== items.length - 1">⬇️</button>
+              {{ item }}
             </div>
               <div style="text-align: center;">
                 <button v-if="!mostrarBotonGuardar && !editar" class="bot-guardar" @click="editar = true"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
@@ -66,7 +72,7 @@
   const showSuccessModal = ref(false); 
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
-  
+  let items = ref([]);
   let sociedad = ref([]);
   let quienes_somos = ref('');
   let desdecuando = ref('');
@@ -87,6 +93,7 @@
       como_unirse.value = response.data.como_unirse;
       link_face.value = response.data.link_face;
       contactos.value = response.data.contactos;
+      items.value = response.data.order;
     } catch (error) {
       console.error('Error fetching investigaciones:', error);
     }
@@ -101,6 +108,8 @@
     formData.append('como_unirse',  como_unirse.value);
     formData.append('link_face',  link_face.value);
     formData.append('contactos',  contactos.value);
+    formData.append('order', JSON.stringify(items.value));
+    
     const response = await fetch('http://localhost:3000/api/sociedadUpdate', {
       method: 'POST',
       body: formData
@@ -121,6 +130,11 @@
   const closeSuccessModal = () => {
   showSuccessModal.value = false;
 };
+const moverElemento = (index, direccion) => {
+  const nuevoIndice = direccion === 'arriba' ? index - 1 : index + 1;
+  [items.value[index], items.value[nuevoIndice]] = [items.value[nuevoIndice], items.value[index]];
+};
+
 
   onMounted(() => {
     obtenerSoci();
@@ -129,6 +143,6 @@
   
   <style scoped>
   @import url('/src/assets/admins.css');
-  @import url('/src/assets/formEgresados2.css');
+  @import url('/src/assets/formEgresados3.css');
   </style>
   

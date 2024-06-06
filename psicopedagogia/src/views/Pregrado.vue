@@ -28,10 +28,30 @@
             <div v-else class="video-preb">Video not available</div>
           </Slide>
         </Carousel>
+        <br>
         <!-- Navigation buttons -->
-        <div style="margin-left: -45%;">
-          <button @click="prevAsignaturas" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
-          <button @click="nextAsignaturas" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
+        <div >
+          <button style="width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #BADF3A;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-right: 1%;" @click="prevPerfiles" > &lt;</button>
+          <button style="width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #BADF3A;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;" @click="nextPerfiles">&gt;</button>
         </div>
       </div>
 
@@ -45,9 +65,29 @@
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
-        <div style="margin-left: -45%;">
-          <button @click="prevActividades" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
-          <button @click="nextActividades" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
+        <br>
+        <div >
+          <button style="width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #BADF3A;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-right: 1%;" @click="prevPerfiles" > &lt;</button>
+          <button style="width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #BADF3A;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;" @click="nextPerfiles">&gt;</button>
         </div>
       </div>
 
@@ -61,9 +101,29 @@
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
-        <div style="margin-left: -45%;">
-          <button @click="prevExperiencias" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
-          <button @click="nextExperiencias" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
+        <br>
+        <div >
+          <button style="width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #BADF3A;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-right: 1%;" @click="prevPerfiles" > &lt;</button>
+          <button style="width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #BADF3A;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;" @click="nextPerfiles">&gt;</button>
         </div>
       </div>
 
@@ -77,20 +137,41 @@
           </Slide>
         </Carousel>
         <!-- Navigation buttons -->
-        <div style="margin-left: -45%;">
-          <button @click="prevPerfiles" class="nav-buttonprep"><img class="flecha" src="/src/assets/images/flechap.png" alt="Imagen del logo"></button>
-          <button @click="nextPerfiles" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
+        <br>
+        <div >
+          <button style="width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #BADF3A;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;
+    margin-right: 1%;" @click="prevPerfiles" > &lt;</button>
+          <button style="width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #BADF3A;
+    border: none;
+    color: #fff;
+    font-family: monospace;
+    font-weight: bold;
+    transition: 0.5s;
+    cursor: pointer;" @click="nextPerfiles">&gt;</button>
         </div>
       </div>
 <!-- Áreas laborales card -->
 <h2 class="prehead2">Áreas laborales PSP</h2>
 <div class="area-card">
-  <div class="area-info">
-    <p style="font-size: 25px;" class="p-pre">{{ paginaNosotros.educativo }}</p>
-  </div>
   <div class="area-img">
     <img alt="Ped" class="logo-pre" :src="paginaNosotros.imgedu">
   </div>
+  <div class="area-info">
+    <p style="font-size: 150%;" class="p-pre">{{ paginaNosotros.educativo }}</p>
+  </div>
+  
 </div>
 
 <br><br><br>
@@ -315,44 +396,55 @@ export default defineComponent({
 }
 
 
-
 .area-card {
   display: flex;
   justify-content: center;
-  align-items: stretch; /* Ensures the image and text have the same height */
+  align-items: stretch;
   margin: 20px auto;
-  padding: 0; /* Remove padding to ensure the image fills the height */
   background-color: rgba(255, 206, 232, 1);
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   width: 80%;
-  font-family: 'Roboto Condensed', sans-serif !important;
 }
 
 .area-info {
-  flex: 3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 1% !important; /* Adjust padding for spacing within the text area */
-  font-family: 'Roboto Condensed', sans-serif !important;
-  text-align: left !important;
+  flex: 1;
+  padding: 2%;
+  font-family: 'Oswald', sans-serif;
 }
-
 .area-img {
-  flex: 2; /* 40% of the card */
-}
-
-.area-info p {
-  font-size: 16px;
-  line-height: 1.5;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
 .area-img img {
-  width: 100%;
-  height: 100%; /* Ensures the image fills the height of the card */
-  object-fit: cover; /* Ensures the image covers the area without distortion */
-  border-radius: 0 8px 8px 0; /* Rounded corners on the right side of the image */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Maintain aspect ratio and fit inside the container */
 }
+
+
+
+@media (max-width: 768px) {
+  .area-card {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .area-info,
+  .area-img {
+    flex: none;
+    width: 100%;
+  }
+
+  .area-info {
+    padding: 10px;
+  }
+}
+
+
 
 </style>
