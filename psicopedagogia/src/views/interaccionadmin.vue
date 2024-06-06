@@ -360,10 +360,10 @@
   const calcularFilasDeActividadesU = () => {
     actividadURows.value = [];
     expandedInfoActividadU.value = [];
-    for (let i = 0; i < actividadesU.value.length; i += 3) {
+    for (let i = 0; i < actividadesU.value.length; i += 2) {
       const row = [];
       const infoRow = [];
-      for (let j = i; j < i + 3 && j < actividadesU.value.length; j++) {
+      for (let j = i; j < i + 2 && j < actividadesU.value.length; j++) {
         row.push(actividadesU.value[j]);
         infoRow.push(false); // Inicialmente la información está oculta
       }
@@ -398,10 +398,10 @@
   const calcularFilasDeActividadesD = () => {
     actividadDRows.value = [];
     expandedInfoActividadD.value = [];
-    for (let i = 0; i < actividadesD.value.length; i += 3) {
+    for (let i = 0; i < actividadesD.value.length; i += 2) {
       const row = [];
       const infoRow = [];
-      for (let j = i; j < i + 3 && j < actividadesD.value.length; j++) {
+      for (let j = i; j < i + 2 && j < actividadesD.value.length; j++) {
         row.push(actividadesD.value[j]);
         infoRow.push(false); // Inicialmente la información está oculta
       }
@@ -435,10 +435,10 @@
   const calcularFilasDeActividadesI = () => {
     actividadIRows.value = [];
     expandedInfoActividadI.value = [];
-    for (let i = 0; i < actividadesI.value.length; i += 3) {
+    for (let i = 0; i < actividadesI.value.length; i += 2) {
       const row = [];
       const infoRow = [];
-      for (let j = i; j < i + 3 && j < actividadesI.value.length; j++) {
+      for (let j = i; j < i + 2 && j < actividadesI.value.length; j++) {
         row.push(actividadesI.value[j]);
         infoRow.push(false); // Inicialmente la información está oculta
       }

@@ -171,15 +171,19 @@ onMounted(() => {
 }
 
 .titulo-social h1 {
-  margin-left: 5vh;
+  margin-left: 10vh;
   font-family: 'Oswald', 'sans-serif';
   font-size: 5vh;
   color: #ff7001;
+  margin-left: 5%;
 }
 
 .container-actividades {
   display: flex;
   flex-wrap: wrap;
+  margin-left: 5%;
+  margin-right: 5%;
+  width: 90%;
 }
 
 .subtitulo-actividad h1{
@@ -187,6 +191,7 @@ onMounted(() => {
     color: #FF7001;
     font-family: 'Koulen', 'sans-serif';
     margin-top: 4vh;
+    margin-left: 5%;
 }
 @media (max-width: 992px) {
   .container-objetivo,
@@ -214,6 +219,9 @@ onMounted(() => {
       color: #FF7001;
       font-family: 'Koulen', 'sans-serif';
       margin-top: 4vh;
+    }
+    .container-actividades{
+      width: 40vw;
     }
 }
 
@@ -265,5 +273,7 @@ onMounted(() => {
       font-family: 'Koulen', 'sans-serif';
       margin-top: 4vh;
   }
+
+
 }
 </style>
