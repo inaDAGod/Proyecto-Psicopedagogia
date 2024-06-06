@@ -1,67 +1,69 @@
 <template>
   <div>
-  
     <div class="modal" v-show="showForm">
-      <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;text-align:left;">Pagina Nosotros</h1>
+      <h1 style="font-family: 'Koulen'; font-size: 400%; color: rgba(255, 112, 1, 1); padding: 2%; text-align:left;">
+        Pagina Nosotros
+      </h1>
       <div class="modal-content">
-        
         <form @submit.prevent="submitForm">
           <!-- Input fields for the form -->
           <div class="form-group">
             <label for="link_video">Link del Video:</label><br>
-            <input type="text" id="link_video" v-model="linkVideo" required>
+            <input type="text" id="link_video" :disabled="!editar" v-model="linkVideo" required>
           </div>
           <div class="form-group">
             <label for="link_soc_cien">Link Soc. Científica:</label><br>
-            <input type="text" id="link_soc_cien" v-model="linkSocCien" required>
+            <input type="text" id="link_soc_cien" :disabled="!editar" v-model="linkSocCien" required>
           </div>
           <div class="form-group">
             <label for="link_sembrando">Link Sembrando:</label><br>
-            <input type="text" id="link_sembrando" v-model="linkSembrando" required>
+            <input type="text" id="link_sembrando" :disabled="!editar" v-model="linkSembrando" required>
           </div>
           <div class="form-group">
             <label for="link_psico_ucb">Link Psico UCB:</label><br>
-            <input type="text" id="link_psico_ucb" v-model="linkPsicoUcb" required>
+            <input type="text" id="link_psico_ucb" :disabled="!editar" v-model="linkPsicoUcb" required>
           </div>
           <h1>Redes:</h1>
           <div class="form-group">
             <img style="width: 12%;" src="/src/assets/images/facebook.png" alt="Imagen del logo">
-            <input type="text" id="facebook" v-model="facebook" required>
+            <input type="text" id="facebook" :disabled="!editar" v-model="facebook" required>
           </div>
           <div class="form-group">
             <img style="width: 12%;" src="/src/assets/images/insta.png" alt="Imagen del logo">
-            <input type="text" id="insta" v-model="insta" required>
+            <input type="text" id="insta" :disabled="!editar" v-model="insta" required>
           </div>
           <div class="form-group">
-            <img style="width: 12%;height: 20%;" src="/src/assets/images/yt.png" alt="Imagen del logo">
-            <input type="text" id="youtube" v-model="youtube" required>
+            <img style="width: 12%; height: 20%;" src="/src/assets/images/yt.png" alt="Imagen del logo">
+            <input type="text" id="youtube" :disabled="!editar" v-model="youtube" required>
           </div>
           <div class="form-group">
             <img style="width: 12%;" src="/src/assets/images/tiktok.png" alt="Imagen del logo">
-            <input type="text" id="tiktok" v-model="tiktok" required>
+            <input type="text" id="tiktok" :disabled="!editar" v-model="tiktok" required>
           </div>
           <div class="form-group">
             <label for="attencion_dire">Atención Dirección:</label><br>
-            <textarea style="width: 100%;" id="attencion_dire" v-model="attencionDire" rows="4" required></textarea>
+            <textarea style="width: 100%;" id="attencion_dire" :disabled="!editar" v-model="attencionDire" rows="4" required></textarea>
           </div>
           <div style="text-align: center;">
-            <!-- Submit button -->
-            <button class="boton-guardar">Guardar</button>
+            <!-- Edit and Save buttons -->
+            <button v-if="!editar" class="boton-guardar" @click="editar = true">Editar</button>
+            <button v-if="editar" class="boton-guardar" @click="guardarCambios">Guardar</button>
           </div>
         </form>
       </div>
     </div>
     <SuccessEdit v-if="showSuccessModal" @onClose="closeSuccessModal" :message="'La pagina nosotros ha sido actualizada correctamente'" :titulo="'Actualización exitosa'"></SuccessEdit>
- 
   </div>
 </template>
 
+
 <script setup>
 import { ref, onMounted, defineProps } from 'vue';
-import SuccessEdit from '/src/components/ModalNoti.vue'; 
+import SuccessEdit from '/src/components/ModalNoti.vue';
 
-const showSuccessModal = ref(false); 
+const showSuccessModal = ref(false);
 const showForm = ref(true);
+const editar = ref(false); // Add this line
 const notification = ref(null);
 const props = defineProps({
   linkVideo: String,
@@ -115,7 +117,7 @@ const fetchData = async () => {
 onMounted(fetchData);
 
 // Function to send the form data to the server
-const submitForm = async () => {
+const guardarCambios = async () => {
   try {
     const formData = new FormData(); // Create FormData object to send data to the server
     formData.append('link_video', linkVideo.value);
@@ -131,11 +133,12 @@ const submitForm = async () => {
     // Send the form data to the server
     const response = await fetch('http://localhost:3000/api/info-pagina', {
       method: 'POST',
-      body: formData 
+      body: formData
     });
-    
+
     if (response.ok) {
-      showSuccessModal.value = true; 
+      showSuccessModal.value = true;
+      editar.value = false; // Add this line
     } else {
       console.error('Error updating data:', response.statusText);
     }
@@ -143,14 +146,16 @@ const submitForm = async () => {
     console.error('Error submitting form:', error);
   }
 };
+
 const closeSuccessModal = () => {
   showSuccessModal.value = false;
   closeForm();
 };
 </script>
 
+
 <style scoped>
-@import url('/src/assets/formPaginanos.css');
+@import url('/src/assets/formPregrado.css');
 
 /* Notification styles */
 .notification {
