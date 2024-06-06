@@ -1,14 +1,10 @@
 <template>
     <div class="noticia">
-      <div class="noticia-imagen">
-        <img :src="noticia.noticia_src" :alt="noticia.noticia">
-      </div>
       <div class="noticia-contenido">
-        <button class="btn-noticia" @click="toggleInfoNoticia">{{ noticia.noticia }}</button>
-        <div v-if="expanded" class="info-noticia">
-          <p>{{ noticia.contenido }}</p>
-          <p>Fecha: {{ noticia.fecha }}</p>
-        </div>
+        <img :src="noticia.noticia_src" :alt="noticia.noticia" width="30vh" height="25vh">
+        <h1>{{ noticia.noticia }}</h1>
+        <button class="boton-editar" @click="$emit('edit-actividad', noticia)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
+        <button class="boton-accion" @click="$emit('delete-actividad', noticia)"><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
       </div>
     </div>
   </template>
@@ -18,16 +14,6 @@
     props: {
       noticia: Object
     },
-    data() {
-      return {
-        expanded: false
-      };
-    },
-    methods: {
-      toggleInfoNoticia() {
-        this.expanded = !this.expanded;
-      }
-    }
   };
   </script>
   
@@ -38,9 +24,23 @@
     margin-bottom: 20px;
     box-sizing: border-box;
   }
-  .noticia-imagen img {
-    width: 60vh;
-    height: 40vh;
+  .noticia-contenido h1{
+    margin-top: 5%;
+    font-size: 1.5vw;
+  }
+  .noticia-contenido{
+    margin-top: 2vh;
+    padding: 2vh;
+    background-color: #f8f8f8;
+    border-radius: 3vh;
+    width:20vw;
+  }
+  .noticia-contenido:hover {
+    transform: scale(1.05);
+}
+  .noticia-contenido img{
+    width: 38vh;
+    height: 25vh;
     object-fit: cover;
   }
   .btn-noticia {
@@ -73,6 +73,34 @@
     text-align: center;
     align-items: center;
   }
+  .boton-editar {
+  font-size: 100%;
+  width: 5vw;
+  height: 2.5vw;
+  margin-right: 5%;
+  margin-bottom: 2vh;
+  background-color: #BADF3A;
+  border-color: #acacac;
+  padding: 0.5vh;
+  border-radius: 3vh;
+  box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452);
+}
+.boton-accion {
+  font-size: 100%;
+  width: 5vw;
+  height: 2.5vw;
+  margin-right: 5%;
+  margin-bottom: 2vh;
+  background-color: #FFA198;
+  border-color: #acacac;
+  padding: 0.5vh;
+  border-radius: 3vh;
+  box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452);
+}
+.boton-accion img, .boton-editar img {
+  width: 40%; /* Hacer que la imagen ocupe todo el espacio disponible dentro del botón */
+  height: auto; /* Mantener la proporción de aspecto */
+}
   @media (max-width: 992px) {
     .noticia-imagen img {
       width: 70vw; /* Establece el ancho al 100% */

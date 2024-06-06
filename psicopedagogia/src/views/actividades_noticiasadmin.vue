@@ -5,7 +5,47 @@
           <h1>NOTICIAS Y ACTIVIDADES</h1>
           </div>
       </div>
-      <div class="recuadros">
+      
+      <div class="vacio">
+          <br>
+      </div>
+      <div class="contenido">
+        <div class="contenedor-not-act">
+          <div class="subtitulo-actividad">
+          <h1>ACTIVIDADES</h1>
+          </div>
+          <br>
+          <table class="container-actividades">
+              <tbody>
+              <tr v-for="(actividadRow, rowIndex) in actividadRows" :key="rowIndex">
+                  <td v-for="(actividad, index) in actividadRow" :key="index">
+                    <Actividad 
+                      :actividad="actividad" 
+                      @edit-actividad="editActividad"
+                      @delete-actividad="openDeleteModal"
+                    />
+                  </td>
+              </tr>
+              </tbody>
+          </table>
+          <div class="subtitulo-actividad">
+              <h1>NOTICIAS</h1>
+          </div>
+          <br>
+          <table class="container-noticias">
+              <tbody>
+              <tr v-for="(noticiaRow, rowIndex) in noticiaRows" :key="rowIndex">
+                  <td v-for="(noticia, index) in noticiaRow" :key="index">
+                  <Noticia :noticia="noticia" 
+                  @edit-actividad="editActividad"
+                  @delete-actividad="openDeleteModal"/>
+                  </td>
+              </tr>
+              </tbody>
+          </table>
+        </div>
+        <br><br><br>
+        <div class="recuadros">
           <div class="formulario-anadir">
               <div class="cuadro-formulario">
                   <div class="modal-content-home">
@@ -42,8 +82,9 @@
                   </div>
               </div>
           </div>
+          <br><br>
           <div class="formulario-anadir">
-          <div class="cuadro-formulario">
+            <div class="cuadro-formulario">
               <div class="modal-content-home">
                   <h2>Añadir noticia</h2>
                   <form @submit.prevent="submitFormNoticia">
@@ -68,47 +109,12 @@
                       </div>
                   </form>
               </div>
+            </div>
           </div>
+        </div>
+        
       </div>
       
-      </div>
-      <div class="vacio">
-          <br>
-      </div>
-      <div class="subtitulo-actividad">
-          <h1>ACTIVIDADES</h1>
-      </div>
-      <br>
-      <table class="container-actividades">
-          <tbody>
-          <tr v-for="(actividadRow, rowIndex) in actividadRows" :key="rowIndex">
-              <td v-for="(actividad, index) in actividadRow" :key="index">
-              <Actividad :actividad="actividad" />
-              <div class="acciones-publicacion">
-                  <button class="boton-accion" @click="editActividad(actividad,actividad._id)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
-                  <button class="boton-accion" @click="openDeleteModal(actividad)" ><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
-              </div>
-              </td>
-          </tr>
-          </tbody>
-      </table>
-      <div class="subtitulo-actividad">
-          <h1>NOTICIAS</h1>
-      </div>
-      <br>
-      <table class="container-noticias">
-          <tbody>
-          <tr v-for="(noticiaRow, rowIndex) in noticiaRows" :key="rowIndex">
-              <td v-for="(noticia, index) in noticiaRow" :key="index">
-              <Noticia :noticia="noticia" />
-              <div class="acciones-publicacion">
-                  <button class="boton-accion" @click="editNoticia(noticia)" @onclose="showModal = false"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
-                  <button class="boton-accion" @click="openDeleteModalNoticia(noticia)" ><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
-              </div>
-              </td>
-          </tr>
-          </tbody>
-      </table>
       <EditModalActividad v-if="selectedActividad" :actividades="selectedActividad" @onclose="closeEditActividad" />
       <EditModalNoticia v-if="selectedNoticia" :noticias="selectedNoticia" @onclose="closeEditNoticia" />
 
@@ -423,11 +429,21 @@ onMounted(() => {
 @import url('/src/assets/formAnadir.css');
 @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
 .recuadros{
-    display:flex;
-    width:100%;
-    padding-left: 20%;;
+    display:block;
+    width:40%;
     text-align: center;
     align-items: center;
+  }
+  .contenedor-not-act{
+    width: 55%;
+    margin-right:5%;
+  }
+  .contenido{
+    display: flex;
+  }
+  .cuadro-formulario{
+    margin-right: 5%;
+    width: 30vw;
   }
 .titulo h1{
   font-size: 11vh;
@@ -474,20 +490,16 @@ onMounted(() => {
   text-align: center;
 }
 
+.container-actividades img,
+.container-noticias img {
+  width:2vh;
+  height: auto;
+}
+
 h1{
   margin-left: 5vh;
   font-family: 'Oswald', 'sans-serif';
   font-size: 5vh;
 }
-.boton-accion {
-  font-size: 2vh;
-  margin-top: 0.2vh;
-  margin-right: 5%;
-  margin-bottom: 2vh;
-  background-color: #ffffff;
-  border-color: #acacac;
-  padding: 0.5vh;
-  border-radius: 3vh;
-  box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452);
-}
+
 </style>
