@@ -37,6 +37,12 @@
             </form>
           </div>
         </div>
+        <SuccessEdit
+      v-if="showSuccessModal"
+      @onClose="closeSuccessModal"
+      :message="'Los datos de la Zona de aprendizaje se actualizaron correctamente'"
+      :titulo="'Actualización exitosa'"
+    />
       </div>
       <h2 class="tituloE">Investigaciones</h2>
       <div class="container">
@@ -57,6 +63,9 @@
   import InvestigacionForm from '/src/components/ZonaForm.vue';
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
+  import SuccessEdit from '/src/components/ModalNoti.vue'; 
+
+  const showSuccessModal = ref(false); 
   
   let sociedad = ref([]);
   let quienes_somos = ref('');
@@ -99,6 +108,7 @@
     
     if (response.ok) {
       console.log('Informacion actualizado correctamente');
+      showSuccessModal.value = true;
       editar.value = false; 
     } else {
       console.error('Error al actualizar :', response.statusText);
@@ -108,7 +118,9 @@
   }
     
   };
-  
+  const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+};
   onMounted(() => {
     obtenerSoci();
   });

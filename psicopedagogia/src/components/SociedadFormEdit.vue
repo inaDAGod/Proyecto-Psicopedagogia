@@ -30,6 +30,8 @@
       :showForm="showDeleteForm" 
       @closeForm="closeDeleteModal" 
       @investigacionEliminado="handleInvestigacionEliminado" />
+
+      <SuccessEdit v-if="showSuccessModal" @onClose="closeSuccessModal" :message="'La investigacion ha sido actualizada correctamente'" :titulo="'Actualización exitosa'"></SuccessEdit>
   </div>
 </template>
 
@@ -37,6 +39,10 @@
 import { ref, watch, defineProps, defineEmits } from 'vue';
 import axios from 'axios';
 import DeleteConfirmationInvestigacion from './ModEliminarInvSoc.vue';
+import SuccessEdit from '/src/components/ModalNoti.vue'; 
+
+const showSuccessModal = ref(false); 
+
 
 const props = defineProps({
   investigacion: Object,
@@ -93,7 +99,8 @@ const submitForm = async () => {
 
     if (response.ok) {
       console.log('Actualizado correctamente');
-      closeForm();
+      showSuccessModal.value = true; 
+      //closeForm();
     } else {
       console.error('Error al actualizar:', response.statusText);
     }
@@ -108,6 +115,10 @@ const showDeleteModal = () => {
 
 const closeDeleteModal = () => {
   showDeleteForm.value = false;
+};
+const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
 };
 
 const handleInvestigacionEliminado = () => {

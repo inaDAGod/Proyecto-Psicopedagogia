@@ -37,6 +37,12 @@
             </form>
           </div>
         </div>
+        <SuccessEdit
+      v-if="showSuccessModal"
+      @onClose="closeSuccessModal"
+      :message="'Los datos de la Sociedad se actualizaron correctamente'"
+      :titulo="'Actualización exitosa'"
+    />
       </div>
       <h2 class="tituloE">Investigaciones</h2>
       <div class="container">
@@ -55,6 +61,9 @@
   <script setup>
   import CardsInvestigaciones from '/src/components/CardsSociedad.vue';
   import InvestigacionForm from '/src/components/SociedadForm.vue';
+  import SuccessEdit from '/src/components/ModalNoti.vue'; 
+
+  const showSuccessModal = ref(false); 
   import { ref, onMounted } from 'vue';
   import axios from 'axios';
   
@@ -99,6 +108,7 @@
     
     if (response.ok) {
       console.log('Informacion actualizado correctamente');
+      showSuccessModal.value = true;
       editar.value = false; 
     } else {
       console.error('Error al actualizar :', response.statusText);
@@ -108,7 +118,10 @@
   }
     
   };
-  
+  const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+};
+
   onMounted(() => {
     obtenerSoci();
   });
