@@ -1,9 +1,6 @@
 <template>
     <div>
-      <!-- Notification -->
-      <div v-show="showNotification" class="notification">
-        Semestre creado exitosamente!
-      </div>
+     
   
       <!-- Modal form -->
       <div class="modalf" v-show="showForm">
@@ -50,6 +47,12 @@
           </form>
         </div>
       </div>
+      <SuccessEdit
+      v-if="showSuccessModal"
+      @onClose="closeSuccessModal"
+      :message="'Se aumento algo a la Malla correctamente'"
+      :titulo="'Malla agregada'"
+    />
     </div>
   </template>
   
@@ -57,7 +60,9 @@
    <script setup>
      import { ref } from 'vue';
      import { defineProps } from 'vue';
-   
+     import SuccessEdit from '/src/components/ModalNoti.vue'; 
+
+const showSuccessModal = ref(false); 
      const showForm = ref(true);
      const showNotification = ref(false);
    
@@ -106,12 +111,7 @@
    
    
          if (response.ok) {
-           console.log('semestre guardado correctamente');
-           showNotification.value = true; // Show notification
-           setTimeout(() => {
-             showNotification.value = false; // Hide notification after a delay
-           }, 3000);
-           // Reset form fields
+          showSuccessModal.value = true;
            semestre.value = '';
            area.value = '';
            sigla.value = '';
@@ -128,7 +128,10 @@
    
    
    
-   
+     const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
+};
    
    
    

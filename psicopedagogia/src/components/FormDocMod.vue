@@ -78,7 +78,6 @@ const submitForm = async () => {
 
     const response = await axios.put(`http://localhost:3000/api/docentes/${formData.value._id}`, formDataToSend);
     if (response.status === 200) {
-      console.log('Docente actualizado correctamente');
       showSuccessModal.value = true; 
       
     } else {

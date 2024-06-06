@@ -1,9 +1,6 @@
 <template>
   <div>
-     <!-- Notification -->
-     <div v-show="showNotification" class="notification">
-       Docente creado exitosamente!
-     </div>
+     
  
      <!-- Modal form -->
      <div class="modalf" v-show="showForm">
@@ -42,12 +39,22 @@
          </div>
        </form>
      </div>
-   </div></div>
+   </div>
+   <SuccessEdit
+      v-if="showSuccessModal"
+      @onClose="closeSuccessModal"
+      :message="'El docente ha sido agregada correctamente'"
+      :titulo="'Docente agregada'"
+    />
+  </div>
  </template>
  
  <script setup>
    import { ref } from 'vue';
    import { defineProps } from 'vue';
+   import SuccessEdit from '/src/components/ModalNoti.vue'; 
+
+const showSuccessModal = ref(false); 
  
    const showForm = ref(true);
    const showNotification = ref(false);
@@ -110,12 +117,7 @@
  
  
        if (response.ok) {
-         console.log('Docente guardado correctamente');
-         showNotification.value = true; // Show notification
-         setTimeout(() => {
-           showNotification.value = false; // Hide notification after a delay
-         }, 3000);
-         // Reset form fields
+        showSuccessModal.value = true;
          nombre.value = '';
          apodo.value = '';
          cargo.value = '';
@@ -135,7 +137,10 @@
  
  
  
- 
+   const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
+};
  
  
    const onFileChange = (event) => {
