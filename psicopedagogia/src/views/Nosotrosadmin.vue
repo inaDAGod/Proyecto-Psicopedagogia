@@ -1,10 +1,8 @@
 <template>
   <div>
-    <div v-if="notification" class="notification">
-      {{ notification }}
-    </div>
+  
     <div class="modal" v-show="showForm">
-      <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;text-align: center;">Pagina Nosotros</h1>
+      <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;text-align:left;">Pagina Nosotros</h1>
       <div class="modal-content">
         
         <form @submit.prevent="submitForm">
@@ -44,7 +42,7 @@
           </div>
           <div class="form-group">
             <label for="attencion_dire">Atención Dirección:</label><br>
-            <textarea style="width: 175%;" id="attencion_dire" v-model="attencionDire" rows="4" required></textarea>
+            <textarea style="width: 100%;" id="attencion_dire" v-model="attencionDire" rows="4" required></textarea>
           </div>
           <div style="text-align: center;">
             <!-- Submit button -->
@@ -53,12 +51,16 @@
         </form>
       </div>
     </div>
+    <SuccessEdit v-if="showSuccessModal" @onClose="closeSuccessModal" :message="'La pagina nosotros ha sido actualizada correctamente'" :titulo="'Actualización exitosa'"></SuccessEdit>
+ 
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted, defineProps } from 'vue';
+import SuccessEdit from '/src/components/ModalNoti.vue'; 
 
+const showSuccessModal = ref(false); 
 const showForm = ref(true);
 const notification = ref(null);
 const props = defineProps({
@@ -133,17 +135,17 @@ const submitForm = async () => {
     });
     
     if (response.ok) {
-      console.log('Data updated successfully');
-      notification.value = 'Actualización exitosa';
-      setTimeout(() => {
-        notification.value = null;
-      }, 3000);
+      showSuccessModal.value = true; 
     } else {
       console.error('Error updating data:', response.statusText);
     }
   } catch (error) {
     console.error('Error submitting form:', error);
   }
+};
+const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
 };
 </script>
 

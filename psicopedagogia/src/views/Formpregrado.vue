@@ -1,10 +1,8 @@
 <template>
   <div>
-    <div v-if="notification" class="notification">
-      {{ notification }}
-    </div>
+    
     <div class="modal" v-show="showForm">
-      <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;text-align: center;">Pregrado</h1>
+      <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;text-align: left;">Pregrado</h1>
       <div class="modal-content">
         
         <form @submit.prevent="submitForm">
@@ -73,13 +71,17 @@
         </form>
       </div>
     </div>
+    <SuccessEdit v-if="showSuccessModal" @onClose="closeSuccessModal" :message="'La pagina pregrado ha sido actualizada correctamente'" :titulo="'Actualización exitosa'"></SuccessEdit>
+ 
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import SuccessEdit from '/src/components/ModalNoti.vue'; 
 
+const showSuccessModal = ref(false); 
 const direc = "/src/assets/images/";
 
 const currentFile = ref(null);
@@ -165,11 +167,7 @@ const submitForm = async () => {
     const response = await axios.post('http://localhost:3000/api/pregrado', formData);
 
     if (response.status === 200) {
-      console.log('Data updated successfully');
-      notification.value = 'Actualización exitosa';
-      setTimeout(() => {
-        notification.value = null;
-      }, 3000);
+      showSuccessModal.value = true;
     } else {
       console.error('Error updating data:', response.statusText);
     }
@@ -218,6 +216,10 @@ const onFileChange = async (event, imageName) => {
         break;
     }
   }
+};
+const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
 };
 </script>
 
