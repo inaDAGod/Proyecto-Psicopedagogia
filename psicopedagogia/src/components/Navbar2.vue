@@ -20,7 +20,7 @@
 }
 
 .nav-container {
-  width: 100%;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between; 
