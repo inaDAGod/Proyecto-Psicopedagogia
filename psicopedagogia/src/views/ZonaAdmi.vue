@@ -2,7 +2,7 @@
     <div class="cuerpo">
       <div class="formDatos">
         <h2 class="tituloE">Zona de aprendizaje</h2>
-        <div class="mod">
+        <div class="modal">
           <div class="mod-content">
             <h2>Informacion general</h2>
             <form @submit.prevent="submitForm">
@@ -128,6 +128,6 @@
   
   <style scoped>
   @import url('/src/assets/admins.css');
-  @import url('/src/assets/formEgresados2.css');
+  @import url('/src/assets/formEgresados3.css');
   </style>
   
