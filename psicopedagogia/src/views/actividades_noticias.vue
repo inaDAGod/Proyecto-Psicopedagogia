@@ -81,10 +81,12 @@ onMounted(() => {
 @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css');
 
 .titulo h1 {
-  font-size: 4vh;
+  font-size: 8vh;
   color: #FF7001;
   font-family: 'Koulen', 'sans-serif';
-  margin-top: 3vh;
+  margin-top: 8vh;
+  margin-left: 5%;
+
 }
 
 .subtitulo-actividad h1 {
@@ -92,6 +94,7 @@ onMounted(() => {
   color: #FF7001;
   font-family: 'Koulen', 'sans-serif';
   margin-top: 4vh;
+  margin-left: 5%;
 }
 
 .container-anuncio {
