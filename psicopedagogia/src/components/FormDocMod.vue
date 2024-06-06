@@ -33,16 +33,19 @@
         </div>
       </form>
     </div>
+    
+    <SuccessEdit v-if="showSuccessModal" @onClose="closeSuccessModal" :message="'El docente ha sido actualizada correctamente'" :titulo="'Actualización exitosa'"></SuccessEdit>
+ 
   </div>
 </template>
 
 <script setup>
 import { ref, watch } from 'vue';
 import axios from 'axios';
-
+import SuccessEdit from '/src/components/ModalNoti.vue'; 
 const props = defineProps(['docente', 'showForm']);
 const emit = defineEmits(['closeForm']);
-
+const showSuccessModal = ref(false); 
 const formData = ref({
   nombre: '',
   apodo: '',
@@ -76,7 +79,8 @@ const submitForm = async () => {
     const response = await axios.put(`http://localhost:3000/api/docentes/${formData.value._id}`, formDataToSend);
     if (response.status === 200) {
       console.log('Docente actualizado correctamente');
-      closeForm();
+      showSuccessModal.value = true; 
+      
     } else {
       console.error('Error al actualizar el docente:', response.statusText);
     }
@@ -88,6 +92,10 @@ const submitForm = async () => {
 const onFileChange = (event) => {
   const file = event.target.files[0];
   currentFile.value = file;
+};
+const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
 };
 
 const closeForm = () => {
