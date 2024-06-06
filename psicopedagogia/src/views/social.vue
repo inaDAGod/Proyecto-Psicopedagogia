@@ -78,6 +78,9 @@ const obtenerInteraccion = async () => {
     console.error('Error fetching home:', error);
   }
 };
+onMounted(() => {
+  obtenerInteraccion();
+});
 
 // Actividades Universitarias
 const actividadesU = ref([]);
@@ -89,6 +92,9 @@ const obtenerActividades_Universidad = async () => {
     console.error('Error fetching Actividades:', error);
   }
 };
+onMounted(() => {
+  obtenerActividades_Universidad();
+});
 
 // Actividades Departamentales
 const actividadesD = ref([]);
@@ -100,6 +106,9 @@ const obtenerActividades_Departamental = async () => {
     console.error('Error fetching Actividades:', error);
   }
 };
+onMounted(() => {
+  obtenerActividades_Departamental();
+});
 
 // Actividades Internacionales
 const actividadesI = ref([]);
@@ -112,10 +121,7 @@ const obtenerActividades_Internacional = async () => {
   }
 };
 onMounted(() => {
-  obtenerInteraccion();
   obtenerActividades_Internacional();
-  obtenerActividades_Departamental();
-  obtenerActividades_Universidad();
 });
 </script>
 
@@ -171,11 +177,10 @@ onMounted(() => {
 }
 
 .titulo-social h1 {
-  margin-left: 10vh;
+  margin-left: 5vh;
   font-family: 'Oswald', 'sans-serif';
   font-size: 5vh;
   color: #ff7001;
-  margin-left: 5%;
 }
 
 .container-actividades {
@@ -184,14 +189,17 @@ onMounted(() => {
   margin-left: 5%;
   margin-right: 5%;
   width: 90%;
+  text-align: center;
 }
-
+.subtitulo-actividad{
+  width: 100%;
+  text-align: center;
+}
 .subtitulo-actividad h1{
     font-size: 7vh;
     color: #FF7001;
     font-family: 'Koulen', 'sans-serif';
     margin-top: 4vh;
-    margin-left: 5%;
 }
 @media (max-width: 992px) {
   .container-objetivo,
@@ -219,9 +227,6 @@ onMounted(() => {
       color: #FF7001;
       font-family: 'Koulen', 'sans-serif';
       margin-top: 4vh;
-    }
-    .container-actividades{
-      width: 40vw;
     }
 }
 
@@ -273,7 +278,5 @@ onMounted(() => {
       font-family: 'Koulen', 'sans-serif';
       margin-top: 4vh;
   }
-
-
 }
 </style>

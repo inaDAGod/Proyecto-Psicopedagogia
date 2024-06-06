@@ -1,12 +1,11 @@
-<!-- CardActividad.vue -->
 <template>
     <div class="actividades">
       <div class="actividad-imagen">
         <img :src="actividad.actividad_src" :alt="actividad.actividad">
       </div>
       <div class="actividad-nombre">
-        <button :class="btnClass" @click="toggleInfo">{{ actividad.actividad }}</button>
-        <div v-if="expandedInfo" :class="infoClass">
+        <button class="btn-actividad" @click="toggleInfoActividad">{{ actividad.actividad }}</button>
+        <div v-if="expanded" class="info-actividad">
           <p>Fecha: {{ actividad.fecha }}</p>
           <p>Hora: {{ actividad.hora }}</p>
           <p>Ubicación: {{ actividad.ubicacion }}</p>
@@ -16,55 +15,26 @@
     </div>
   </template>
   
-<script setup>
-  import { ref, computed, defineProps } from 'vue';
-  
-  const props = defineProps({
-    actividad: Object,
-    tipo: String
-  });
-  
-  const actividad = ref(props.actividad);
-  const expandedInfo = ref(false);
-  
-  const toggleInfo = () => {
-    expandedInfo.value = !expandedInfo.value;
+  <script>
+  export default {
+    props: {
+      actividad: Object
+    },
+    data() {
+      return {
+        expanded: false
+      };
+    },
+    methods: {
+      toggleInfoActividad() {
+        this.expanded = !this.expanded;
+      }
+    }
   };
-  
-  // Clase del botón según el tipo de actividad
-  const btnClass = computed(() => {
-    switch (props.tipo) {
-      case 'universidad':
-        return 'btn-actividad-universidad';
-      case 'departamental':
-        return 'btn-actividad-departamental';
-      case 'internacional':
-        return 'btn-actividad-internacional';
-      default:
-        return '';
-    }
-  });
-  
-  // Clase de información según el tipo de actividad
-  const infoClass = computed(() => {
-    switch (props.tipo) {
-      case 'universidad':
-        return 'info-actividad-universidad';
-      case 'departamental':
-        return 'info-actividad-departamental';
-      case 'internacional':
-        return 'info-actividad-internacional';
-      default:
-        return '';
-    }
-  });
-</script>
-  
+  </script>
   
   <style scoped>
-  /* Estilos específicos para la tarjeta de actividad */
-
-  @import url('/src/assets/interaccion.css');
+  /* Aquí puedes añadir estilos específicos para el componente Actividad */
   .actividades {
     width: 90%;
     margin-bottom: 20px;
@@ -78,7 +48,19 @@
   .actividad-nombre {
     margin-top: 1vh;
   }
-
+  .btn-actividad {
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #0D89F4;
+    border: none;
+    cursor: pointer;
+    border-radius: 6vh;
+    font-size: 3vh;
+    padding: 3vh;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: auto;
+  }
   .btn-actividad:hover {
     transform: scale(1.10);
   }

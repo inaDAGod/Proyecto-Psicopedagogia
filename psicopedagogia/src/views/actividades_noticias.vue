@@ -43,8 +43,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
-import Actividad from '/src/components/Actividad.vue';
-import Noticia from '/src/components/Noticia.vue';
+import Actividad from '/src/components/ActividadNormal.vue';
+import Noticia from '/src/components/NoticiaNormal.vue';
 
 const actividades = ref([]);
 const noticias = ref([]);
