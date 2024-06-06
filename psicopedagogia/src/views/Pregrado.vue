@@ -18,7 +18,7 @@
       </div>
       
       <TableWithCards />
-      
+    
       <!-- Asignaturas carousel -->
       <h4 class="prehead4">Asignaturas representativas</h4>
       <div class="div-previd">
@@ -316,7 +316,6 @@ export default defineComponent({
 
 
 
-
 .area-card {
   display: flex;
   justify-content: center;
@@ -327,7 +326,7 @@ export default defineComponent({
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   width: 80%;
-
+  font-family: 'Roboto Condensed', sans-serif !important;
 }
 
 .area-info {
