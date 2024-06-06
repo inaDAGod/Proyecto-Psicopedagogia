@@ -28,6 +28,7 @@
   
   .actividad-imagen img {
     width: 100%;
+    text-align: center;
   }
 
   .actividad-nombre {
@@ -110,6 +111,9 @@
     width: 60vh; /* Establece el ancho al 100% */
     height: 40vh; /* Establece la altura a 20vh (puedes ajustar este valor según tus necesidades) */
     object-fit: cover; /* Para mantener la relación de aspecto */
+    text-align: center;
+    margin-right:5% ;
+    
   }
   @media (max-width: 992px) {
     .actividad-imagen img {

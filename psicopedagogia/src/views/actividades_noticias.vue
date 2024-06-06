@@ -130,7 +130,7 @@ onMounted(() => {
 .container-noticias {
   margin-left: 5%;
   margin-right: 5%;
-  width: 90%;
+  width: 100%;
   text-align: center;
 }
 
