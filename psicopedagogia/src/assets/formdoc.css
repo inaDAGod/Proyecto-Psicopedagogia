@@ -1,10 +1,9 @@
 /* Update .modal CSS */
 /* Update .modal-content CSS */
 .modal-contentf {
-  background-color: rgba(228, 228, 228, 1);
+  background-color:  #D9D9D9 ;
   padding: 4%;
   border-radius: 10px;
-  
   position: relative;
   max-width: 100%; /* Set max-width to allow responsiveness */
   width: 100%; /* Set width to 100% to fill the modal */
@@ -49,8 +48,8 @@
   
   label {
     text-align: left;
-    font-weight: bold;
     margin-left: 2.5%;
+    font-family: 'Oswald', sans-serif;
   }
   
   .form-groupf {

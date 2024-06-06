@@ -59,12 +59,12 @@
       message="La publicación se ha registrado exitosamente."
       @onClose="closeSuccessModal"
     />
-    <div class="formulario-publicaciones">
+    <div class="formulario-publicaciones" style="background-color: #D9D9D9 ">
       <div class="cuadro">
         <div class="modal-content-home">
-          <h2 style="font-family: 'Koulen';font-size: 200%;color: rgba(255, 112, 1, 1);padding: 2%;text-align: left;">Añadir publicación</h2>
-          <form @submit.prevent="submitForm">
-            <div class="form-group-home">
+          <h2 style="color: rgba(255, 112, 1, 1);padding: 2%;text-align: left;">Añadir publicación</h2>
+          <form @submit.prevent="submitForm" style="font-family: 'Oswald', sans-serif;">
+            <div class="form-group-home" style="font-family: 'Oswald', sans-serif;">
               <label for="tituloAnadir">Título:</label><br>
               <input type="text" id="tituloAnadir" v-model="tituloAnadir">
             </div>

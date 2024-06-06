@@ -6,7 +6,7 @@
         <div class="flex-item" style="flex: 7;">
           <Docentes @closeForm="closeForm('docentes')" />
         </div>
-        <div class="flex-item" style="flex: 2;">
+        <div class="flex-item" style="flex: 2;background-color: #D9D9D9 ">
           <Formpaginanos @closeForm="closeForm('formPaginanos')" />
         </div>
       </div>

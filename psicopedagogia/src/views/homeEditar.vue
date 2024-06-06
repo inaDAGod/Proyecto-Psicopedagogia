@@ -5,7 +5,7 @@
       <div class="modifi">
         <div class="modal-content">
           <h2>Información principal</h2>
-          <form @submit.prevent="submitForm">
+          <form  @submit.prevent="submitForm">
             <div class="form-group">
               <label for="quienes_somos">¿Quienes somos?</label><br>
               <textarea id="quienes_somos" :disabled="!editar" v-model="quienes_somos"></textarea>
