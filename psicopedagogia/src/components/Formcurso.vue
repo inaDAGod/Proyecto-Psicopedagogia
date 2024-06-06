@@ -1,9 +1,6 @@
 <template>
   <div>
-    <!-- Notification -->
-    <div v-show="showNotification" class="notification">
-      Curso creado exitosamente!
-    </div>
+    
 
     <!-- Modal form -->
     <div class="modalf" v-show="showForm">
@@ -42,12 +39,21 @@
         </form>
       </div>
     </div>
+    <SuccessEdit
+      v-if="showSuccessModal"
+      @onClose="closeSuccessModal"
+      :message="'El curso ha sido agregada correctamente'"
+      :titulo="'Curso agregada'"
+    />
   </div>
 </template>
  
  <script setup>
    import { ref } from 'vue';
    import { defineProps } from 'vue';
+   import SuccessEdit from '/src/components/ModalNoti.vue'; 
+
+const showSuccessModal = ref(false); 
  
    const showForm = ref(true);
    const showNotification = ref(false);
@@ -101,12 +107,8 @@
        });
  
        if (response.ok) {
-         console.log('Docente guardado correctamente');
-         showNotification.value = true; // Show notification
-         setTimeout(() => {
-           showNotification.value = false; // Hide notification after a delay
-         }, 3000);
-         // Reset form fields
+        showSuccessModal.value = true;
+         
          titulo.value = '';
          about.value = '';
          competencia.value = '';
@@ -120,6 +122,11 @@
        console.error('Error al enviar el formulario:', error);
      }
    };
+   
+const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
+};
  
    const onFileChange = (event) => {
      const file = event.target.files[0];

@@ -1,35 +1,31 @@
 <template>
   <div>
-    <div v-if="notification" class="notification">
-      {{ notification }}
-    </div>
     <div class="modal" v-show="showForm">
-      <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;text-align: center;">Pregrado</h1>
+      <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;text-align: left;">Pregrado</h1>
       <div class="modal-content">
-        
         <form @submit.prevent="submitForm">
           <!-- Input field for link_malla -->
           <div class="form-group">
             <label for="link_malla">Link Malla:</label><br>
-            <input type="text" id="link_malla" v-model="linkMalla" required>
+            <input type="text" id="link_malla" :disabled="!editar" v-model="linkMalla" required>
           </div>
           
           <!-- Input fields for videos_asignaturas -->
           <div v-for="i in 5" :key="'videos_asignaturas_' + i" class="form-group">
             <label :for="'videos_asignaturas_' + i">Video Asignaturas {{ i }}:</label><br>
-            <input type="text" :id="'videos_asignaturas_' + i" v-model="videosAsignaturas[i - 1]">
+            <input type="text" :id="'videos_asignaturas_' + i" :disabled="!editar" v-model="videosAsignaturas[i - 1]">
           </div>
 
           <!-- Input fields for videos_actividades -->
           <div v-for="i in 5" :key="'videos_actividades_' + i" class="form-group">
             <label :for="'videos_actividades_' + i">Video Actividades {{ i }}:</label><br>
-            <input type="text" :id="'videos_actividades_' + i" v-model="videosActividades[i - 1]">
+            <input type="text" :id="'videos_actividades_' + i" :disabled="!editar" v-model="videosActividades[i - 1]">
           </div>
 
           <!-- Input fields for videos_perfiles -->
           <div v-for="i in 5" :key="'videos_perfiles_' + i" class="form-group">
             <label :for="'videos_perfiles_' + i">Video Perfiles {{ i }}:</label><br>
-            <input type="text" :id="'videos_perfiles_' + i" v-model="videosPerfiles[i - 1]">
+            <input type="text" :id="'videos_perfiles_' + i" :disabled="!editar" v-model="videosPerfiles[i - 1]">
           </div>
 
           <!-- Input fields for images -->
@@ -37,7 +33,7 @@
             <div v-for="i in 5" :key="'images_' + i" class="col-md-6">
               <div class="form-group">
                 <label :for="'images_' + i">Imagen {{ i }}:</label>
-                <input type="file" :id="'images_' + i" @change="(event) => onFileChange(event, 'images_' + i)">
+                <input type="file" :id="'images_' + i" :disabled="!editar" @change="(event) => onFileChange(event, 'images_' + i)">
               </div>
             </div>
           </div>
@@ -45,43 +41,45 @@
           <!-- Input field for educativo -->
           <div class="form-group">
             <label for="educativo">Área Educativa:</label><br>
-            <textarea id="educativo" v-model="educativo" rows="4" required></textarea>
+            <textarea id="educativo" :disabled="!editar" v-model="educativo" rows="4" required></textarea>
           </div>
 
           <!-- Input field for imgedu -->
           <div class="form-group">
             <label for="imgedu">Imagen Educativa:</label><br>
-            <input type="file" id="imgedu" @change="(event) => onFileChange(event, 'imgedu')">
+            <input type="file" id="imgedu" :disabled="!editar" @change="(event) => onFileChange(event, 'imgedu')">
           </div>
 
           <!-- Input field for intercambio -->
           <div class="form-group">
             <label for="intercambio">Link Intercambio:</label><br>
-            <input type="text" id="intercambio" v-model="intercambio">
+            <input type="text" id="intercambio" :disabled="!editar" v-model="intercambio">
           </div>
 
           <!-- Input field for alianza -->
           <div class="form-group">
             <label for="alianza">Link Alianza:</label><br>
-            <input type="text" id="alianza" v-model="alianza">
+            <input type="text" id="alianza" :disabled="!editar" v-model="alianza">
           </div>
 
-          <!-- Submit button -->
+          <!-- Edit/Save button -->
           <div style="text-align: center;">
-            <button class="boton-guardar">Guardar</button>
+            <button v-if="!editar" class="boton-guardar" @click="editar = true">Editar</button>
+            <button v-if="editar" class="boton-guardar" @click="guardarCambios">Guardar</button>
           </div>
         </form>
       </div>
     </div>
+    <SuccessEdit v-if="showSuccessModal" @onClose="closeSuccessModal" :message="'La página pregrado ha sido actualizada correctamente'" :titulo="'Actualización exitosa'"></SuccessEdit>
   </div>
 </template>
-
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
+import SuccessEdit from '/src/components/ModalNoti.vue';
 
+const showSuccessModal = ref(false);
 const direc = "/src/assets/images/";
-
 const currentFile = ref(null);
 const showForm = ref(true);
 const notification = ref(null);
@@ -94,6 +92,7 @@ const educativo = ref('');
 const imgedu = ref(null);
 const intercambio = ref('');
 const alianza = ref('');
+const editar = ref(false);
 
 const fetchData = async () => {
   try {
@@ -143,7 +142,7 @@ const fetchData = async () => {
 
 onMounted(fetchData);
 
-const submitForm = async () => {
+const guardarCambios = async () => {
   try {
     const formData = new FormData();
     formData.append('link_malla', linkMalla.value);
@@ -165,11 +164,8 @@ const submitForm = async () => {
     const response = await axios.post('http://localhost:3000/api/pregrado', formData);
 
     if (response.status === 200) {
-      console.log('Data updated successfully');
-      notification.value = 'Actualización exitosa';
-      setTimeout(() => {
-        notification.value = null;
-      }, 3000);
+      showSuccessModal.value = true;
+      editar.value = false;
     } else {
       console.error('Error updating data:', response.statusText);
     }
@@ -195,7 +191,8 @@ const onFileChange = async (event, imageName) => {
     }
 
     const imageUrl = direc + file.name;
-    switch (imageName) {
+    switch (imageName)
+    {
       case 'images_1':
         images.value[0] = imageUrl;
         break;
@@ -218,6 +215,11 @@ const onFileChange = async (event, imageName) => {
         break;
     }
   }
+};
+
+const closeSuccessModal = () => {
+  showSuccessModal.value = false;
+  closeForm();
 };
 </script>
 

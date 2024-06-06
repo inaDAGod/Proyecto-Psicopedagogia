@@ -4,7 +4,6 @@
       <div class="main-content">
         <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;">Malla</h1>
         
-        
         <div class="semestres-container">
           <div
             v-for="semestre in semestres"
@@ -15,15 +14,15 @@
               <div class="semestre-info">
                 <h5 class="semestre-titulo">{{ semestre.materia }}</h5>
                 <p class="semestre-sigla">{{ semestre.sigla }}</p>
-                </div>
-            
+              </div>
+              
               <div class="semestre-actions">
                 <button
                   class="b-formmalla"
                   style="background-color: #ffa198; border-color: #ffa198;margin-right: 20%;"
                   @click="openDelForm(semestre)"
                 >
-                  <img src="/backend/images/trash2.png" width="28vh" height="auto"  />
+                  <img src="/backend/images/trash2.png" width="28vh" height="auto" />
                 </button>
                 <button
                   class="b-formmalla"
@@ -33,10 +32,10 @@
                   <img src="/backend/images/edit.png" width="28vh" height="auto" />
                 </button>
               </div>
-              
             </div>
           </div>
         </div>
+
         <FormDocMod
           v-if="showFormDocMod"
           :semestre="selectedDocente"
@@ -53,6 +52,7 @@
     </div>
   </div>
 </template>
+
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
@@ -95,29 +95,32 @@ onMounted(() => {
   obtenerDocentes();
 });
 </script>
+
 <style scoped>
 .semestres-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 2%;
 }
 
 .semestre-item {
   width: 48%;
-  margin: 1%;
+  display: flex;
 }
 
 .semestre-card {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: space-between;
   padding: 2%;
   background-color: white;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 4%;
 }
 
 .semestre-info {
-  margin-top: 15px;
   text-align: center;
 }
 
@@ -126,11 +129,7 @@ onMounted(() => {
   margin-bottom: 10px;
 }
 
-.semestre-area,
-.semestre-sigla,
-.semestre-materia,
-.semestre-requisito,
-.semestre-descrip {
+.semestre-sigla {
   font-size: 0.9em;
   margin-bottom: 5px;
   text-align: center;
