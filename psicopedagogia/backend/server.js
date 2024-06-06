@@ -548,10 +548,14 @@ app.get('/api/sociedad', async (req, res) => {
 
 app.post('/api/sociedadUpdate', async (req, res) => {
   try {
-    const { quienes_somos, desdecuando, quienes_conforman, como_unirse,link_face, contactos } = req.body;
+    const { quienes_somos, desdecuando, quienes_conforman, como_unirse, link_face, contactos, order } = req.body;
+
+    // Analizar la cadena JSON para convertirla en un array
+    const parsedOrder = JSON.parse(order);
+
     await db.collection('sociedad').updateOne(
-      {}, // Filtro vacío para actualizar todos los documentos
-      { $set: { quienes_somos, desdecuando, quienes_conforman, como_unirse,link_face, contactos } }
+      {},
+      { $set: { quienes_somos, desdecuando, quienes_conforman, como_unirse, link_face, contactos, order: parsedOrder } }
     );
     res.status(200).send('Actualizado correctamente');
   } catch (error) {
@@ -559,6 +563,8 @@ app.post('/api/sociedadUpdate', async (req, res) => {
     res.status(500).send('Error al actualizar');
   }
 });
+
+
 app.post('/api/zonaUpdate', async (req, res) => {
   try {
     const { quienes_somos, desdecuando, quienes_conforman, como_unirse,link_face, contactos } = req.body;
