@@ -65,29 +65,29 @@
     margin-top: 1vh;
   }
   .boton-editar {
-    font-size: 100%;
-    width: 5vw;
-    height: 2.5vw;
-    margin-right: 5%;
-    margin-bottom: 2vh;
-    background-color: #BADF3A;
-    border-color: #acacac;
-    padding: 0.5vh;
-    border-radius: 3vh;
-    box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452);
-  }
-  .boton-accion {
-    font-size: 100%;
-    width: 5vw;
-    height: 2.5vw;
-    margin-right: 5%;
-    margin-bottom: 2vh;
-    background-color: #FFA198;
-    border-color: #acacac;
-    padding: 0.5vh;
-    border-radius: 3vh;
-    box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452);
-  }
+  font-size: 100%;
+  width: 5vw;
+  height: 2.5vw;
+  margin-right: 5%;
+  margin-bottom: 2vh;
+  background-color: #BADF3A;
+  border-color: #BADF3A;
+  padding: 0.5vh;
+  border-radius: 3vh;
+  box-shadow: #BADF3A;
+}
+.boton-accion {
+  font-size: 100%;
+  width: 5vw;
+  height: 2.5vw;
+  margin-right: 5%;
+  margin-bottom: 2vh;
+  background-color: #FFA198;
+  border-color:  #FFA198;
+  padding: 0.5vh;
+  border-radius: 3vh;
+  box-shadow:  #FFA198;
+}
   .boton-accion img, .boton-editar img {
     width: 40%; /* Hacer que la imagen ocupe todo el espacio disponible dentro del botón */
     height: auto; /* Mantener la proporción de aspecto */

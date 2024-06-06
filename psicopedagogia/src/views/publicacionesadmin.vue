@@ -33,7 +33,7 @@
                     <p>Año: {{ publicacion.anio }}</p>
                     <p>{{ publicacion.descripcion }}</p>
                     <div class="acciones-publicacion">
-                      <button class="boton-accion" @click="toggleForm(publicacion,publicacion._id)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
+                      <button class="boton-editar" @click="toggleForm(publicacion,publicacion._id)"><img src="/src/assets/images/edit.png" width="20vh" height="auto"></button>
                       <button class="boton-accion" @click="openDeleteModal(publicacion)" ><img src="/src/assets/images/trash2.png" width="20vh" height="auto"></button>
                     </div>
                   </div>
@@ -316,16 +316,33 @@ onMounted(() => {
   display: flex;
   justify-content: flex-start;
 }
-.boton-accion {
-  font-size: 2vh;
-  margin-top: 0.2vh;
+.boton-editar {
+  font-size: 100%;
+  width: 5vw;
+  height: 2.5vw;
   margin-right: 5%;
   margin-bottom: 2vh;
-  background-color: #badf3a;
-  border-color: #badf3a;
+  background-color: #BADF3A;
+  border-color: #BADF3A;
   padding: 0.5vh;
   border-radius: 3vh;
-  box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452);
+  box-shadow: #BADF3A;
+}
+.boton-accion {
+  font-size: 100%;
+  width: 5vw;
+  height: 2.5vw;
+  margin-right: 5%;
+  margin-bottom: 2vh;
+  background-color: #FFA198;
+  border-color: #FFA198;
+  padding: 0.5vh;
+  border-radius: 3vh;
+  box-shadow: #FFA198;
+}
+.boton-accion img, .boton-editar img {
+  width: 40%; /* Hacer que la imagen ocupe todo el espacio disponible dentro del botón */
+  height: auto; /* Mantener la proporción de aspecto */
 }
 .formulario-publicaciones {
   width: 35%;
@@ -400,13 +417,16 @@ onMounted(() => {
   box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452);
 }
 .boton-guardar {
-  margin-top: 2.5vh;
-  size: 5vh;
-  background-color: #badf3a;
-  border-color: #badf3a;
-  padding: 0.7vh;
-  border-radius: 3vh;
-  box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452)
+  background-color: #FF7001;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  height: 20%;
+  width: 50%;
+  font-size: 100%;
+  margin-top: 5%;
 }
 .buscarPubli:hover {
   background-color: #ff7001;

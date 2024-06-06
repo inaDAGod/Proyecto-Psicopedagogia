@@ -71,10 +71,10 @@ export default {
   margin-right: 5%;
   margin-bottom: 2vh;
   background-color: #BADF3A;
-  border-color: #acacac;
+  border-color: #BADF3A;
   padding: 0.5vh;
   border-radius: 3vh;
-  box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452);
+  box-shadow: #BADF3A;
 }
 .boton-accion {
   font-size: 100%;
@@ -83,10 +83,10 @@ export default {
   margin-right: 5%;
   margin-bottom: 2vh;
   background-color: #FFA198;
-  border-color: #acacac;
+  border-color:  #FFA198;
   padding: 0.5vh;
   border-radius: 3vh;
-  box-shadow: 0px 0px 10px rgba(82, 218, 89, 0.452);
+  box-shadow:  #FFA198;
 }
 .boton-accion img, .boton-editar img {
   width: 40%; /* Hacer que la imagen ocupe todo el espacio disponible dentro del botón */

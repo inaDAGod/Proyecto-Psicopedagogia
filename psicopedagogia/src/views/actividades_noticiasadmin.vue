@@ -46,10 +46,10 @@
         </div>
         <br><br><br>
         <div class="recuadros">
-          <div class="formulario-anadir">
-              <div class="cuadro-formulario">
+          <div class="formulario-anadir" style="border-radius: 20px;">
+              <div class="cuadro-formulario" style="text-align: left;">
                   <div class="modal-content-home">
-                      <h2>Añadir actividad</h2>
+                      <h2 style="text-align:center ;">Añadir actividad</h2>
                       <form @submit.prevent="submitForm">
                           <div class="form-group-home">
                               <label for="actividadAnadir">Actividad:</label><br>
@@ -83,10 +83,10 @@
               </div>
           </div>
           <br><br>
-          <div class="formulario-anadir">
-            <div class="cuadro-formulario">
+          <div class="formulario-anadir" >
+            <div class="cuadro-formulario" style="text-align: left;">
               <div class="modal-content-home">
-                  <h2>Añadir noticia</h2>
+                  <h2 style="text-align:center ;">Añadir noticia</h2>
                   <form @submit.prevent="submitFormNoticia">
                       <div class="form-group-home">
                           <label for="noticiaAnadir">Noticia:</label><br>
@@ -501,5 +501,7 @@ h1{
   font-family: 'Oswald', 'sans-serif';
   font-size: 5vh;
 }
-
+.form-group-home label{
+  text-align: left;
+}
 </style>
