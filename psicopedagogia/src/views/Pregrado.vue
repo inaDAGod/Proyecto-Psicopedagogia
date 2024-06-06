@@ -8,7 +8,7 @@
           <div style="display: flex; align-items: center; justify-content: flex-end; flex-grow: 1;">
             <div style="margin:20px;">
               <div style="margin:20px;">
-                <a :href="'https://lpz.ucb.edu.bo/wp-content/uploads/2023/12/PSP-2024.pdf'">
+                <a :href="paginaNosotros.link_malla">
                   <button class="b-preMalla">Descargar malla</button>
                 </a>
               </div>
@@ -17,9 +17,8 @@
         </div>
       </div>
       
-
       <TableWithCards />
-      
+    
       <!-- Asignaturas carousel -->
       <h4 class="prehead4">Asignaturas representativas</h4>
       <div class="div-previd">
@@ -83,22 +82,18 @@
           <button @click="nextPerfiles" class="nav-buttonpren"><img class="flecha" src="/src/assets/images/flechan.png" alt="Imagen del logo"></button>
         </div>
       </div>
+<!-- Áreas laborales card -->
+<h2 class="prehead2">Áreas laborales PSP</h2>
+<div class="area-card">
+  <div class="area-info">
+    <p style="font-size: 25px;" class="p-pre">{{ paginaNosotros.educativo }}</p>
+  </div>
+  <div class="area-img">
+    <img alt="Ped" class="logo-pre" :src="paginaNosotros.imgedu">
+  </div>
+</div>
 
-      <!-- Other content -->
-      <h2 class="prehead2">Áreas laborales PSP</h2>
-      <div style="text-align: center; margin-bottom: 5%;">
-        <table class="pre-tab" style="margin: 0 auto;">
-          <tr class="pre-tr">
-            <td class="pre-td">
-              <p class="p-pre">{{ paginaNosotros.educativo }}</p>
-            </td>
-            <td class="pre-td">
-              <img alt="Ped" class="logo-pre" :src="paginaNosotros.imgedu">
-            </td>
-          </tr>
-        </table>
-      </div>
-
+<br><br><br>
       <div class="footer-pre" style="text-align: center; margin-bottom: 0;">
         <a :href="paginaNosotros.intercambio"><button class="b-pre2">Intercambios estudiantiles</button></a><br>
         <a :href="paginaNosotros.alianza"><button class="b-pre2">Alianzas con otras Universidades</button></a><br><br><br>
@@ -124,6 +119,7 @@ export default defineComponent({
   },
   setup() {
     const paginaNosotros = ref({
+      link_malla:'',
       videos_asignaturas_1: '',
       videos_asignaturas_2: '',
       videos_asignaturas_3: '',
@@ -310,7 +306,6 @@ export default defineComponent({
   width: 25%;
 }
 
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -318,4 +313,46 @@ export default defineComponent({
   text-align: center;
   margin-top: 60px;
 }
+
+
+
+.area-card {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Ensures the image and text have the same height */
+  margin: 20px auto;
+  padding: 0; /* Remove padding to ensure the image fills the height */
+  background-color: rgba(255, 206, 232, 1);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 80%;
+  font-family: 'Roboto Condensed', sans-serif !important;
+}
+
+.area-info {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1% !important; /* Adjust padding for spacing within the text area */
+  font-family: 'Roboto Condensed', sans-serif !important;
+  text-align: left !important;
+}
+
+.area-img {
+  flex: 2; /* 40% of the card */
+}
+
+.area-info p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.area-img img {
+  width: 100%;
+  height: 100%; /* Ensures the image fills the height of the card */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  border-radius: 0 8px 8px 0; /* Rounded corners on the right side of the image */
+}
+
 </style>

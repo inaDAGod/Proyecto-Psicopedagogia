@@ -2,22 +2,55 @@
   <div id="app">
     <div class="content-wrapper">
       <div class="main-content">
-        <h1 class="titulo-nos">NUESTRA FAMILIA</h1>
+        <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;">NUESTRA FAMILIA</h1>
         <div class="docentes-container">
-          <div v-for="docente in docentes" :key="docente.id" class="docente-item" style="background-color:  rgba(255, 206, 232, 1); margin: 2%;border-radius: 20px;" >
-            <div v-html="generateTable(docente)"></div>
-            
-            <button class="b-formn" style="background-color: #FFA198;border-color: #FFA198;margin-right: 20%;" @click="openDelForm(docente)"><img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;"></button>
-            <button class="b-formn" style="background-color: #BADF3A;border-color: #BADF3A;" @click="openModForm(docente)"><img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;"></button>
+          <div
+            v-for="docente in docentes"
+            :key="docente.id"
+            class="docente-item"
+            style="margin-left: 3%;margin-right: 2%; border-radius: 20px;"
+          >
+            <div class="docente-card">
+              <img :src="docente.imagen" alt="docente.nombre" class="docente-image" />
+              <div class="docente-info">
+                <h5 class="docente-titulo">Nombre: {{ docente.nombre }}</h5>
+              
+              <div class="docente-actions">
+                <button
+                  class="b-formn"
+                  style="background-color: #ffa198; border-color: #ffa198;margin-right: 10%;"
+                  @click="openDelForm(docente)"
+                >
+                  <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
+                </button>
+                <button
+                  class="b-formn"
+                  style="background-color: #badf3a; border-color: #badf3a;"
+                  @click="openModForm(docente)"
+                >
+                  <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <FormDocMod v-if="showFormDocMod" :docente="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
-        <FormDocElim v-if="showFormDocElim" :docente="selectedDocente" :showForm="showFormDocElim" @closeForm="closeForm('formDocElim')" />
+        </div>
+        <FormDocMod
+          v-if="showFormDocMod"
+          :docente="selectedDocente"
+          :showForm="showFormDocMod"
+          @closeForm="closeForm('formDocMod')"
+        />
+        <FormDocElim
+          v-if="showFormDocElim"
+          :docente="selectedDocente"
+          :showForm="showFormDocElim"
+          @closeForm="closeForm('formDocElim')"
+        />
       </div>
     </div>
   </div>
 </template>
-
 <script setup>
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
@@ -59,97 +92,16 @@ const closeForm = (formName) => {
 onMounted(() => {
   obtenerDocentes();
 });
-
-const generateTable = (docente) => {
-  const tableHTML = `<center>
-    <div class="docentesnad" style="background-color:white;padding:1%">
-      <div  class="docentes-infonad">
-        <img src="${docente.imagen}" alt="${docente.nombre}" class="docentes-imagenad">
-        <p><b>Nombre: ${docente.nombre}</b><br>Apodo:${docente.apodo}<br>Cargo: ${docente.cargo}<br> 
-        Correo:${docente.correo}<br>Dato curioso:${docente.datoc}</p>
-      </div>
-      
-    </div>
-  <center>`;
-  return tableHTML;
-};
 </script>
-
 <style scoped>
-.docentes-infonad{
-  text-align: left;
-    padding: 5%;
-    margin-top: 8%;
-    background-color: white;
-    border-radius: 20px;
-}
-
-.docentes-infonad p{
-  font-size: 100%;
-    font-family: 'Roboto Condensed', sans-serif;
-    width: 100%;
-    padding: 2%;
-    
-}
-
-.docentes-containernad {
-  display: flex;
-    flex-wrap: wrap;
-  
-}
-  
-.docente-itemnad {
-  flex-basis: calc(46% - 10px); 
-  margin-bottom: 20px;
-}
-
-.docentesnad {
-  position: relative;
-  background-color: rgba(255, 206, 232, 1);
-  border-radius: 40px;
-    text-align: center;
-    width: 320px;
-    display: flex;
-    margin-top: 8%;
-    margin-bottom: 20px;
-    height: 120%;
-}
+@import url('/src/assets/Postgradoadmi.css');
 
 
-
-.docentes-imagenad { 
-    z-index: 1; 
-    width: 100%;
-    height: 60%;
-    padding: 1%;
-    
-}
-
-
-.b-formn {
-  font-size: 36px;
-  width: 32%;
-        padding: 1%;
-        color: white;
-        border-radius: 40px;
-        font-size: 150%;
-        left:0;
-        margin:2%;
-        margin-top: -7%;
-        padding-left:2% ;
-        padding-right:2% ;
-
-}
 .content-wrapper {
-  display: flex
+  display: flex;
 }
 
 .main-content {
-  width: 100%; /* Adjust width as needed */
+  width: 100%;
 }
-
-
-
-
-
 </style>

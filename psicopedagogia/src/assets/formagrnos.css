@@ -13,8 +13,7 @@
   align-items: flex-start;
   margin: 0;
   z-index: 1001;
-  overflow-y: auto; /* Add overflow-y to enable vertical scrolling */
-  margin-top: 5%;
+  overflow-y: auto; 
 }
 
 
@@ -31,14 +30,13 @@
   
   /* Update .boton-guardar CSS */
   .boton-guardarf {
-    background-color: rgba(186, 223, 58, 1);
-    color: black;
-    padding: 1% 2%;
+    background-color: #FF7001;
+    color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    font-family: 'Koulen';
-    font-size: 200%;
+    font-size: 100%;
   }
   
   /* Other existing styles */

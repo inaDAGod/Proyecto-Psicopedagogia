@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="card" @click="showDescription">
-      <h3 style="font-size: 140%;">{{ title }}</h3>
-      <p style="text-align: center;font-size: 100%;">{{ sigla }}</p>
-      <p style="text-align: center;font-size: 100%;">▪ Req: {{ requisito }}</p>
+      <h3>{{ title }}</h3>
+      <p>{{ sigla }}</p>
+      <p>▪ Req: {{ requisito }}</p>
     </div>
 
     <!-- Modal -->
@@ -12,9 +12,9 @@
         <div class="modal-content" @click.stop>
           <span class="close" @click="closeModal">&times;</span>
           <h3>{{ title }}</h3>
-          <p style="text-align: center;font-size: 200%;">{{ sigla }}</p>
+          <p>{{ sigla }}</p>
           <br>
-          <p style="font-size: 280%;">{{ description }}</p>
+          <p>{{ description }}</p>
         </div>
       </div>
     </transition>
@@ -51,9 +51,17 @@ export default {
   border: 1px solid #ccc;
   padding: 10px;
   margin: 5px;
-  width: 100%;
   cursor: pointer;
-  
+  text-align: center;
+  font-size: 0.8em;
+}
+
+.card h3 {
+  font-size: 1.2em;
+}
+
+.card p {
+  font-size: 1em;
 }
 
 .modal-overlay {
@@ -73,7 +81,7 @@ export default {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
-  width: 80%;
+  width: 90%;
   max-width: 600px;
   position: relative;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -84,7 +92,7 @@ export default {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 28px;
+  font-size: 1.5em;
   font-weight: bold;
   cursor: pointer;
 }
@@ -100,5 +108,23 @@ export default {
 }
 .modal-enter, .modal-leave-to /* .modal-leave-active in <2.1.8 */ {
   opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .card {
+    font-size: 0.7em;
+  }
+
+  .card h3 {
+    font-size: 1em;
+  }
+
+  .card p {
+    font-size: 0.9em;
+  }
+
+  .modal-content {
+    font-size: 0.9em;
+  }
 }
 </style>

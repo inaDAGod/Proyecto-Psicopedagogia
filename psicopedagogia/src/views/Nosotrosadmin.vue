@@ -4,7 +4,9 @@
       {{ notification }}
     </div>
     <div class="modal" v-show="showForm">
+      <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;text-align: center;">Pagina Nosotros</h1>
       <div class="modal-content">
+        
         <form @submit.prevent="submitForm">
           <!-- Input fields for the form -->
           <div class="form-group">
@@ -25,19 +27,19 @@
           </div>
           <h1>Redes:</h1>
           <div class="form-group">
-            <img style="width: 12%;margin-left: -80%;" src="/src/assets/images/facebook.png" alt="Imagen del logo">
+            <img style="width: 12%;" src="/src/assets/images/facebook.png" alt="Imagen del logo">
             <input type="text" id="facebook" v-model="facebook" required>
           </div>
           <div class="form-group">
-            <img style="width: 12%;margin-left: -80%;" src="/src/assets/images/insta.png" alt="Imagen del logo">
+            <img style="width: 12%;" src="/src/assets/images/insta.png" alt="Imagen del logo">
             <input type="text" id="insta" v-model="insta" required>
           </div>
           <div class="form-group">
-            <img style="width: 12%;height: 20%;margin-left: -80%;" src="/src/assets/images/yt.png" alt="Imagen del logo">
+            <img style="width: 12%;height: 20%;" src="/src/assets/images/yt.png" alt="Imagen del logo">
             <input type="text" id="youtube" v-model="youtube" required>
           </div>
           <div class="form-group">
-            <img style="width: 12%;margin-left: -80%;" src="/src/assets/images/tiktok.png" alt="Imagen del logo">
+            <img style="width: 12%;" src="/src/assets/images/tiktok.png" alt="Imagen del logo">
             <input type="text" id="tiktok" v-model="tiktok" required>
           </div>
           <div class="form-group">

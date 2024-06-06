@@ -9,16 +9,17 @@
           <input type="text" id="titulo" v-model="formData.titulo" required>
         </div>
         <div class="form-group">
-          <label for="about">About:</label><br>
-          <input type="text" id="about" v-model="formData.about" required>
+          <label for="about">Sobre Curso:</label><br>
+          <textarea style="width: 100%;" id="about" v-model="formData.about" rows="2" required></textarea>
         </div>
         <div class="form-group">
           <label for="competencia">Competencia:</label><br>
-          <input type="text" id="competencia" v-model="formData.competencia" required>
+          <textarea style="width: 100%;" id="competencia" v-model="formData.competencia" rows="2" required></textarea>
         </div>
         <div class="form-group">
           <label for="requisitos">Requisitos:</label><br>
-          <input type="text" id="requisitos" v-model="formData.requisitos" required>
+          <textarea style="width: 100%;" id="requisitos" v-model="formData.requisitos" rows="1" required></textarea>
+          
         </div>
         <div class="form-group">
           <label for="fecha">Fecha:</label><br>

@@ -1,105 +1,105 @@
 <template>
-    <div id="app">
-      <div class="content-wrapper">
-        <div class="main-content">
-          <h1 class="titulo-nos">Formacion Continua</h1>
-          <div class="docentes-container">
-            <div v-for="cursosfc in cursosfcs" :key="cursosfc.id" class="docente-item" style="margin:2%;border-radius: 20px;background-color: rgba(219, 238, 150, 1);">
-              <div v-html="generateTable(cursosfc)"></div>
-              <button class="b-formca"  style="background-color: #FFA198;border-color: #FFA198;margin-right: 20%;"  @click="openDelForm(cursosfc)"><img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;"></button>
-            
-              <button class="b-formca"  style="background-color: #BADF3A;border-color: #BADF3A;" @click="openModForm(cursosfc)"><img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%"></button>
-              </div>
+  <div id="app">
+    <div class="content-wrapper">
+      <div class="main-content">
+        <h1 style="font-family: 'Koulen';font-size: 400%;color: rgba(255, 112, 1, 1);padding: 2%;">Formación Continua</h1>
+        <div class="curss-container">
+          <div
+            v-for="cursosfc in cursosfcs"
+            :key="cursosfc.id"
+            class="curs-item"
+            style="margin: 2%; border-radius: 20px; "
+          >
+            <div class="curs-card">
+              <img :src="cursosfc.img" alt="cursosfc.titulo" class="curs-image" />
+              <div class="curs-info">
+                <h5 class="curs-titulo">   {{ cursosfc.titulo }}</h5>
+              
+              <div class="curs-actions">
+              <button
+                class="b-formca"
+                style="background-color: #ffa198; border-color: #ffa198; margin-right: 10%;"
+                @click="openDelForm(cursosfc)"
+              >
+                <img src="/backend/images/trash2.png" width="28vh" height="auto" style="padding: 2%;" />
+              </button>
+              <button
+                class="b-formca"
+                style="background-color: #badf3a; border-color: #badf3a;"
+                @click="openModForm(cursosfc)"
+              >
+                <img src="/backend/images/edit.png" width="28vh" height="auto" style="padding: 2%;" />
+              </button>
+            </div></div>
+            </div>
+           
           </div>
-          <FormDocMod v-if="showFormDocMod" :cursosfc="selectedDocente" :showForm="showFormDocMod" @closeForm="closeForm('formDocMod')" />
-          <FormDocElim v-if="showFormDocElim" :cursosfc="selectedDocente" :showForm="showFormDocElim" @closeForm="closeForm('formDocElim')" />
         </div>
+        <FormDocMod
+          v-if="showFormDocMod"
+          :cursosfc="selectedDocente"
+          :showForm="showFormDocMod"
+          @closeForm="closeForm('formDocMod')"
+        />
+        <FormDocElim
+          v-if="showFormDocElim"
+          :cursosfc="selectedDocente"
+          :showForm="showFormDocElim"
+          @closeForm="closeForm('formDocElim')"
+        />
       </div>
     </div>
-  </template>
-  
-  <script setup>
-  import { ref, onMounted } from 'vue';
-  import axios from 'axios';
-  import FormDocMod from '/src/components/FormCursoMod.vue';
-  import FormDocElim from '/src/components/FormCursoElim.vue';
-  
-  const showFormDocMod = ref(false);
-  const showFormDocElim = ref(false);
-  const cursosfcs = ref([]);
-  const selectedDocente = ref(null);
-  
-  const obtenerDocentes = async () => {
-    try {
-      const response = await axios.get('http://localhost:3000/api/cursosfc');
-      cursosfcs.value = response.data;
-    } catch (error) {
-      console.error('Error fetching cursosfcs:', error);
-    }
-  };
-  
-  const openModForm = (cursosfc) => {
-    selectedDocente.value = cursosfc;
-    showFormDocMod.value = true;
-  };
-  
-  const openDelForm = (cursosfc) => {
-    selectedDocente.value = cursosfc;
-    showFormDocElim.value = true;
-  };
-  
-  const closeForm = (formName) => {
-    if (formName === 'formDocMod') {
-      showFormDocMod.value = false;
-    } else if (formName === 'formDocElim') {
-      showFormDocElim.value = false;
-    }
-  };
-  
-  onMounted(() => {
-    obtenerDocentes();
-  });
-  
-  const generateTable  = (cursosfc) => {
-  const tableHTML = `<center>
-    <div class="cursodi">
-        
-      
-      <div class="cursodi-info">
-        <img src="${cursosfc.img}" alt="${cursosfc.titulo}" class="cursodi-image">
-        <h5 class="cursodi-head">Título: ${cursosfc.titulo}</h5><p class="curso-info p">
-        About: ${cursosfc.about}<br><br>
-        Competencia: ${cursosfc.competencia}<br><br>
-        Requisitos: ${cursosfc.requisitos}<br><br>
-        Fecha: ${cursosfc.fecha}</p>
-      </div>
-      
-    </div>
-  <center>`;
+  </div>
+</template>
 
-  return tableHTML;
+  
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import FormDocMod from '/src/components/FormCursoMod.vue';
+import FormDocElim from '/src/components/FormCursoElim.vue';
+
+const showFormDocMod = ref(false);
+const showFormDocElim = ref(false);
+const cursosfcs = ref([]);
+const selectedDocente = ref(null);
+
+const obtenerDocentes = async () => {
+  try {
+    const response = await axios.get('http://localhost:3000/api/cursosfc');
+    cursosfcs.value = response.data;
+  } catch (error) {
+    console.error('Error fetching cursosfcs:', error);
+  }
 };
-  </script>
+
+const openModForm = (cursosfc) => {
+  selectedDocente.value = cursosfc;
+  showFormDocMod.value = true;
+};
+
+const openDelForm = (cursosfc) => {
+  selectedDocente.value = cursosfc;
+  showFormDocElim.value = true;
+};
+
+const closeForm = (formName) => {
+  if (formName === 'formDocMod') {
+    showFormDocMod.value = false;
+  } else if (formName === 'formDocElim') {
+    showFormDocElim.value = false;
+  }
+};
+
+onMounted(() => {
+  obtenerDocentes();
+});
+</script>
+
   
-  <style scoped>
-  @import url('/src/assets/Postgradoadmi.css');
-  
- 
-  
-  .b-formca {
-    font-size: 36px;
-        width: 32%;
-        padding: 1%;
-        color: white;
-        border-radius: 40px;
-        font-size: 150%;
-        left:0;
-        margin:2%;
-        margin-top: -7%;
-        padding-left:2% ;
-        padding-right:2% ;
-    }
-  
-  
-  </style>
-  
+<style scoped>
+
+@import url('/src/assets/Postgradoadmi.css');
+
+
+</style>
