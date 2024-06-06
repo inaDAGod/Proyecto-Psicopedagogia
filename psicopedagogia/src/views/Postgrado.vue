@@ -126,6 +126,7 @@ onMounted(() => {
 .curso-info {
   flex: 1;
   padding: 20px;
+  font-family: 'Oswald', sans-serif;
 }
 
 .maestria-head,
