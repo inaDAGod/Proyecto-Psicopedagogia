@@ -20,7 +20,7 @@
   font-size: 2vh;
 }
 .formulario-anadir input[type="text"],
-  input[type="number"], input[type="file"],
+  input[type="number"], input[type="file"], input [type=""]
   textarea {
     width: 100%;
     padding: 10px;
@@ -28,6 +28,14 @@
     border-radius: 40px;
     box-sizing: border-box;
     font-size: 2vh;;
+}
+.formulario-anadir select {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 40px;
+  box-sizing: border-box;
+  font-size: 2vh;
 }
 .formulario-anadir input[type="date"], input[type="time"] {
     width: 50%;

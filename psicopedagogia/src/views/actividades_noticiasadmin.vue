@@ -435,7 +435,7 @@ onMounted(() => {
     align-items: center;
   }
   .contenedor-not-act{
-    width: 50%;
+    width: 55%;
     margin-right:5%;
   }
   .contenido{
