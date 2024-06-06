@@ -9,7 +9,7 @@
           <!-- Input fields for the form -->
           <div class="form-group">
             <label for="link_video">Link del Video:</label><br>
-            <input type="text" id="link_video" :disabled="!editar" v-model="linkVideo" required>
+            <input  type="text" id="link_video" :disabled="!editar" v-model="linkVideo" required>
           </div>
           <div class="form-group">
             <label for="link_soc_cien">Link Soc. Científica:</label><br>
@@ -155,7 +155,7 @@ const closeSuccessModal = () => {
 
 
 <style scoped>
-@import url('/src/assets/formPregrado.css');
+@import url('/src/assets/formPaginanos.css');
 
 /* Notification styles */
 .notification {
